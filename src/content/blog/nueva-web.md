@@ -3,7 +3,7 @@ title: "Apertura de nuestra nueva web y servicios para profesionales"
 description: "Estrenamos nueva página web enfocada en dar el mejor servicio a nuestros clientes de hostelería y particulares en Tenerife."
 pubDate: 2024-05-15
 author: "Equipo Terencio"
-image: "/blog/nueva-web.jpg"
+image: ""
 tags: ["Noticias", "Tenerife", "Hostelería"]
 ---
 
