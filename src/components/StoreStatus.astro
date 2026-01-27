@@ -1,16 +1,20 @@
 ---
 ---
 
-<div id="store-status" class="hidden md:flex items-center gap-2 text-sm font-medium px-3 py-1 rounded-full transition-colors duration-300">
-  <span id="status-dot" class="w-2.5 h-2.5 rounded-full bg-gray-400"></span>
-  <span id="status-text" class="text-xs font-semibold uppercase tracking-wide">Cargando...</span>
+<div id="store-status-wrapper" class="hidden md:block w-full transition-colors duration-500 bg-gray-100 border-b border-gray-200">
+  <div class="container mx-auto px-4 lg:px-6 flex justify-center items-center py-2">
+    <div class="flex items-center gap-2 text-sm font-medium text-white">
+      <span id="status-icon" class="material-icons-outlined text-base">schedule</span>
+      <span id="status-text" class="uppercase tracking-wide">Cargando horario...</span>
+    </div>
+  </div>
 </div>
 
 <script>
   function updateStoreStatus() {
      // Canary Islands Timezone
      const now = new Date();
-     const formatter = new Intl.DateTimeFormat('en-US', {
+     const formatOptions: Intl.DateTimeFormatOptions = {
        timeZone: 'Atlantic/Canary',
        hour: 'numeric',
        minute: 'numeric',
@@ -19,64 +23,83 @@
        weekday: 'short',
        month: 'numeric',
        day: 'numeric'
-     });
+     };
+     const formatter = new Intl.DateTimeFormat('en-US', formatOptions);
      
      // Parse parts
      const parts = formatter.formatToParts(now);
-     const getPart = (type) => parts.find(p => p.type === type)?.value;
+     const getPart = (type: string) => parts.find(p => p.type === type)?.value;
      
-     // Note: parts returns strings usually
-     const day = parseInt(getPart('day'));
-     const month = parseInt(getPart('month'));
-     const hour = parseInt(getPart('hour'));
-     const minute = parseInt(getPart('minute'));
+     const day = parseInt(getPart('day') || '0');
+     const month = parseInt(getPart('month') || '0');
+     const hour = parseInt(getPart('hour') || '0');
+     const minute = parseInt(getPart('minute') || '0');
      const weekday = getPart('weekday'); // Mon, Tue, Wed, ...
 
      // Special Holidays: 25/12, 1/1, 6/1
-     // Returns true if holiday
      const isHoliday = (month === 12 && day === 25) || (month === 1 && day === 1) || (month === 1 && day === 6);
 
-     const statusDiv = document.getElementById('store-status');
-     const statusDot = document.getElementById('status-dot');
+     const statusWrapper = document.getElementById('store-status-wrapper');
      const statusText = document.getElementById('status-text');
+     const statusIcon = document.getElementById('status-icon');
 
-     if (!statusDiv || !statusDot || !statusText) return;
+     if (!statusWrapper || !statusText || !statusIcon) return;
 
      let isOpen = false;
-     let statusMessage = "CERRADO";
-
-     // Logic
-     // Mon-Sat: 08:00 - 21:00
-     // Sun: 08:30 - 20:30
+     let message = "";
      
      const currentTime = hour * 60 + minute;
+     const isSunday = weekday === 'Sun';
+     
+     // Opening Times (in minutes)
+     const openTime = isSunday ? 8 * 60 + 30 : 8 * 60; // 8:30 or 08:00
+     const closeTime = isSunday ? 20 * 60 + 30 : 21 * 60; // 20:30 or 21:00
 
      if (isHoliday) {
         isOpen = false;
-        statusMessage = "CERRADO - FESTIVO";
+        // Simple logic for holiday: Assume opens next non-holiday day at 8:00 (simplification)
+        message = "CERRADO POR FESTIVO - ¡VOLVEMOS PRONTO!"; 
      } else {
-        const isSunday = weekday === 'Sun';
-        
-        const openTime = isSunday ? 8 * 60 + 30 : 8 * 60; // 8:30
-        const closeTime = isSunday ? 20 * 60 + 30 : 21 * 60; // 20:30 or 21:00
-
         if (currentTime >= openTime && currentTime < closeTime) {
            isOpen = true;
-           statusMessage = "ABIERTO AHORA";
+           // Calculate closing string
+           const closeHour = Math.floor(closeTime / 60);
+           const closeMin = closeTime % 60;
+           const closeString = `${closeHour}:${closeMin.toString().padStart(2, '0')}`;
+           message = `ABIERTO AHORA - CERRAMOS A LAS ${closeString}`;
         } else {
            isOpen = false;
-           statusMessage = "CERRADO";
+           // Determine when it opens next
+           if (currentTime < openTime) {
+              // Opens later today
+              const openHour = Math.floor(openTime / 60);
+              const openMin = openTime % 60;
+              const openString = `${openHour}:${openMin.toString().padStart(2, '0')}`;
+              message = `CERRADO - ABRIMOS HOY A LAS ${openString}`;
+           } else {
+              // Opens tomorrow (or next open day)
+              // Logic check for tomorrow
+              const nextIsSunday = (weekday === 'Sat');
+              // If today is Sat, tomorrow is Sun (opens 8:30). Else opens 8:00.
+              // Note: This logic is simple and assumes tomorrow is not a holiday.
+              
+              const nextOpenTime = nextIsSunday ? "08:30" : "08:00";
+              const dayLabel = "MAÑANA"; 
+              message = `CERRADO - ABRIMOS ${dayLabel} A LAS ${nextOpenTime}`;
+           }
         }
      }
 
      if (isOpen) {
-        statusDiv.className = "hidden md:flex items-center gap-2 text-sm font-medium px-3 py-1 rounded-full bg-green-100/80 text-green-800 border border-green-200 shadow-sm ml-4";
-        statusDot.className = "w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse";
+        statusWrapper.classList.remove('bg-red-600', 'bg-gray-100');
+        statusWrapper.classList.add('bg-green-600');
+        statusIcon.textContent = "check_circle";
      } else {
-        statusDiv.className = "hidden md:flex items-center gap-2 text-sm font-medium px-3 py-1 rounded-full bg-red-100/80 text-red-800 border border-red-200 shadow-sm ml-4";
-        statusDot.className = "w-2.5 h-2.5 rounded-full bg-red-500";
+        statusWrapper.classList.remove('bg-green-600', 'bg-gray-100');
+        statusWrapper.classList.add('bg-red-600');
+        statusIcon.textContent = "schedule";
      }
-     statusText.textContent = statusMessage;
+     statusText.textContent = message;
   }
 
   // Run on load and update periodically
