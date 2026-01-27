@@ -1,0 +1,82 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const title = "Mayorista Hostelería La Laguna | Proveedor para Bares y Restaurantes";
+const description = "Tu mayorista de hostelería cerca de La Laguna. Suministros para bares, cafeterías y restaurantes al mejor precio. Servicio rápido y cercano.";
+const canonical = "https://terenciomarket.es/mayorista-hosteleria-la-laguna";
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white py-20 relative overflow-hidden">
+    <!-- Overlay image or pattern could go here -->
+    <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2574&auto=format&fit=crop')] bg-cover bg-center"></div>
+    <div class="container mx-auto px-4 text-center relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Mayorista de Hostelería en La Laguna</h1>
+      <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
+        La solución integral para bares, restaurantes y cafeterías del área metropolitana.
+      </p>
+      <a href="/profesionales" class="inline-block bg-green-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-700 transition shadow-lg">
+         Abrir Cuenta Profesional
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+       <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Suministros para tu Negocio</h2>
+       <div class="grid md:grid-cols-4 gap-6">
+          <div class="p-6 border border-gray-200 rounded-lg hover:shadow-md transition bg-gray-50">
+             <h3 class="font-bold text-lg mb-2 text-green-800">Bebidas y Licores</h3>
+             <p class="text-sm text-gray-600">Amplia gama de refrescos, cervezas, vinos y espirituosos.</p>
+          </div>
+          <div class="p-6 border border-gray-200 rounded-lg hover:shadow-md transition bg-gray-50">
+             <h3 class="font-bold text-lg mb-2 text-green-800">Alimentación Seca</h3>
+             <p class="text-sm text-gray-600">Conservas, aceites, especias y básicos de cocina.</p>
+          </div>
+          <div class="p-6 border border-gray-200 rounded-lg hover:shadow-md transition bg-gray-50">
+             <h3 class="font-bold text-lg mb-2 text-green-800">Limpieza e Higiene</h3>
+             <p class="text-sm text-gray-600">Productos químicos profesionales y celulosa industrial.</p>
+          </div>
+          <div class="p-6 border border-gray-200 rounded-lg hover:shadow-md transition bg-gray-50">
+             <h3 class="font-bold text-lg mb-2 text-green-800">Desechables</h3>
+             <p class="text-sm text-gray-600">Envases take-away, servilletas y menaje.</p>
+          </div>
+       </div>
+    </div>
+  </section>
+
+  <!-- Local SEO Content -->
+  <section class="py-16 bg-green-50">
+     <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto prose prose-lg">
+           <h3>Proveedor de confianza en San Cristóbal de La Laguna</h3>
+           <p>
+             Si gestionas un negocio de hostelería en <strong>La Laguna</strong>, sabes lo importante que es contar con un proveedor que responda. En Terencio Cash Market, ubicados a pocos minutos del centro, ofrecemos un servicio de Cash & Carry pensado para que no pierdas tiempo.
+           </p>
+           <p>
+             Olvídate de esperar repartos que no llegan. Ven a nuestro almacén, carga lo que necesitas y vuelve a tu negocio en minutos. Nuestra ubicación en la Carretera de La Esperanza nos convierte en el socio logístico ideal para:
+           </p>
+           <ul>
+             <li>Cafeterías del cuadrilátero.</li>
+             <li>Guachinches de la zona norte.</li>
+             <li>Restaurantes familiares.</li>
+             <li>Comedores escolares y colectividades.</li>
+           </ul>
+        </div>
+     </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 bg-white text-center">
+    <div class="container mx-auto px-4">
+       <h3 class="text-2xl font-bold mb-6">¿Hablamos?</h3>
+       <p class="mb-8 text-gray-600">Solicita nuestras tarifas especiales para profesionales.</p>
+       <a href="/contacto" class="border-2 border-green-700 text-green-700 px-8 py-3 rounded-lg font-bold hover:bg-green-700 hover:text-white transition">
+         Contactar con Ventas
+       </a>
+    </div>
+  </section>
+
+</Layout>

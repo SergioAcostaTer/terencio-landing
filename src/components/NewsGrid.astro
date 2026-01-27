@@ -1,18 +1,16 @@
----
-import newsData from '../data/news.json';
+import { getCollection } from 'astro:content';
+
+const newsData = await getCollection('noticias');
 
 // Sort by date mostly, but prioritize breaking news if needed
-// For this layout:
-// 1. Hero: The most recent "breaking" news, or just the most recent if no breaking.
-// 2. Sidebar: Next 3 items.
-// 3. Grid: The rest.
-
-const sortedNews = newsData.sort((a, b) => new Date(b.pubDate).valueOf() - new Date(a.pubDate).valueOf());
-const breakingNews = sortedNews.find(n => n.isBreaking);
+const sortedNews = newsData.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const breakingNews = sortedNews.find(n => n.data.isBreaking);
 const heroNews = breakingNews || sortedNews[0];
 
-// Filter out the hero from the rest list
-const remainingNews = sortedNews.filter(n => n.slug !== heroNews.slug);
+// Filter out the hero from the rest list if there is one
+const remainingNews = heroNews 
+    ? sortedNews.filter(n => n.slug !== heroNews.slug) 
+    : [];
 
 // Sidebar gets next 2 items
 const sidebarNews = remainingNews.slice(0, 2);
@@ -20,8 +18,8 @@ const sidebarNews = remainingNews.slice(0, 2);
 // Grid gets the rest
 const gridNews = remainingNews.slice(2);
 
-const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('es-ES', { day: 'numeric', month: 'long' });
+const formatDate = (date: Date) => {
+    return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' });
 };
 ---
 
@@ -32,30 +30,31 @@ const formatDate = (dateString: string) => {
         <div class="bg-red-700 text-white px-4 py-2 text-sm font-bold flex items-center gap-3 mb-6">
             <span class="animate-pulse flex h-3 w-3 rounded-full bg-white opacity-75"></span>
             <span class="uppercase tracking-wider">ÚLTIMA HORA:</span>
-            <a href={`/noticias/${breakingNews.slug}`} class="hover:underline truncate">{breakingNews.title}</a>
+            <a href={`/noticias/${breakingNews.slug}`} class="hover:underline truncate">{breakingNews.data.title}</a>
         </div>
     )}
 
+    {heroNews && (
     <div class="grid lg:grid-cols-3 gap-8 mb-12">
         
         <!-- Main Hero Article (Columns 1 & 2) -->
         <article class="lg:col-span-2 group relative h-[500px] overflow-hidden rounded-xl shadow-lg">
             <a href={`/noticias/${heroNews.slug}`} class="block w-full h-full">
                 <img 
-                    src={heroNews.image} 
-                    alt={heroNews.title} 
+                    src={heroNews.data.image} 
+                    alt={heroNews.data.title} 
                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 p-8 w-full">
                     <span class="inline-block bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wide mb-3">
-                        {heroNews.category || 'Actualidad'}
+                        {heroNews.data.category || 'Actualidad'}
                     </span>
                     <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-3 group-hover:underline decoration-2 underline-offset-4">
-                        {heroNews.title}
+                        {heroNews.data.title}
                     </h2>
                     <p class="text-gray-200 text-lg line-clamp-2 md:w-3/4">
-                        {heroNews.description}
+                        {heroNews.data.description}
                     </p>
                 </div>
             </a>
@@ -72,16 +71,16 @@ const formatDate = (dateString: string) => {
                 <article class="flex-1 group border-b border-gray-100 last:border-0 pb-4 last:pb-0">
                     <a href={`/noticias/${news.slug}`} class="flex gap-4 h-full">
                         <div class="w-1/3 h-24 rounded-lg overflow-hidden flex-shrink-0">
-                            <img src={news.image} alt={news.title} class="w-full h-full object-cover transition duration-300 group-hover:opacity-80" />
+                            <img src={news.data.image} alt={news.data.title} class="w-full h-full object-cover transition duration-300 group-hover:opacity-80" />
                         </div>
                         <div class="w-2/3 flex flex-col justify-between">
                             <div>
-                                <span class="text-xs font-bold text-green-700 uppercase mb-1 block">{news.category}</span>
+                                <span class="text-xs font-bold text-green-700 uppercase mb-1 block">{news.data.category}</span>
                                 <h4 class="font-bold text-gray-900 leading-snug group-hover:text-green-700 transition line-clamp-3">
-                                    {news.title}
+                                    {news.data.title}
                                 </h4>
                             </div>
-                            <time class="text-xs text-gray-400 mt-2 block">{formatDate(news.pubDate)}</time>
+                            <time class="text-xs text-gray-400 mt-2 block">{formatDate(news.data.pubDate)}</time>
                         </div>
                     </a>
                 </article>
@@ -93,6 +92,13 @@ const formatDate = (dateString: string) => {
             </div>
         </div>
     </div>
+    )}
+
+    {!heroNews && (
+        <div class="py-12 text-center bg-gray-50 rounded-lg">
+            <p class="text-gray-500">No hay noticias destacadas en este momento.</p>
+        </div>
+    )}
 
     <!-- Secondary Grid -->
     {gridNews.length > 0 && (
@@ -103,18 +109,18 @@ const formatDate = (dateString: string) => {
                     <article class="group">
                         <a href={`/noticias/${news.slug}`} class="block mb-4 overflow-hidden rounded-lg h-48">
                             <img 
-                                src={news.image} 
-                                alt={news.title} 
+                                src={news.data.image} 
+                                alt={news.data.title} 
                                 class="w-full h-full object-cover transform transition duration-500 group-hover:scale-105"
                             />
                         </a>
-                        <span class="text-xs font-bold text-gray-500 mb-2 block">{formatDate(news.pubDate)} · {news.category}</span>
+                        <span class="text-xs font-bold text-gray-500 mb-2 block">{formatDate(news.data.pubDate)} · {news.data.category}</span>
                         <h4 class="font-bold text-xl text-gray-900 group-hover:text-green-700 transition leading-snug mb-2">
                             <a href={`/noticias/${news.slug}`}>
-                                {news.title}
+                                {news.data.title}
                             </a>
                         </h4>
-                        <p class="text-gray-600 text-sm line-clamp-2">{news.description}</p>
+                        <p class="text-gray-600 text-sm line-clamp-2">{news.data.description}</p>
                     </article>
                 ))}
             </div>

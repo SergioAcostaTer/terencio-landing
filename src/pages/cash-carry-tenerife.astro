@@ -1,0 +1,95 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LocationMap from "../components/LocationMap.astro";
+
+const title = "Cash & Carry Tenerife | Mayorista de Alimentación y Bebidas";
+const description = "Tu Cash & Carry en Tenerife para hostelería y particulares. Encuentra los mejores precios en alimentación, bebidas y limpieza en Terencio Cash Market.";
+const canonical = "https://terenciomarket.es/cash-carry-tenerife";
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-green-800 to-green-900 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Tu Cash & Carry de Confianza en Tenerife</h1>
+      <p class="text-xl md:text-2xl text-green-100 max-w-3xl mx-auto mb-10">
+        Miles de productos al mejor precio para tu negocio de hostelería o para tu hogar. Sin necesidad de tarjeta de socio.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+         <a href="/profesionales" class="bg-white text-green-900 px-8 py-3 rounded-lg font-bold hover:bg-green-50 transition shadow-lg">
+            Soy Profesional
+         </a>
+         <a href="/ofertas" class="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white/10 transition">
+            Ver Ofertas
+         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Props -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+       <div class="grid md:grid-cols-3 gap-8">
+          <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 text-center">
+             <span class="material-icons-outlined text-5xl text-green-600 mb-4">storefront</span>
+             <h3 class="text-xl font-bold mb-3">Venta Directa</h3>
+             <p class="text-gray-600">Compra directa en nuestro almacén. Ven, elige lo que necesitas y llévatelo al momento.</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 text-center">
+             <span class="material-icons-outlined text-5xl text-green-600 mb-4">local_shipping</span>
+             <h3 class="text-xl font-bold mb-3">Formatos Ahorro</h3>
+             <p class="text-gray-600">Envases grandes y formatos industriales pensados para la rentabilidad de tu negocio.</p>
+          </div>
+          <div class="p-6 bg-gray-50 rounded-xl border border-gray-100 text-center">
+             <span class="material-icons-outlined text-5xl text-green-600 mb-4">verified</span>
+             <h3 class="text-xl font-bold mb-3">Calidad Garantizada</h3>
+             <p class="text-gray-600">Trabajamos con las mejores marcas y proveedores locales de Tenerife.</p>
+          </div>
+       </div>
+    </div>
+  </section>
+
+  <!-- SEO Content -->
+  <section class="py-16 bg-gray-50">
+     <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+           <img 
+             src="/store-local.jpg" 
+             alt="Pasillo de Terencio Cash Market" 
+             class="rounded-xl shadow-lg w-full h-auto object-cover"
+             onerror="this.src='https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=2574&auto=format&fit=crop'"
+           />
+        </div>
+        <div class="prose prose-green">
+           <h2 class="text-3xl font-bold text-gray-900">¿Por qué elegir nuestro Cash & Carry?</h2>
+           <p class="text-gray-600 text-lg">
+             Ubicados estratégicamente en la carretera de La Esperanza, somos el punto de referencia para cientos de negocios del área metropolitana de Tenerife (Santa Cruz y La Laguna).
+           </p>
+           <p class="text-gray-600">
+             En <strong>Terencio Cash Market</strong> nos diferenciamos por ofrecer un trato cercano y personalizado. No somos una gran multinacional impersonal; somos tu socio local. Entendemos los retos de la hostelería en Canarias y adaptamos nuestro surtido para ofrecerte soluciones reales.
+           </p>
+           <ul class="not-prose space-y-2 mt-4">
+              <li class="flex items-center gap-2 font-medium text-gray-700">
+                 <span class="text-green-600">✓</span> Amplio stock permanente
+              </li>
+              <li class="flex items-center gap-2 font-medium text-gray-700">
+                 <span class="text-green-600">✓</span> Parking gratuito y fácil carga
+              </li>
+              <li class="flex items-center gap-2 font-medium text-gray-700">
+                 <span class="text-green-600">✓</span> Atención rápida y sin colas
+              </li>
+           </ul>
+        </div>
+     </div>
+  </section>
+
+  <!-- Location -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 text-center mb-8">
+       <h2 class="text-3xl font-bold mb-4">Visítanos en La Esperanza</h2>
+       <p class="text-gray-600">Estamos muy cerca de ti, con fácil acceso desde la autopista.</p>
+    </div>
+    <LocationMap />
+  </section>
+
+</Layout>

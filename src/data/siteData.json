@@ -1,6 +1,17 @@
 {
   "name": "Terencio Cash Market",
-  "legalName": "Terencio Cash Market S.L.",
+  "legalName": "Kit Cash Sl.",
+  "cif": "B76594126",
+  "legal": {
+    "constitutionDate": "6-2-2013",
+    "lastChangeDate": "3-8-2025",
+    "socialObject": "Gestión de supermercado",
+    "activity": "Comercio al por mayor de otros productos alimenticios, helados de todas clases .. etc",
+    "cnae": "4639 - Comercio al por mayor, no especializado, de productos alimenticios, bebidas y tabaco",
+    "status": "Viva",
+    "sector": "Comercio",
+    "form": "Sociedad limitada"
+  },
   "shortDescription": "Supermercado y Cash & Carry en La Esperanza, Tenerife. Venta a profesionales y particulares.",
   "description": "Terencio Cash Market es tu supermercado de confianza y Cash & Carry en Tenerife. Ofrecemos una amplia selección de productos frescos, alimentación y bebidas para hostelería y particulares. Calidad y servicio en La Esperanza, La Laguna.",
   "url": "https://terenciomarket.es",
@@ -20,8 +31,11 @@
     "email": "info@kitcash.es"
   },
   "social": {
-    "facebook": "#",
-    "instagram": "#"
+    "facebook": "https://www.facebook.com/TerencioCashMarket",
+    "instagram": "https://www.instagram.com/terenciocashmarket"
+  },
+  "analytics": {
+    "gaMeasurementId": "G-XXXXXXXXXX" 
   },
   "hoursText": "Lunes a Sábado: 08:00–21:00. Domingo: 08:30–20:30",
   "hours": [

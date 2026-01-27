@@ -1,21 +1,18 @@
 ---
-import newsData from '../../data/news.json';
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
-  return newsData.map(post => ({
+  const posts = await getCollection('noticias');
+  return posts.map(post => ({
     params: { slug: post.slug },
-    props: { 
-        post: {
-            ...post,
-            pubDate: new Date(post.pubDate) 
-        } 
-    },
+    props: { post },
   }));
 }
 
 const { post } = Astro.props;
-const { title, description, image, pubDate, author, category, content } = post;
+const { title, description, image, pubDate, author, category } = post.data;
+const { Content } = await post.render();
 
 const formattedDate = pubDate.toLocaleDateString('es-ES', { 
     weekday: 'long', 
@@ -65,8 +62,8 @@ const formattedDate = pubDate.toLocaleDateString('es-ES', {
 
         <div class="grid lg:grid-cols-[1fr_250px] gap-12">
             <!-- Main Text -->
-            <div class="prose prose-lg prose-green max-w-none text-gray-700 leading-relaxed font-serif" set:html={content}>
-                <!-- Content injected here -->
+            <div class="prose prose-lg prose-green max-w-none text-gray-700 leading-relaxed font-serif">
+                <Content />
             </div>
 
             <!-- Side Share/Nav -->

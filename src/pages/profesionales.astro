@@ -40,9 +40,35 @@ const description = "Ventajas exclusivas para profesionales de hostelería y ali
             ))}
           </ul>
           
-          <div class="mt-8 bg-green-100 p-6 rounded-lg border-l-4 border-green-600">
-             <h3 class="font-bold text-green-800 mb-2">¿Cómo hacerse cliente?</h3>
-             <p class="text-green-700 text-sm">Acércate a nuestro mostrador de información en tienda con tu modelo 036/037 y te daremos de alta al instante para que empieces a disfrutar de las ventajas profesionales.</p>
+          <div class="mt-8 space-y-4">
+             <div class="bg-green-50 p-6 rounded-xl border border-green-100">
+                <h3 class="font-bold text-green-900 text-xl mb-4">Solicitar Alta Profesional</h3>
+                <form class="space-y-4" onsubmit="event.preventDefault(); alert('Solicitud enviada. Nos pondremos en contacto contigo.');">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Nombre Comercial" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" required />
+                        <input type="text" placeholder="CIF / NIF" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" required />
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="tel" placeholder="Teléfono" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" required />
+                        <input type="email" placeholder="Email" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none" required />
+                    </div>
+                    <button type="submit" class="w-full bg-green-700 text-white font-bold py-3 rounded-lg hover:bg-green-800 transition shadow-sm">
+                        Solicitar Alta
+                    </button>
+                    <p class="text-xs text-gray-500 text-center mt-2">Al enviar aceptas nuestra <a href="/politica-privacidad" class="underline">política de privacidad</a>.</p>
+                </form>
+             </div>
+
+             <div class="flex flex-col sm:flex-row gap-4">
+                 <a href="https://wa.me/34922550067" target="_blank" class="flex-1 flex items-center justify-center gap-2 bg-green-100 text-green-800 px-6 py-3 rounded-lg font-bold hover:bg-green-200 transition">
+                    <span class="material-icons-outlined">chat</span>
+                    WhatsApp Profesionales
+                 </a>
+                 <a href="/ficha-cliente.pdf" download class="flex-1 flex items-center justify-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-bold hover:bg-gray-50 transition">
+                    <span class="material-icons-outlined">download</span>
+                    Descargar Ficha (PDF)
+                 </a>
+             </div>
           </div>
 
         </div>

@@ -109,15 +109,36 @@
     }
 
     function applyConsent(consent) {
-        // Here we would enable scripts based on consent
-        // console.log('Applying consent:', consent);
-        
+        // Analytics Logic
+        const GA_ID = "G-HVCHD7R86X" as string;
+
         if (consent.analytics) {
-            // Example: Enable GA
-            // loadGoogleAnalytics();
-            window['ga-disable-MEASUREMENT_ID'] = false; // If using GA4 opt-out mechanism
+            // Load Google Analytics Script dynamically
+            console.log('Loading Analytics...');
+            
+            // Check if already loaded
+            if (!document.getElementById('ga-script')) {
+                const script = document.createElement('script');
+                script.id = 'ga-script';
+                script.async = true;
+                script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+                document.head.appendChild(script);
+
+                window['dataLayer'] = window['dataLayer'] || [];
+                function gtag(...args){ window['dataLayer'].push(args); }
+                gtag('js', new Date());
+                gtag('config', GA_ID);
+            }
+            
+            // Enable if it was disabled
+            window[`ga-disable-${GA_ID}`] = false;
         } else {
-             window['ga-disable-MEASUREMENT_ID'] = true;
+            // Disable if previously loaded or ensure it doesn't track
+            if (GA_ID !== "G-XXXXXXXXXX") {
+                 window[`ga-disable-${GA_ID}`] = true;
+                 console.log('Analytics disabled');
+            }
+            // Optional: Remove cookies if we want to be very strict, but standard practice is just stopping future tracking
         }
     }
 
