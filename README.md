@@ -1,54 +1,90 @@
-# Astro Starter Kit: Basics
+# 🛒 Terencio Cash Market Website
 
-```sh
-npm create astro@latest -- --template basics
-```
+Modern website for **Terencio Cash Market**, a supermarket & Cash & Carry business located in **La Esperanza, Tenerife**.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Built with ⚡ **Astro**, styled with 🎨 **TailwindCSS**, and enhanced with ⚛️ **React components**.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🚀 Tech Stack
 
-## 🚀 Project Structure
+- [Astro](https://astro.build/) — Fast static site framework  
+- [TailwindCSS](https://tailwindcss.com/) — Utility-first styling  
+- [React](https://react.dev/) — Interactive UI components  
+- Sitemap + SEO optimized ✅  
 
-Inside of your Astro project, you'll see the following folders and files:
+---
+
+## 📂 Project Structure
 
 ```text
 /
-├── public/
-│   └── favicon.svg
+├── public/            # Static assets (images, icons, manifest, etc.)
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── components/    # Astro + React UI components
+│   ├── layouts/       # Global layout wrapper (SEO + Header/Footer)
+│   ├── pages/         # Website routes (home, contact, blog, news…)
+│   ├── data/          # JSON content (FAQ, services, news…)
+│   └── content/       # Markdown blog posts
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Astro automatically turns everything inside `src/pages/` into routes.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+---
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+Run all commands from the root of the project:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command           | Action                               |
+| ----------------- | ------------------------------------ |
+| `npm install`     | Install dependencies                 |
+| `npm run dev`     | Start dev server at `localhost:4321` |
+| `npm run build`   | Build production site into `./dist/` |
+| `npm run preview` | Preview the build locally            |
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🌍 Live Website
+
+This project is configured to deploy at:
+
+👉 **[https://terenciomarket.es](https://terenciomarket.es)**
+
+---
+
+## ✨ Features
+
+* Responsive design (mobile-first)
+* Local Business SEO schema included
+* Blog system using Astro Content Collections
+* News portal with featured breaking posts
+* Cookie consent banner
+* Store open/closed status in real-time
+* Optimized for performance and Lighthouse scores 🚀
+
+---
+
+## 📌 Development Notes
+
+Astro integrations used:
+
+* `@astrojs/tailwind`
+* `@astrojs/react`
+* `@astrojs/sitemap`
+
+---
+
+## 📖 Learn More
+
+* Astro Docs → [https://docs.astro.build](https://docs.astro.build)
+* Tailwind Docs → [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
+* React Docs → [https://react.dev](https://react.dev)
+
+---
+
+### 👨‍💻 Terencio Cash Market
+
+Supermarket & Cash & Carry for professionals and households in Tenerife.
+Built with ❤️ for the local community.
