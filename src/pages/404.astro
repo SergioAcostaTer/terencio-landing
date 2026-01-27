@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404">
+
+  <div
+    class="flex flex-col items-center bg-gray-100 text-black justify-center h-full"
+  >
+    <div class="text-center flex flex-col items-center justify-center gap-4">
+      <h1 class="text-[5rem] font-bold text-gray-800 m-0">404</h1>
+      <p class="mt-4 text-2xl text-gray-600">Página No Encontrada</p>
+      <img
+        src="https://media.tenor.com/fKIG2kiLVPgAAAAM/this-is-fine-its-fine.gif"
+        alt="This is fine"
+        class="mt-4 w-1/2 h-auto"
+      />
+      <p class="mt-2 text-2xl text-gray-500">
+        Lo sentimos, la página que estás buscando no existe.
+      </p>
+      <a
+        href="/"
+        class="mt-6 px-4 py-2 bg-black text-white text-xl rounded hover:bg-blue-700 transition duration-300 ease-in-out"
+        >Ir a la Página Principal</a
+      >
+    </div>
+  </div>
+
+</Layout>

@@ -1,0 +1,50 @@
+---
+import ListButton from "./ListButton";
+
+const pages = [
+  { title: "Inicio", link: "/" },
+  // { title: "Supermercados", link: "/supermercados" },
+  { title: "Profesionales", link: "/profesionales" },
+  { title: "Trabaja con nosotros", link: "/trabaja-con-nosotros" },
+  { title: "Sostenibilidad", link: "/sostenibilidad" },
+  { title: "Atención al cliente", link: "/atencion-al-cliente" },
+  { title: "Transparencia", link: "/transparencia" },
+  { title: "Blog", link: "/blog" },
+];
+---
+
+<header class="w-full bg-white shadow-md fixed top-0 z-50 h-24">
+  <nav
+    class="flex items-center justify-between p-0 h-full container mx-auto px-6"
+  >
+    <div class="h-8 w-8 md:hidden"></div>
+
+    <a href="/#" class="flex items-center text-white gap-2 h-full py-6">
+      <img class="h-full" src="/logo.png" alt="Terencio Supermercados Logo" />
+      <img
+        class="h-full"
+        src="/terencio-landscape.png"
+        alt="Terencio Supermercados Logo"
+      />
+    </a>
+
+    <ListButton client:load />
+
+    <ul class="flex items-center gap-4 h-full hidden md:flex">
+      {
+        pages.map((page) => (
+          <li
+            class={`${["Transparencia", "Sostenibilidad", "Inicio", "Blog"].includes(page.title) ? "hidden lg:block" : ""}`}
+          >
+            <a
+              href={page.link}
+              class={`text-black text-lg font-semibold hover:underline`}
+            >
+              {page.title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

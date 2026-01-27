@@ -1,0 +1,198 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+import { ViewTransitions } from "astro:transitions";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta
+      itemprop="name"
+      content="Terencio Supermercados - Supermercados en Canarias"
+    />
+    <meta
+      name="description"
+      content="Supermercados Terencio, tu supermercado de confianza en Canarias. Encuentra los mejores productos y ofertas en nuestros supermercados en Tenerife, La Esperanza, o en El Hierro, en cualquier de nuestros 6 supermercados."
+    />
+    <meta
+      name="keywords"
+      content="supermercados, supermercado, terencio, terencio supermercados, supermercados en canarias, supermercados en tenerife, supermercados en la esperanza, supermercados en el hierro, supermercados en canarias, supermercados en tenerife, supermercados en la esperanza, supermercados en el hierro, supermercados en canarias, supermercados en tenerife, supermercados en la esperanza, supermercados en el hierro"
+    />
+    <meta name="author" content="Terencio Supermercados" />
+    <meta name="robots" content="index, follow" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <meta
+      property="og:title"
+      content={`Terencio Supermercados ${new Date().getFullYear()}`}
+    />
+    <meta
+      property="og:description"
+      content="Supermercados Terencio, tu supermercado de confianza en Canarias. Encuentra los mejores productos y ofertas en nuestros supermercados en Tenerife, La Esperanza, o en El Hierro, en cualquier de nuestros 6 supermercados."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.terenciosupermercados.com" />
+    <meta
+      property="og:image"
+      content="https://www.terenciosupermercados.com/logo.png"
+    />
+    <!-- <meta
+      property="og:video"
+      content="https://www.arngimnasio.com/alejandro_entrenador_personal.mp4"
+    /> -->
+    <meta property="og:locale" content="es_ES" />
+    <meta
+      property="og:site_name"
+      content="Terencio Supermercados - Supermercados en Canarias"
+    />
+
+    <link rel="canonical" href="https://www.terenciosupermercados.com" />
+
+    <meta name="generator" content="Astro" />
+
+    <title>{title} | Terencio Supermercados {new Date().getFullYear()}</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HVCHD7R86X"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-HVCHD7R86X");
+    </script>
+
+    <ViewTransitions />
+  </head>
+  <body class="min-h-[calc(100vh)] flex flex-col">
+    <Header />
+    <main class="flex-grow mt-24 container mx-auto md:p-6 p-4">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+<style is:global>
+  /* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Work+Sans:wght@100..900&display=swap'); */
+
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+  html {
+    font-family: "Work Sans", sans-serif;
+    background: #ffffff;
+    background-size: 224px;
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+  /* Define keyframes for fade-in */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+    }
+    1% {
+      visibility: visible;
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  /* Define keyframes for fade-out */
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      visibility: visible;
+    }
+    99% {
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  /* Define keyframes for slide-in from left */
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-40px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  /* Define keyframes for slide-out to left */
+  @keyframes slideOut {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-40px);
+    }
+  }
+
+  /* Create a class for fade-in animation */
+  .fade-in {
+    animation: fadeIn 0.2s forwards;
+  }
+
+  /* Create a class for fade-out animation */
+  .fade-out {
+    animation: fadeOut 0.2s forwards;
+  }
+
+  /* Create a class for slide-in animation */
+  .slide-in {
+    animation: slideIn 0.2s forwards;
+  }
+
+  /* Create a class for slide-out animation */
+  .slide-out {
+    animation: slideOut 0.2s forwards;
+  }
+</style>

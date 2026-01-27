@@ -1,0 +1,48 @@
+---
+import blogData from "../../data/blogData.json";
+import Layout from "../../layouts/Layout.astro";
+
+const { slug } = Astro.params;
+
+const post = blogData.articles.find((p) => p.slug === slug);
+
+export async function getStaticPaths() {
+  return blogData.articles.map((post) => ({
+    params: {
+      slug: post.slug,
+    },
+  }));
+}
+---
+
+<Layout title={post.title}>
+  <article>
+    <div class="border-b border-gray-300 flex flex-col gap-2 pb-4">
+      <img
+        src={post.image_url}
+        alt={post.title}
+        class="rounded-xl w-full md:h-[30vh] object-cover aspect-[16/9]"
+        transition:name={`blog-${post.title}-image`}
+      />
+      <h2
+        class="font-semibold text-xl md:text-4xl"
+        transition:name={`blog-${post.title}-title`}
+      >
+        {post.title}
+      </h2>
+      <p>{post.description}</p>
+      <p class="text-gray-500" transition:name={`blog-${post.title}-date`}>
+        {post.date}
+      </p>
+    </div>
+
+    <div class="mt-4" set:html={post.content} />
+  </article>
+</Layout>
+
+<style>
+  article {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+</style>
