@@ -1,0 +1,103 @@
+---
+import LocationMap from "../components/LocationMap.astro";
+import siteData from "../data/siteData.json";
+import Layout from "../layouts/Layout.astro";
+
+const title = "Contacto - Terencio Cash Market Tenerife";
+const description = "Contacta con Terencio Cash Market. Teléfono, email, ubicación en La Esperanza y formulario de contacto.";
+---
+
+<Layout title={title} description={description}>
+  <div class="bg-gray-100 py-12">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold text-gray-900 mb-2">Contacto</h1>
+      <p class="text-gray-600">Estamos aquí para ayudarte. Visítanos o escríbenos.</p>
+    </div>
+  </div>
+
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+       <div class="grid lg:grid-cols-2 gap-12">
+         
+         <!-- Contact Info -->
+         <div class="space-y-8">
+            <div>
+               <h2 class="text-2xl font-bold text-gray-900 mb-6">Información de Contacto</h2>
+               <div class="space-y-6">
+                 <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 flex-shrink-0">
+                       <span class="material-icons-outlined">place</span>
+                    </div>
+                    <div>
+                       <h3 class="font-bold text-gray-900 text-lg">Nuestra Tienda</h3>
+                       <p class="text-gray-600">{siteData.address.streetAddress}</p>
+                       <p class="text-gray-600">{siteData.address.addressLocality}, {siteData.address.addressRegion}</p>
+                       <p class="text-gray-600">{siteData.address.postalCode}</p>
+                    </div>
+                 </div>
+
+                 <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 flex-shrink-0">
+                       <span class="material-icons-outlined">phone</span>
+                    </div>
+                    <div>
+                       <h3 class="font-bold text-gray-900 text-lg">Teléfono</h3>
+                       <p class="text-gray-600 text-lg">
+                         <a href={`tel:${siteData.contact.phone.replace(/\s/g, "")}`} class="hover:text-green-700">{siteData.contact.phone}</a>
+                       </p>
+                       <p class="text-sm text-gray-500">Atención telefónica en horario comercial.</p>
+                    </div>
+                 </div>
+
+                 <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 flex-shrink-0">
+                       <span class="material-icons-outlined">email</span>
+                    </div>
+                    <div>
+                       <h3 class="font-bold text-gray-900 text-lg">Email</h3>
+                       <p class="text-gray-600">
+                         <a href={`mailto:${siteData.contact.email}`} class="hover:text-green-700">{siteData.contact.email}</a>
+                       </p>
+                    </div>
+                 </div>
+
+                 <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 flex-shrink-0">
+                       <span class="material-icons-outlined">schedule</span>
+                    </div>
+                    <div>
+                       <h3 class="font-bold text-gray-900 text-lg">Horario</h3>
+                       <p class="text-gray-600 font-medium">Lunes - Sábado</p>
+                       <p class="text-gray-600">08:00 - 21:00</p>
+                       <p class="text-gray-600 font-medium mt-2">Domingo</p>
+                       <p class="text-gray-600">08:30 - 20:30</p>
+                       <p class="text-sm text-gray-500 mt-1">Abierto todos los días del año (consultar festivos especiales).</p>
+                    </div>
+                 </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Map & Form Placeholder -->
+         <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Ubicación</h2>
+            <div class="rounded-lg overflow-hidden shadow-sm mb-6">
+              <LocationMap />
+            </div>
+            
+            <div class="text-center">
+               <a 
+                 href="https://goo.gl/maps/tu-enlace-aqui" 
+                 target="_blank" 
+                 class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition w-full justify-center md:w-auto"
+               >
+                 <span>Cómo llegar con Google Maps</span>
+                 <span class="material-icons-outlined">directions</span>
+               </a>
+            </div>
+         </div>
+
+       </div>
+    </div>
+  </section>
+</Layout>

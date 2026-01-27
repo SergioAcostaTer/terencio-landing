@@ -1,70 +1,45 @@
 ---
+import FAQ from "../components/FAQ.astro";
 import Layout from "../layouts/Layout.astro";
+
+const title = "Atención al Cliente - Terencio Cash Market";
+const description = "Centro de ayuda y atención al cliente de Terencio Supermercados. Resuelve tus dudas o contacta con nosotros.";
 ---
 
-<Layout title="Atención al Cliente">
-  <div class="flex flex-col items-center justify-center">
-    <div class="items-center justify-center py-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div class="text-center flex flex-col items-center justify-center p-4 md:p-6">
-        <img
-          src="/atencion/atencion.png"
-          alt="Atencio al cliente."
-          class="w-32 md:w-40 lg:w-44 m-0"
-        />
-        <h1 class="font-worksans font-semibold text-2xl md:text-3xl lg:text-4xl text-[#01874D] animate-fadein m-0">
-          Atención al cliente.
-        </h1>
-        <p class="font-montserrat font-medium text-lg md:text-xl lg:text-2xl text-[#01874D] animate-fadein mt-2 mb-0">
-          Te atendemos personalmente desde Terencio Supermercados de lunes a
-          domingo de 09:00 a 20:30. <br /><br />
-          <a
-            href="tel:922550067"
-            target="_blank"
-            class="font-worksans font-semibold text-lg md:text-xl lg:text-2xl text-[#01874D] underline animate-fadein"
-            >922 55 00 67</a
-          >
-        </p>
-      </div>
-      <div class="text-center flex flex-col items-center justify-center p-4 md:p-6">
-        <img
-          src="/atencion/correo.png"
-          alt="Correo electrónico."
-          class="w-32 md:w-40 lg:w-44 m-0"
-        />
-        <h1 class="font-worksans font-semibold text-2xl md:text-3xl lg:text-4xl text-[#01874D] animate-fadein m-0">
-          Correo electrónico.
-        </h1>
-        <p class="font-montserrat font-medium text-lg md:text-xl lg:text-2xl text-[#01874D] animate-fadein mt-2 mb-0">
-          Puedes contarnos mediante el siguiente correo electrónico todas tu
-          sugerencias o problemas. <br /><br />
-          <a
-            href="mailto:info@kitcash.es"
-            target="_blank"
-            class="font-worksans font-semibold text-lg md:text-xl lg:text-2xl text-[#01874D] underline animate-fadein"
-            >info@kitcash.es</a
-          >
-        </p>
-      </div>
-      <div class="text-center flex flex-col items-center justify-center p-4 md:p-6">
-        <img
-          src="/atencion/redes.png"
-          alt="Redes sociales."
-          class="w-32 md:w-40 lg:w-44 m-0"
-        />
-        <h1 class="font-worksans font-semibold text-2xl md:text-3xl lg:text-4xl text-[#01874D] animate-fadein m-0">
-          Redes sociales.
-        </h1>
-        <p class="font-montserrat font-medium text-lg md:text-xl lg:text-2xl text-[#01874D] animate-fadein mt-2 mb-0">
-          También nos puedes contar cualquier cosa por nuestras redes sociales. <br
-          /><br />
-          <a
-            href="http://instagram.com/terenciosupermercados"
-            target="_blank"
-            class="font-worksans font-semibold text-lg md:text-xl lg:text-2xl text-[#01874D] underline animate-fadein"
-            >Instagram</a
-          >
-        </p>
-      </div>
+<Layout title={title} description={description}>
+  <header class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Atención al Cliente</h1>
+      <p class="text-gray-600">¿En qué podemos ayudarte hoy?</p>
     </div>
-  </div>
+  </header>
+
+  <section class="py-12 bg-white">
+     <div class="container mx-auto px-4 max-w-4xl">
+        <FAQ />
+     </div>
+  </section>
+
+  <section class="pb-16 pt-8">
+     <div class="container mx-auto px-4 text-center">
+        <h2 class="text-2xl font-bold mb-6">Contacta con soporte</h2>
+        <div class="flex flex-wrap justify-center gap-6">
+           <a href="/contacto" class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm hover:shadow-md transition w-64 flex flex-col items-center">
+              <span class="material-icons-outlined text-4xl text-green-700 mb-4">phone</span>
+              <span class="font-bold text-gray-900">Teléfono</span>
+              <span class="text-sm text-gray-500 mt-2">Llamar a tienda</span>
+           </a>
+           <a href="/contacto" class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm hover:shadow-md transition w-64 flex flex-col items-center">
+              <span class="material-icons-outlined text-4xl text-green-700 mb-4">email</span>
+              <span class="font-bold text-gray-900">Email</span>
+              <span class="text-sm text-gray-500 mt-2">Escribir un correo</span>
+           </a>
+           <a href="/contacto" class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm hover:shadow-md transition w-64 flex flex-col items-center">
+              <span class="material-icons-outlined text-4xl text-green-700 mb-4">store</span>
+              <span class="font-bold text-gray-900">Tienda</span>
+              <span class="text-sm text-gray-500 mt-2">Visítanos</span>
+           </a>
+        </div>
+     </div>
+  </section>
 </Layout>

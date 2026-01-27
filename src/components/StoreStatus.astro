@@ -1,0 +1,77 @@
+---
+---
+
+<div id="store-status" class="hidden md:flex items-center gap-2 text-sm font-medium px-3 py-1 rounded-full transition-colors duration-300">
+  <span id="status-dot" class="w-2.5 h-2.5 rounded-full bg-gray-400"></span>
+  <span id="status-text" class="text-xs font-semibold uppercase tracking-wide">Cargando...</span>
+</div>
+
+<script>
+  function updateStoreStatus() {
+     // Canary Islands Timezone
+     const now = new Date();
+     const options = { timeZone: 'Atlantic/Canary', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false, weekday: 'short', month: 'numeric', day: 'numeric' };
+     const formatter = new Intl.DateTimeFormat('en-US', options);
+     
+     // Parse parts
+     const parts = formatter.formatToParts(now);
+     const getPart = (type) => parts.find(p => p.type === type)?.value;
+     
+     // Note: parts returns strings usually
+     const day = parseInt(getPart('day'));
+     const month = parseInt(getPart('month'));
+     const hour = parseInt(getPart('hour'));
+     const minute = parseInt(getPart('minute'));
+     const weekday = getPart('weekday'); // Mon, Tue, Wed, ...
+
+     // Special Holidays: 25/12, 1/1, 6/1
+     // Returns true if holiday
+     const isHoliday = (month === 12 && day === 25) || (month === 1 && day === 1) || (month === 1 && day === 6);
+
+     const statusDiv = document.getElementById('store-status');
+     const statusDot = document.getElementById('status-dot');
+     const statusText = document.getElementById('status-text');
+
+     if (!statusDiv || !statusDot || !statusText) return;
+
+     let isOpen = false;
+     let statusMessage = "CERRADO";
+
+     // Logic
+     // Mon-Sat: 08:00 - 21:00
+     // Sun: 08:30 - 20:30
+     
+     const currentTime = hour * 60 + minute;
+
+     if (isHoliday) {
+        isOpen = false;
+        statusMessage = "CERRADO - FESTIVO";
+     } else {
+        const isSunday = weekday === 'Sun';
+        
+        const openTime = isSunday ? 8 * 60 + 30 : 8 * 60; // 8:30
+        const closeTime = isSunday ? 20 * 60 + 30 : 21 * 60; // 20:30 or 21:00
+
+        if (currentTime >= openTime && currentTime < closeTime) {
+           isOpen = true;
+           statusMessage = "ABIERTO AHORA";
+        } else {
+           isOpen = false;
+           statusMessage = "CERRADO";
+        }
+     }
+
+     if (isOpen) {
+        statusDiv.className = "hidden md:flex items-center gap-2 text-sm font-medium px-3 py-1 rounded-full bg-green-100/80 text-green-800 border border-green-200 shadow-sm ml-4";
+        statusDot.className = "w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse";
+     } else {
+        statusDiv.className = "hidden md:flex items-center gap-2 text-sm font-medium px-3 py-1 rounded-full bg-red-100/80 text-red-800 border border-red-200 shadow-sm ml-4";
+        statusDot.className = "w-2.5 h-2.5 rounded-full bg-red-500";
+     }
+     statusText.textContent = statusMessage;
+  }
+
+  // Run on load and update periodically
+  updateStoreStatus();
+  setInterval(updateStoreStatus, 60000);
+</script>

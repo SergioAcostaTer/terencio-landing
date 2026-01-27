@@ -1,0 +1,54 @@
+---
+---
+
+<section class="relative bg-green-900 text-white overflow-hidden">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="/hero-bg.jpg" 
+      alt="Interior de Terencio Supermercado" 
+      class="w-full h-full object-cover opacity-30"
+      onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2574&auto=format&fit=crop'"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-green-900 via-green-900/80 to-transparent"></div>
+  </div>
+
+  <div class="container mx-auto px-4 lg:px-6 relative z-10 py-12 lg:py-20 flex flex-col justify-center h-full">
+    <div class="max-w-2xl animate-fade-in-up">
+      <span class="inline-block py-1 px-3 rounded-full bg-green-700/50 border border-green-500 text-green-100 text-sm font-semibold mb-6">
+        📍 La Esperanza, Tenerife
+      </span>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+        Tu Compra Diaria y <span class="text-red-400">Cash & Carry</span> para Profesionales
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed">
+        Calidad, frescura y los mejores precios en un solo lugar. Abierto todos los días para particulares y empresas de hostelería.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#donde-estamos" class="bg-red-600 hover:bg-red-700 text-white text-center px-8 py-3.5 rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+          Cómo llegar
+        </a>
+        <a href="/ofertas" class="bg-white hover:bg-gray-100 text-green-900 text-center px-8 py-3.5 rounded-lg font-bold text-lg transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+          Ver Ofertas
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 40px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+</style>

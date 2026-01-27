@@ -1,38 +1,98 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import FAQ from "../components/FAQ.astro";
+
+const title = "Zona Profesionales - Cash & Carry Tenerife | Terencio";
+const description = "Ventajas exclusivas para profesionales de hostelería y alimentación. Cash & Carry en La Esperanza con los mejores precios y formatos industriales.";
 ---
 
-<Layout title="Profesionales">
-  <div class="socios py-12">
-    <h1 class="text-5xl font-extrabold text-center text-gray-800 mb-6">Plan de Socios</h1>
-    <h2 class="text-2xl text-center text-gray-700 mb-8">
-      Si eres autónomo o tienes algún negocio, no dudes en solicitar tu carnet de socio.
-    </h2>
-
-    <div class="flex justify-center">
-      <div class="text-left md:text-center md:flex md:justify-around md:w-[80%]">
-        <div class="mb-8 md:mb-0 md:mr-8">
-          <h3 class="text-2xl font-semibold text-gray-800 mb-3">1. Solicite nuestra ficha.</h3>
-          <p class="text-lg text-gray-700">
-            Solicite el formulario de solicitud de socio en nuestra oficina de 
-            <a href="/supermercados#terencio-cash-market" class="text-blue-600 underline">Terencio Cash Market</a>.
-          </p>
-        </div>
-        <div class="mb-8 md:mb-0 md:mr-8">
-          <h3 class="text-2xl font-semibold text-gray-800 mb-3">2. Rellénela con sus datos.</h3>
-          <p class="text-lg text-gray-700">
-            Rellena la ficha con tus datos personales y los detalles de tu negocio. 
-            Asegúrate de proporcionar información precisa y completa.
-          </p>
-        </div>
-        <div class="mb-8 md:mb-0">
-          <h3 class="text-2xl font-semibold text-gray-800 mb-3">3. Entrégela en oficina.</h3>
-          <p class="text-lg text-gray-700">
-            Una vez que hayas completado la ficha, entrégala en nuestra oficina. 
-            Nuestro equipo revisará tus datos y procesará tu solicitud de socio.
-          </p>
-        </div>
+<Layout title={title} description={description}>
+  <div class="bg-green-50 py-12">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl font-bold text-green-900 mb-4">Servicios para Profesionales</h1>
+        <p class="text-xl text-gray-600">Soluciones integrales para Hostelería, Restauración y Alimentación en Tenerife.</p>
       </div>
     </div>
   </div>
+
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Tu socio de confianza en el norte de Tenerife</h2>
+          <p class="text-gray-600 mb-4 leading-relaxed">
+            En <strong>Terencio Cash Market</strong> entendemos las necesidades del sector HORECA. Por eso, hemos adaptado nuestro modelo de negocio para ofrecerte la agilidad y competitividad que tu negocio necesita.
+          </p>
+          <ul class="space-y-4 mt-6">
+            {[
+              "Formatos industriales y de gran consumo.",
+              "Precios directos de mayorista.",
+              "Facturación unificada y simplificada.",
+              "Atención personalizada para pedidos grandes.",
+              "Facilidad de carga en nuestro aparcamiento.",
+              "Sin pedido mínimo para retiradas en tienda."
+            ].map(item => (
+              <li class="flex items-start gap-3">
+                <span class="text-green-600 text-xl font-bold">✓</span>
+                <span class="text-gray-700">{item}</span>
+              </li>
+            ))}
+          </ul>
+          
+          <div class="mt-8 bg-green-100 p-6 rounded-lg border-l-4 border-green-600">
+             <h3 class="font-bold text-green-800 mb-2">¿Cómo hacerse cliente?</h3>
+             <p class="text-green-700 text-sm">Acércate a nuestro mostrador de información en tienda con tu modelo 036/037 y te daremos de alta al instante para que empieces a disfrutar de las ventajas profesionales.</p>
+          </div>
+
+        </div>
+        <div class="order-1 md:order-2">
+          <img 
+            src="/profesionales-bg.jpg" 
+            alt="Almacén para profesionales" 
+            class="rounded-xl shadow-lg w-full h-auto object-cover"
+            onerror="this.src='https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=2574&auto=format&fit=crop'"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 border-t border-gray-100">
+     <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-12">Categorías Destacadas</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+           <div class="p-6 bg-gray-50 rounded-lg hover:shadow-md transition">
+              <span class="text-4xl mb-4 block">🍷</span>
+              <h3 class="font-bold text-lg">Bodega y Licores</h3>
+           </div>
+           <div class="p-6 bg-gray-50 rounded-lg hover:shadow-md transition">
+              <span class="text-4xl mb-4 block">🍖</span>
+              <h3 class="font-bold text-lg">Charcutería al corte</h3>
+           </div>
+           <div class="p-6 bg-gray-50 rounded-lg hover:shadow-md transition">
+              <span class="text-4xl mb-4 block">🥫</span>
+              <h3 class="font-bold text-lg">Conservas Gran Formato</h3>
+           </div>
+           <div class="p-6 bg-gray-50 rounded-lg hover:shadow-md transition">
+              <span class="text-4xl mb-4 block">🧼</span>
+              <h3 class="font-bold text-lg">Limpieza Industrial</h3>
+           </div>
+        </div>
+     </div>
+  </section>
+
+  <FAQ />
+
+  <section class="py-16 bg-gray-900 text-white text-center">
+     <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-4">¿Tienes dudas sobre nuestros servicios para empresas?</h2>
+        <p class="mb-8 text-gray-400">Nuestro equipo comercial está disponible para asesorarte.</p>
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+           <a href="tel:922550067" class="bg-green-600 hover:bg-green-700 px-8 py-3 rounded-lg font-bold">Llamar: 922 55 00 67</a>
+           <a href="mailto:info@kitcash.es" class="bg-transparent border border-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-lg font-bold transition">Enviar Email</a>
+        </div>
+     </div>
+  </section>
+
 </Layout>

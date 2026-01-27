@@ -1,38 +1,118 @@
 ---
+import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
+
+const title = "Trabaja con Nosotros - Talento Terencio Cash Market";
+const description = "Únete a un equipo comprometido con la calidad y el servicio. Descubre nuestros valores y envía tu CV a Terencio Cash Market.";
+
+const values = [
+  {
+    icon: "handshake",
+    title: "Compromiso Local",
+    desc: "Apostamos por el producto canario y el crecimiento sostenible de nuestra comunidad."
+  },
+  {
+    icon: "verified",
+    title: "Excelencia y Calidad",
+    desc: "Buscamos la perfección en cada detalle, desde la selección del producto hasta la atención al cliente."
+  },
+  {
+    icon: "groups",
+    title: "Trabajo en Equipo",
+    desc: "Creemos que el mejor resultado se consigue sumando el talento y el esfuerzo de todos."
+  },
+  {
+    icon: "school",
+    title: "Formación Continua",
+    desc: "Impulsamos el desarrollo profesional de nuestra plantilla para crecer juntos."
+  }
+];
 ---
 
-<Layout title="Empleo">
-  <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 text-green-700 md:mt-14">
-    Sé parte del proyecto <span class="text-red-600">Terencio</span>
-  </h1>
+<Layout title={title} description={description}>
+  <!-- Hero Section -->
+  <section class="relative bg-green-900 text-white py-20 overflow-hidden">
+     <div class="absolute inset-0 opacity-20">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop" class="w-full h-full object-cover" alt="Equipo trabajando" />
+     </div>
+     <div class="container mx-auto px-4 relative z-10 text-center">
+       <span class="inline-block py-1 px-3 rounded-full bg-green-800/80 border border-green-400 text-green-100 text-xs font-bold uppercase tracking-wider mb-6 animate-fade-in-up">
+          Únete al Equipo
+       </span>
+       <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight animate-fade-in-up" style="animation-delay: 0.1s;">
+         Crecemos <span class="text-green-300">Contigo</span>
+       </h1>
+       <p class="text-xl text-green-100 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+         En Terencio Cash Market no solo vendemos productos, construimos relaciones. Buscamos personas apasionadas, dinámicas y con vocación de servicio.
+       </p>
+     </div>
+  </section>
 
-  <p class="text-lg md:text-xl lg:text-2xl text-green-700 mt-4 font-semibold text-center">
-    En Terencio Supermercados estamos en constante crecimiento y buscamos
-    personas comprometidas y con ganas de trabajar.
-  </p>
+  <!-- Values Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+       <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Nuestros Valores</h2>
+          <div class="w-20 h-1 bg-green-600 mx-auto rounded-full"></div>
+       </div>
+       
+       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {values.map(val => (
+             <div class="bg-gray-50 p-8 rounded-2xl text-center hover:-translate-y-2 transition-transform duration-300 border border-gray-100 shadow-sm hover:shadow-md group">
+                <div class="w-16 h-16 bg-green-100 text-green-700 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl group-hover:bg-green-600 group-hover:text-white transition-colors duration-300">
+                   <span class="material-icons-outlined">{val.icon}</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">{val.title}</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">{val.desc}</p>
+             </div>
+          ))}
+       </div>
+    </div>
+  </section>
 
-  <div class="flex flex-col items-center justify-center gap-4 pt-8">
-    <p class="text-lg md:text-xl lg:text-2xl text-green-700 text-center">
-      Si le resulta necesario, puede descargar el formulario de solicitud de
-      empleo en el siguiente enlace.
-    </p>
+  <!-- CTA Email Section -->
+  <section class="py-20 bg-gray-50">
+     <div class="container mx-auto px-4 max-w-5xl">
+        <div class="bg-green-900 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row relative">
+           <!-- Decorative Pattern -->
+           <div class="absolute top-0 right-0 w-64 h-64 bg-green-800 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
+           
+           <div class="p-10 md:p-16 md:w-2/3 relative z-10 flex flex-col justify-center">
+              <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">¿Quieres formar parte de nuestro éxito?</h2>
+              <p class="text-green-100 text-lg mb-8 leading-relaxed">
+                 Actualmente gestionamos todas las candidaturas a través de nuestro departamento de Recursos Humanos por correo electrónico. Envíanos tu CV actualizado y cuéntanos por qué te gustaría trabajar con nosotros.
+              </p>
+              
+              <div class="flex flex-col sm:flex-row gap-4">
+                 <a href={`mailto:${siteData.contact.email}?subject=Candidatura%20CV%20-%20Web`} class="inline-flex items-center justify-center gap-2 bg-white text-green-900 px-8 py-4 rounded-xl font-bold hover:bg-green-50 transition-all transform hover:scale-105 shadow-lg">
+                    <span class="material-icons-outlined">email</span>
+                    Enviar CV por Email
+                 </a>
+              </div>
+              <p class="mt-6 text-sm text-green-200/60">
+                 Al enviar tu CV aceptas nuestra política de privacidad y tratamiento de datos para procesos de selección.
+              </p>
+           </div>
+           
+           <div class="md:w-1/3 bg-green-800 relative min-h-[300px] md:min-h-0">
+               <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2670&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50" alt="Office vibe" />
+               <div class="absolute inset-0 flex items-center justify-center">
+                   <span class="material-icons-outlined text-9xl text-white/10">work_outline</span>
+               </div>
+           </div>
+        </div>
+     </div>
+  </section>
 
-    <a href="/cv.pdf" target="_blank" class="flex flex-col items-center justify-center">
-      <img src="/pdf.png" alt="Empleo" class="w-20 m-0" />
-      <p class="text-lg md:text-xl lg:text-2xl text-red-500 animate-fadein mt-2 mb-0 text-center">
-        Toque el icono para descargar el formulario de solicitud de empleo.
-      </p>
-    </a>
-  </div>
-
-  <div class="flex flex-col items-center justify-center pt-6">
-    <a
-      class="bg-green-700 text-white font-semibold py-2 px-4 rounded-lg w-48 text-center hover:bg-green-800 transition duration-300"
-      href="mailto:info@kitcash.es?subject=CV%20-%20Terencio%20Supermercados"
-      target="_blank"
-    >
-      Enviar CV
-    </a>
-  </div>
 </Layout>
+
+<style>
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+</style>

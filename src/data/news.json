@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "nuevos-puntos-recarga-electrico",
+    "title": "Terencio inaugura 4 nuevos puntos de carga ultra-rápida en La Esperanza",
+    "description": "Una inversión clave en sostenibilidad que permite a los clientes recargar su vehículo eléctrico en 20 minutos de forma gratuita.",
+    "content": "<p>En nuestro compromiso continuo con el medio ambiente y la sostenibilidad, nos complace anunciar la instalación de <strong>cuatro nuevos puntos de carga semi-rápida (22kW)</strong> en nuestro aparcamiento principal.</p><h3>¿Cómo funciona?</h3><p>El servicio es gratuito para todos nuestros clientes durante un máximo de 90 minutos. Solo necesitas solicitar tu tarjeta de activación en el mostrador de información presentando tu ticket de compra.</p><h3>Compromiso Verde</h3><p>Esta iniciativa forma parte de nuestro plan 'Terencio Verde', que incluye también la instalación de placas solares en nuestra cubierta y un sistema de gestión de residuos cero.</p>",
+    "author": "Equipo Terencio",
+    "pubDate": "2024-03-15T09:00:00Z",
+    "image": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2672&auto=format&fit=crop",
+    "tags": ["Sostenibilidad", "Servicios"],
+    "category": "Sostenibilidad",
+    "isBreaking": true
+  },
+  {
+    "slug": "acuerdo-agricultores-locales-tenerife",
+    "title": "Acuerdo histórico con la Cooperativa de Tacoronte: 100% Km 0",
+    "description": "Garantizamos la compra de toda la producción de papa y lechuga local para la temporada 2024.",
+    "content": "<p>La frescura es innegociable. Por eso, hemos cerrado un acuerdo histórico con la Cooperativa Agrícola de La Esperanza para que <strong>más del 80% de nuestras frutas y verduras provengan de cultivos locales</strong>.</p><h3>¿Qué significa Km 0?</h3><ul><li><strong>Más Sabor:</strong> Productos recolectados en su punto óptimo de maduración.</li><li><strong>Menos Emisiones:</strong> Reducimos drásticamente la huella de carbono del transporte.</li><li><strong>Economía Local:</strong> Apoyo directo a las familias ganaderas y agricultoras de nuestra isla.</li></ul><p>Busca el distintivo <em>'Origen Canarias'</em> en nuestros pasillos.</p>",
+    "author": "Dirección Comercial",
+    "pubDate": "2024-03-10T11:30:00Z",
+    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2574&auto=format&fit=crop",
+    "tags": ["Producto Local", "Km0", "Agricultura"],
+    "category": "Economía Local",
+    "isBreaking": false
+  },
+  {
+    "slug": "horario-ampliado-compra",
+    "title": "Nuevo horario ininterrumpido de 08:00 a 22:00",
+    "description": "Nos adaptamos a tu ritmo: ampliamos dos horas el cierre para facilitar las compras de última hora.",
+    "content": "<p>Sabemos que tu tiempo es oro. Por eso, adaptamos nuestros horarios para que puedas realizar tus compras con total tranquilidad, ya seas particular o profesional de la hostelería.</p><h3>Nuevas ventajas</h3><p>Con este horario ampliado, también reforzamos nuestro servicio de frescos en las últimas horas del día, garantizando reposición constante de panadería y frutería hasta el cierre.</p>",
+    "author": "Atención al Cliente",
+    "pubDate": "2024-03-01T08:00:00Z",
+    "image": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=2574&auto=format&fit=crop",
+    "tags": ["Horarios", "Servicios"],
+    "category": "Servicios",
+    "isBreaking": false
+  },
+  {
+    "slug": "ofertas-especiales-hosteleria-marzo",
+    "title": "Campaña HORECA: Precios de coste en aceites y harinas",
+    "description": "Una medida de apoyo al sector de la restauración frente a la subida de precios de materias primas.",
+    "content": "<p>Como tu socio estratégico en el negocio, lanzamos una campaña especial para bares y restaurantes. Durante todo el mes de marzo, disfruta de precios imbatibles en:</p><ul><li>Aceites de oliva virgen extra (Formatos 5L)</li><li>Vinos D.O. Tenerife y Rioja</li><li>Carnes maduradas al vacío</li><li>Congelados de alta gama</li></ul><p>Consulta condiciones con tu gestor comercial en tienda.</p>",
+    "author": "Departamento HORECA",
+    "pubDate": "2024-03-05T10:00:00Z",
+    "image": "https://images.unsplash.com/photo-1580910051074-3eb6948d3ea0?q=80&w=2670&auto=format&fit=crop",
+    "tags": ["Hostelería", "Ofertas"],
+    "category": "Empresas",
+    "isBreaking": false
+  },
+  {
+     "slug": "donacion-banco-alimentos",
+     "title": "Donamos 3 toneladas de alimentos al Banco de Alimentos de Tenerife",
+     "description": "Solidaridad en tiempos difíciles. Terencio colabora con la campaña 'Kilo Solidario' para ayudar a familias vulnerables.",
+     "content": "<p>Terencio Cash Market se suma a la gran recogida de alimentos. Gracias a la generosidad de nuestros clientes y a la aportación directa de la empresa, hemos logrado reunir 3.000 kg de productos de primera necesidad.</p>",
+     "author": "RSC Terencio",
+     "pubDate": "2024-02-28T09:00:00Z",
+     "image": "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2670&auto=format&fit=crop",
+     "tags": ["Solidaridad", "Comunidad"],
+     "category": "Comunidad",
+     "isBreaking": false
+  }
+]
