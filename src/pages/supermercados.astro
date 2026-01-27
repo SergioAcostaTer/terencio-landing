@@ -1,7 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import localStoreImage from "../assets/supermercados-terencio.jpg";
 import LocationMap from "../components/LocationMap.astro";
 import siteData from "../data/siteData.json";
+import Layout from "../layouts/Layout.astro";
 
 const title = "Nuestros Supermercados - Terencio Cash Market";
 const description = "Visita Terencio Cash Market en La Esperanza. Tu supermercado y Cash & Carry de referencia en Tenerife.";
@@ -20,11 +22,12 @@ const description = "Visita Terencio Cash Market en La Esperanza. Tu supermercad
       <!-- Store Card -->
       <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 flex flex-col md:flex-row">
         <div class="md:w-1/2 h-64 md:h-auto relative">
-          <img 
-            src="/store-local.jpg" 
+          <Image 
+            src={localStoreImage} 
             alt="Terencio Cash Market La Esperanza" 
             class="w-full h-full object-cover absolute inset-0"
-            onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2574&auto=format&fit=crop'"
+            width={800}
+            format="webp"
           />
         </div>
         <div class="p-8 md:w-1/2 flex flex-col justify-center">
@@ -38,7 +41,7 @@ const description = "Visita Terencio Cash Market en La Esperanza. Tu supermercad
              </p>
              <p class="flex items-center gap-2">
                <span class="material-icons-outlined text-gray-400">schedule</span>
-               <span>Lunes a Domingo: 09:00 - 20:30</span>
+               <span>{siteData.hoursText}</span>
              </p>
              <p class="flex items-center gap-2">
                <span class="material-icons-outlined text-gray-400">phone</span>

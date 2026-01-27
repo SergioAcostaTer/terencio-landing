@@ -25,7 +25,7 @@ const formattedDate = pubDate.toLocaleDateString('es-ES', {
 });
 ---
 
-<Layout title={title} description={description} image={image}>
+<Layout title={title} description={description} image={image} type="article" publishDate={pubDate.toISOString()} author={author}>
   
   <article class="bg-white min-h-screen">
     

@@ -1,8 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import localStoreImage from "../assets/supermercados-terencio.jpg";
 import LocationMap from "../components/LocationMap.astro";
-import ServiceCard from "../components/ServiceCard.astro";
 import siteData from "../data/siteData.json";
+import Layout from "../layouts/Layout.astro";
 
 const title = "Terencio Cash Market - Supermercado en La Esperanza, Tenerife";
 const description = "Supermercado Terencio Cash Market en La Esperanza. Tu supermercado de confianza cerca de La Laguna. Ofertas diarias para todos los públicos.";
@@ -41,11 +42,12 @@ const seoAddress = `${siteData.address.streetAddress}, ${siteData.address.addres
         </a>
       </div>
       <div>
-        <img 
-          src="/store-local.jpg" 
+        <Image 
+          src={localStoreImage} 
           alt="Fachada de Terencio Cash Market en La Esperanza" 
           class="rounded-xl shadow-lg w-full h-auto"
-          onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2574&auto=format&fit=crop'"
+          width={800}
+          format="webp"
         />
       </div>
     </div>
@@ -98,7 +100,7 @@ const seoAddress = `${siteData.address.streetAddress}, ${siteData.address.addres
             </a>
          </div>
 
-         <p class="text-gray-600 mt-6">Abierto todos los días de 09:00 a 20:30</p>
+         <p class="text-gray-600 mt-6">{siteData.hoursText}</p>
       </div>
     </div>
   </section>
