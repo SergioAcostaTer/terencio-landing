@@ -49,6 +49,13 @@ import logo from "../assets/images/logo.webp";
         </div>
       ))}
       <a 
+        href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market"
+        target="_blank"
+        class="hidden lg:flex bg-white border border-green-700 text-green-700 px-4 py-2 rounded-lg font-bold hover:bg-green-50 transition-colors shadow-sm ml-4 items-center gap-2"
+      >
+        <span>📍</span> Cómo llegar
+      </a>
+      <a 
         href={navigation.cta.href} 
         class="bg-green-700 text-white px-5 py-2 rounded-lg font-bold hover:bg-green-800 transition-colors shadow-md hover:shadow-lg text-sm lg:text-base ml-2"
       >
@@ -102,6 +109,10 @@ import logo from "../assets/images/logo.webp";
 
       <a href={navigation.cta.href} class="text-xl font-bold text-white bg-green-700 px-4 py-3 rounded-lg text-center mt-4 mobile-link">
         {navigation.cta.label}
+      </a>
+      
+      <a href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" class="text-xl font-bold text-green-700 border-2 border-green-700 px-4 py-3 rounded-lg text-center mt-2 mobile-link flex items-center justify-center gap-2">
+        <span>📍</span> Cómo llegar
       </a>
       
       <div class="mt-8 text-center text-gray-500 text-sm">

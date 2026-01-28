@@ -5,6 +5,7 @@ import Hero from "../components/Hero.astro";
 import LocationMap from "../components/LocationMap.astro";
 import NewsGrid from "../components/NewsGrid.astro";
 import Reviews from "../components/Reviews.astro";
+import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import Button from "../components/ui/Button.astro";
 import Icon from "../components/ui/Icon";
@@ -13,10 +14,11 @@ import services from "../data/services.json";
 import Layout from "../layouts/Layout.astro";
 
 // Títulos optimizados para Search Console basados en clics e impresiones
-const title = "Terencio Cash Market | Supermercado en La Esperanza y Mayorista Tenerife";
-const description = "Terencio Cash Market: tu supermercado barato en La Esperanza y Cash & Carry líder cerca de La Laguna. Especialistas en carnicería selecta, productos de El Hierro y ahorro familiar sin tarjeta de socio.";
+const title = "Terencio Cash Market | Supermercado en Tenerife (La Esperanza)";
+const description = "Terencio Cash Market: Supermercado cerca de mi en La Esperanza y Mayorista líder en Tenerife. Venta a particulares y profesionales. Carne fresca, productos del El Hierro.";
 ---
 
+<LocalBusinessSchema />
 <Layout title={title} description={description}>
   <main>
     <!-- El Hero ya contiene los H1 principales, mantenemos la estructura visual -->

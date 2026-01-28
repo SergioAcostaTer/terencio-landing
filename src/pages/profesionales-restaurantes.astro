@@ -1,0 +1,68 @@
+---
+import ProfessionalForm from "../components/forms/ProfessionalForm";
+import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
+import Button from "../components/ui/Button.astro";
+import Section from "../components/ui/Section.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title = "Proveedores para Restaurantes en Tenerife - Terencio Cash Market";
+const description = "Suministros de hostelería para restaurantes y guachinches. Carne fresca, aceites, conservas y vinos con precios de mayorista. Distribución en Tenerife y El Hierro.";
+---
+
+<LocalBusinessSchema type="WholesaleStore" image="/assets/images/restaurante-bg.webp" />
+<Layout title={title} description={description}>
+  
+  <header class="bg-orange-50 py-16">
+    <div class="container mx-auto px-4 text-center">
+        <span class="text-orange-600 font-bold uppercase tracking-widest text-sm">HORECA Tenerife</span>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-6">Tu Socio en la Cocina</h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Abastecemos a los mejores guachinches y restaurantes del norte con productos frescos y formatos rentables.
+        </p>
+    </div>
+  </header>
+
+  <Section class="bg-white">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+            <h2 class="text-3xl font-bold mb-6">¿Por qué cientos de restaurantes confían en nosotros?</h2>
+            <ul class="space-y-6">
+                <li class="flex gap-4">
+                    <span class="text-4xl">🥩</span>
+                    <div>
+                        <h3 class="font-bold text-lg">Carne Fresca al Corte</h3>
+                        <p class="text-gray-600">Nada de envasado industrial. Nuestros carniceros preparan tus chuletones, solomillos y carne de fiesta al momento y a tu gusto.</p>
+                    </div>
+                </li>
+                <li class="flex gap-4">
+                    <span class="text-4xl">🥘</span>
+                    <div>
+                        <h3 class="font-bold text-lg">Escandallos Rentables</h3>
+                        <p class="text-gray-600">Te ayudamos a mantener el coste por plato bajo control con nuestros precios estables en aceites, arroces y básicos.</p>
+                    </div>
+                </li>
+                <li class="flex gap-4">
+                    <span class="text-4xl">🚛</span>
+                    <div>
+                        <h3 class="font-bold text-lg">Sin Pedidos Mínimos Absurdos</h3>
+                        <p class="text-gray-600">Ven y carga solo lo que necesitas para el servicio de hoy. No inmovilices tu capital en stock innecesario.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="bg-gray-100 rounded-2xl p-8 border border-gray-200">
+            <h3 class="font-bold text-xl mb-6 text-center">Solicita Tarifas de Hostelería</h3>
+            <ProfessionalForm client:visible />
+        </div>
+    </div>
+  </Section>
+
+  <Section class="bg-orange-900 text-white text-center">
+    <h2 class="text-3xl font-bold mb-4">¿Tienes una emergencia en pleno servicio?</h2>
+    <p class="text-orange-100 mb-8 max-w-xl mx-auto">Estamos abiertos cuando otros proveedores cierran. Ven a buscar lo que te falta hasta las 20:30 (Domingos hasta las 14:00).</p>
+    <Button href="/horario-terencio-cash-market" variant="primary" class="bg-white text-orange-900 hover:bg-orange-50">
+        Ver Horarios de Emergencia
+    </Button>
+  </Section>
+
+</Layout>

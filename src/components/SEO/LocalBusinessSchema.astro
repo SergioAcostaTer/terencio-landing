@@ -1,0 +1,71 @@
+---
+import siteData from "../../data/siteData.json";
+
+interface Props {
+  type?: "LocalBusiness" | "GroceryStore" | "WholesaleStore";
+  name?: string;
+  description?: string;
+  image?: string;
+  priceRange?: string;
+}
+
+const {
+  type = "GroceryStore",
+  name = siteData.legalName,
+  description = siteData.description,
+  image = "/assets/images/supermercado-interior.webp",
+  priceRange = "$$"
+} = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": type,
+  "name": name,
+  "image": new URL(image, Astro.site),
+  "description": description,
+  "@id": `${siteData.url}#${type.toLowerCase()}`,
+  "url": siteData.url,
+  "telephone": siteData.contact.phone,
+  "priceRange": priceRange,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": siteData.address.streetAddress,
+    "addressLocality": siteData.address.addressLocality,
+    "addressRegion": siteData.address.addressRegion,
+    "postalCode": siteData.address.postalCode,
+    "addressCountry": siteData.address.addressCountry
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 28.4418, // Coords for Terencio La Esperanza
+    "longitude": -16.3655
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "08:30",
+      "closes": "20:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "09:00",
+      "closes": "14:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/TerencioCashMarket",
+    "https://www.instagram.com/terenciocashmarket"
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

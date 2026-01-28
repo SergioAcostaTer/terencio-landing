@@ -1,0 +1,64 @@
+---
+import ProfessionalForm from "../components/forms/ProfessionalForm";
+import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
+import Button from "../components/ui/Button.astro";
+import Section from "../components/ui/Section.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title = "Proveedores para Hoteles y Apartamentos - Terencio Mayorista";
+const description = "Suministros integrales para hoteles y apartamentos turísticos en Tenerife. Desayunos buffet, amenities, limpieza y mantenimiento.";
+---
+
+<LocalBusinessSchema type="WholesaleStore" />
+<Layout title={title} description={description}>
+  
+  <header class="bg-blue-50 py-16">
+    <div class="container mx-auto px-4 text-center">
+        <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Sector Hotelero & Vacacional</span>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-6">Excelencia para tus Huéspedes</h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Soluciones integrales para Hoteles, Casas Rurales y Viviendas Vacacionales en Tenerife Norte y El Hierro.
+        </p>
+    </div>
+  </header>
+
+  <Section class="bg-white">
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="p-6 border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition">
+            <div class="text-5xl mb-4">🥐</div>
+            <h3 class="font-bold text-xl mb-2">Desayunos Buffet</h3>
+            <p class="text-gray-600 text-sm">Bollería, mermeladas individuales, cafés y zumos en grandes formatos para optimizar tu buffet.</p>
+        </div>
+        <div class="p-6 border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition">
+            <div class="text-5xl mb-4">🧹</div>
+            <h3 class="font-bold text-xl mb-2">Limpieza y Amenities</h3>
+            <p class="text-gray-600 text-sm">Productos de limpieza profesional y reposición de básicos para habitaciones y baños.</p>
+        </div>
+        <div class="p-6 border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition">
+            <div class="text-5xl mb-4">🍷</div>
+            <h3 class="font-bold text-xl mb-2">Bienvenida</h3>
+            <p class="text-gray-600 text-sm">Vinos canarios y quesadillas de El Hierro para crear packs de bienvenida inolvidables.</p>
+        </div>
+    </div>
+  </Section>
+
+  <Section class="bg-gray-50">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-3xl font-bold mb-6">Logística Eficiente a El Hierro</h2>
+        <p class="text-gray-600 mb-8">
+            Si gestionas alojamientos rurales en El Hierro, somos tu puente logístico. Consolidamos tu pedido de alimentación y limpieza para que recibas todo en un solo envío semanal.
+        </p>
+        <Button href="/contacto" variant="primary">
+            Consultar Envíos a El Hierro
+        </Button>
+    </div>
+  </Section>
+
+  <Section id="contacto" class="bg-white">
+    <div class="max-w-2xl mx-auto">
+        <h2 class="text-2xl font-bold text-center mb-8">Date de alta como cliente profesional</h2>
+        <ProfessionalForm client:visible />
+    </div>
+  </Section>
+
+</Layout>

@@ -6,11 +6,14 @@ import vinos from "../assets/images/vinos_el_hierro.webp";
 import LocationMap from "../components/LocationMap.astro";
 import Layout from "../layouts/Layout.astro";
 
+import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
+
 const title = "Productos de El Hierro en Tenerife | Supermercado Herreño";
 const description = "Compra productos de El Hierro en Tenerife: Quesadillas, Queso ahumado, Vinos y Piña tropical. Terencio Cash Market es tu conexión directa con la isla del Meridiano.";
 const canonical = "https://terencio.es/productos-el-hierro-tenerife";
 ---
 
+<LocalBusinessSchema description={description} image={quesadillas.src} />
 <Layout title={title} description={description} canonical={canonical}>
   <!-- Hero Section -->
   <section class="relative bg-green-900 text-white py-20 overflow-hidden">

@@ -12,7 +12,21 @@
     },
     {
       "label": "Profesionales",
-      "href": "/profesionales"
+      "href": "/profesionales",
+      "children": [
+        {
+          "label": "Restaurantes",
+          "href": "/profesionales-restaurantes"
+        },
+        {
+          "label": "Hoteles",
+          "href": "/profesionales-hoteles"
+        },
+        {
+          "label": "Catering y Eventos",
+          "href": "/profesionales-eventos"
+        }
+      ]
     },
     {
       "label": "Supermercado",
@@ -33,6 +47,14 @@
         {
           "label": "Bodega",
           "href": "/terencio-cash-market#bodega"
+        },
+        {
+          "label": "Productos El Hierro",
+          "href": "/productos-el-hierro-tenerife"
+        },
+        {
+          "label": "Cash & Carry",
+          "href": "/cash-and-carry-tenerife"
         }
       ]
     },
@@ -84,6 +106,14 @@
       {
         "label": "Preguntas Frecuentes",
         "href": "/faq"
+      },
+      {
+        "label": "Horarios",
+        "href": "/horario-terencio-cash-market"
+      },
+      {
+        "label": "Cash & Carry Tenerife",
+        "href": "/cash-and-carry-tenerife"
       }
     ],
     "featured": [
@@ -102,6 +132,14 @@
       {
         "label": "Blog de Ahorro",
         "href": "/blog"
+      },
+      {
+        "label": "Quesos El Hierro",
+        "href": "/quesos-el-hierro-tenerife"
+      },
+      {
+        "label": "Carnicería La Laguna",
+        "href": "/carniceria-cerca-de-mi-la-laguna"
       }
     ],
     "legal": [

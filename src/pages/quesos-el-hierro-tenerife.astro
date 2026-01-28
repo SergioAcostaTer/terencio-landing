@@ -1,0 +1,76 @@
+---
+import { Image } from "astro:assets";
+import queso from "../assets/images/queso_mojo.webp";
+import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
+import Button from "../components/ui/Button.astro";
+import Section from "../components/ui/Section.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title = "Comprar Queso de El Hierro en Tenerife | Ahumado y Tierno";
+const description = "El auténtico Queso Herreño en Tenerife. Queso ahumado de la Cooperativa de Ganaderos de El Hierro. Tierno, semicurado y curado. Venta en La Esperanza.";
+---
+
+<LocalBusinessSchema image={queso.src} description={description} />
+<Layout title={title} description={description}>
+  
+  <header class="bg-yellow-50 py-16">
+    <div class="container mx-auto px-4 text-center">
+        <span class="text-yellow-700 font-bold uppercase tracking-widest text-sm">Sabor Herreño</span>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-6">Queso de El Hierro en Tenerife</h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Distribuidores oficiales de la Cooperativa de Ganaderos de El Hierro. El sabor ahumado único, directo a tu mesa.
+        </p>
+    </div>
+  </header>
+
+  <Section class="bg-white">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+             <Image src={queso} alt="Queso Ahumado El Hierro con Mojo" class="rounded-2xl shadow-xl w-full h-auto" width={600} height={400} />
+        </div>
+        <div>
+            <h2 class="text-3xl font-bold mb-6">¿Por qué es único este queso?</h2>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+                El queso herreño se elabora principalmente con leche de cabra y oveja, y su carácter distintivo proviene del <strong>ahumado natural</strong> con leña de higuera y pencas de tunera.
+            </p>
+            <h3 class="font-bold text-xl mb-3">Variedades Disponibles en Tienda:</h3>
+            <ul class="space-y-3 mb-8">
+                <li class="flex items-center gap-2">
+                    <span class="text-yellow-600">🧀</span> <strong>Tierno Ahumado:</strong> Suave, cremoso y con el toque justo de humo.
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="text-yellow-600">🧀</span> <strong>Semicurado Mezcla:</strong> Equilibrio perfecto para tablas de queso.
+                </li>
+                <li class="flex items-center gap-2">
+                    <span class="text-yellow-600">🧀</span> <strong>Curado:</strong> Sabor intenso, premiado internacionalmente.
+                </li>
+            </ul>
+            <Button href="/terencio-cash-market" variant="primary">
+                Ver Disponibilidad en Tienda
+            </Button>
+        </div>
+    </div>
+  </Section>
+
+  <Section class="bg-gray-50 text-center">
+    <h2 class="text-3xl font-bold mb-8">Maridaje Perfecto</h2>
+    <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <span class="text-4xl block mb-2">🍯</span>
+            <h3 class="font-bold">Miel de Palma</h3>
+            <p class="text-sm text-gray-500">El contraste dulce realza el ahumado.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <span class="text-4xl block mb-2">🌶️</span>
+            <h3 class="font-bold">Mojo Rojo Artesano</h3>
+            <p class="text-sm text-gray-500">El clásico asado con mojo.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+            <span class="text-4xl block mb-2">🍷</span>
+            <h3 class="font-bold">Vino Viña Frontera</h3>
+            <p class="text-sm text-gray-500">Blanco seco afrutado de El Hierro.</p>
+        </div>
+    </div>
+  </Section>
+
+</Layout>

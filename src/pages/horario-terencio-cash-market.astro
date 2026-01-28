@@ -1,0 +1,111 @@
+---
+import LocationMap from "../components/LocationMap.astro";
+import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
+import Button from "../components/ui/Button.astro";
+import Section from "../components/ui/Section.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title = "Horario Terencio Cash Market | Abierto Domingos y Festivos";
+const description = "Consulta el horario de Terencio Cash Market en La Esperanza. Supermercado abierto dce Lunes a Domingo. Abrimos festivos. ¿A qué hora cierra Terencio?";
+---
+
+<LocalBusinessSchema />
+<Layout title={title} description={description}>
+  <section class="bg-brand-primary text-white py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Horario Terencio Cash Market</h1>
+        <p class="text-xl text-green-100 max-w-2xl mx-auto">
+          Tu supermercado en La Esperanza con horario ampliado. Abrimos todos los días para tu comodidad.
+        </p>
+      </div>
+  </section>
+
+  <Section class="bg-white">
+    <div class="grid md:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
+      
+      <!-- Tabla de Horarios -->
+      <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100">
+        <div class="flex items-center gap-3 mb-6">
+            <span class="text-4xl">⏰</span>
+            <h2 class="text-2xl font-bold text-gray-900">Horario de Apertura</h2>
+        </div>
+        
+        <div class="space-y-4 text-lg">
+            <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                <span class="font-medium text-gray-700">Lunes a Sábado</span>
+                <span class="font-bold text-green-700">08:30 - 20:30</span>
+            </div>
+            <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                <span class="font-medium text-gray-700">Domingos</span>
+                <span class="font-bold text-green-700">09:00 - 14:00</span>
+            </div>
+            <div class="flex justify-between items-center py-3">
+                <span class="font-medium text-gray-700">Festivos</span>
+                <span class="font-bold text-green-700">09:00 - 14:00*</span>
+            </div>
+        </div>
+        
+        <p class="mt-6 text-sm text-gray-500 italic">
+            *Horario sujeto a cambios en festivos especiales (Navidad, Año Nuevo, Reyes). Consulta nuestras redes sociales o llama al 922 55 00 67 para confirmar.
+        </p>
+
+        <div class="mt-8">
+             <div class="bg-green-100 text-green-800 px-4 py-3 rounded-lg flex items-center gap-2">
+                <span class="relative flex h-3 w-3">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <span class="font-bold">¡Estamos abiertos hoy!</span>
+             </div>
+        </div>
+      </div>
+
+      <!-- Preguntas Frecuentes / Info Adicional -->
+      <div class="space-y-8">
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Preguntas Frecuentes sobre el Horario</h2>
+            <div class="space-y-4">
+                <details class="group bg-white border border-gray-200 rounded-lg p-4 cursor-pointer" open>
+                    <summary class="font-bold text-gray-900 flex justify-between items-center">
+                        ¿Abre Terencio los domingos?
+                        <span class="text-green-700 group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="mt-2 text-gray-600">Sí, abrimos todos los domingos del año en horario de mañana, de 09:00 a 14:00 horas.</p>
+                </details>
+                <details class="group bg-white border border-gray-200 rounded-lg p-4 cursor-pointer">
+                    <summary class="font-bold text-gray-900 flex justify-between items-center">
+                        ¿Cuál es el horario de la Carnicería?
+                        <span class="text-green-700 group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <p class="mt-2 text-gray-600">El mostrador de carnicería tiene el mismo horario que el supermercado. Siempre encontrarás a nuestros carniceros disponibles para cortes al momento.</p>
+                </details>
+            </div>
+        </div>
+
+        <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+            <h3 class="font-bold text-blue-900 mb-2">Atención Telefónica</h3>
+            <p class="text-blue-800 mb-4">Si tienes dudas sobre un día festivo específico, llámanos.</p>
+            <a href="tel:922550067" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition inline-block">
+                Llamar ahora
+            </a>
+        </div>
+      </div>
+
+    </div>
+  </Section>
+
+  <Section class="bg-gray-50">
+    <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold mb-4">¿Cómo llegar en horario de apertura?</h2>
+        <p class="text-gray-600">Estamos en la Carretera General de La Esperanza, muy cerca de ti.</p>
+    </div>
+    <div class="max-w-4xl mx-auto">
+        <LocationMap title="Cómo llegar a Terencio" />
+    </div>
+    <div class="text-center mt-8">
+        <Button href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" variant="primary" class="gap-2">
+            Ver ruta en Google Maps 📍
+        </Button>
+    </div>
+  </Section>
+</Layout>

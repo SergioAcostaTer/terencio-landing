@@ -1,0 +1,151 @@
+---
+import { Image } from "astro:assets";
+import interiorImage from "../assets/images/supermercado-interior.webp";
+import LocationMap from "../components/LocationMap.astro";
+import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
+import Button from "../components/ui/Button.astro";
+import Section from "../components/ui/Section.astro";
+import Layout from "../layouts/Layout.astro";
+
+// SEO Title & Description
+const title = "Cash & Carry Tenerife | Terencio Cash Market (Mayorista y Particulares)";
+const description = "Terencio es el Cash & Carry de referencia en Tenerife Norte. Venta mayorista para hostelería y abierto al público sin carnet. Ahorra en tu cesta de la compra.";
+---
+
+<LocalBusinessSchema type="WholesaleStore" />
+<Layout title={title} description={description}>
+  
+  <!-- Hero Section -->
+  <section class="relative bg-gray-900 text-white pt-32 pb-20 overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+        <Image 
+            src={interiorImage} 
+            alt="Interior Pasillos Cash & Carry Terencio" 
+            class="w-full h-full object-cover opacity-30" 
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center max-w-4xl">
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+        Cash & Carry <span class="text-green-500">Tenerife</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed font-light">
+        El único centro mayorista donde <strong>particulares y profesionales</strong> compran al mismo precio. Sin cuotas, sin tarjetas, solo ahorro.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button href="#como-funciona" variant="primary" class="text-lg px-8 py-4">
+          ¿Cómo funciona?
+        </Button>
+        <Button href="/profesionales" variant="outline" class="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-gray-900">
+          Soy Profesional HORECA
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition Grid -->
+  <Section class="bg-white" id="como-funciona">
+    <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">La revolución del Cash & Carry</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Ya no necesitas ser empresa para acceder a precios de almacén. En Terencio hemos democratizado el ahorro.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+        <!-- Benefit 1 -->
+        <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition group">
+            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-4xl shadow-sm mb-6 group-hover:scale-110 transition">
+                💳
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Sin Carnet de Socio</h3>
+            <p class="text-gray-600">
+                Olvídate de registros complicados o tarjetas de membresía (tipo Makro o Costco). Aquí las puertas están abiertas para todos.
+            </p>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition group">
+             <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-4xl shadow-sm mb-6 group-hover:scale-110 transition">
+                📦
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Formatos Ahorro</h3>
+            <p class="text-gray-600">
+                Elige lo que necesitas: unidades sueltas para casa o cajas completas para tu negocio con precio escalado.
+            </p>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition group">
+             <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-4xl shadow-sm mb-6 group-hover:scale-110 transition">
+                🥩
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Frescos de Calidad</h3>
+            <p class="text-gray-600">
+                No solo latas y limpieza. Tenemos una de las mejores carnicerías de Tenerife y charcutería al corte.
+            </p>
+        </div>
+    </div>
+  </Section>
+
+  <!-- VS Competitors Table -->
+  <Section class="bg-gray-900 text-white">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center">Cash & Carry vs. Supermercado Normal</h2>
+        
+        <div class="overflow-hidden rounded-xl border border-gray-700">
+            <table class="w-full text-left bg-gray-800">
+                <thead class="bg-gray-700 text-gray-300 uppercase text-xs font-bold tracking-wider">
+                    <tr>
+                        <th class="p-6">Característica</th>
+                        <th class="p-6 text-green-400">Terencio Cash Market</th>
+                        <th class="p-6">Supermercado Típico</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-700">
+                    <tr>
+                        <td class="p-6 font-medium">Precio</td>
+                        <td class="p-6 text-green-400 font-bold">Mayorista / Volumétrico</td>
+                        <td class="p-6 text-gray-400">PVP Estándar</td>
+                    </tr>
+                    <tr>
+                        <td class="p-6 font-medium">Carnet</td>
+                        <td class="p-6 text-green-400 font-bold">No Necesario</td>
+                        <td class="p-6 text-gray-400">No Necesario</td>
+                    </tr>
+                    <tr>
+                        <td class="p-6 font-medium">Formatos</td>
+                        <td class="p-6 text-green-400 font-bold">Industrial y Familiar</td>
+                        <td class="p-6 text-gray-400">Pequeño / Familiar</td>
+                    </tr>
+                     <tr>
+                        <td class="p-6 font-medium">Atención</td>
+                        <td class="p-6 text-green-400 font-bold">Asesoramiento Profesional</td>
+                        <td class="p-6 text-gray-400">Autoservicio general</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </Section>
+
+  <!-- CTA Final -->
+  <Section class="bg-white text-center">
+    <h2 class="text-3xl font-bold mb-6">Haz la compra inteligente</h2>
+    <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Únete a miles de familias y negocios de Tenerife que ya ahorran cada mes en Terencio.</p>
+    
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+        <Button href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" variant="primary" class="gap-2">
+            📍 Ver Ubicación en Maps
+        </Button>
+        <Button href="/terencio-cash-market" variant="ghost">
+            Ver Productos
+        </Button>
+    </div>
+    
+    <div class="max-w-4xl mx-auto h-[300px] rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+        <LocationMap title="Cómo llegar al Cash & Carry" />
+    </div>
+  </Section>
+
+</Layout>

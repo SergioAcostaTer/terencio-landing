@@ -2,6 +2,7 @@
 import FAQ from "../components/FAQ.astro";
 import ProfessionalForm from "../components/forms/ProfessionalForm";
 import Button from "../components/ui/Button.astro";
+import Icon from "../components/ui/Icon";
 import Section from "../components/ui/Section.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -102,46 +103,55 @@ const description = "Soluciones para profesionales de hostelería y alimentació
     </div>
   </section>
 
-  <!-- Categorías de Venta al por Mayor -->
+  <!-- Categorías por Sector -->
   <section class="py-20 bg-slate-50">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Suministros Clave para tu Establecimiento</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Disponemos de las categorías críticas para que tu cocina, sala o tienda nunca se detenga.</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Soluciones por Sector</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Cada negocio es un mundo. Hemos adaptado nuestro catálogo para cubrir tus necesidades específicas.</p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <a href="/terencio-cash-market#contacto" class="block cursor-pointer group">
-          <div class="bg-white p-8 rounded-2xl shadow-sm text-center hover:-translate-y-2 transition duration-300">
-            <span class="text-5xl block mb-4">🍷</span>
-            <h3 class="font-bold text-lg mb-2">Bodega HORECA</h3>
-            <p class="text-xs text-gray-500 leading-relaxed">Vinos canarios y nacionales, licores y bebidas espirituosas en formatos hostelería.</p>
-          </div>
-        </a>
+      <div class="grid md:grid-cols-3 gap-8">
         
-        <a href="/terencio-cash-market#contacto" class="block cursor-pointer group">
-          <div class="bg-white p-8 rounded-2xl shadow-sm text-center hover:-translate-y-2 transition duration-300">
-            <span class="text-5xl block mb-4">🥫</span>
-            <h3 class="font-bold text-lg mb-2">Conservas Ahorro</h3>
-            <p class="text-xs text-gray-500 leading-relaxed">Aceites, legumbres, salsas y conservas en formatos de 5kg o 10kg para cocinas centrales.</p>
+        <!-- Restaurantes -->
+        <a href="/profesionales-restaurantes" class="group block">
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-orange-100 hover:shadow-xl hover:border-orange-300 transition duration-300 relative overflow-hidden">
+             <div class="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">HORECA</div>
+             <span class="text-5xl block mb-6 group-hover:scale-110 transition">🧑‍🍳</span>
+             <h3 class="font-bold text-2xl text-gray-900 mb-3 group-hover:text-orange-600 transition">Restaurantes</h3>
+             <p class="text-gray-600 mb-6 font-light">
+                Escandallos rentables, carnes frescas al corte y básicos de cocina.
+             </p>
+             <span class="text-orange-600 font-bold flex items-center gap-2 text-sm">Ver Soluciones <Icon name="ArrowRight" size={16} /></span>
           </div>
         </a>
 
-        <a href="/terencio-cash-market#contacto" class="block cursor-pointer group">
-          <div class="bg-white p-8 rounded-2xl shadow-sm text-center hover:-translate-y-2 transition duration-300">
-            <span class="text-5xl block mb-4">🧼</span>
-            <h3 class="font-bold text-lg mb-2">Limpieza Profesional</h3>
-            <p class="text-xs text-gray-500 leading-relaxed">Detergentes, desinfectantes y celulosas industriales con certificación para sanidad.</p>
+        <!-- Hoteles -->
+        <a href="/profesionales-hoteles" class="group block">
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-blue-100 hover:shadow-xl hover:border-blue-300 transition duration-300 relative overflow-hidden">
+             <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">TURISMO</div>
+             <span class="text-5xl block mb-6 group-hover:scale-110 transition">🏨</span>
+             <h3 class="font-bold text-2xl text-gray-900 mb-3 group-hover:text-blue-600 transition">Hoteles y Rural</h3>
+             <p class="text-gray-600 mb-6 font-light">
+                Desde el desayuno buffet hasta los productos de limpieza y amenities.
+             </p>
+             <span class="text-blue-600 font-bold flex items-center gap-2 text-sm">Ver Soluciones <Icon name="ArrowRight" size={16} /></span>
           </div>
         </a>
 
-        <a href="/terencio-cash-market#contacto" class="block cursor-pointer group">
-          <div class="bg-white p-8 rounded-2xl shadow-sm text-center hover:-translate-y-2 transition duration-300">
-            <span class="text-5xl block mb-4">🥩</span>
-            <h3 class="font-bold text-lg mb-2">Cárnicos al Mayor</h3>
-            <p class="text-xs text-gray-500 leading-relaxed">Proveedores de carne fresca con cortes específicos para parrilladas, guachinches y restaurantes.</p>
+        <!-- Eventos -->
+        <a href="/profesionales-eventos" class="group block">
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-purple-100 hover:shadow-xl hover:border-purple-300 transition duration-300 relative overflow-hidden">
+             <div class="absolute top-0 right-0 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">CATERING</div>
+             <span class="text-5xl block mb-6 group-hover:scale-110 transition">🥂</span>
+             <h3 class="font-bold text-2xl text-gray-900 mb-3 group-hover:text-purple-600 transition">Catering y Eventos</h3>
+             <p class="text-gray-600 mb-6 font-light">
+                Grandes volúmenes en bebidas, menaje desechable y aperitivos.
+             </p>
+             <span class="text-purple-600 font-bold flex items-center gap-2 text-sm">Ver Soluciones <Icon name="ArrowRight" size={16} /></span>
           </div>
         </a>
+
       </div>
     </div>
   </section>

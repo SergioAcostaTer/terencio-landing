@@ -1,0 +1,83 @@
+---
+import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
+import Button from "../components/ui/Button.astro";
+import Section from "../components/ui/Section.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title = "Alternativa a Hiperdino y Mercadona en La Laguna | Terencio Cash Market";
+const description = "¿Buscas una alternativa a Mercadona o Hiperdino en Tenerife? Descubre Terencio Cash Market: precios de mayorista sin tarjeta, parking fácil y productos que no encuentras en las grandes cadenas.";
+---
+
+<LocalBusinessSchema />
+<Layout title={title} description={description}>
+  
+  <header class="bg-gray-900 text-white py-20">
+    <div class="container mx-auto px-4 text-center max-w-4xl">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6">¿Cansado de pagar más por lo mismo?</h1>
+        <p class="text-xl text-gray-300 mb-8 font-light">
+            Descubre la alternativa inteligente a <strong>Hiperdino y Mercadona</strong> en la zona de La Laguna.
+        </p>
+        <div class="bg-green-600 text-white inline-block px-6 py-2 rounded-full font-bold animate-bounce">
+            💰 Ahorra hasta un 20% en tu cesta
+        </div>
+    </div>
+  </header>
+
+  <Section class="bg-white">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-10 text-gray-900">Comparativa: Terencio vs. Grandes Cadenas</h2>
+        
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-gray-100 border-b-2 border-gray-200">
+                        <th class="p-4 text-gray-600 font-semibold">Característica</th>
+                        <th class="p-4 bg-green-50 text-green-800 font-bold border-t-4 border-green-500">Terencio Cash Market</th>
+                        <th class="p-4 text-gray-500 font-medium">Otros Supermercados</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    <tr>
+                        <td class="p-4 font-bold text-gray-700">Formatos Ahorro</td>
+                        <td class="p-4 bg-green-50 font-bold text-green-900">✅ Sí (Industrial y Familiar)</td>
+                        <td class="p-4 text-gray-500">❌ Solo formato estándar</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-bold text-gray-700">Precios Mayoristas</td>
+                        <td class="p-4 bg-green-50 font-bold text-green-900">✅ Para todos (sin carnet)</td>
+                        <td class="p-4 text-gray-500">❌ PVP minorista inflado</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-bold text-gray-700">Atención Personal</td>
+                        <td class="p-4 bg-green-50 font-bold text-green-900">✅ Carnicero y Charcutero te atienden</td>
+                        <td class="p-4 text-gray-500">⚠️ Mayoría autoservicio/bandejas</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-bold text-gray-700">Productos Exclusivos</td>
+                        <td class="p-4 bg-green-50 font-bold text-green-900">✅ El Hierro, Local, Específico</td>
+                        <td class="p-4 text-gray-500">⚠️ Marca blanca genérica</td>
+                    </tr>
+                     <tr>
+                        <td class="p-4 font-bold text-gray-700">Aparcamiento</td>
+                        <td class="p-4 bg-green-50 font-bold text-green-900">✅ En la puerta, rápido</td>
+                        <td class="p-4 text-gray-500">⚠️ A veces complicado/lejos</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </Section>
+
+  <Section class="bg-gray-50 text-center">
+    <div class="max-w-2xl mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Prueba algo diferente hoy</h2>
+        <p class="text-gray-600 mb-8">
+            Si vives en La Esperanza, Geneto, Los Baldíos o La Laguna, estamos mucho más cerca de lo que piensas. Dale una oportunidad a tu bolsillo.
+        </p>
+        <Button href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" variant="primary">
+            📍 Cómo llegar a Terencio
+        </Button>
+    </div>
+  </Section>
+
+</Layout>
