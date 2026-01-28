@@ -50,7 +50,7 @@ Run all commands from the root of the project:
 
 This project is configured to deploy at:
 
-👉 **[https://terenciomarket.es](https://terenciomarket.es)**
+👉 **[https://terencio.es](https://terencio.es)**
 
 ---
 

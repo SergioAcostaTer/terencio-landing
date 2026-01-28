@@ -16,7 +16,7 @@ export default defineConfig({
     react(),
     icon()
   ],
-  site: 'https://terenciomarket.es',
+  site: 'https://terencio.es',
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto',

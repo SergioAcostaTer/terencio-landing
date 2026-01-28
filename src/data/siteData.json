@@ -14,7 +14,7 @@
   },
   "shortDescription": "Supermercado y Cash & Carry en La Esperanza, Tenerife. Venta a profesionales y particulares.",
   "description": "Terencio Cash Market es tu supermercado de confianza y Cash & Carry en Tenerife. Ofrecemos una amplia selección de productos frescos, alimentación y bebidas para hostelería y particulares. Calidad y servicio en La Esperanza, La Laguna.",
-  "url": "https://terenciomarket.es",
+  "url": "https://terencio.es",
   "address": {
     "streetAddress": "Carr. de la Esperanza, 22",
     "addressLocality": "San Cristóbal de La Laguna",
@@ -40,12 +40,21 @@
   "hoursText": "Lunes a Sábado: 08:00–21:00. Domingo: 08:30–20:30",
   "hours": [
     {
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
       "opens": "08:00",
       "closes": "21:00"
     },
     {
-      "dayOfWeek": ["Sunday"],
+      "dayOfWeek": [
+        "Sunday"
+      ],
       "opens": "08:30",
       "closes": "20:30"
     }
