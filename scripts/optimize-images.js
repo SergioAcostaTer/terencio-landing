@@ -6,12 +6,22 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const inputDir = path.join(__dirname, '../src/assets/images');
-const outputDir = path.join(__dirname, '../src/assets/images-optimized');
+// CONFIGURATION
+const CONFIG = {
+  inputDir: path.join(__dirname, '../src/assets/images-unoptimized'),
+  outputDir: path.join(__dirname, '../src/assets/images'),
+  maxWidth: 1600,
+  jpegQuality: 65,  // Aggressive compression
+  pngQuality: 80,
+  webpOptions: {
+    effort: 6,      // Max compression effort (slower but better)
+    smartSubsample: true
+  }
+};
 
-// Create output directory if it doesn't exist
-if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir, { recursive: true });
+// Create output directory
+if (!fs.existsSync(CONFIG.outputDir)) {
+  fs.mkdirSync(CONFIG.outputDir, { recursive: true });
 }
 
 // Function to process a single image
@@ -24,22 +34,24 @@ async function processImage(inputPath, outputPath) {
     const metadata = await sharp(inputPath).metadata();
     const width = metadata.width;
     
-    // Determine max width based on current size
-    let maxWidth = width;
-    if (width > 1920) maxWidth = 1920;
+    // Determine max width
+    let resizeWidth = width;
+    if (width > CONFIG.maxWidth) resizeWidth = CONFIG.maxWidth;
     
-    // Quality based on file type and size
-    let quality = 80;
-    if (ext === '.jpeg' || ext === '.jpg') {
-      quality = 75;
-    } else if (ext === '.png') {
-      quality = 85;
+    // Determine quality
+    let quality = CONFIG.jpegQuality;
+    if (ext === '.png') {
+      quality = CONFIG.pngQuality;
     }
     
     // Process to WebP
     await sharp(inputPath)
-      .resize(maxWidth, null, { withoutEnlargement: true })
-      .webp({ quality })
+      .resize(resizeWidth, null, { withoutEnlargement: true })
+      .webp({ 
+        quality,
+        effort: CONFIG.webpOptions.effort,
+        smartSubsample: CONFIG.webpOptions.smartSubsample
+      })
       .toFile(outputWebP);
       
     const inputStats = fs.statSync(inputPath);
@@ -65,6 +77,10 @@ async function processDirectory(inputPath, outputPath) {
   const items = fs.readdirSync(inputPath);
   const results = [];
   
+  // Identify source files to prevent duplicate processing of WebPs
+  const sources = items.filter(i => /\.(jpg|jpeg|png)$/i.test(i));
+  const sourceBasenames = new Set(sources.map(s => path.parse(s).name));
+  
   for (const item of items) {
     const inputItemPath = path.join(inputPath, item);
     const outputItemPath = path.join(outputPath, item);
@@ -75,13 +91,20 @@ async function processDirectory(inputPath, outputPath) {
       results.push(...dirResults);
     } else if (stat.isFile()) {
       const ext = path.extname(item).toLowerCase();
+      
       if (['.jpg', '.jpeg', '.png'].includes(ext)) {
         const result = await processImage(inputItemPath, outputItemPath);
         results.push(result);
       } else if (ext === '.webp') {
-        // Copy existing webp files
-        fs.copyFileSync(inputItemPath, outputItemPath);
-        console.log(`→ Copied ${item} (already WebP)`);
+        const baseName = path.parse(item).name;
+        
+        // Only copy WebP if no source file exists (prevent overwriting optimized version with unoptimized backup)
+        if (!sourceBasenames.has(baseName)) {
+           fs.copyFileSync(inputItemPath, outputItemPath);
+           console.log(`→ Copied ${item} (standalone WebP)`);
+        } else {
+           console.log(`  Skipping ${item} (re-optimizing from source)`);
+        }
       }
     }
   }
@@ -90,15 +113,15 @@ async function processDirectory(inputPath, outputPath) {
 }
 
 // Main execution
-console.log('🚀 Starting image optimization...\n');
-console.log(`Input: ${inputDir}`);
-console.log(`Output: ${outputDir}\n`);
+console.log('🚀 Starting Aggressive Image Optimization...\n');
+console.log(`Input: ${CONFIG.inputDir}`);
+console.log(`Output: ${CONFIG.outputDir}`);
+console.log(`Settings: Quality ${CONFIG.jpegQuality}, Effort ${CONFIG.webpOptions.effort}, MaxWidth ${CONFIG.maxWidth}\n`);
 
-const results = await processDirectory(inputDir, outputDir);
+const results = await processDirectory(CONFIG.inputDir, CONFIG.outputDir);
 const successful = results.filter(r => r.success).length;
 const failed = results.filter(r => !r.success).length;
 
 console.log(`\n✅ Optimization complete!`);
 console.log(`   Successful: ${successful}`);
 console.log(`   Failed: ${failed}`);
-
