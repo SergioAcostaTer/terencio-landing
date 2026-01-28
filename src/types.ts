@@ -10,7 +10,7 @@ export interface NewsItem {
       height: number;
       format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
     };
-    imageAlt?: string; // Added validation support
+    imageAlt: string; // Required for accessibility
     category: string;
     author?: string;
   };

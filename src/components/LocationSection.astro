@@ -1,0 +1,144 @@
+---
+import LocationMap from "./LocationMap.astro";
+import siteData from "../data/siteData.json";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+}
+
+const { 
+  title = "¿Nos vemos en Terencio?", 
+  subtitle = "Estamos muy cerca de ti, en la Carretera de La Esperanza."
+} = Astro.props;
+---
+
+<section class="py-16 bg-white border-t border-gray-100" id="ubicacion">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-gray-900 mb-2">{title}</h2>
+      <p class="text-gray-600 text-lg">{subtitle}</p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8 items-start">
+      <!-- Interactive Map (Takes up 2 cols on large screens) -->
+      <div class="lg:col-span-2 bg-gray-100 rounded-2xl overflow-hidden shadow-sm h-full min-h-[400px]">
+        <LocationMap heightClass="h-[400px] lg:h-full" />
+      </div>
+
+      <!-- Action Cards & Info -->
+      <div class="space-y-6">
+        
+        <!-- Navigation Card (Primary Action) -->
+        <div class="bg-green-700 text-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow transform hover:-translate-y-1 duration-300">
+           <h3 class="font-bold text-xl mb-2 flex items-center gap-2">
+             <span class="material-icons-outlined">near_me</span> Navegar con GPS
+           </h3>
+           <p class="text-green-100 mb-6 text-sm">La forma más rápida de llegar sin perderte. Te esperamos en el parking.</p>
+           <a href="https://www.google.com/maps/dir//Terencio+Cash+Market" target="_blank" rel="noopener noreferrer" class="block w-full bg-white text-green-800 font-extrabold text-center py-4 rounded-lg hover:bg-green-50 transition-colors uppercase tracking-wide">
+             Ir a la Tienda
+           </a>
+        </div>
+
+        <!-- Status Card (Dynamic) -->
+        <div id="location-status-card" class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+           <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+             <span class="material-icons-outlined text-gray-400" id="card-status-icon">schedule</span> Horario Hoy
+           </h3>
+           <div id="card-status-text" class="text-gray-600 font-medium">Consultando horario...</div>
+           <p class="text-xs text-gray-400 mt-2">Lunes a Sábado: 8:00 - 21:00<br>Domingos: 8:30 - 20:30</p>
+        </div>
+
+        <!-- Contact/Carniceria Card -->
+        <div class="grid grid-cols-2 gap-4">
+           <a href="tel:922550067" class="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:border-green-500 hover:bg-green-50 transition group text-center">
+              <span class="material-icons-outlined text-3xl text-gray-400 group-hover:text-green-600 mb-2">call</span>
+              <p class="font-bold text-gray-900 text-sm">Llamar</p>
+           </a>
+           <a href="/terencio-cash-market" class="bg-gray-50 p-4 rounded-xl border border-gray-200 hover:border-red-500 hover:bg-red-50 transition group text-center">
+              <span class="material-icons-outlined text-3xl text-gray-400 group-hover:text-red-600 mb-2">restaurant_menu</span>
+              <p class="font-bold text-gray-900 text-sm">Carnicería</p>
+           </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function updateCardStatus() {
+     // Canary Islands Timezone (Duplicate logic for standalone component independence)
+     const now = new Date();
+     const formatOptions: Intl.DateTimeFormatOptions = {
+       timeZone: 'Atlantic/Canary', hour: 'numeric', minute: 'numeric',
+       hour12: false, weekday: 'short', month: 'numeric', day: 'numeric'
+     };
+     const formatter = new Intl.DateTimeFormat('en-US', formatOptions);
+     const parts = formatter.formatToParts(now);
+     const getPart = (type: string) => parts.find(p => p.type === type)?.value;
+     
+     const day = parseInt(getPart('day') || '0');
+     const month = parseInt(getPart('month') || '0');
+     const hour = parseInt(getPart('hour') || '0');
+     const minute = parseInt(getPart('minute') || '0');
+     const weekday = getPart('weekday');
+
+     const isHoliday = (month === 12 && day === 25) || (month === 1 && day === 1) || (month === 1 && day === 6);
+     
+     const statusText = document.getElementById('card-status-text');
+     const statusIcon = document.getElementById('card-status-icon');
+     const card = document.getElementById('location-status-card');
+
+     if (!statusText || !statusIcon || !card) return;
+
+     let isOpen = false;
+     let text = "";
+     const currentTime = hour * 60 + minute;
+     const isSunday = weekday === 'Sun';
+     const openTime = isSunday ? 8 * 60 + 30 : 8 * 60; 
+     const closeTime = isSunday ? 20 * 60 + 30 : 21 * 60;
+
+     if (isHoliday) {
+        isOpen = false;
+        text = "Cerrado por Festivo";
+     } else {
+        if (currentTime >= openTime && currentTime < closeTime) {
+           isOpen = true;
+           const closeHour = Math.floor(closeTime / 60);
+           const closeMin = closeTime % 60;
+           text = `Abierto hasta las ${closeHour}:${closeMin.toString().padStart(2, '0')}`;
+        } else {
+           isOpen = false;
+           if (currentTime < openTime) {
+              const openHour = Math.floor(openTime / 60);
+              const openMin = openTime % 60;
+              text = `Abre a las ${openHour}:${openMin.toString().padStart(2, '0')}`;
+           } else {
+              text = "Cerrado ahora";
+           }
+        }
+     }
+
+     if (isOpen) {
+        statusText.classList.remove('text-gray-600', 'text-red-600');
+        statusText.classList.add('text-green-700');
+        statusIcon.classList.remove('text-gray-400');
+        statusIcon.classList.add('text-green-600');
+        statusIcon.textContent = "check_circle";
+        statusText.textContent = text;
+        card.classList.add('ring-2', 'ring-green-100');
+     } else {
+        statusText.classList.remove('text-green-700', 'text-gray-600');
+        statusText.classList.add('text-red-600');
+        statusIcon.classList.remove('text-green-600');
+        statusIcon.classList.add('text-red-400');
+        statusIcon.textContent = "schedule";
+        statusText.textContent = text;
+        card.classList.remove('ring-2', 'ring-green-100');
+     }
+  }
+
+  updateCardStatus();
+  setInterval(updateCardStatus, 60000); // Update every minute is enough for card
+</script>

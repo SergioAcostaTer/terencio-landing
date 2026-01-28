@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import supermercadoInterior from "../assets/images/supermercado-interior.webp";
 import Hero from "../components/Hero.astro";
-import LocationMap from "../components/LocationMap.astro";
+import LocationSection from "../components/LocationSection.astro";
 import NewsGrid from "../components/NewsGrid.astro";
 import Reviews from "../components/Reviews.astro";
 import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
@@ -19,12 +19,11 @@ const description = "Terencio Cash Market: Supermercado cerca de mi en La Espera
 ---
 
 <LocalBusinessSchema />
-<Layout title={title} description={description}>
+<Layout title={title} description={description} image={supermercadoInterior.src}>
   <main>
     <!-- El Hero ya contiene los H1 principales, mantenemos la estructura visual -->
     <Hero />
 
-    <!-- SECCIÓN: PILARES DE SERVICIO (SEO: Carnicería, El Hierro, Mayorista) -->
     <!-- SECCIÓN: PILARES DE SERVICIO (SEO: Carnicería, El Hierro, Mayorista) -->
     <Section class="bg-gray-50">
         <div class="text-center mb-16">
@@ -44,7 +43,6 @@ const description = "Terencio Cash Market: Supermercado cerca de mi en La Espera
         </div>
     </Section>
 
-    <!-- SECCIÓN: CATEGORÍAS SEO (Foco en términos con muchas impresiones) -->
     <!-- SECCIÓN: CATEGORÍAS SEO (Foco en términos con muchas impresiones) -->
     <Section class="bg-white">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -80,7 +78,6 @@ const description = "Terencio Cash Market: Supermercado cerca de mi en La Espera
     </Section>
 
     <!-- SECCIÓN: BLOG Y ACTUALIDAD (SEO: Consejos de ahorro y productos locales) -->
-    <!-- SECCIÓN: BLOG Y ACTUALIDAD (SEO: Consejos de ahorro y productos locales) -->
     <Section class="bg-gray-50 border-t border-gray-100">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
                 <div>
@@ -95,7 +92,6 @@ const description = "Terencio Cash Market: Supermercado cerca de mi en La Espera
             <NewsGrid maxItems={3} />
     </Section>
 
-    <!-- SECCIÓN: INTRODUCCIÓN ESTRATÉGICA (SEO: Supermercado en La Esperanza / La Laguna) -->
     <!-- SECCIÓN: INTRODUCCIÓN ESTRATÉGICA (SEO: Supermercado en La Esperanza / La Laguna) -->
     <Section class="bg-white">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -146,44 +142,7 @@ const description = "Terencio Cash Market: Supermercado cerca de mi en La Espera
     </Section>
 
     <!-- SECCIÓN: UBICACIÓN Y CONTACTO -->
-    <Section id="donde-estamos" class="bg-white">
-            <div class="grid lg:grid-cols-3 gap-12">
-              <div class="lg:col-span-1">
-                <h2 class="text-3xl font-bold text-gray-900 mb-6">Visítanos hoy mismo</h2>
-                <p class="text-gray-600 mb-8 leading-relaxed">
-                  Estamos situados en el corazón de <strong>La Esperanza</strong>, en una zona de fácil acceso y con aparcamiento gratuito para que realices tu compra sin prisas.
-                </p>
-                <div class="space-y-6">
-                  <div class="flex items-start gap-4">
-                    <span class="text-2xl">📍</span>
-                    <div>
-                      <p class="font-bold">Dirección</p>
-                      <p class="text-gray-600">Carretera de La Esperanza, 22</p>
-                      <p class="text-gray-600 text-sm">38206 La Esperanza, Tenerife</p>
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-4">
-                    <span class="text-2xl">📞</span>
-                    <div>
-                      <p class="font-bold">Teléfono</p>
-                      <a href="tel:922550067" class="text-brand-primary font-bold text-lg">922 55 00 67</a>
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-4">
-                    <span class="text-2xl">⏰</span>
-                    <div>
-                      <p class="font-bold">Horario de Apertura</p>
-                      <p class="text-gray-600">Lunes a Sábado: 08:00 - 21:00</p>
-                      <p class="text-gray-600">Domingos: 08:30 - 20:30</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="lg:col-span-2 rounded-3xl overflow-hidden shadow-2xl min-h-[400px]">
-                <LocationMap />
-              </div>
-            </div>
-    </Section>
+    <LocationSection title="Visítanos hoy mismo" subtitle="Estamos situados en el corazón de La Esperanza, con aparcamiento gratuito." />
 
     <Reviews />
   </main>

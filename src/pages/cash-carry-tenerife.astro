@@ -1,13 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import LocationMap from "../components/LocationMap.astro";
+import Layout from "../layouts/Layout.astro";
 
 const title = "Cash & Carry Tenerife | Mayorista de Alimentación y Bebidas";
 const description = "Tu Cash & Carry en Tenerife para hostelería y particulares. Encuentra los mejores precios en alimentación, bebidas y limpieza en Terencio Cash Market.";
 const canonical = "https://terencio.es/cash-carry-tenerife";
 ---
 
-<Layout title={title} description={description} canonical={canonical}>
+<Layout title={title} description={description} canonical={canonical} image="/store-local.jpg">
   <!-- Hero Section -->
   <section class="bg-gradient-to-br from-green-800 to-green-900 text-white py-20">
     <div class="container mx-auto px-4 text-center">
@@ -57,7 +57,6 @@ const canonical = "https://terencio.es/cash-carry-tenerife";
              src="/store-local.jpg" 
              alt="Pasillo de Terencio Cash Market" 
              class="rounded-xl shadow-lg w-full h-auto object-cover"
-             onerror="this.src='https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=2574&auto=format&fit=crop'"
            />
         </div>
         <div class="prose prose-green">

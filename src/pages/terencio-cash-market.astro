@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import localStoreImage from "../assets/supermercados-terencio.jpg";
-import LocationMap from "../components/LocationMap.astro";
+import LocationSection from "../components/LocationSection.astro";
 import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
@@ -12,7 +12,7 @@ const description = "Visita Terencio Cash Market en La Esperanza, Tenerife. Tu s
 const seoAddress = `${siteData.address.streetAddress}, ${siteData.address.addressLocality}`;
 ---
 
-<Layout title={title} description={description} canonical={`${siteData.url}/terencio-cash-market`}>
+<Layout title={title} description={description} canonical={`${siteData.url}/terencio-cash-market`} image={localStoreImage.src}>
   <!-- Hero Section con Keywords Principales -->
   <header class="relative bg-green-900 text-white py-20 overflow-hidden">
     <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/leaf.png')]"></div>
@@ -144,39 +144,7 @@ const seoAddress = `${siteData.address.streetAddress}, ${siteData.address.addres
   </section>
 
   <!-- Mapa y Contacto -->
-  <section id="contacto" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ubicación y Horarios</h2>
-        <p class="text-gray-600">Encuéntranos fácilmente en la carretera principal hacia el Monte de La Esperanza.</p>
-      </div>
-      
-      <div class="bg-gray-100 rounded-3xl overflow-hidden shadow-inner p-4">
-        <LocationMap />
-      </div>
-
-      <div class="mt-12 grid md:grid-cols-3 gap-8">
-        <div class="bg-gray-50 p-6 rounded-xl text-center">
-          <div class="text-green-700 text-3xl mb-4">📍 Dirección</div>
-          <p class="font-bold text-gray-800">{seoAddress}</p>
-          <p class="text-gray-500 text-sm">38206 La Esperanza, Santa Cruz de Tenerife</p>
-          <a href="https://www.google.com/maps/dir//Terencio+Cash+Market" target="_blank" class="text-green-700 font-bold underline mt-2 block">Abrir en Google Maps</a>
-        </div>
-        
-        <div class="bg-gray-50 p-6 rounded-xl text-center">
-          <div class="text-green-700 text-3xl mb-4">⏰ Horario Comercial</div>
-          <p class="text-gray-800">{siteData.hoursText}</p>
-          <p class="text-xs text-gray-500 mt-2 italic">*Consulta horarios especiales en festivos.</p>
-        </div>
-
-        <div class="bg-gray-50 p-6 rounded-xl text-center">
-          <div class="text-green-700 text-3xl mb-4">📞 Atención al Cliente</div>
-          <a href="tel:922550067" class="text-2xl font-bold text-gray-800 block hover:text-green-700">922 55 00 67</a>
-          <p class="text-sm text-gray-500 mt-2">¿Dudas sobre stock o precios al por mayor? ¡Llámanos!</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <LocationSection title="Ubicación y Horarios" subtitle="Encuéntranos fácilmente en la carretera principal hacia el Monte de La Esperanza." />
 
   <!-- FAQ Section para Snippets de Google -->
   <section class="py-16 bg-gray-50 border-t border-gray-200">

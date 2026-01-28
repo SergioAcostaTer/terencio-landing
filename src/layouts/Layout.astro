@@ -8,6 +8,8 @@ import { ViewTransitions } from "astro:transitions";
 import CookieBanner from "../components/CookieBanner.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import LocalBusinessSchema from '../components/LocalBusinessSchema.astro';
+import SEO from '../components/SEO.astro';
 import siteData from "../data/siteData.json";
 
 interface Props {
@@ -57,113 +59,24 @@ const breadcrumbsSchema = {
   ]
 };
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": siteData.name,
-  "legalName": siteData.legalName,
-  "image": [
-    `${siteData.url}/logo.png`,
-    `${siteData.url}/store-front.jpg`
-  ],
-  "@id": siteData.url,
-  "url": siteData.url,
-  "telephone": siteData.contact.phone,
-  "email": siteData.contact.email,
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": siteData.address.streetAddress,
-    "addressLocality": siteData.address.addressLocality,
-    "addressRegion": siteData.address.addressRegion,
-    "postalCode": siteData.address.postalCode,
-    "addressCountry": siteData.address.addressCountry
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": siteData.geo.latitude,
-    "longitude": siteData.geo.longitude
-  },
-  "openingHoursSpecification": siteData.hours.map(h => ({
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": h.dayOfWeek,
-    "opens": h.opens,
-    "closes": h.closes
-  })),
-  "priceRange": "€",
-  "department": [
-    {
-      "@type": "ButcherShop",
-      "name": "Carnicería Terencio",
-      "image": `${siteData.url}/assets/images/supermercado-interior.jpg`,
-      "telephone": siteData.contact.phone,
-      "openingHoursSpecification": siteData.hours.map(h => ({
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": h.dayOfWeek,
-        "opens": h.opens,
-        "closes": h.closes
-      }))
-    },
-    {
-       "@type": "WholesaleStore",
-       "name": "Terencio Cash & Carry",
-       "image": `${siteData.url}/store-local.jpg`,
-       "telephone": siteData.contact.phone,
-       "openingHoursSpecification": siteData.hours.map(h => ({
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": h.dayOfWeek,
-        "opens": h.opens,
-        "closes": h.closes
-      }))
-    }
-  ]
-};
 ---
 
 <!doctype html>
 <html lang="es" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <SEO 
+      title={title}
+      description={description}
+      ogImage={ogImage}
+      canonical={canonical}
+      type={type}
+      publishDate={publishDate}
+      author={author}
+      noindex={noindex}
+    />
 
-    <!-- SEO Meta Tags -->
-    <title>{title} | {siteData.name}</title>
-    <meta name="description" content={description} />
-    <meta name="author" content={siteData.name} />
-    <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex" />}
-
-    <!-- Open Graph -->
-    <meta property="og:type" content={type} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(socialImage, Astro.url)} />
-    <meta property="og:site_name" content={siteData.name} />
-    <meta property="og:locale" content="es_ES" />
-    {type === 'article' && (
-      <>
-        {publishDate && <meta property="article:published_time" content={publishDate} />}
-        {author && <meta property="article:author" content={author} />}
-      </>
-    )}
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonical} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(socialImage, Astro.url)} />
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#166534" />
-
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <!-- LocalBusiness Schema (JSON-LD) -->
+    <LocalBusinessSchema />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbsSchema)} />
 
     <!-- Google Fonts Removed (Using self-hosted @fontsource/outfit) -->
@@ -195,5 +108,6 @@ const schema = {
   
   html {
     font-family: 'Outfit', sans-serif;
+    font-display: swap;
   }
 </style>

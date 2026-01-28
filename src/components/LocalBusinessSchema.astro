@@ -1,0 +1,84 @@
+---
+import siteData from "../data/siteData.json";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness", // Using LocalBusiness as base, more specific types below
+  "name": siteData.name,
+  "legalName": siteData.legalName,
+  "image": [
+    // Ensure these are absolute URLs in siteData or handle here
+    `${siteData.url}/logo.png`,
+    `${siteData.url}/store-front.jpg`
+  ],
+  "@id": siteData.url,
+  "url": siteData.url,
+  "telephone": siteData.contact.phone,
+  "email": siteData.contact.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": siteData.address.streetAddress,
+    "addressLocality": siteData.address.addressLocality,
+    "addressRegion": siteData.address.addressRegion,
+    "postalCode": siteData.address.postalCode,
+    "addressCountry": siteData.address.addressCountry
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": siteData.geo.latitude,
+    "longitude": siteData.geo.longitude
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "La Esperanza"
+    },
+    {
+      "@type": "City",
+      "name": "San Cristóbal de La Laguna"
+    },
+    {
+      "@type": "City",
+      "name": "Santa Cruz de Tenerife"
+    },
+    {
+       "@type": "AdministrativeArea",
+       "name": "Tenerife"
+    }
+  ],
+  "openingHoursSpecification": siteData.hours.map(h => ({
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": h.dayOfWeek,
+    "opens": h.opens,
+    "closes": h.closes
+  })),
+  "priceRange": "€",
+  "department": [
+    {
+      "@type": "ButcherShop",
+      "name": "Carnicería Terencio",
+      "image": `${siteData.url}/assets/images/supermercado-interior.jpg`, // Check if this path is correct or needs adjustment
+      "telephone": siteData.contact.phone,
+      "openingHoursSpecification": siteData.hours.map(h => ({
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": h.dayOfWeek,
+        "opens": h.opens,
+        "closes": h.closes
+      }))
+    },
+    {
+       "@type": "WholesaleStore",
+       "name": "Terencio Cash & Carry",
+       "image": `${siteData.url}/store-local.jpg`,
+       "telephone": siteData.contact.phone,
+       "openingHoursSpecification": siteData.hours.map(h => ({
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": h.dayOfWeek,
+        "opens": h.opens,
+        "closes": h.closes
+      }))
+    }
+  ]
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

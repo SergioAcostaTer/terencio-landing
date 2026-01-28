@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import meatImage from "../assets/images/supermercado-interior.webp"; // Using interior as fallback/context
+import meatImage from "../assets/images-unoptimized/supermercado-interior.jpg"; // Using interior as fallback/context
 import Layout from "../layouts/Layout.astro";
 
 const title = "Carnicería en Tenerife | Carne al por mayor y corte propio";
@@ -8,7 +8,7 @@ const description = "Tu carnicería de confianza en Tenerife. Despiece propio, c
 const canonical = "https://terencio.es/carniceria-tenerife";
 ---
 
-<Layout title={title} description={description} canonical={canonical}>
+<Layout title={title} description={description} canonical={canonical} image={meatImage.src}>
   <!-- Hero Carnicería -->
   <section class="relative bg-red-900 text-white py-20 overflow-hidden">
     <div class="absolute inset-0 opacity-30 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')]"></div>

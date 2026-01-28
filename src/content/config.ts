@@ -21,7 +21,7 @@ const newsCollection = defineCollection({
     pubDate: z.date(),
     author: z.string(),
     image: image(),
-    imageAlt: z.string().optional(), // Made optional to prevent build failure on existing content
+    imageAlt: z.string(), // Required for accessibility
     tags: z.array(z.string()),
     category: z.string(),
     isBreaking: z.boolean().optional(),
