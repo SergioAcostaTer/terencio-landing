@@ -11,11 +11,14 @@ const CONFIG = {
   inputDir: path.join(__dirname, '../src/assets/images-unoptimized'),
   outputDir: path.join(__dirname, '../src/assets/images'),
   maxWidth: 1600,
-  jpegQuality: 65,  // Aggressive compression
+  jpegQuality: 60,  // Aggressive compression
   pngQuality: 80,
   webpOptions: {
     effort: 6,      // Max compression effort (slower but better)
     smartSubsample: true
+  },
+  overrides: {
+    'hero-bg': { jpegQuality: 50, maxWidth: 1280 }
   }
 };
 
@@ -34,14 +37,21 @@ async function processImage(inputPath, outputPath) {
     const metadata = await sharp(inputPath).metadata();
     const width = metadata.width;
     
+    // Check for overrides
+    const override = CONFIG.overrides[baseName];
+    
     // Determine max width
     let resizeWidth = width;
-    if (width > CONFIG.maxWidth) resizeWidth = CONFIG.maxWidth;
+    if (override && override.maxWidth) {
+      if (width > override.maxWidth) resizeWidth = override.maxWidth;
+    } else if (width > CONFIG.maxWidth) {
+      resizeWidth = CONFIG.maxWidth;
+    }
     
     // Determine quality
-    let quality = CONFIG.jpegQuality;
+    let quality = override && override.jpegQuality ? override.jpegQuality : CONFIG.jpegQuality;
     if (ext === '.png') {
-      quality = CONFIG.pngQuality;
+      quality = override && override.pngQuality ? override.pngQuality : CONFIG.pngQuality;
     }
     
     // Process to WebP
