@@ -1,4 +1,4 @@
----
+﻿---
 title: "Cosas para Hacer en El Hierro: Descubre la Isla del Meridiano"
 description: "Actividades y lugares imprescindibles para visitar en El Hierro."
 pubDate: 2024-07-30
@@ -33,7 +33,7 @@ El Ecomuseo de Guinea ofrece una oportunidad única de viajar en el tiempo. Situ
 
 Para apreciar la belleza y los contrastes de El Hierro, visita sus numerosos miradores. Desde el mirador de El Golfo, con su espectacular panorámica del valle y el manto de nubes, hasta el mirador de Isora, que ofrece impresionantes vistas de la depresión de Las Playas con sus acantilados. El mirador de Bascos permite observar el valle de El Golfo, el volcán Tanganasoga y, si el clima lo permite, la isla de La Palma en el horizonte.
 
-![Mirador Las Playas](../../assets/images/mirador_las_playas.png)
+![Mirador Las Playas](../../assets/images/mirador_las_playas.webp)
 
 ## Practicar Senderismo en la Ruta de los Volcanes
 

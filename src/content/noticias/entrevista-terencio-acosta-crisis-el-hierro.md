@@ -1,9 +1,9 @@
----
+﻿---
 title: "Terencio Acosta: 'Entramos más tarde en la crisis y saldremos también después'"
 description: "El responsable de una de las empresas más grandes de El Hierro analiza la situación económica de la isla, los retos del comercio insular y el futuro de la empresa familiar."
 pubDate: 2015-08-29
 author: "Diario de Avisos"
-image: "../../assets/images/terencio-acosta-entrevista.jpg"
+image: "../../assets/images/terencio-acosta-entrevista.webp"
 tags: ["El Hierro", "Entrevista", "Empresa Familiar", "Economía Local"]
 category: "Entrevistas"
 ---

@@ -1,9 +1,9 @@
----
+﻿---
 title: "Estudiantes de Bachillerato conocen de primera mano el funcionamiento de Terencio Cash Market"
 description: "Alumnos de 2º de Bachillerato del IES visitaron nuestras instalaciones en La Laguna para aprender sobre gestión empresarial, marketing y emprendimiento."
 pubDate: 2022-03-15
 author: "Equipo Terencio"
-image: "../../assets/images/visita-estudiantes-bachillerato.jpg"
+image: "../../assets/images/visita-estudiantes-bachillerato.webp"
 tags: ["Educación", "Emprendimiento", "La Laguna", "Formación"]
 category: "Responsabilidad Social"
 ---

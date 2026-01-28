@@ -1,6 +1,5 @@
 ---
 import "@fontsource/outfit"; // Defaults to weight 400
-import "@fontsource/outfit/300.css";
 import "@fontsource/outfit/600.css";
 import "@fontsource/outfit/700.css";
 import Analytics from "@vercel/analytics/astro";
@@ -165,6 +164,10 @@ const schema = {
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbsSchema)} />
 
     <!-- Google Fonts Removed (Using self-hosted @fontsource/outfit) -->
+
+    <!-- Resource Hints for Performance -->
+    <link rel="dns-prefetch" href="https://maps.google.com" />
+    <link rel="dns-prefetch" href="https://maps.googleapis.com" />
 
     <ViewTransitions />
   </head>

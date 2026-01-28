@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import supermercadoInterior from "../assets/images/supermercado-interior.jpg";
+import supermercadoInterior from "../assets/images/supermercado-interior.webp";
 import Hero from "../components/Hero.astro";
 import LocationMap from "../components/LocationMap.astro";
 import NewsGrid from "../components/NewsGrid.astro";
@@ -126,7 +126,9 @@ const description = "Terencio Cash Market: tu supermercado barato en La Esperanz
             src={supermercadoInterior} 
             alt="Interior de Terencio Cash Market: Ofertas en alimentación y droguería" 
             class="relative z-10 rounded-2xl shadow-2xl w-full h-auto"
-            width={600}
+            width={500}
+            quality={70}
+            loading="lazy"
             format="webp"
           />
           <div class="absolute -bottom-8 -right-8 bg-white p-8 rounded-2xl shadow-xl z-20 hidden md:block border border-gray-100 max-w-xs">

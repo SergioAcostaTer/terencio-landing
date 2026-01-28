@@ -1,9 +1,9 @@
----
+﻿---
 title: "Henry Acosta: La apuesta lagunera de Terencio Cash Market"
 description: "La empresa familiar originaria de El Hierro conquista La Laguna con cercanía, productos locales y una filosofia de trabajo que conecta con los clientes."
 pubDate: 2013-07-20
 author: "El Blog Oferoz"
-image: "../../assets/images/henry-acosta-terencio-laguna.jpg"
+image: "../../assets/images/henry-acosta-terencio-laguna.webp"
 tags: ["Emprendimiento", "La Laguna", "El Hierro", "Producto Local"]
 category: "Emprendedores Laguneros"
 ---

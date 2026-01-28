@@ -1,4 +1,4 @@
----
+﻿---
 title: "Guía Completa para Visitar El Hierro: Charcos, Buceo y más en 3, 5 o 7 Días"
 description: "Descubre todo lo que puedes ver y hacer en El Hierro, desde sus increíbles charcos naturales hasta sus espectaculares miradores y oportunidades de buceo."
 pubDate: 2024-07-30
