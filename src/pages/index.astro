@@ -12,50 +12,71 @@ const latestPosts = (await getCollection("blog"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 
-// Títulos optimizados para Search Console (Tenerife, La Esperanza, Mayorista)
-const title = "Terencio Cash Market | Supermercado y Mayorista en La Esperanza, Tenerife";
-const description = "Terencio Cash Market es tu supermercado barato en La Esperanza y mayorista de hostelería en Tenerife. Especialistas en carnicería fresca, productos canarios y ahorro familiar.";
+// Títulos optimizados para Search Console basados en clics e impresiones
+const title = "Terencio Cash Market | Supermercado en La Esperanza y Mayorista Tenerife";
+const description = "Terencio Cash Market: tu supermercado barato en La Esperanza y Cash & Carry líder cerca de La Laguna. Especialistas en carnicería selecta, productos de El Hierro y ahorro familiar sin tarjeta de socio.";
 ---
 
 <Layout title={title} description={description}>
   <main>
+    <!-- El Hero ya contiene los H1 principales, mantenemos la estructura visual -->
     <Hero />
 
-
-    <!-- INTRO EXTENDIDA: Para palabras clave de "Supermercado barato" y "La Laguna" -->
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+    <!-- SECCIÓN: INTRODUCCIÓN ESTRATÉGICA (SEO: Supermercado en La Esperanza / La Laguna) -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-            Tu compra inteligente en el <span class="text-green-700">Norte de Tenerife</span>
+          <span class="text-green-700 font-bold uppercase tracking-widest text-sm mb-2 block">Tu compra al mejor precio</span>
+          <h2 class="text-3xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+            Mucho más que un <span class="text-green-700">Supermercado en La Esperanza</span>
           </h2>
-          <div class="prose prose-lg text-gray-600">
+          <div class="prose prose-lg text-gray-600 mb-8">
             <p>
-              ¿Buscas un <strong>supermercado en La Esperanza</strong> con precios de almacén? En Terencio Cash Market combinamos la atención de una tienda de barrio con la potencia de un <strong>Cash and Carry</strong>.
+              En <strong>Terencio Cash Market</strong>, hemos revolucionado el concepto de compra en el norte de Tenerife. Ubicados estratégicamente cerca de <strong>San Cristóbal de La Laguna</strong>, ofrecemos un modelo híbrido único: la cercanía y frescura de un supermercado tradicional unida a los precios imbatibles de un <strong>Cash and Carry profesional</strong>.
             </p>
             <p>
-              Somos el proveedor de confianza para cientos de bares y restaurantes en <strong>San Cristóbal de La Laguna</strong> y Santa Cruz. Ofrecemos desde el despiece de carne fresca hasta productos de limpieza industrial, todo en un solo lugar con fácil aparcamiento.
+              ¿Buscas ahorro real sin complicaciones? A diferencia de otros grandes almacenes, en Terencio <strong>no necesitas tarjeta de socio</strong> para disfrutar de nuestras ofertas. Tanto si eres una familia que busca llenar la despensa como si eres un profesional del sector HORECA, aquí encontrarás calidad y servicio personalizado.
             </p>
           </div>
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a href="/ofertas" class="bg-red-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 shadow-md">Ver Ofertas Semanales</a>
-            <a href="/profesionales" class="border-2 border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold hover:bg-green-700 hover:text-white">Zona Mayorista</a>
+          <div class="flex flex-wrap gap-4">
+            <a href="/zona-profesionales" class="bg-green-700 text-white px-8 py-4 rounded-xl font-bold hover:bg-green-800 transition shadow-lg inline-flex items-center gap-2">
+              Servicios para Empresas 
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+            </a>
+            <a href="#donde-estamos" class="bg-gray-100 text-gray-800 px-8 py-4 rounded-xl font-bold hover:bg-gray-200 transition">
+              Ver ubicación exacta
+            </a>
           </div>
         </div>
+        
         <div class="relative">
-          <img src="/imagenes/supermercado-interior.webp" alt="Interior Terencio Supermercado" class="rounded-3xl shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2574&auto=format&fit=crop'">
-          <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden md:block border border-gray-100">
-            <p class="text-green-700 font-bold text-2xl">Ahorro real</p>
-            <p class="text-gray-500 text-sm">Sin necesidad de tarjeta de socio</p>
+          <div class="absolute -inset-4 bg-green-50 rounded-3xl rotate-3"></div>
+          <img 
+            src="/imagenes/supermercado-interior.webp" 
+            alt="Interior de Terencio Cash Market: Ofertas en alimentación y droguería" 
+            class="relative z-10 rounded-2xl shadow-2xl w-full h-auto"
+            onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2574&auto=format&fit=crop'"
+          >
+          <div class="absolute -bottom-8 -right-8 bg-white p-8 rounded-2xl shadow-xl z-20 hidden md:block border border-gray-100 max-w-xs">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-3xl">🛒</span>
+              <p class="font-bold text-gray-900 leading-tight">Sin pedido mínimo en tienda</p>
+            </div>
+            <p class="text-sm text-gray-500">Ven y compra lo que necesites, desde una unidad hasta palets completos.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICIOS -->
-    <section class="py-12">
+    <!-- SECCIÓN: PILARES DE SERVICIO (SEO: Carnicería, El Hierro, Mayorista) -->
+    <section class="py-16 bg-gray-50">
       <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Especialistas en lo que tú necesitas</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Seleccionamos cada producto pensando en la calidad y el ahorro de nuestros clientes en Tenerife y El Hierro.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map(service => (
             <ServiceCard 
               title={service.title} 
@@ -68,54 +89,92 @@ const description = "Terencio Cash Market es tu supermercado barato en La Espera
       </div>
     </section>
 
-        <!-- SECCIÓN ESTRATÉGICA: Categorías de mayor búsqueda (SEO Semántico) -->
-    <section class="py-12 bg-white">
+    <!-- SECCIÓN: CATEGORÍAS SEO (Foco en términos con muchas impresiones) -->
+    <section class="py-20 bg-white">
       <div class="container mx-auto px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-          <div class="group text-center p-4 border border-gray-100 rounded-2xl hover:bg-red-50 transition-colors">
-            <span class="text-4xl mb-2 block">🥩</span>
-            <h3 class="font-bold text-gray-900">Carnicería</h3>
-            <p class="text-xs text-gray-500">Cortes frescos diarios</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          
+          <div class="flex flex-col items-center text-center p-8 bg-red-50 rounded-3xl border border-red-100 group hover:shadow-xl transition">
+            <div class="text-6xl mb-6 group-hover:scale-110 transition">🥩</div>
+            <h3 class="text-2xl font-bold mb-4">Carnicería al Corte</h3>
+            <p class="text-gray-600 mb-6">Somos referentes en <strong>carnicería en La Laguna</strong> y La Esperanza. Ofrecemos despiece propio, carnes frescas diarias y preparaciones especiales para parrilladas y restaurantes.</p>
+            <span class="text-red-700 font-bold">Calidad Premium →</span>
           </div>
-          <div class="group text-center p-4 border border-gray-100 rounded-2xl hover:bg-green-50 transition-colors">
-            <span class="text-4xl mb-2 block">🍷</span>
-            <h3 class="font-bold text-gray-900">Bodega XL</h3>
-            <p class="text-xs text-gray-500">Vinos y Licores</p>
+
+          <div class="flex flex-col items-center text-center p-8 bg-green-50 rounded-3xl border border-green-100 group hover:shadow-xl transition">
+            <div class="text-6xl mb-6 group-hover:scale-110 transition">🚢</div>
+            <h3 class="text-2xl font-bold mb-4">Distribución El Hierro</h3>
+            <p class="text-gray-600 mb-6">Gestionamos la logística y suministro para <strong>supermercados en El Hierro</strong>. Somos el enlace directo para que el sabor de Valverde y Frontera llegue a tu mesa.</p>
+            <span class="text-green-700 font-bold">Expertos en Logística →</span>
           </div>
-          <div class="group text-center p-4 border border-gray-100 rounded-2xl hover:bg-yellow-50 transition-colors">
-            <span class="text-4xl mb-2 block">🧀</span>
-            <h3 class="font-bold text-gray-900">Productos Canarios</h3>
-            <p class="text-xs text-gray-500">Directo de las islas</p>
+
+          <div class="flex flex-col items-center text-center p-8 bg-blue-50 rounded-3xl border border-blue-100 group hover:shadow-xl transition">
+            <div class="text-6xl mb-6 group-hover:scale-110 transition">🏪</div>
+            <h3 class="text-2xl font-bold mb-4">Cash & Carry Tenerife</h3>
+            <p class="text-gray-600 mb-6">Venta al por mayor para autónomos y empresas. Formatos ahorro en droguería, bebidas y alimentación con stock garantizado para tu negocio.</p>
+            <span class="text-blue-700 font-bold">Precios Mayoristas →</span>
           </div>
-          <div class="group text-center p-4 border border-gray-100 rounded-2xl hover:bg-blue-50 transition-colors">
-            <span class="text-4xl mb-2 block">📦</span>
-            <h3 class="font-bold text-gray-900">Mayorista HORECA</h3>
-            <p class="text-xs text-gray-500">Formatos Ahorro</p>
-          </div>
+
         </div>
       </div>
     </section>
 
-
-    <!-- NOTICIAS Y BLOG -->
-    <section class="py-16 bg-white border-t border-gray-100">
+    <!-- SECCIÓN: BLOG Y ACTUALIDAD (SEO: Consejos de ahorro y productos locales) -->
+    <section class="py-20 bg-gray-50 border-t border-gray-100">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-10">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4 md:mb-0">Actualidad y Consejos de Ahorro</h2>
-                <a href="/blog" class="text-green-700 font-bold hover:underline flex items-center gap-2">Ir al Blog <span class="text-xl">→</span></a>
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Actualidad y Consejos de Ahorro</h2>
+                  <p class="text-gray-600">Descubre cómo optimizar tu cesta de la compra y conoce nuestras últimas novedades.</p>
+                </div>
+                <a href="/blog" class="mt-6 md:mt-0 inline-flex items-center gap-2 text-green-700 font-bold hover:translate-x-2 transition">
+                  Explorar todo el blog 
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
             </div>
             <NewsGrid />
         </div>
     </section>
 
-    <!-- MAPA -->
-    <section id="donde-estamos" class="py-16 bg-gray-50">
+    <!-- SECCIÓN: UBICACIÓN Y CONTACTO -->
+    <section id="donde-estamos" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-gray-900">Ubicación Estratégica</h2>
-                <p class="text-gray-600 mt-2">En la Carretera de La Esperanza, a 5 minutos de La Laguna.</p>
+            <div class="grid lg:grid-cols-3 gap-12">
+              <div class="lg:col-span-1">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Visítanos hoy mismo</h2>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                  Estamos situados en el corazón de <strong>La Esperanza</strong>, en una zona de fácil acceso y con aparcamiento gratuito para que realices tu compra sin prisas.
+                </p>
+                <div class="space-y-6">
+                  <div class="flex items-start gap-4">
+                    <span class="text-2xl">📍</span>
+                    <div>
+                      <p class="font-bold">Dirección</p>
+                      <p class="text-gray-600">Carretera de La Esperanza, 22</p>
+                      <p class="text-gray-600 text-sm">38206 La Esperanza, Tenerife</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4">
+                    <span class="text-2xl">📞</span>
+                    <div>
+                      <p class="font-bold">Teléfono</p>
+                      <a href="tel:922550067" class="text-green-700 font-bold text-lg">922 55 00 67</a>
+                    </div>
+                  </div>
+                  <div class="flex items-start gap-4">
+                    <span class="text-2xl">⏰</span>
+                    <div>
+                      <p class="font-bold">Horario de Apertura</p>
+                      <p class="text-gray-600">Lunes a Sábado: 08:30 - 20:30</p>
+                      <p class="text-gray-600">Domingos: 09:00 - 14:00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-2 rounded-3xl overflow-hidden shadow-2xl min-h-[400px]">
+                <LocationMap />
+              </div>
             </div>
-            <LocationMap />
         </div>
     </section>
 
