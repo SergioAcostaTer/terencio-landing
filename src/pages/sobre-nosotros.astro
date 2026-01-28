@@ -1,59 +1,120 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const title = "Quiénes Somos - Terencio Cash Market";
-const description = "La historia de Terencio Cash Market. De cadena de supermercados a especialistas líderes en Cash & Carry en Tenerife.";
+const title = "Quiénes Somos | Historia de Terencio Cash Market en Tenerife y El Hierro";
+const description = "Descubre la evolución de Terencio: desde nuestros orígenes como supermercados en El Hierro hasta convertirnos en el referente Cash & Carry en La Esperanza, Tenerife.";
 ---
 
 <Layout title={title} description={description}>
-  <div class="relative bg-green-900 text-white py-24">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Nuestra Historia</h1>
-      <p class="text-xl max-w-2xl mx-auto text-green-100">
-        Evolucionamos para darte mejor servicio. De los supermercados tradicionales al Cash & Carry moderno.
+  <!-- Hero Section con Branding Histórico -->
+  <div class="relative bg-green-900 text-white py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]"></div>
+    <div class="container mx-auto px-4 text-center relative z-10">
+      <span class="inline-block bg-green-700 text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-widest uppercase">Nuestra Trayectoria</span>
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">De Terencio Supermercados a <br class="hidden md:block" /> <span class="text-green-400">Terencio Cash Market</span></h1>
+      <p class="text-xl max-w-3xl mx-auto text-green-100 font-light leading-relaxed">
+        Evolucionamos para liderar el ahorro en Tenerife Norte, manteniendo intactos los valores de cercanía y calidad que nos vieron nacer.
       </p>
     </div>
   </div>
 
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4 max-w-4xl">
-      <div class="prose prose-lg mx-auto text-gray-600">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">La Evolución de Terencio</h2>
-        <p>
-          Durante años, la marca "Terencio Supermercados" fue sinónimo de cercanía y servicio en las Islas Canarias, con una fuerte presencia histórica que muchos recuerdan. Sin embargo, el mercado y las necesidades de nuestros clientes han cambiado, y nosotros con ellos.
-        </p>
-        <p>
-          Hoy, <strong>Terencio Cash Market</strong> concentra todos sus esfuerzos en un único y potente establecimiento ubicado en <strong>La Esperanza, Tenerife</strong>. 
-        </p>
-        
-        <div class="my-8 border-l-4 border-green-600 pl-6 italic bg-green-50 p-4 rounded-r-lg">
-          "Decidimos centralizar nuestra operativa para ofrecer precios más agresivos, mayor variedad de stock y un servicio especializado tanto para el profesional como para el particular."
+  <!-- Sección: Orígenes y El Hierro -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+        <div class="prose prose-lg text-gray-600">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Una tradición que late desde El Hierro</h2>
+          <p>
+            Muchos nos recuerdan por nuestra amplia red de establecimientos bajo la marca <strong>Terencio Supermercados</strong>. Nuestro origen se encuentra en la Isla del Meridiano, donde nos convertimos en el referente de alimentación para las familias herreñas.
+          </p>
+          <p>
+            Esa experiencia nos enseñó que la clave del éxito es el trato directo con el proveedor y el conocimiento profundo del producto local. Hoy, aunque nuestra operativa se ha transformado, seguimos siendo el puente principal para los <strong>productos de El Hierro en Tenerife</strong>, trayendo lo mejor de nuestra tierra a San Cristóbal de La Laguna.
+          </p>
         </div>
-
-        <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">¿Por qué este cambio?</h3>
-        <ul class="list-disc pl-5 space-y-2">
-          <li><strong>Especialización:</strong> Queríamos ser los mejores en un formato mixto (Supermercado + Mayorista).</li>
-          <li><strong>Optimización:</strong> Una sola ubicación nos permite gestionar mejor el producto fresco y reducir costes, lo que repercute en precios más bajos para ti.</li>
-          <li><strong>Enfoque Local:</strong> Apostamos 100% por Tenerife y por los productos de nuestra tierra.</li>
-        </ul>
-
-        <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Nuestro Compromiso Hoy</h3>
-        <p>
-          Aunque hemos cambiado, nuestros valores siguen intactos: trato cercano y familiar, honestidad en los precios y calidad en el producto. Te invitamos a conocer nuestras renovadas instalaciones en La Laguna y descubrir por qué Terencio sigue siendo tu casa.
-        </p>
+        <div class="relative">
+            <div class="absolute -inset-4 bg-yellow-100 rounded-3xl rotate-2"></div>
+            
+            <img 
+              src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2574&auto=format&fit=crop" 
+              alt="Legado de Supermercados Terencio" 
+              class="relative z-10 rounded-2xl shadow-xl w-full h-80 object-cover border-4 border-white"
+            />
+        </div>
       </div>
 
-      <div class="mt-12 text-center">
+      <!-- Sección: El Cambio Estratégico -->
+      <div class="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100">
+        <div class="max-w-3xl mx-auto">
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">La Especialización en La Esperanza</h3>
+          <div class="prose prose-lg text-gray-600 mx-auto">
+            <p class="mb-6">
+              En un mercado cada vez más competitivo, decidimos dar un paso valiente: centralizar nuestra pasión y conocimientos en un único y potente establecimiento en la <strong>Carretera de La Esperanza</strong>. 
+            </p>
+            <p class="mb-6">
+              ¿El objetivo? Convertirnos en un <strong>Cash Market híbrido</strong>. Queríamos que las familias de Tenerife Norte pudieran acceder a los mismos precios que los grandes restaurantes y hoteles de La Laguna. Al concentrar nuestra logística, hemos conseguido eliminar costes innecesarios y repercutir ese ahorro directamente en tu ticket de compra.
+            </p>
+            <div class="bg-white p-6 rounded-xl border-l-8 border-green-600 shadow-sm italic mb-6">
+              "No somos solo un supermercado barato en La Esperanza; somos un almacén de confianza abierto a todos, sin necesidad de carnets de socio ni cuotas mensuales."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Valores / Pilares -->
+      <div class="grid md:grid-cols-3 gap-8 mt-20">
+        <div class="text-center">
+          <div class="text-4xl mb-4">📍</div>
+          <h4 class="font-bold text-xl mb-2 text-gray-900">Ubicación Estratégica</h4>
+          <p class="text-gray-600 text-sm italic">Situados en la subida a La Esperanza, facilitamos la compra rápida para Tenerife Norte.</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-4">🚜</div>
+          <h4 class="font-bold text-xl mb-2 text-gray-900">Producto de Kilómetro 0</h4>
+          <p class="text-gray-600 text-sm italic">Colaboramos directamente con ganaderos y agricultores locales de las islas.</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-4">🤝</div>
+          <h4 class="font-bold text-xl mb-2 text-gray-900">Trato Profesional</h4>
+          <p class="text-gray-600 text-sm italic">Asesoramos a negocios HORECA como si fueran parte de nuestra propia familia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Cierre y Equipo -->
+  <section class="py-20 bg-white border-t border-gray-100">
+    <div class="container mx-auto px-4 max-w-4xl text-center">
+      <h2 class="text-3xl font-bold mb-8 text-gray-900">Ven a descubrir la Nueva Etapa de Terencio</h2>
+      <p class="text-lg text-gray-600 mb-12">
+        Te invitamos a visitar nuestras instalaciones renovadas. Descubre nuestra <strong>carnicería especializada</strong>, nuestra sección de <strong>venta al por mayor</strong> y el surtido más completo de productos canarios de la zona.
+      </p>
+      
+      <div class="relative group inline-block">
+        <div class="absolute -inset-1 bg-gradient-to-r from-green-600 to-green-400 rounded-xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
         <img 
-          src="/team.jpg" 
-          alt="Equipo de Terencio Cash Market" 
-          class="rounded-xl shadow-lg w-full h-[400px] object-cover mb-8"
-          onerror="this.src='https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=2670&auto=format&fit=crop'"
+          src="https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=2670&auto=format&fit=crop" 
+          alt="Equipo de Terencio Cash Market atendiendo a clientes" 
+          class="relative rounded-2xl shadow-2xl w-full h-[450px] object-cover border border-gray-200"
         />
-        <a href="/contacto" class="bg-green-700 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-800 transition">
-          Ven a conocernos
+      </div>
+
+      <div class="mt-12 flex flex-wrap justify-center gap-4">
+        <a href="/contacto" class="bg-green-700 text-white px-10 py-4 rounded-xl font-bold hover:bg-green-800 transition shadow-lg">
+          Contacta con nosotros
+        </a>
+        <a href="/" class="bg-white border border-gray-300 text-gray-800 px-10 py-4 rounded-xl font-bold hover:bg-gray-50 transition">
+          Volver al Inicio
         </a>
       </div>
+    </div>
+  </section>
+
+  <!-- Mensaje SEO Pie de Página -->
+  <section class="py-12 bg-gray-900 text-white text-center">
+    <div class="container mx-auto px-4">
+      <p class="text-gray-400 text-sm max-w-2xl mx-auto">
+        Terencio Cash Market: Herederos de la tradición de Supermercados Terencio en El Hierro y Tenerife. Especialistas en distribución mayorista y supermercado de cercanía en La Esperanza, San Cristóbal de La Laguna.
+      </p>
     </div>
   </section>
 </Layout>
