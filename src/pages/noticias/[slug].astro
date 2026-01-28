@@ -35,6 +35,30 @@ const currentUrl = Astro.url.href;
   publishDate={pubDate.toISOString()} 
   author={author}
 >
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": title,
+    "image": [
+      new URL(image.src, Astro.url).href
+    ],
+    "datePublished": pubDate.toISOString(),
+    "dateModified": pubDate.toISOString(),
+    "author": [{
+        "@type": "Person",
+        "name": author,
+        "url": "https://terencio.es"
+    }],
+    "publisher": {
+        "@type": "Organization",
+        "name": "Terencio Cash Market",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://terencio.es/logo.png"
+        }
+    }
+  })} />
   
   <article class="bg-white min-h-screen">
     
