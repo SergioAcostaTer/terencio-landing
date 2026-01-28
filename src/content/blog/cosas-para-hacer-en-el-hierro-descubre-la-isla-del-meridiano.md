@@ -19,7 +19,7 @@ Para descubrir la auténtica gastronomía local, nada mejor que sentarse a la me
 
 ## Probar (y Repetir) la Quesadilla
 
-No puedes irte de El Hierro sin probar su dulce más emblemático: la quesadilla, la cual podrás comprar en cualquiera de [nuestros establecimientos de Terencio Supermercados](/supermercados). Este pastelito, cuyo ingrediente principal es el queso de la isla, se enriquece con limón, canela, azúcar y anís. Se elabora siguiendo recetas tradicionales con variaciones según el taller artesanal.
+No puedes irte de El Hierro sin probar su dulce más emblemático: la quesadilla, la cual podrás comprar en cualquiera de [nuestros establecimientos de Terencio Supermercados](/productos-el-hierro-tenerife). Este pastelito, cuyo ingrediente principal es el queso de la isla, se enriquece con limón, canela, azúcar y anís. Se elabora siguiendo recetas tradicionales con variaciones según el taller artesanal.
 
 ![Quesadillas herreñas](../../assets/images/quesadillas.webp)
 

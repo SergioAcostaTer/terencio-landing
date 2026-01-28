@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import interiorImage from "../assets/images/supermercado-interior.webp";
 import localStoreImage from "../assets/supermercados-terencio.jpg";
 import LocationSection from "../components/LocationSection.astro";
 import siteData from "../data/siteData.json";
@@ -14,8 +15,15 @@ const seoAddress = `${siteData.address.streetAddress}, ${siteData.address.addres
 
 <Layout title={title} description={description} canonical={`${siteData.url}/terencio-cash-market`} image={localStoreImage.src}>
   <!-- Hero Section con Keywords Principales -->
-  <header class="relative bg-green-900 text-white py-20 overflow-hidden">
-    <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/leaf.png')]"></div>
+  <header class="relative bg-green-900 text-white py-24 overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+        <Image 
+            src={interiorImage} 
+            alt="Interior de Terencio Supermercado" 
+            class="w-full h-full object-cover opacity-20 filter brightness-50" 
+        />
+    </div>
     <div class="container mx-auto px-4 text-center relative z-10">
       <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">Terencio Cash Market</h1>
       <p class="text-xl md:text-2xl text-green-100 max-w-3xl mx-auto mb-8 font-light">

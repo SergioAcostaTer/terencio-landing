@@ -88,4 +88,4 @@ Termina tu viaje en lo más alto, literalmente.
 
 Si ya has vuelto de tu viaje y tienes "morriña" gastronómica, pásate por Terencio Cash Market en La Esperanza. Somos embajadores del producto herreño en Tenerife y tenemos stock de quesadillas, queso y vinos durante todo el año.
 
-👉 **Ver sección de Productos de El Hierro**
+👉 **[Ver sección de Productos de El Hierro](/productos-el-hierro-tenerife)**

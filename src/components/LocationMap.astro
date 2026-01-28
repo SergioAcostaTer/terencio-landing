@@ -1,7 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import mapPlaceholder from '../assets/images/map-placeholder.webp';
-
 interface Props {
   title?: string;
   className?: string;
@@ -9,60 +6,22 @@ interface Props {
 }
 
 const { 
-  title = "Ubicación Terencio Cash Market", 
+  title = "Mapa de ubicación Terencio Cash Market",
   className = "",
   heightClass = "h-[400px] md:h-[500px]"
 } = Astro.props;
 ---
-<section class={`w-full bg-gray-100 rounded-lg overflow-hidden shadow-md relative ${className}`} id="map-container">
-  <!-- Static Map Placeholder (Click to Load) -->
-  <div id="map-placeholder" class="relative cursor-pointer group">
-    <Image 
-      src={mapPlaceholder}
-      alt={`${title} - Click para cargar mapa interactivo`}
-      class={`w-full ${heightClass} object-cover`}
-      width={1200}
-      height={500}
-    />
-    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-      <div class="bg-white px-6 py-3 rounded-lg shadow-xl flex items-center gap-3 group-hover:scale-105 transition-transform">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-        <span class="font-bold text-gray-900">Haz clic para ver {title}</span>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Will be replaced with iframe on click -->
-  <div id="map-iframe-container" class="hidden"></div>
+<section class={`w-full bg-gray-100 rounded-lg overflow-hidden shadow-md relative ${className} ${heightClass}`} id="map-container">
+    <iframe 
+      src="https://maps.google.com/maps?q=Carr.+de+la+Esperanza,+22,+38206+La+Laguna&t=&z=15&ie=UTF8&iwloc=&output=embed"
+      width="100%"
+      height="100%"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title={title}
+      class="w-full h-full min-h-[400px]"
+    ></iframe>
 </section>
-
-<script>
-  const placeholder = document.getElementById('map-placeholder');
-  const iframeContainer = document.getElementById('map-iframe-container');
-  
-  placeholder?.addEventListener('click', () => {
-    // Create and load the iframe
-    const iframe = document.createElement('iframe');
-    iframe.src = "https://maps.google.com/maps?q=Carr.+de+la+Esperanza,+22,+38206+La+Laguna&t=&z=15&ie=UTF8&iwloc=&output=embed";
-    iframe.width = "100%";
-    iframe.height = "450";
-    iframe.style.border = "0";
-    iframe.allowFullscreen = true;
-    iframe.referrerPolicy = "no-referrer-when-downgrade";
-    iframe.title = "Mapa de ubicación Terencio Cash Market";
-    // Inherit height from parent container logic effectively by setting 100% height if parent has fixed height, 
-    // or we can set the class again. Ideally we want it to fill the container.
-    iframe.className = "w-full h-full min-h-[400px]"; 
-    
-    // Replace placeholder with iframe
-    iframeContainer?.appendChild(iframe);
-    iframeContainer?.classList.remove('hidden');
-    // Ensure container has height
-    iframeContainer?.classList.add('h-full');
-    placeholder?.classList.add('hidden');
-  });
-</script>
 

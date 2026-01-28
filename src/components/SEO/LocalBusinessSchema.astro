@@ -40,27 +40,12 @@ const schema = {
     "latitude": 28.473194290645235,
     "longitude": -16.33765692208819
   },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ],
-      "opens": "08:00",
-      "closes": "21:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Sunday",
-      "opens": "08:30",
-      "closes": "20:30"
-    }
-  ],
+  "openingHoursSpecification": siteData.hours.map(h => ({
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": h.dayOfWeek,
+    "opens": h.opens,
+    "closes": h.closes
+  })),
   "sameAs": [
     "https://www.facebook.com/TerencioCashMarket/",
     "https://www.instagram.com/terenciosupermercados"

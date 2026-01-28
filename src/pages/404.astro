@@ -1,4 +1,5 @@
 ---
+import Button from '../components/ui/Button.astro';
 import Layout from '../layouts/Layout.astro';
 
 const title = "Página no encontrada - Terencio Cash Market";
@@ -10,12 +11,12 @@ const title = "Página no encontrada - Terencio Cash Market";
     <h2 class="text-2xl font-bold text-gray-900 mt-4">Vaya, parece que te has perdido en el pasillo</h2>
     <p class="text-gray-600 mt-2">La página que buscas no existe o ha sido movida.</p>
     <div class="mt-8 flex flex-col sm:flex-row gap-4">
-       <a href="/" class="bg-green-700 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-800 transition">
+       <Button href="/" variant="primary">
          Volver al inicio
-       </a>
-       <a href="/contacto" class="bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-bold hover:bg-gray-200 transition">
+       </Button>
+       <Button href="/contacto" variant="outline">
          Contactar
-       </a>
+       </Button>
     </div>
   </div>
 </Layout>

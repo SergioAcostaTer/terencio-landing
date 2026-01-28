@@ -12,7 +12,7 @@ isBreaking: true
 
 # Terencio da un paso decisivo hacia la sostenibilidad energética
 
-En **Terencio Supermercados** hemos dado un paso firme y decidido hacia el futuro con una **inversión millonaria en infraestructura de energía renovable**. Nuestras instalaciones de La Esperanza, en Tenerife, cuentan ahora con un sistema fotovoltaico de última generación que marca un antes y un después en nuestra forma de operar.
+En **Terencio Supermercados** hemos dado un paso firme y decidido hacia el futuro con una **inversión millonaria en infraestructura de energía renovable**. Nuestras instalaciones de [La Esperanza (ver ubicación)](/terencio-cash-market#ubicacion), en Tenerife, cuentan ahora con un sistema fotovoltaico de última generación que marca un antes y un después en nuestra forma de operar.
 
 ## Más de 100 placas solares en nuestras cubiertas
 
