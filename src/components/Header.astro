@@ -1,6 +1,8 @@
 ---
 import siteData from "../data/siteData.json";
+import navigation from "../data/navigation.json";
 import StoreStatus from "./StoreStatus.astro";
+import Icon from "./ui/Icon";
 import { Image } from "astro:assets";
 import logo from "../assets/images/logo.webp";
 ---
@@ -21,15 +23,36 @@ import logo from "../assets/images/logo.webp";
 
     <!-- Desktop Menu -->
     <nav class="hidden md:flex items-center gap-6 lg:gap-8">
-      <a href="/" class="text-gray-700 hover:text-green-700 font-semibold transition-colors text-sm lg:text-base">Inicio</a>
-      <a href="/ofertas" class="text-red-600 hover:text-red-700 font-bold transition-colors text-sm lg:text-base">Ofertas</a>
-      <a href="/profesionales" class="text-gray-700 hover:text-green-700 font-semibold transition-colors text-sm lg:text-base">Profesionales</a>
-      <a href="/terencio-cash-market" class="text-gray-700 hover:text-green-700 font-semibold transition-colors text-sm lg:text-base">Supermercado</a>
-      <a href="/noticias" class="text-gray-700 hover:text-green-700 font-semibold transition-colors text-sm lg:text-base">Noticias</a>
-      <a href="/blog" class="text-gray-700 hover:text-green-700 font-semibold transition-colors text-sm lg:text-base">Blog</a>
-      <a href="/sobre-nosotros" class="text-gray-700 hover:text-green-700 font-semibold transition-colors text-sm lg:text-base">Nosotros</a>
-      <a href="/contacto" class="bg-green-700 text-white px-5 py-2 rounded-lg font-bold hover:bg-green-800 transition-colors shadow-md hover:shadow-lg text-sm lg:text-base ml-2">
-        Contacto
+      {navigation.main.map(link => (
+        <div class="relative group">
+          <a 
+            href={link.href} 
+            class:list={[
+              "text-sm lg:text-base font-semibold transition-colors flex items-center gap-1",
+              link.color === 'red' ? "text-red-600 hover:text-red-700 font-bold" : "text-gray-700 hover:text-green-700"
+            ]}
+          >
+            {link.label}
+            {link.children && <Icon name="ChevronDown" size={16} className="mt-0.5 group-hover:rotate-180 transition-transform" />}
+          </a>
+          
+          {/* Dropdown Menu */}
+          {link.children && (
+            <div class="absolute top-full left-0 bg-white shadow-xl rounded-xl border border-gray-100 py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+              {link.children.map(child => (
+                <a href={child.href} class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-700 text-sm">
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+      <a 
+        href={navigation.cta.href} 
+        class="bg-green-700 text-white px-5 py-2 rounded-lg font-bold hover:bg-green-800 transition-colors shadow-md hover:shadow-lg text-sm lg:text-base ml-2"
+      >
+        {navigation.cta.label}
       </a>
     </nav>
 
@@ -46,16 +69,40 @@ import logo from "../assets/images/logo.webp";
   <!-- Mobile Menu Dropdown -->
   <div id="mobile-menu" class="fixed top-[80px] left-0 w-full h-[calc(100vh-80px)] bg-white z-40 transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto">
     <div class="flex flex-col p-6 gap-6">
-      <a href="/" class="text-xl font-semibold text-gray-800 mobile-link border-b border-gray-100 pb-2">Inicio</a>
-      <a href="/ofertas" class="text-xl font-bold text-red-600 mobile-link border-b border-gray-100 pb-2">🔥 Ofertas</a>
-      <a href="/profesionales" class="text-xl font-semibold text-gray-800 mobile-link border-b border-gray-100 pb-2">Zona Profesionales</a>
-      <a href="/terencio-cash-market" class="text-xl font-semibold text-gray-800 mobile-link border-b border-gray-100 pb-2">Supermercado</a>
-      <a href="/noticias" class="text-xl font-semibold text-gray-800 mobile-link border-b border-gray-100 pb-2">Noticias</a>
-      <a href="/blog" class="text-xl font-semibold text-gray-800 mobile-link border-b border-gray-100 pb-2">Blog</a>
-      <a href="/sobre-nosotros" class="text-xl font-semibold text-gray-800 mobile-link border-b border-gray-100 pb-2">Quiénes Somos</a>
-      <a href="/trabaja-con-nosotros" class="text-xl font-semibold text-gray-800 mobile-link border-b border-gray-100 pb-2">Trabaja con Nosotros</a>
-      <a href="/atencion-al-cliente" class="text-xl font-semibold text-gray-800 mobile-link border-b border-gray-100 pb-2">Atención al Cliente</a>
-      <a href="/contacto" class="text-xl font-bold text-white bg-green-700 px-4 py-3 rounded-lg text-center mt-4 mobile-link">Contactar</a>
+      {navigation.main.map(link => (
+        <div>
+          <a 
+            href={link.href} 
+            class:list={[
+              "text-xl mobile-link pb-2 block",
+              link.color === 'red' ? "font-bold text-red-600" : "font-semibold text-gray-800"
+            ]}
+          >
+            {link.label}
+          </a>
+          {/* Mobile Submenu */}
+          {link.children && (
+            <div class="pl-4 border-l-2 border-gray-100 mt-2 flex flex-col gap-3">
+              {link.children.map(child => (
+                 <a href={child.href} class="text-base text-gray-600 mobile-link block py-1">
+                   {child.label}
+                 </a>
+              ))}
+            </div>
+          )}
+          <div class="border-b border-gray-100 mt-2"></div>
+        </div>
+      ))}
+      
+      {navigation.mobileExtra.map(link => (
+        <a href={link.href} class="text-xl font-semibold text-gray-800 mobile-link border-b border-gray-100 pb-2">
+          {link.label}
+        </a>
+      ))}
+
+      <a href={navigation.cta.href} class="text-xl font-bold text-white bg-green-700 px-4 py-3 rounded-lg text-center mt-4 mobile-link">
+        {navigation.cta.label}
+      </a>
       
       <div class="mt-8 text-center text-gray-500 text-sm">
          <p class="mb-2">Llámanos</p>

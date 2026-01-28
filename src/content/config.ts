@@ -8,6 +8,7 @@ const blogCollection = defineCollection({
     pubDate: z.date(),
     author: z.string().default('Terencio Cash Market'),
     image: image().optional(),
+    imageAlt: z.string().optional(), // Added for accessibility
     tags: z.array(z.string()).optional(),
   }),
 });
@@ -20,6 +21,7 @@ const newsCollection = defineCollection({
     pubDate: z.date(),
     author: z.string(),
     image: image(),
+    imageAlt: z.string().optional(), // Made optional to prevent build failure on existing content
     tags: z.array(z.string()),
     category: z.string(),
     isBreaking: z.boolean().optional(),

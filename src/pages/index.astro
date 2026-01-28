@@ -6,6 +6,9 @@ import LocationMap from "../components/LocationMap.astro";
 import NewsGrid from "../components/NewsGrid.astro";
 import Reviews from "../components/Reviews.astro";
 import ServiceCard from "../components/ServiceCard.astro";
+import Button from "../components/ui/Button.astro";
+import Icon from "../components/ui/Icon";
+import Section from "../components/ui/Section.astro";
 import services from "../data/services.json";
 import Layout from "../layouts/Layout.astro";
 
@@ -20,8 +23,8 @@ const description = "Terencio Cash Market: tu supermercado barato en La Esperanz
     <Hero />
 
     <!-- SECCIÓN: PILARES DE SERVICIO (SEO: Carnicería, El Hierro, Mayorista) -->
-    <section class="py-16 bg-gray-50">
-      <div class="container mx-auto px-4">
+    <!-- SECCIÓN: PILARES DE SERVICIO (SEO: Carnicería, El Hierro, Mayorista) -->
+    <Section class="bg-gray-50">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Especialistas en lo que tú necesitas</h2>
           <p class="text-gray-600 max-w-2xl mx-auto">Seleccionamos cada producto pensando en la calidad y el ahorro de nuestros clientes en Tenerife y El Hierro.</p>
@@ -37,12 +40,11 @@ const description = "Terencio Cash Market: tu supermercado barato en La Esperanz
             />
           ))}
         </div>
-      </div>
-    </section>
+    </Section>
 
     <!-- SECCIÓN: CATEGORÍAS SEO (Foco en términos con muchas impresiones) -->
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-4">
+    <!-- SECCIÓN: CATEGORÍAS SEO (Foco en términos con muchas impresiones) -->
+    <Section class="bg-white">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
           
           <a href="/terencio-cash-market#contacto" class="block cursor-pointer group">
@@ -50,7 +52,7 @@ const description = "Terencio Cash Market: tu supermercado barato en La Esperanz
               <div class="text-6xl mb-6 group-hover:scale-110 transition">🥩</div>
               <h3 class="text-2xl font-bold mb-4">Carnicería al Corte</h3>
               <p class="text-gray-600 mb-6">Somos referentes en <strong>carnicería en La Laguna</strong> y La Esperanza. Ofrecemos despiece propio, carnes frescas diarias y preparaciones especiales para parrilladas y restaurantes.</p>
-              <span class="text-red-700 font-bold">Calidad Premium →</span>
+              <span class="text-brand-secondary font-bold">Calidad Premium →</span>
             </div>
           </a>
 
@@ -73,33 +75,32 @@ const description = "Terencio Cash Market: tu supermercado barato en La Esperanz
           </a>
 
         </div>
-      </div>
-    </section>
+    </Section>
 
     <!-- SECCIÓN: BLOG Y ACTUALIDAD (SEO: Consejos de ahorro y productos locales) -->
-    <section class="py-20 bg-gray-50 border-t border-gray-100">
-        <div class="container mx-auto px-4">
+    <!-- SECCIÓN: BLOG Y ACTUALIDAD (SEO: Consejos de ahorro y productos locales) -->
+    <Section class="bg-gray-50 border-t border-gray-100">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
                 <div>
                   <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Actualidad y Consejos de Ahorro</h2>
                   <p class="text-gray-600">Descubre cómo optimizar tu cesta de la compra y conoce nuestras últimas novedades.</p>
                 </div>
-                <a href="/blog" class="mt-6 md:mt-0 inline-flex items-center gap-2 text-green-700 font-bold hover:translate-x-2 transition">
+                <Button href="/blog" variant="ghost" class="mt-6 md:mt-0 gap-2">
                   Explorar todo el blog 
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </a>
+                  <Icon name="ArrowRight" size={20} />
+                </Button>
             </div>
             <NewsGrid maxItems={3} />
-        </div>
-    </section>
+    </Section>
 
     <!-- SECCIÓN: INTRODUCCIÓN ESTRATÉGICA (SEO: Supermercado en La Esperanza / La Laguna) -->
-    <section class="py-20 bg-white">
-      <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+    <!-- SECCIÓN: INTRODUCCIÓN ESTRATÉGICA (SEO: Supermercado en La Esperanza / La Laguna) -->
+    <Section class="bg-white">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <span class="text-green-700 font-bold uppercase tracking-widest text-sm mb-2 block">Tu compra al mejor precio</span>
+          <span class="text-brand-primary font-bold uppercase tracking-widest text-sm mb-2 block">Tu compra al mejor precio</span>
           <h2 class="text-3xl lg:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-            Mucho más que un <span class="text-green-700">Supermercado en La Esperanza</span>
+            Mucho más que un <span class="text-brand-primary">Supermercado en La Esperanza</span>
           </h2>
           <div class="prose prose-lg text-gray-600 mb-8">
             <p>
@@ -110,18 +111,18 @@ const description = "Terencio Cash Market: tu supermercado barato en La Esperanz
             </p>
           </div>
           <div class="flex flex-wrap gap-4">
-            <a href="/profesionales" class="bg-green-700 text-white px-8 py-4 rounded-xl font-bold hover:bg-green-800 transition shadow-lg inline-flex items-center gap-2">
+            <Button href="/profesionales" variant="primary" class="gap-2">
               Servicios para Empresas 
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-            </a>
-            <a href="#donde-estamos" class="bg-gray-100 text-gray-800 px-8 py-4 rounded-xl font-bold hover:bg-gray-200 transition">
+              <Icon name="Briefcase" size={20} />
+            </Button>
+            <Button href="#donde-estamos" variant="ghost" class="bg-gray-100 hover:bg-gray-200 text-gray-800">
               Ver ubicación exacta
-            </a>
+            </Button>
           </div>
         </div>
         
         <div class="relative">
-          <div class="absolute -inset-4 bg-green-50 rounded-3xl rotate-3"></div>
+          <div class="absolute -inset-4 bg-brand-light rounded-3xl rotate-3"></div>
           <Image 
             src={supermercadoInterior} 
             alt="Interior de Terencio Cash Market: Ofertas en alimentación y droguería" 
@@ -140,11 +141,10 @@ const description = "Terencio Cash Market: tu supermercado barato en La Esperanz
           </div>
         </div>
       </div>
-    </section>
+    </Section>
 
     <!-- SECCIÓN: UBICACIÓN Y CONTACTO -->
-    <section id="donde-estamos" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
+    <Section id="donde-estamos" class="bg-white">
             <div class="grid lg:grid-cols-3 gap-12">
               <div class="lg:col-span-1">
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">Visítanos hoy mismo</h2>
@@ -164,7 +164,7 @@ const description = "Terencio Cash Market: tu supermercado barato en La Esperanz
                     <span class="text-2xl">📞</span>
                     <div>
                       <p class="font-bold">Teléfono</p>
-                      <a href="tel:922550067" class="text-green-700 font-bold text-lg">922 55 00 67</a>
+                      <a href="tel:922550067" class="text-brand-primary font-bold text-lg">922 55 00 67</a>
                     </div>
                   </div>
                   <div class="flex items-start gap-4">
@@ -181,8 +181,7 @@ const description = "Terencio Cash Market: tu supermercado barato en La Esperanz
                 <LocationMap />
               </div>
             </div>
-        </div>
-    </section>
+    </Section>
 
     <Reviews />
   </main>

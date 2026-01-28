@@ -6,6 +6,7 @@ import logo from "../assets/logo.png";
 import sub4 from "../assets/next-generation-eu.png";
 import sub3 from "../assets/plan-recuperacion-espana.png";
 import sub1 from "../assets/subvencion-gobierno-canarias.png";
+import navigation from "../data/navigation.json";
 import siteData from "../data/siteData.json";
 const year = new Date().getFullYear();
 ---
@@ -13,7 +14,7 @@ const year = new Date().getFullYear();
 <footer class="bg-gray-900 text-gray-300 py-12 border-t-4 border-green-700">
   <div class="container mx-auto px-4 lg:px-6">
     
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
       
       <!-- Brand & Address -->
       <div class="flex flex-col gap-4">
@@ -41,15 +42,9 @@ const year = new Date().getFullYear();
       <div class="flex flex-col gap-4">
         <h3 class="text-white text-lg font-bold border-b border-gray-700 pb-2 w-fit">Enlaces Rápidos</h3>
         <ul class="space-y-2 text-sm">
-          <li><a href="/terencio-cash-market" class="hover:text-green-500 transition-colors">Supermercado</a></li>
-          <li><a href="/profesionales" class="hover:text-green-500 transition-colors">Profesionales y HORECA</a></li>
-          <li><a href="/ofertas" class="hover:text-green-500 transition-colors">Ofertas Semanales</a></li>
-          <li><a href="/sobre-nosotros" class="hover:text-green-500 transition-colors">Quiénes Somos</a></li>
-          <li><a href="/faq" class="hover:text-green-500 transition-colors">Preguntas Frecuentes</a></li>
-          <li><a href="/contacto" class="hover:text-green-500 transition-colors">Contacto</a></li>
-          <li><a href="/noticias" class="hover:text-green-500 transition-colors">Noticias Corporativas</a></li>
-          <li><a href="/blog" class="hover:text-green-500 transition-colors">Blog</a></li>
-          <li><a href="/sitemap-index.xml" class="hover:text-green-500 transition-colors">Mapa del sitio</a></li>
+          {navigation.footer.quickLinks.map(link => (
+            <li><a href={link.href} class="hover:text-green-500 transition-colors">{link.label}</a></li>
+          ))}
         </ul>
       </div>
 
@@ -60,6 +55,16 @@ const year = new Date().getFullYear();
           <li class="flex flex-col gap-1">
             <span class="text-white font-medium">{siteData.hoursText}</span>
           </li>
+        </ul>
+      </div>
+
+     {/* Destacados Column */}
+     <div class="flex flex-col gap-4">
+        <h3 class="text-white text-lg font-bold border-b border-gray-700 pb-2 w-fit">Destacados</h3>
+        <ul class="space-y-2 text-sm">
+          {navigation.footer.featured.map(link => (
+            <li><a href={link.href} class="hover:text-green-500 transition-colors">{link.label}</a></li>
+          ))}
         </ul>
       </div>
     </div>

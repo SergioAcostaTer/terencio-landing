@@ -1,0 +1,126 @@
+{
+  "main": [
+    {
+      "label": "Inicio",
+      "href": "/"
+    },
+    {
+      "label": "Ofertas",
+      "href": "/ofertas",
+      "highlight": true,
+      "color": "red"
+    },
+    {
+      "label": "Profesionales",
+      "href": "/profesionales"
+    },
+    {
+      "label": "Supermercado",
+      "href": "/terencio-cash-market",
+      "children": [
+        {
+          "label": "Carnicería",
+          "href": "/terencio-cash-market#carniceria"
+        },
+        {
+          "label": "Charcutería",
+          "href": "/terencio-cash-market#charcuteria"
+        },
+        {
+          "label": "Frutería",
+          "href": "/terencio-cash-market#fruteria"
+        },
+        {
+          "label": "Bodega",
+          "href": "/terencio-cash-market#bodega"
+        }
+      ]
+    },
+    {
+      "label": "Noticias",
+      "href": "/noticias"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog"
+    },
+    {
+      "label": "Nosotros",
+      "href": "/sobre-nosotros"
+    }
+  ],
+  "cta": {
+    "label": "Contacto",
+    "href": "/contacto"
+  },
+  "mobileExtra": [
+    {
+      "label": "Trabaja con Nosotros",
+      "href": "/trabaja-con-nosotros"
+    },
+    {
+      "label": "Atención al Cliente",
+      "href": "/atencion-al-cliente"
+    }
+  ],
+  "footer": {
+    "quickLinks": [
+      {
+        "label": "Supermercado",
+        "href": "/terencio-cash-market"
+      },
+      {
+        "label": "Profesionales y HORECA",
+        "href": "/profesionales"
+      },
+      {
+        "label": "Ofertas Semanales",
+        "href": "/ofertas"
+      },
+      {
+        "label": "Quiénes Somos",
+        "href": "/sobre-nosotros"
+      },
+      {
+        "label": "Preguntas Frecuentes",
+        "href": "/faq"
+      }
+    ],
+    "featured": [
+      {
+        "label": "Carnicería Tenerife",
+        "href": "/terencio-cash-market#carniceria"
+      },
+      {
+        "label": "Compra Mayorista",
+        "href": "/profesionales"
+      },
+      {
+        "label": "Vinos Canarios",
+        "href": "/terencio-cash-market#bodega"
+      },
+      {
+        "label": "Blog de Ahorro",
+        "href": "/blog"
+      }
+    ],
+    "legal": [
+      {
+        "label": "Aviso Legal",
+        "href": "/aviso-legal"
+      },
+      {
+        "label": "Política de Privacidad",
+        "href": "/politica-privacidad"
+      },
+      {
+        "label": "Cookies",
+        "href": "/cookies"
+      },
+      {
+        "label": "Mapa del sitio",
+        "href": "/sitemap-index.xml"
+      }
+    ]
+  }
+}

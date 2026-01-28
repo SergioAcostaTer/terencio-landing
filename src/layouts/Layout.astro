@@ -19,6 +19,7 @@ interface Props {
   type?: "website" | "article";
   publishDate?: string;
   author?: string;
+  noindex?: boolean;
 }
 
 const { 
@@ -29,7 +30,8 @@ const {
   canonical = Astro.url.href,
   type = "website",
   publishDate,
-  author
+  author,
+  noindex = false
 } = Astro.props;
 
 // Use ogImage if provided, fallback to image, then default
@@ -129,6 +131,7 @@ const schema = {
     <meta name="description" content={description} />
     <meta name="author" content={siteData.name} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
 
     <!-- Open Graph -->
     <meta property="og:type" content={type} />

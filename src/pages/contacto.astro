@@ -1,5 +1,8 @@
 ---
+import ContactForm from "../components/forms/ContactForm";
 import LocationMap from "../components/LocationMap.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
+import Section from "../components/ui/Section.astro";
 import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
@@ -8,15 +11,12 @@ const description = "Contacta con Terencio Cash Market. Teléfono, email, ubicac
 ---
 
 <Layout title={title} description={description}>
-  <div class="bg-gray-100 py-12">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl font-bold text-gray-900 mb-2">Contacto</h1>
-      <p class="text-gray-600">Estamos aquí para ayudarte. Visítanos o escríbenos.</p>
-    </div>
-  </div>
+  <PageHeader 
+    title="Contacto" 
+    subtitle="Estamos aquí para ayudarte. Visítanos o escríbenos."
+  />
 
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4 max-w-6xl">
+  <Section class="bg-white">
        <div class="grid lg:grid-cols-2 gap-12">
          
          <!-- Contact Info -->
@@ -25,7 +25,7 @@ const description = "Contacta con Terencio Cash Market. Teléfono, email, ubicac
                <h2 class="text-2xl font-bold text-gray-900 mb-6">Información de Contacto</h2>
                <div class="space-y-6">
                  <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 flex-shrink-0">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-brand-primary flex-shrink-0">
                        <span class="material-icons-outlined">place</span>
                     </div>
                     <div>
@@ -37,32 +37,32 @@ const description = "Contacta con Terencio Cash Market. Teléfono, email, ubicac
                  </div>
 
                  <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 flex-shrink-0">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-brand-primary flex-shrink-0">
                        <span class="material-icons-outlined">phone</span>
                     </div>
                     <div>
                        <h3 class="font-bold text-gray-900 text-lg">Teléfono</h3>
                        <p class="text-gray-600 text-lg">
-                         <a href={`tel:${siteData.contact.phone.replace(/\s/g, "")}`} class="hover:text-green-700">{siteData.contact.phone}</a>
+                         <a href={`tel:${siteData.contact.phone.replace(/\s/g, "")}`} class="hover:text-brand-primary">{siteData.contact.phone}</a>
                        </p>
                        <p class="text-sm text-gray-500">Atención telefónica en horario comercial.</p>
                     </div>
                  </div>
 
                  <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 flex-shrink-0">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-brand-primary flex-shrink-0">
                        <span class="material-icons-outlined">email</span>
                     </div>
                     <div>
                        <h3 class="font-bold text-gray-900 text-lg">Email</h3>
                        <p class="text-gray-600">
-                         <a href={`mailto:${siteData.contact.email}`} class="hover:text-green-700">{siteData.contact.email}</a>
+                         <a href={`mailto:${siteData.contact.email}`} class="hover:text-brand-primary">{siteData.contact.email}</a>
                        </p>
                     </div>
                  </div>
 
                  <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 flex-shrink-0">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-brand-primary flex-shrink-0">
                        <span class="material-icons-outlined">schedule</span>
                     </div>
                     <div>
@@ -73,28 +73,22 @@ const description = "Contacta con Terencio Cash Market. Teléfono, email, ubicac
                  </div>
                </div>
             </div>
+            
+            {/* Embedded LocationMap if moved here, or just keep it on the side */}
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Ubicación</h2>
+                <div class="rounded-lg overflow-hidden shadow-sm mb-6">
+                  <LocationMap />
+                </div>
+            </div>
          </div>
 
-         <!-- Map & Form Placeholder -->
-         <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Ubicación</h2>
-            <div class="rounded-lg overflow-hidden shadow-sm mb-6">
-              <LocationMap />
-            </div>
-            
-            <div class="text-center">
-               <a 
-                 href="https://goo.gl/maps/tu-enlace-aqui" 
-                 target="_blank" 
-                 class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition w-full justify-center md:w-auto"
-               >
-                 <span>Cómo llegar con Google Maps</span>
-                 <span class="material-icons-outlined">directions</span>
-               </a>
-            </div>
+         <!-- Contact Form -->
+         <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Envíanos un mensaje</h2>
+            <ContactForm client:load />
          </div>
 
        </div>
-    </div>
-  </section>
+  </Section>
 </Layout>
