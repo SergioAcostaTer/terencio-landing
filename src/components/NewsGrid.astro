@@ -107,22 +107,22 @@ const formatDate = (date: Date) => {
             <h3 class="font-bold text-2xl text-gray-900 mb-6">Otras noticias</h3>
             <div class="grid md:grid-cols-3 gap-6">
                 {gridNews.map(news => (
-                    <article class="group">
-                        <a href={`/noticias/${news.slug}`} class="block mb-4 overflow-hidden rounded-lg h-48">
-                            <img 
-                                src={news.data.image} 
-                                alt={news.data.title} 
-                                class="w-full h-full object-cover transform transition duration-500 group-hover:scale-105"
-                            />
-                        </a>
-                        <span class="text-xs font-bold text-gray-500 mb-2 block">{formatDate(news.data.pubDate)} · {news.data.category}</span>
-                        <h4 class="font-bold text-xl text-gray-900 group-hover:text-green-700 transition leading-snug mb-2">
-                            <a href={`/noticias/${news.slug}`}>
+                    <a href={`/noticias/${news.slug}`} class="group">
+                        <article class="h-full flex flex-col">
+                            <div class="mb-4 overflow-hidden rounded-lg h-48">
+                                <img 
+                                    src={news.data.image} 
+                                    alt={news.data.title} 
+                                    class="w-full h-full object-cover transform transition duration-500 group-hover:scale-105"
+                                />
+                            </div>
+                            <span class="text-xs font-bold text-gray-500 mb-2 block">{formatDate(news.data.pubDate)} · {news.data.category}</span>
+                            <h4 class="font-bold text-xl text-gray-900 group-hover:text-green-700 transition leading-snug mb-2">
                                 {news.data.title}
-                            </a>
-                        </h4>
-                        <p class="text-gray-600 text-sm line-clamp-2">{news.data.description}</p>
-                    </article>
+                            </h4>
+                            <p class="text-gray-600 text-sm line-clamp-2">{news.data.description}</p>
+                        </article>
+                    </a>
                 ))}
             </div>
         </div>

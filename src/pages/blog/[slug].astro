@@ -40,7 +40,14 @@ const articleSchema = {
 };
 ---
 
-<Layout title={post.data.title} description={post.data.description} image={post.data.image}>
+<Layout 
+  title={post.data.title} 
+  description={post.data.description} 
+  ogImage={post.data.image}
+  type="article"
+  publishDate={post.data.pubDate.toISOString()}
+  author={post.data.author}
+>
   <!-- Schema Injection -->
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
 

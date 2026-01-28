@@ -12,7 +12,8 @@ import siteData from "../data/siteData.json";
 interface Props {
   title: string;
   description?: string;
-  image?: string;
+  image?: string; // For backwards compatibility, will be used as ogImage if ogImage not provided
+  ogImage?: string; // Specific OG image for social sharing
   canonical?: string;
   type?: "website" | "article";
   publishDate?: string;
@@ -22,12 +23,16 @@ interface Props {
 const { 
   title, 
   description = siteData.shortDescription, 
-  image = "/og-image.jpg", // Ensure this image exists or use a default
+  image, // Keep for backwards compatibility
+  ogImage, // New dedicated OG image prop
   canonical = Astro.url.href,
   type = "website",
   publishDate,
   author
 } = Astro.props;
+
+// Use ogImage if provided, fallback to image, then default
+const socialImage = ogImage || image || "/og-image.jpg";
 
 // Breadcrumbs Schema
 const breadcrumbsSchema = {
@@ -103,7 +108,7 @@ const schema = {
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.url)} />
+    <meta property="og:image" content={new URL(socialImage, Astro.url)} />
     <meta property="og:site_name" content={siteData.name} />
     <meta property="og:locale" content="es_ES" />
     {type === 'article' && (
@@ -118,7 +123,7 @@ const schema = {
     <meta property="twitter:url" content={canonical} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+    <meta property="twitter:image" content={new URL(socialImage, Astro.url)} />
 
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />

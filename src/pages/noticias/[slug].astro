@@ -25,7 +25,14 @@ const formattedDate = pubDate.toLocaleDateString('es-ES', {
 const currentUrl = Astro.url.href;
 ---
 
-<Layout title={title} description={description} image={image} type="article" publishDate={pubDate.toISOString()} author={author}>
+<Layout 
+  title={title} 
+  description={description} 
+  ogImage={image}
+  type="article" 
+  publishDate={pubDate.toISOString()} 
+  author={author}
+>
   
   <article class="bg-white min-h-screen">
     
