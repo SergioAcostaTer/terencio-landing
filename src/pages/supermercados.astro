@@ -1,69 +1,91 @@
 ---
 import { Image } from "astro:assets";
-import localStoreImage from "../assets/supermercados-terencio.jpg";
 import LocationMap from "../components/LocationMap.astro";
 import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
-const title = "Nuestros Supermercados - Terencio Cash Market";
-const description = "Visita Terencio Cash Market en La Esperanza. Tu supermercado y Cash & Carry de referencia en Tenerife.";
+// Título enfocado en SEO Local
+const title = "Supermercados Terencio en Tenerife | La Esperanza y La Laguna";
+const description = "Visita Terencio Cash Market, tu supermercado de confianza en La Esperanza. Carne fresca, productos canarios y precios de mayorista abiertos al público.";
 ---
 
 <Layout title={title} description={description} canonical={`${siteData.url}/supermercados`}>
-  <div class="bg-gray-100 py-12 text-center">
+  <div class="bg-green-900 py-16 text-center text-white">
     <div class="container mx-auto px-4">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">Nuestros Supermercados</h1>
-      <p class="text-gray-600">Actualmente contamos con una gran superficie en Tenerife para ofrecerte el mejor servicio.</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Nuestras Instalaciones</h1>
+      <p class="text-green-100 max-w-2xl mx-auto">Disponemos de una gran superficie de venta en Tenerife diseñada para el ahorro de particulares y la eficiencia de profesionales.</p>
     </div>
   </div>
 
-  <section class="py-12 bg-white">
-    <div class="container mx-auto px-4 max-w-5xl">
-      <!-- Store Card -->
-      <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 flex flex-col md:flex-row">
-        <div class="md:w-1/2 h-64 md:h-auto relative">
-          <Image 
-            src={localStoreImage} 
-            alt="Terencio Cash Market La Esperanza" 
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col lg:flex-row">
+        <!-- Imagen con mayor impacto -->
+        <div class="lg:w-1/2 h-80 lg:h-auto relative">
+          <img 
+            src="/imagenes/fachada-terencio.webp" 
+            alt="Terencio Cash Market La Esperanza Tenerife" 
             class="w-full h-full object-cover absolute inset-0"
-            width={800}
-            format="webp"
+            onerror="this.src='https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=2574&auto=format&fit=crop'"
           />
+          <div class="absolute top-4 left-4 bg-green-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+            Abierto ahora
+          </div>
         </div>
-        <div class="p-8 md:w-1/2 flex flex-col justify-center">
-           <h2 class="text-2xl font-bold text-gray-900 mb-2">Terencio Cash Market</h2>
-           <p class="text-green-700 font-semibold mb-4">La Esperanza, Tenerife</p>
+
+        <div class="p-8 lg:p-12 lg:w-1/2 flex flex-col justify-center">
+           <h2 class="text-3xl font-bold text-gray-900 mb-4">Terencio Cash Market <span class="text-green-700 text-lg block md:inline md:ml-2">La Esperanza</span></h2>
+           <p class="text-gray-600 mb-6 leading-relaxed">
+             Nuestro centro principal en Tenerife combina un supermercado completo con un área de venta al por mayor. Somos especialistas en <strong>productos frescos de km 0</strong> y formatos industriales para hostelería.
+           </p>
            
-           <div class="space-y-3 text-gray-600 mb-6">
-             <p class="flex items-start gap-2">
-               <span class="material-icons-outlined text-gray-400">location_on</span>
-               <span>{siteData.address.streetAddress}, {siteData.address.addressLocality}</span>
-             </p>
-             <p class="flex items-center gap-2">
-               <span class="material-icons-outlined text-gray-400">schedule</span>
-               <span>{siteData.hoursText}</span>
-             </p>
-             <p class="flex items-center gap-2">
-               <span class="material-icons-outlined text-gray-400">phone</span>
-               <a href={`tel:${siteData.contact.phone.replace(/\s/g, "")}`} class="hover:text-green-700">{siteData.contact.phone}</a>
-             </p>
+           <div class="grid sm:grid-cols-2 gap-6 mb-8">
+             <div class="space-y-3">
+               <h4 class="font-bold text-gray-900 border-b pb-1">📍 Ubicación</h4>
+               <p class="text-sm text-gray-600">
+                 {siteData.address.streetAddress}<br />
+                 38206 La Laguna, Tenerife
+               </p>
+               <a href="https://maps.google.com" class="text-green-700 text-xs font-bold hover:underline">Cómo llegar →</a>
+             </div>
+             <div class="space-y-3">
+               <h4 class="font-bold text-gray-900 border-b pb-1">⏰ Horario</h4>
+               <p class="text-sm text-gray-600">
+                 Lun - Sáb: 08:00 – 21:00<br />
+                 Dom: 08:30 – 20:30
+               </p>
+               <p class="text-[10px] text-red-500 font-bold uppercase">Abierto domingos y festivos</p>
+             </div>
            </div>
 
-           <div class="flex gap-4">
-             <a href="/terencio-cash-market" class="bg-green-700 text-white px-6 py-2 rounded-lg font-bold hover:bg-green-800 transition text-center flex-1">
-               Ver detalles
+           <div class="flex flex-col sm:flex-row gap-4">
+             <a href="/terencio-cash-market" class="bg-green-700 text-white px-8 py-3 rounded-xl font-bold hover:bg-green-800 transition text-center flex-1 shadow-lg">
+               Ver Ofertas de la Tienda
              </a>
-             <a href="/contacto" class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg font-bold hover:bg-gray-50 transition text-center flex-1">
-               Cómo llegar
+             <a href="tel:922550067" class="border-2 border-gray-200 text-gray-700 px-8 py-3 rounded-xl font-bold hover:bg-gray-50 transition text-center flex-1">
+               Llamar: 922 55 00 67
              </a>
+           </div>
+
+           <!-- Servicios específicos de esta tienda (Aumenta keywords) -->
+           <div class="mt-8 flex flex-wrap gap-2">
+             <span class="bg-gray-100 px-3 py-1 rounded text-[11px] font-bold text-gray-500 uppercase">Carnicería al corte</span>
+             <span class="bg-gray-100 px-3 py-1 rounded text-[11px] font-bold text-gray-500 uppercase">Parking Gratuito</span>
+             <span class="bg-gray-100 px-3 py-1 rounded text-[11px] font-bold text-gray-500 uppercase">Hielo industrial</span>
+             <span class="bg-gray-100 px-3 py-1 rounded text-[11px] font-bold text-gray-500 uppercase">Zona Mayorista</span>
+             <span class="bg-gray-100 px-3 py-1 rounded text-[11px] font-bold text-gray-500 uppercase">Panadería</span>
            </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-12 bg-gray-50">
-    <div class="container mx-auto px-4">
+  <section class="py-16 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-4 text-center mb-10">
+        <h2 class="text-3xl font-bold mb-2">Encuéntranos en el mapa</h2>
+        <p class="text-gray-600 italic">Evita el tráfico de la ciudad comprando en la subida a La Esperanza.</p>
+    </div>
+    <div class="container mx-auto px-4 max-w-5xl">
        <LocationMap />
     </div>
   </section>
