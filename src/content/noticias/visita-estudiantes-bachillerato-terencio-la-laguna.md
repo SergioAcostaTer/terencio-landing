@@ -4,6 +4,7 @@ description: "Alumnos de 2º de Bachillerato del IES visitaron nuestras instalac
 pubDate: 2022-03-15
 author: "Equipo Terencio"
 image: "../../assets/images/visita-estudiantes-bachillerato.webp"
+imageAlt: "Grupo de estudiantes de bachillerato visitando Terencio"
 tags: ["Educación", "Emprendimiento", "La Laguna", "Formación"]
 category: "Responsabilidad Social"
 ---

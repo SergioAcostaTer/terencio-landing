@@ -4,6 +4,7 @@ description: "La empresa familiar originaria de El Hierro conquista La Laguna co
 pubDate: 2013-07-20
 author: "El Blog Oferoz"
 image: "../../assets/images/henry-acosta-terencio-laguna.webp"
+imageAlt: "Henry Acosta en el interior de Terencio Cash Market"
 tags: ["Emprendimiento", "La Laguna", "El Hierro", "Producto Local"]
 category: "Emprendedores Laguneros"
 ---

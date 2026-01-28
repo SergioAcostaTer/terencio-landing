@@ -4,6 +4,7 @@ description: "Nuestra empresa familiar, Terencio Supermercados, anuncia la integ
 pubDate: 2025-03-19
 author: "Dirección Terencio"
 image: "../../assets/images/traspasohiperdinoterencio.webp"
+imageAlt: "Firma del acuerdo entre Terencio Supermercados y HiperDino"
 tags: ["Terencio", "HiperDino", "El Hierro", "Producto Local", "Empleo", "Acuerdo"]
 category: "Actualidad Empresarial"
 isBreaking: true

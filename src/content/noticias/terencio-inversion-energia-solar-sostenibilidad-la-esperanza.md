@@ -4,6 +4,7 @@ description: "Instalamos más de 100 placas solares y una batería de almacenami
 pubDate: 2024-11-15
 author: "Equipo Terencio"
 image: "../../assets/images/sostenibilidad-1.webp"
+imageAlt: "Instalación de paneles solares en la cubierta de Terencio"
 tags: ["Sostenibilidad", "Energía Solar", "Innovación", "Medio Ambiente"]
 category: "Responsabilidad Ambiental"
 isBreaking: true

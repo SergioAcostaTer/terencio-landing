@@ -4,6 +4,7 @@ description: "El responsable de una de las empresas más grandes de El Hierro an
 pubDate: 2015-08-29
 author: "Diario de Avisos"
 image: "../../assets/images/terencio-acosta-entrevista.webp"
+imageAlt: "Terencio Acosta durante la entrevista para Diario de Avisos"
 tags: ["El Hierro", "Entrevista", "Empresa Familiar", "Economía Local"]
 category: "Entrevistas"
 ---
