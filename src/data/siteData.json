@@ -37,7 +37,7 @@
   "analytics": {
     "gaMeasurementId": "G-HVCHD7R86X"
   },
-  "hoursText": "Lunes a Sábado: 08:00–21:00. Domingo: 08:30–20:30",
+  "hoursText": "Lunes a Sábado: 08:00–21:00. Domingo: 08:30–20:30 (Festivos igual que domingos. Solo cerramos Navidad, Reyes y Fin de Año)",
   "hours": [
     {
       "dayOfWeek": [

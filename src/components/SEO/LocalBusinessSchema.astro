@@ -14,7 +14,7 @@ const {
   name = siteData.legalName,
   description = siteData.description,
   image = "/assets/images/supermercado-interior.webp",
-  priceRange = "$$"
+  priceRange = "€"
 } = Astro.props;
 
 const schema = {
@@ -37,8 +37,8 @@ const schema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 28.4418, // Coords for Terencio La Esperanza
-    "longitude": -16.3655
+    "latitude": 28.473194290645235,
+    "longitude": -16.33765692208819
   },
   "openingHoursSpecification": [
     {
@@ -51,19 +51,19 @@ const schema = {
         "Friday",
         "Saturday"
       ],
-      "opens": "08:30",
-      "closes": "20:30"
+      "opens": "08:00",
+      "closes": "21:00"
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": "Sunday",
-      "opens": "09:00",
-      "closes": "14:00"
+      "opens": "08:30",
+      "closes": "20:30"
     }
   ],
   "sameAs": [
-    "https://www.facebook.com/TerencioCashMarket",
-    "https://www.instagram.com/terenciocashmarket"
+    "https://www.facebook.com/TerencioCashMarket/",
+    "https://www.instagram.com/terenciosupermercados"
   ]
 };
 ---
