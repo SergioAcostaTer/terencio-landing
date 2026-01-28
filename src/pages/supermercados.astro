@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import supermercadoImg from "../assets/supermercados-terencio.webp";
 import LocationMap from "../components/LocationMap.astro";
 import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
@@ -22,11 +23,12 @@ const description = "Visita Terencio Cash Market, tu supermercado de confianza e
       <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col lg:flex-row">
         <!-- Imagen con mayor impacto -->
         <div class="lg:w-1/2 h-80 lg:h-auto relative">
-          <img 
-            src="/imagenes/fachada-terencio.webp" 
+          <Image 
+            src={supermercadoImg} 
             alt="Terencio Cash Market La Esperanza Tenerife" 
             class="w-full h-full object-cover absolute inset-0"
-            onerror="this.src='https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=2574&auto=format&fit=crop'"
+            width={800}
+            height={600}
           />
           <div class="absolute top-4 left-4 bg-green-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
             Abierto ahora

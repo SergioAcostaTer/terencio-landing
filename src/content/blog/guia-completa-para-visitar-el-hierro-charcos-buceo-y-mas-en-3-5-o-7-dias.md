@@ -3,7 +3,7 @@ title: "Guía Completa para Visitar El Hierro: Charcos, Buceo y más en 3, 5 o 7
 description: "Descubre todo lo que puedes ver y hacer en El Hierro, desde sus increíbles charcos naturales hasta sus espectaculares miradores y oportunidades de buceo."
 pubDate: 2024-07-30
 author: "Equipo Terencio"
-image: "/imagenes/Roque-Bonanza-El-Hierro.webp"
+image: "../../assets/images/Roque-Bonanza-El-Hierro.webp"
 tags: ["El Hierro", "Turismo", "Canarias", "Guía de Viaje"]
 ---
 
@@ -13,7 +13,7 @@ tags: ["El Hierro", "Turismo", "Canarias", "Guía de Viaje"]
 
 El Hierro, la isla más occidental del archipiélago canario, ofrece paisajes únicos que van desde carreteras volcánicas hasta piscinas naturales de aguas cristalinas. En esta guía, te ayudamos a planificar tu visita a esta joya escondida de las Islas Canarias, ya sea para una corta escapada de 3 días o una aventura de una semana completa.
 
-![Paisaje de El Hierro](/imagenes/paisaje-2.webp)
+![Paisaje de El Hierro](../../assets/images/paisaje-2.webp)
 
 ## Información Básica para tu Viaje a El Hierro
 
@@ -32,7 +32,7 @@ El Hierro se abastece en gran medida de energías renovables y es un ejemplo de 
 
 Aunque el clima es suave durante todo el año, la mejor época para disfrutar de las piscinas naturales de El Hierro es entre mayo y octubre, cuando las temperaturas son más cálidas y hay menos probabilidad de lluvia. Durante estos meses, el agua está perfecta para nadar y bucear.
 
-![Charco Azul en El Hierro](/imagenes/paisaje.webp)
+![Charco Azul en El Hierro](../../assets/images/paisaje.webp)
 
 ## Cómo Llegar a El Hierro
 
@@ -41,7 +41,7 @@ No hay vuelos directos a El Hierro desde la península, por lo que tendrás que 
 - **Barco desde Tenerife Sur (Los Cristianos):** Operado por Naviera Armas, con hasta 6 viajes al día. El trayecto dura menos de 3 horas.
 - **Avión desde Gran Canaria o Tenerife Norte:** Operado por Binter y Canaryfly. Los vuelos duran aproximadamente 45 minutos.
 
-![Faro de Orchilla](/imagenes/faro_orchilla.webp)
+![Faro de Orchilla](../../assets/images/faro_orchilla.webp)
 
 ## Qué Ver y Hacer en El Hierro
 
@@ -49,22 +49,22 @@ No hay vuelos directos a El Hierro desde la península, por lo que tendrás que 
 
 Los charcos naturales, como el Charco Azul, son perfectos para nadar y relajarse en aguas turquesas rodeadas de paisajes volcánicos.
 
-![Charco Azul en El Hierro](/imagenes/el-hierro-charco.webp)
+![Charco Azul en El Hierro](../../assets/images/el-hierro-charco.webp)
 
 ### Explorar los Miradores
 
 El Hierro cuenta con numerosos miradores como el Mirador de Isora y el Mirador de La Peña, que ofrecen vistas espectaculares de la isla y el océano.
 
-![Mirador de Isora](/imagenes/mirador-isora.webp)
+![Mirador de Isora](../../assets/images/mirador-isora.webp)
 
 ### Bucear en la Reserva Marina
 
 La Reserva Marina del Mar de las Calmas es uno de los mejores lugares para bucear en Europa, con aguas claras y una rica biodiversidad marina.
 
-![Buceo en El Hierro](/imagenes/buceo-el-hierro-experiencia.webp)
+![Buceo en El Hierro](../../assets/images/buceo-el-hierro-experiencia.webp)
 
 ## Consejos de Transporte y Alojamiento
 
 La mejor manera de moverse por El Hierro es alquilando un coche. Aunque hay autobuses, los horarios son limitados. Para alojarse, La Frontera es una base central ideal, pero si planeas bucear, La Restinga o El Pinar son opciones más convenientes.
 
-![Coche de alquiler en El Hierro](/imagenes/coche.webp)
+![Coche de alquiler en El Hierro](../../assets/images/coche.webp)

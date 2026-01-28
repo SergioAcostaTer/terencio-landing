@@ -3,7 +3,7 @@ title: "Terencio apuesta por la sostenibilidad con una inversión millonaria en 
 description: "Instalamos más de 100 placas solares y una batería de almacenamiento de última generación en nuestras instalaciones de La Esperanza, reforzando nuestro compromiso con el medio ambiente y la eficiencia energética."
 pubDate: 2024-11-15
 author: "Equipo Terencio"
-image: "/noticias/sostenibilidad-1.webp"
+image: "../../assets/images/sostenibilidad-1.webp"
 tags: ["Sostenibilidad", "Energía Solar", "Innovación", "Medio Ambiente"]
 category: "Responsabilidad Ambiental"
 isBreaking: true

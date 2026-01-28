@@ -1,12 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import supermercadoInterior from "../assets/images/supermercado-interior.jpg";
 import Hero from "../components/Hero.astro";
-import ServiceCard from "../components/ServiceCard.astro";
 import LocationMap from "../components/LocationMap.astro";
 import NewsGrid from "../components/NewsGrid.astro";
 import Reviews from "../components/Reviews.astro";
+import ServiceCard from "../components/ServiceCard.astro";
 import services from "../data/services.json";
-import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
 
 const latestPosts = (await getCollection("blog"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -57,16 +59,16 @@ const description = "Terencio Cash Market: tu supermercado barato en La Esperanz
             </div>
           </a>
 
-          <a href="/terencio-cash-market#contacto" class="block cursor-pointer group">
-            <div class="flex flex-col items-center text-center p-8 bg-green-50 rounded-3xl border border-green-100 hover:shadow-xl transition">
-              <div class="text-6xl mb-6 group-hover:scale-110 transition">😢</div>
-              <h3 class="text-2xl font-bold mb-4">Distribución El Hierro</h3>
-              <p class="text-gray-600 mb-6">Gestionamos la logística y suministro para <strong>supermercados en El Hierro</strong>. Somos el enlace directo para que el sabor de Valverde y Frontera llegue a tu mesa.</p>
-              <span class="text-green-700 font-bold">Expertos en Logística →</span>
+          <a href="#donde-estamos" class="block cursor-pointer group">
+            <div class="flex flex-col items-center text-center p-8 bg-amber-50 rounded-3xl border border-amber-100 hover:shadow-xl transition">
+              <div class="text-6xl mb-6 group-hover:scale-110 transition">⏰</div>
+              <h3 class="text-2xl font-bold mb-4">Horario Ampliado</h3>
+              <p class="text-gray-600 mb-6">Abierto <strong>todos los días</strong> con horarios pensados para ti. De lunes a sábado hasta las 21:00 y domingos hasta las 14:00. Tu compra cuando te venga bien.</p>
+              <span class="text-amber-700 font-bold">Ver Horarios →</span>
             </div>
           </a>
 
-          <a href="/zona-profesionales" class="block cursor-pointer group">
+          <a href="/profesionales" class="block cursor-pointer group">
             <div class="flex flex-col items-center text-center p-8 bg-blue-50 rounded-3xl border border-blue-100 hover:shadow-xl transition">
               <div class="text-6xl mb-6 group-hover:scale-110 transition">🏪</div>
               <h3 class="text-2xl font-bold mb-4">Cash & Carry Tenerife</h3>
@@ -113,7 +115,7 @@ const description = "Terencio Cash Market: tu supermercado barato en La Esperanz
             </p>
           </div>
           <div class="flex flex-wrap gap-4">
-            <a href="/zona-profesionales" class="bg-green-700 text-white px-8 py-4 rounded-xl font-bold hover:bg-green-800 transition shadow-lg inline-flex items-center gap-2">
+            <a href="/profesionales" class="bg-green-700 text-white px-8 py-4 rounded-xl font-bold hover:bg-green-800 transition shadow-lg inline-flex items-center gap-2">
               Servicios para Empresas 
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
             </a>
@@ -125,12 +127,13 @@ const description = "Terencio Cash Market: tu supermercado barato en La Esperanz
         
         <div class="relative">
           <div class="absolute -inset-4 bg-green-50 rounded-3xl rotate-3"></div>
-          <img 
-            src="/imagenes/supermercado-interior.jpg" 
+          <Image 
+            src={supermercadoInterior} 
             alt="Interior de Terencio Cash Market: Ofertas en alimentación y droguería" 
             class="relative z-10 rounded-2xl shadow-2xl w-full h-auto"
-            onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2574&auto=format&fit=crop'"
-          >
+            width={600}
+            format="webp"
+          />
           <div class="absolute -bottom-8 -right-8 bg-white p-8 rounded-2xl shadow-xl z-20 hidden md:block border border-gray-100 max-w-xs">
             <div class="flex items-center gap-3 mb-2">
               <span class="text-3xl">🛒</span>

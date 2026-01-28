@@ -148,6 +148,53 @@ const description = "Soluciones para profesionales de hostelería y alimentació
     <FAQ />
   </div>
 
+  <!-- Sección Formulario Lead -->
+  <section id="solicitar-tarifas" class="py-16 bg-white border-t border-gray-100">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="bg-gray-50 rounded-3xl p-8 md:p-12 shadow-inner border border-gray-200">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Solicitar Tarifas Mayoristas</h2>
+        <p class="text-center text-gray-600 mb-10">Rellena este formulario y nuestro equipo comercial te enviará el catálogo con precios especiales para profesionales.</p>
+        
+        <form action="mailto:info@kitcash.es" method="post" enctype="text/plain" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-2">
+            <label for="businessName" class="font-bold text-gray-700">Nombre del Negocio / Razón Social</label>
+            <input type="text" id="businessName" name="businessName" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none" placeholder="Ej. Restaurante El Pino" />
+          </div>
+
+          <div class="space-y-2">
+            <label for="sector" class="font-bold text-gray-700">Sector</label>
+            <select id="sector" name="sector" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none">
+              <option value="Restauración">Restauración / Cafetería</option>
+              <option value="Guachinche">Guachinche / Asador</option>
+              <option value="Hotel">Hotel / Apartamentos</option>
+              <option value="Comercio">Pequeño Comercio / Venta</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+
+          <div class="space-y-2">
+            <label for="email" class="font-bold text-gray-700">Correo Electrónico</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none" placeholder="tu@email.com" />
+          </div>
+
+          <div class="space-y-2">
+            <label for="phone" class="font-bold text-gray-700">Teléfono</label>
+            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none" placeholder="600 000 000" />
+          </div>
+
+          <div class="md:col-span-2 pt-4">
+             <button type="submit" class="w-full bg-green-700 text-white font-bold text-lg py-4 rounded-xl hover:bg-green-800 transition shadow-lg transform hover:-translate-y-1">
+               Solicitar Tarifas Ahora
+             </button>
+             <p class="text-xs text-center text-gray-500 mt-4">
+               Al enviar este formulario aceptas nuestra <a href="/politica-privacidad" class="underline hover:text-green-700">política de privacidad</a>.
+             </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Final -->
   <section class="py-20 bg-green-900 text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]"></div>

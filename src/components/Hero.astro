@@ -1,14 +1,20 @@
 ---
+import { Image } from "astro:assets";
+import heroBg from "../assets/images/hero-bg.jpg";
 ---
 
 <section class="relative bg-green-900 text-white overflow-hidden">
   <!-- Background Image with Overlay -->
   <div class="absolute inset-0 z-0">
-    <img 
-      src="/hero-bg.jpg" 
+    <Image 
+      src={heroBg} 
       alt="Interior de Terencio Supermercado" 
       class="w-full h-full object-cover opacity-30"
-      onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2574&auto=format&fit=crop'"
+      width={1920}
+      format="webp"
+      quality="mid"
+      loading="eager"
+      fetchpriority="high"
     />
     <div class="absolute inset-0 bg-gradient-to-r from-green-900 via-green-900/80 to-transparent"></div>
   </div>

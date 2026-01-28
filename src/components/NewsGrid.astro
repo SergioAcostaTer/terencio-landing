@@ -1,8 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 const newsData = await getCollection('noticias');
-
 // Sort by date mostly, but prioritize breaking news if needed
 const sortedNews = newsData.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const breakingNews = sortedNews.find(n => n.data.isBreaking);
@@ -41,8 +41,8 @@ const formatDate = (date: Date) => {
         <!-- Main Hero Article (Columns 1 & 2) -->
         <article class="lg:col-span-2 group relative h-[500px] overflow-hidden rounded-xl shadow-lg">
             <a href={`/noticias/${heroNews.slug}`} class="block w-full h-full">
-                <img 
-                    src={heroNews.data.image} 
+                <Image 
+                    src={heroNews.data.image as any} 
                     alt={heroNews.data.title} 
                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -72,7 +72,7 @@ const formatDate = (date: Date) => {
                 <article class="flex-1 group border-b border-gray-100 last:border-0 pb-4 last:pb-0">
                     <a href={`/noticias/${news.slug}`} class="flex gap-4 h-full">
                         <div class="w-1/3 h-24 rounded-lg overflow-hidden flex-shrink-0">
-                            <img src={news.data.image} alt={news.data.title} class="w-full h-full object-cover transition duration-300 group-hover:opacity-80" />
+                            <Image src={news.data.image as any} alt={news.data.title} class="w-full h-full object-cover transition duration-300 group-hover:opacity-80" width={150} height={150} />
                         </div>
                         <div class="w-2/3 flex flex-col justify-between">
                             <div>
@@ -110,10 +110,12 @@ const formatDate = (date: Date) => {
                     <a href={`/noticias/${news.slug}`} class="group">
                         <article class="h-full flex flex-col">
                             <div class="mb-4 overflow-hidden rounded-lg h-48">
-                                <img 
-                                    src={news.data.image} 
+                                <Image 
+                                    src={news.data.image as any} 
                                     alt={news.data.title} 
                                     class="w-full h-full object-cover transform transition duration-500 group-hover:scale-105"
+                                    width={400}
+                                    height={300}
                                 />
                             </div>
                             <span class="text-xs font-bold text-gray-500 mb-2 block">{formatDate(news.data.pubDate)} · {news.data.category}</span>

@@ -1,6 +1,8 @@
 ---
 import siteData from "../data/siteData.json";
 import StoreStatus from "./StoreStatus.astro";
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo.png";
 ---
 
 <header class="w-full bg-white shadow-lg fixed top-0 z-50 md:h-[110px] h-[80px] transition-all duration-300 flex flex-col" id="main-header">
@@ -13,7 +15,7 @@ import StoreStatus from "./StoreStatus.astro";
 
     <!-- Brand / Logo (Centered on mobile, Left on desktop) -->
     <a href="/" class="flex items-center gap-2 h-14 md:h-12 absolute left-1/2 transform -translate-x-1/2 md:static md:transform-none md:mr-auto" aria-label="Ir a inicio">
-      <img class="h-full w-auto object-contain" src="/logo.png" alt="Logotipo Terencio" />
+      <Image class="h-full w-auto object-contain" src={logo} alt="Logotipo Terencio" width={56} height={56} loading="eager" />
       <span class="sr-only">Terencio Cash Market</span>
     </a>
 

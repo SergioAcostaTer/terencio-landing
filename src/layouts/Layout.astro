@@ -3,6 +3,8 @@ import "@fontsource/outfit"; // Defaults to weight 400
 import "@fontsource/outfit/300.css";
 import "@fontsource/outfit/600.css";
 import "@fontsource/outfit/700.css";
+import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 import { ViewTransitions } from "astro:transitions";
 import CookieBanner from "../components/CookieBanner.astro";
 import Footer from "../components/Footer.astro";
@@ -86,7 +88,33 @@ const schema = {
     "opens": h.opens,
     "closes": h.closes
   })),
-  "priceRange": "€"
+  "priceRange": "€",
+  "department": [
+    {
+      "@type": "ButcherShop",
+      "name": "Carnicería Terencio",
+      "image": `${siteData.url}/assets/images/supermercado-interior.jpg`,
+      "telephone": siteData.contact.phone,
+      "openingHoursSpecification": siteData.hours.map(h => ({
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": h.dayOfWeek,
+        "opens": h.opens,
+        "closes": h.closes
+      }))
+    },
+    {
+       "@type": "WholesaleStore",
+       "name": "Terencio Cash & Carry",
+       "image": `${siteData.url}/store-local.jpg`,
+       "telephone": siteData.contact.phone,
+       "openingHoursSpecification": siteData.hours.map(h => ({
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": h.dayOfWeek,
+        "opens": h.opens,
+        "closes": h.closes
+      }))
+    }
+  ]
 };
 ---
 
@@ -141,6 +169,8 @@ const schema = {
     <ViewTransitions />
   </head>
   <body class="min-h-screen flex flex-col font-sans text-gray-800 bg-gray-50">
+    <SpeedInsights />
+    <Analytics />
     <Header />
     <main class="flex-grow pt-20">
       <slot />

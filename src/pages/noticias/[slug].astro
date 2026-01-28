@@ -1,8 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
+
   const posts = await getCollection('noticias');
   return posts.map(post => ({
     params: { slug: post.slug },
@@ -28,7 +30,7 @@ const currentUrl = Astro.url.href;
 <Layout 
   title={title} 
   description={description} 
-  ogImage={image}
+  ogImage={image.src}
   type="article" 
   publishDate={pubDate.toISOString()} 
   author={author}
@@ -44,7 +46,7 @@ const currentUrl = Astro.url.href;
     <!-- Header / Hero -->
     <header class="relative bg-gray-900 py-12 md:py-20 lg:py-32">
         <div class="absolute inset-0 overflow-hidden">
-            <img src={image} alt={title} class="w-full h-full object-cover opacity-30 blur-sm scale-110" />
+            <Image src={image as any} alt={title} class="w-full h-full object-cover opacity-30 blur-sm scale-110" width={1200} height={600} />
             <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent"></div>
         </div>
         
@@ -67,7 +69,7 @@ const currentUrl = Astro.url.href;
     <div class="container mx-auto px-4 max-w-5xl -mt-6 md:-mt-10 relative z-20 pb-12 md:pb-20">
         <!-- Main Image -->
         <div class="rounded-lg md:rounded-xl overflow-hidden shadow-xl md:shadow-2xl mb-8 md:mb-12 bg-gray-200">
-             <img src={image} alt={title} class="w-full h-auto max-h-[400px] md:max-h-[600px] object-cover" />
+             <Image src={image as any} alt={title} class="w-full h-auto max-h-[400px] md:max-h-[600px] object-cover" width={1200} height={600} />
         </div>
 
         <!-- Mobile Share Buttons (Sticky at bottom on mobile) -->

@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import sostenibilidadImg from "../assets/images/sostenibilidad-1.webp";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -32,10 +34,12 @@ import Layout from "../layouts/Layout.astro";
         <li>Apoyo a la producción local</li>
       </ul>
      <div style="max-width: 500px; margin: 0 auto;">
-        <img
-        src="/imagenes/sostenibilidad-1.webp"
+        <Image
+        src={sostenibilidadImg}
         alt="Sostenibilidad"
         class="w-full rounded mb-6"
+        width={500}
+        height={400}
       />
      </div>
       <p class="text-lg">
