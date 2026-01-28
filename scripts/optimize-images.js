@@ -18,7 +18,7 @@ const CONFIG = {
     smartSubsample: true
   },
   overrides: {
-    'hero-bg': { jpegQuality: 50, maxWidth: 1280 }
+    'hero-bg': { jpegQuality: 40, maxWidth: 1280 }
   }
 };
 
