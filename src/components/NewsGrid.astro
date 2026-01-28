@@ -2,6 +2,12 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
+interface Props {
+  maxItems?: number;
+}
+
+const { maxItems } = Astro.props;
+
 const newsData = await getCollection('noticias');
 // Sort by date mostly, but prioritize breaking news if needed
 const sortedNews = newsData.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -16,8 +22,8 @@ const remainingNews = heroNews
 // Sidebar gets next 2 items
 const sidebarNews = remainingNews.slice(0, 2);
 
-// Grid gets the rest
-const gridNews = remainingNews.slice(2);
+// Grid gets the rest (limited by maxItems if provided)
+const gridNews = remainingNews.slice(2, maxItems ? 2 + maxItems : undefined);
 
 const formatDate = (date: Date) => {
     return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'long' });
@@ -44,6 +50,8 @@ const formatDate = (date: Date) => {
                 <Image 
                     src={heroNews.data.image as any} 
                     alt={heroNews.data.title} 
+                    widths={[640, 1024]}
+                    sizes="(max-width: 768px) 100vw, 66vw"
                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>

@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
 import supermercadoInterior from "../assets/images/supermercado-interior.jpg";
 import Hero from "../components/Hero.astro";
 import LocationMap from "../components/LocationMap.astro";
@@ -9,10 +8,6 @@ import Reviews from "../components/Reviews.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import services from "../data/services.json";
 import Layout from "../layouts/Layout.astro";
-
-const latestPosts = (await getCollection("blog"))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
 
 // Títulos optimizados para Search Console basados en clics e impresiones
 const title = "Terencio Cash Market | Supermercado en La Esperanza y Mayorista Tenerife";
@@ -94,7 +89,7 @@ const description = "Terencio Cash Market: tu supermercado barato en La Esperanz
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </a>
             </div>
-            <NewsGrid />
+            <NewsGrid maxItems={3} />
         </div>
     </section>
 
