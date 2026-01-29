@@ -1,5 +1,6 @@
 ---
 import NewsGrid from "../../components/NewsGrid.astro";
+import PageHeader from "../../components/ui/PageHeader.astro";
 import Layout from "../../layouts/Layout.astro";
 
 const title = "Actualidad y Noticias Corporativas | Terencio Cash Market";
@@ -8,14 +9,11 @@ const description = "Mantente al día con las últimas novedades, aperturas, y n
 
 <Layout title={title} description={description}>
     <!-- Page Header -->
-    <header class="bg-gray-900 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 font-serif">Terencio Actualidad</h1>
-            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
-                El portal de noticias corporativas líder en distribución alimentaria de Canarias.
-            </p>
-        </div>
-    </header>
+    <PageHeader 
+        title="Terencio Actualidad" 
+        subtitle="El portal de noticias corporativas líder en distribución alimentaria de Canarias."
+        badge="Actualidad"
+    />
 
     <!-- Breadcrumb -->
     <div class="bg-gray-100 border-b border-gray-200">

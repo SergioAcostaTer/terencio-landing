@@ -1,5 +1,6 @@
 ---
 import FAQ from "../components/FAQ.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import Layout from "../layouts/Layout.astro";
 
 const title = "Preguntas Frecuentes - Terencio Cash Market";
@@ -7,14 +8,11 @@ const description = "Resolvemos tus dudas sobre Terencio Cash Market. Horarios, 
 ---
 
 <Layout title={title} description={description}>
-  <header class="bg-gray-100 py-16 text-center">
-    <div class="container mx-auto px-4">
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Preguntas Frecuentes</h1>
-      <p class="text-gray-600 max-w-2xl mx-auto">
-        Todo lo que necesitas saber antes de visitarnos. Si no encuentras tu respuesta, contáctanos.
-      </p>
-    </div>
-  </header>
+  <PageHeader 
+    title="Preguntas Frecuentes" 
+    subtitle="Resolvemos las dudas más habituales sobre compras, horarios y servicios."
+    badge="Ayuda"
+  />
 
   <div class="py-12 bg-white">
     <FAQ />

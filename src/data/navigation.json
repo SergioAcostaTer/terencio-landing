@@ -1,10 +1,6 @@
 {
   "main": [
     {
-      "label": "Inicio",
-      "href": "/"
-    },
-    {
       "label": "Ofertas",
       "href": "/ofertas",
       "highlight": true,
@@ -67,8 +63,16 @@
       "href": "/blog"
     },
     {
+      "label": "Ayuda",
+      "href": "/atencion-al-cliente"
+    },
+    {
       "label": "Nosotros",
       "href": "/sobre-nosotros"
+    },
+    {
+      "label": "Trabaja con Nosotros",
+      "href": "/trabaja-con-nosotros"
     }
   ],
   "cta": {
@@ -76,10 +80,6 @@
     "href": "/contacto"
   },
   "mobileExtra": [
-    {
-      "label": "Trabaja con Nosotros",
-      "href": "/trabaja-con-nosotros"
-    },
     {
       "label": "Atención al Cliente",
       "href": "/atencion-al-cliente"

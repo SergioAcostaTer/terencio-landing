@@ -2,6 +2,7 @@
 import LocationMap from "../components/LocationMap.astro";
 import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
 import Button from "../components/ui/Button.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import Section from "../components/ui/Section.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -11,14 +12,11 @@ const description = "Consulta el horario de Terencio Cash Market en La Esperanza
 
 <LocalBusinessSchema />
 <Layout title={title} description={description}>
-  <section class="bg-brand-primary text-white py-16">
-      <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Horario Terencio Cash Market</h1>
-        <p class="text-xl text-green-100 max-w-2xl mx-auto">
-          Tu supermercado en La Esperanza con horario ampliado. Abrimos todos los días para tu comodidad.
-        </p>
-      </div>
-  </section>
+  <PageHeader 
+    title="Horario Terencio Cash Market" 
+    subtitle="Tu supermercado en La Esperanza con horario ampliado. Abrimos todos los días para tu comodidad."
+    badge="Información"
+  />
 
   <Section class="bg-white">
     <div class="grid md:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">

@@ -1,5 +1,6 @@
 ---
 import FAQ from "../components/FAQ.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import Layout from "../layouts/Layout.astro";
 
 const title = "Atención al Cliente y FAQ | Terencio Cash Market La Esperanza";
@@ -8,15 +9,11 @@ const description = "Ayuda y soporte de Terencio Cash Market. Consulta horarios,
 
 <Layout title={title} description={description}>
   <!-- Hero de Soporte -->
-  <header class="bg-gradient-to-b from-green-50 to-white py-20 border-b border-gray-100">
-    <div class="container mx-auto px-4 text-center">
-      <span class="text-green-700 font-bold tracking-widest uppercase text-sm mb-4 block">Centro de Ayuda</span>
-      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">¿En qué podemos ayudarte?</h1>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-        Consulta nuestras preguntas frecuentes o contacta directamente con nuestro equipo de tienda en La Esperanza.
-      </p>
-    </div>
-  </header>
+  <PageHeader 
+    title="Atención al Cliente" 
+    subtitle="Tu satisfacción es nuestra prioridad. Resolvemos tus dudas y escuchamos tus sugerencias."
+    badge="Soporte"
+  />
 
   <!-- Componente FAQ -->
   <section class="py-8 bg-white">

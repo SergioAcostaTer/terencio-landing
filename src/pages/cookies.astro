@@ -1,4 +1,5 @@
 ---
+import PageHeader from "../components/ui/PageHeader.astro";
 import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
@@ -7,9 +8,9 @@ const description = "Información sobre el uso de cookies en Terencio Cash Marke
 ---
 
 <Layout title={title} description={description} canonical={`${siteData.url}/cookies`}>
+  <PageHeader title="Política de Cookies" badge="Legal" />
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4 max-w-4xl prose prose-green prose-lg">
-      <h1 class="text-3xl font-bold text-gray-900 mb-8">Política de Cookies</h1>
 
       <h3>1. ¿Qué son las cookies?</h3>
       <p>

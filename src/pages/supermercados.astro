@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import supermercadoImg from "../assets/supermercados-terencio.webp";
 import LocationMap from "../components/LocationMap.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
@@ -11,12 +12,20 @@ const description = "Visita Terencio Cash Market, tu supermercado de confianza e
 ---
 
 <Layout title={title} description={description} canonical={`${siteData.url}/supermercados`} image={supermercadoImg.src}>
-  <div class="bg-green-900 py-16 text-center text-white">
-    <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Nuestras Instalaciones</h1>
-      <p class="text-green-100 max-w-2xl mx-auto">Disponemos de una gran superficie de venta en Tenerife diseñada para el ahorro de particulares y la eficiencia de profesionales.</p>
+  <PageHeader 
+    title="Nuestras Instalaciones" 
+    subtitle="Disponemos de una gran superficie de venta en Tenerife diseñada para el ahorro de particulares y la eficiencia de profesionales."
+    badge="Instalaciones"
+    backgroundImage={supermercadoImg.src}
+  >
+    <div class="bg-green-800/90 inline-block px-6 py-3 rounded-full backdrop-blur-sm border border-green-700 shadow-xl hover:scale-105 transition-transform">
+        <a href="/profesionales#drogueria" class="flex items-center gap-2 text-green-100 hover:text-white transition">
+          <span class="material-icons-outlined">cleaning_services</span>
+          <span class="font-medium">Limpieza profesional también para tu hogar</span>
+          <span class="material-icons-outlined text-sm">arrow_forward</span>
+        </a>
     </div>
-  </div>
+  </PageHeader>
 
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4 max-w-6xl">

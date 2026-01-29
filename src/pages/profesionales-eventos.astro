@@ -1,6 +1,7 @@
 ---
 import ProfessionalForm from "../components/forms/ProfessionalForm";
 import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import Section from "../components/ui/Section.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -11,15 +12,14 @@ const description = "Todo lo que necesitas para tu catering o evento. Bebidas, m
 <LocalBusinessSchema type="WholesaleStore" />
 <Layout title={title} description={description}>
   
-  <header class="bg-purple-50 py-16">
-    <div class="container mx-auto px-4 text-center">
-        <span class="text-purple-600 font-bold uppercase tracking-widest text-sm">Eventos & Catering</span>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-6">El Éxito de tu Evento empieza aquí</h1>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Desde grandes bodas hasta fiestas privadas. Tenemos el stock y la variedad que necesitas para sorprender.
-        </p>
-    </div>
-  </header>
+  <PageHeader 
+    title="El Éxito de tu Evento empieza aquí" 
+    subtitle="Desde grandes bodas hasta fiestas privadas. Tenemos el stock y la variedad que necesitas para sorprender."
+    badge="Eventos & Catering"
+    bgClass="bg-purple-900"
+    gradientClass="bg-gradient-to-b from-purple-900/90 via-purple-900/80 to-purple-900/90"
+    badgeClass="bg-purple-800 text-purple-100 border-purple-400"
+  />
 
   <Section class="bg-white">
     <div class="grid md:grid-cols-2 gap-12">

@@ -46,8 +46,8 @@ export default function ContactForm() {
       const result = await response.json();
 
       if (result.success) {
-        setSubmitStatus('success');
-        reset();
+        // Redirect to Thank You Page
+        window.location.href = '/gracias';
       } else {
         setSubmitStatus('error');
       }
@@ -59,7 +59,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 bg-white p-4 md:p-8 rounded-2xl shadow-lg border border-gray-100">
       
       {/* Honeypot */}
       <input type="text" className="hidden" {...register("honeypot")} />

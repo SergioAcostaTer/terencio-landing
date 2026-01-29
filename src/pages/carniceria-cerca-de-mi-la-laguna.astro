@@ -5,65 +5,201 @@ import Button from "../components/ui/Button.astro";
 import Section from "../components/ui/Section.astro";
 import Layout from "../layouts/Layout.astro";
 
-const title = "Carnicería Cerca de Mí en La Laguna | Terencio Cash Market";
-const description = "¿Buscas una carnicería de confianza cerca de La Laguna? Terencio te ofrece carne fresca al corte, chuletones madurados y carne de fiesta. Parking gratis.";
+const title = "Carnicería en La Laguna | Carne Fresca y Carne de Fiesta al Mejor Precio";
+const description = "La mejor carnicería cerca de La Laguna y La Esperanza. Especialistas en Carne de Fiesta, chuletones madurados, costillas y preparados para barbacoa. Calidad de carnicero a precio de almacén.";
 ---
 
 <LocalBusinessSchema type="GroceryStore" name="Carnicería Terencio" description={description} />
 <Layout title={title} description={description}>
   
-  <header class="bg-red-50 py-16">
-    <div class="container mx-auto px-4 text-center">
-        <span class="text-red-600 font-bold uppercase tracking-widest text-sm">Carnicería Tradicional</span>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-6">Tu Carnicería de Confianza cerca de La Laguna</h1>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            A solo unos minutos del centro de La Laguna, recuperamos el trato personal de la carnicería de barrio con precios de cash & carry.
+  <!-- Hero Section -->
+  <header class="relative bg-red-900 text-white py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/black-scales.png')]"></div>
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <span class="bg-red-700 text-red-100 py-1 px-4 rounded-full text-sm font-bold tracking-wider uppercase mb-6 inline-block shadow-lg">
+            Calidad Artesana
+        </span>
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+            Tu Carnicería de Confianza<br/>
+            <span class="text-red-300">muy cerca de La Laguna</span>
+        </h1>
+        <p class="text-xl text-red-50 max-w-3xl mx-auto mb-10 font-light">
+            Recuperamos el sabor de siempre. Olvida las bandejas de plástico del supermercado y redescubre el placer de pedir tu corte favorito al carnicero de toda la vida.
         </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button href="#productos" variant="primary" class="bg-white text-red-900 hover:bg-gray-100 shadow-xl border-none">
+                Ver Qué Ofrecemos
+            </Button>
+            <Button href="https://maps.google.com/?q=Terencio+Cash+Market" target="_blank" variant="outline" class="border-red-300 text-red-100 hover:bg-red-800 hover:border-red-400">
+                📍 Cómo llegar desde La Laguna
+            </Button>
+        </div>
     </div>
   </header>
 
+  <!-- Value Proposition -->
   <Section class="bg-white">
-    <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold mb-4">¿Qué nos hace diferentes?</h2>
+    <div class="text-center md:max-w-4xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold mb-6 text-gray-900">¿Por qué venir hasta Terencio a por carne?</h2>
+        <p class="text-gray-600 text-lg">
+            Muchos clientes vienen desde el centro de La Laguna, Geneto o San Benito solo por nuestra carnicería. ¿El secreto? <strong>Rotación y Oficio</strong>. Al vender grandes volúmenes a restaurantes, nuestra carne siempre es fresca del día.
+        </p>
     </div>
-    <div class="grid md:grid-cols-3 gap-8 text-center px-4">
-        <div>
-            <span class="text-5xl block mb-4">🔪</span>
-            <h3 class="font-bold text-xl mb-2">Corte Personalizado</h3>
-            <p class="text-gray-600">Tú eliges el grosor y la pieza. Nuestros maestros carniceros te asesoran.</p>
+
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="p-8 border rounded-2xl border-gray-100 shadow-sm hover:shadow-md transition bg-gray-50 group">
+            <span class="text-6xl block mb-6 group-hover:scale-110 transition duration-300">🔪</span>
+            <h3 class="font-bold text-xl mb-3 text-gray-900">Corte a Cuchillo</h3>
+            <p class="text-gray-600 leading-relaxed">Ni máquinas industriales ni gas inerte. Cortamos la pieza delante de ti, quitamos la grasa que sobra y te llevas 100% producto.</p>
         </div>
-        <div>
-            <span class="text-5xl block mb-4">🔥</span>
-            <h3 class="font-bold text-xl mb-2">Especial Barbacoas</h3>
-            <p class="text-gray-600">Chuletones, costillas adobadas, chistorras y la auténtica Carne de Fiesta.</p>
+        <div class="p-8 border rounded-2xl border-gray-100 shadow-sm hover:shadow-md transition bg-gray-50 group">
+            <span class="text-6xl block mb-6 group-hover:scale-110 transition duration-300">🏪</span>
+            <h3 class="font-bold text-xl mb-3 text-gray-900">Precios de Almacén</h3>
+            <p class="text-gray-600 leading-relaxed">Al ser Cash & Carry, aplicamos precios de mayorista tanto si te llevas un filete como si te llevas una pieza entera. Ahorras en cada kilo.</p>
         </div>
-        <div>
-            <span class="text-5xl block mb-4">❄️</span>
-            <h3 class="font-bold text-xl mb-2">Frescura Garantizada</h3>
-            <p class="text-gray-600">Rotación diaria de producto. Si no es fresco, no está en nuestro mostrador.</p>
+        <div class="p-8 border rounded-2xl border-gray-100 shadow-sm hover:shadow-md transition bg-gray-50 group">
+            <span class="text-6xl block mb-6 group-hover:scale-110 transition duration-300">🚗</span>
+            <h3 class="font-bold text-xl mb-3 text-gray-900">Sin Agobios</h3>
+            <p class="text-gray-600 leading-relaxed">Aparca en la puerta. Sin dar vueltas buscando parking en La Laguna. Llegas, compras calidad y vuelves a casa.</p>
         </div>
     </div>
   </Section>
 
-  <Section class="bg-gray-50">
+  <!-- Star Products Section -->
+  <Section id="productos" class="bg-gradient-to-b from-gray-50 to-white">
+      <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-12">Nuestros Cortes Estrella</h2>
+          
+          <div class="grid md:grid-cols-2 gap-12">
+              <!-- Carne de Fiesta -->
+              <div class="flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-2xl shadow-lg border border-red-50 relative overflow-hidden">
+                  <div class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg uppercase">Top Ventas</div>
+                  <div class="w-full md:w-1/3 aspect-square bg-red-100 rounded-xl flex items-center justify-center text-5xl">
+                      🥩
+                  </div>
+                  <div class="w-full md:w-2/3">
+                      <h3 class="text-2xl font-bold text-gray-900 mb-2">La Auténtica Carne de Fiesta</h3>
+                      <p class="text-gray-600 mb-4 text-sm">
+                          El clásico de las romerías de La Laguna. Dados de cerdo marinados con nuestra receta tradicional de mojo, vino y especias. Lista para freír y triunfar.
+                      </p>
+                  </div>
+              </div>
+
+              <!-- Chuletón -->
+              <div class="flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-2xl shadow-lg border border-red-50">
+                   <div class="w-full md:w-1/3 aspect-square bg-red-100 rounded-xl flex items-center justify-center text-5xl">
+                      🍖
+                  </div>
+                  <div class="w-full md:w-2/3">
+                      <h3 class="text-2xl font-bold text-gray-900 mb-2">Chuletones y Lomo Alto</h3>
+                      <p class="text-gray-600 mb-4 text-sm">
+                          Para los amantes de la brasa. Piezas seleccionadas con buena infiltración de grasa. Te cortamos el grosor que pidas: de dos dedos, de tres... tú mandas.
+                      </p>
+                  </div>
+              </div>
+
+              <!-- Elaborados -->
+              <div class="flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-2xl shadow-lg border border-red-50">
+                   <div class="w-full md:w-1/3 aspect-square bg-red-100 rounded-xl flex items-center justify-center text-5xl">
+                      🌭
+                  </div>
+                  <div class="w-full md:w-2/3">
+                      <h3 class="text-2xl font-bold text-gray-900 mb-2">Elaborados Caseros</h3>
+                      <p class="text-gray-600 mb-4 text-sm">
+                          Hamburguesas hechas aquí (no congeladas industriales), salchichas frescas, pinchos morunos y nuestros famosos chorizos parrilleros.
+                      </p>
+                  </div>
+              </div>
+
+              <!-- Barbacoa Pack -->
+              <div class="flex flex-col md:flex-row gap-6 items-center bg-white p-6 rounded-2xl shadow-lg border border-yellow-200 bg-yellow-50">
+                   <div class="w-full md:w-1/3 aspect-square bg-yellow-200 rounded-xl flex items-center justify-center text-5xl">
+                      🔥
+                  </div>
+                  <div class="w-full md:w-2/3">
+                      <h3 class="text-2xl font-bold text-gray-900 mb-2">Packs para Barbacoa</h3>
+                      <p class="text-gray-600 mb-4 text-sm">
+                          ¿Plan de fin de semana en el monte o la terraza? Llévate todo lo necesario: costillas, panceta, chistorra y el carbón en una sola parada.
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </Section>
+
+  <!-- Location Map & Local SEO Focus -->
+  <Section class="bg-gray-900 text-white">
     <div class="grid md:grid-cols-2 gap-12 items-center">
-         <div class="h-[400px] rounded-2xl overflow-hidden shadow-xl">
-             <LocationMap title="Ubicación Carnicería Terencio" />
+         <div>
+             <h2 class="text-3xl font-bold mb-6">Tu Carnicería cerca de casa</h2>
+             <p class="text-gray-300 mb-6 leading-relaxed">
+                 Aunque estamos en la Carretera de La Esperanza, somos la carnicería de referencia para muchos vecinos de:
+             </p>
+             <ul class="grid grid-cols-2 gap-4 mb-8">
+                 <li class="flex items-center gap-2"><span class="text-green-400">✓</span> La Laguna Centro</li>
+                 <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Los Baldíos</li>
+                 <li class="flex items-center gap-2"><span class="text-green-400">✓</span> Llano del Moro</li>
+                 <li class="flex items-center gap-2"><span class="text-green-400">✓</span> El Centenero</li>
+                 <li class="flex items-center gap-2"><span class="text-green-400">✓</span> San Miguel de Geneto</li>
+                 <li class="flex items-center gap-2"><span class="text-green-400">✓</span> La Esperanza</li>
+             </ul>
+             <p class="text-sm text-gray-400 italic">
+                 "Vale la pena subir 5 minutos desde La Laguna por la calidad y el precio que encuentras aquí."
+             </p>
+         </div>
+         <div class="h-[400px] rounded-2xl overflow-hidden shadow-2xl border border-gray-700">
+             <LocationMap title="Cómo llegar a Carnicería Terencio" />
         </div>
-        <div>
-            <h2 class="text-3xl font-bold mb-6">Ven a vernos hoy</h2>
-            <p class="text-gray-600 mb-6">
-                Estamos en la Carretera de La Esperanza, con fácil aparcamiento. Compra tu carne y el resto de la compra del supermercado en un solo viaje.
-            </p>
-            <div class="space-y-4">
-                <Button href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" variant="primary" class="w-full justify-center gap-2">
-                    📍 Cómo llegar (Google Maps)
-                </Button>
-                <Button href="tel:922550067" variant="outline" class="w-full justify-center">
-                    📞 Llamar para Encargos
-                </Button>
-            </div>
-        </div>
+    </div>
+  </Section>
+
+  <!-- FAQ Section with Schema Markup possibility -->
+  <Section class="bg-white">
+      <div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-10">Preguntas Frecuentes en la Carnicería</h2>
+          
+          <div class="divide-y divide-gray-100">
+              <div class="py-6">
+                  <h3 class="font-bold text-lg mb-2">¿Puedo encargar carne para una fiesta grande?</h3>
+                  <p class="text-gray-600">
+                      Sí, por supuesto. Si vas a celebrar un cumpleaños, una boda o una comida de empresa, puedes llamarnos un par de días antes y te preparamos el pedido completo (cortado y envasado si lo prefieres) para que solo tengas que venir a recogerlo sin esperas.
+                  </p>
+              </div>
+              <div class="py-6">
+                  <h3 class="font-bold text-lg mb-2">¿Vendéis carne madurada?</h3>
+                  <p class="text-gray-600">
+                      Disponemos de piezas de lomo alto y bajo con diferentes puntos de maduración. Pregunta a nuestros carniceros qué piezas están en su punto óptimo esa semana.
+                  </p>
+              </div>
+              <div class="py-6">
+                  <h3 class="font-bold text-lg mb-2">¿Envasáis al vacío?</h3>
+                  <p class="text-gray-600">
+                      Sí. Si quieres comprar cantidad para congelar o conservar mejor en la nevera, pídenos que te lo envasemos al vacío. Es un servicio gratuito y la mejor forma de mantener la frescura de la carne.
+                  </p>
+              </div>
+              <div class="py-6">
+                  <h3 class="font-bold text-lg mb-2">¿Tenéis opciones para intolerancias?</h3>
+                  <p class="text-gray-600">
+                      Elaboramos nuestras propias hamburguesas y preparados. Consulta siempre con el carnicero sobre los alérgenos, ya que al ser un obrador artesano podemos informarte con total precisión de los ingredientes de cada preparado.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </Section>
+
+  <!-- CTA Final -->
+  <Section class="bg-gray-100 text-center">
+    <h2 class="text-3xl font-bold mb-6">¿Qué apetece comer hoy?</h2>
+    <p class="text-xl text-gray-600 mb-8 md:px-20">
+        Ven a vernos y deja que te recomendemos el mejor corte del día.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+         <Button href="tel:922550067" variant="primary">
+            📞 Llamar a Carnicería
+        </Button>
+         <Button href="/terencio-cash-market" variant="ghost">
+            Ver Ofertas Generales
+        </Button>
     </div>
   </Section>
 

@@ -2,6 +2,7 @@
 import historyImage from "../assets/images-unoptimized/henry-acosta-terencio-laguna.jpg";
 import aboutImage from "../assets/images-unoptimized/supermercado-interior.jpg";
 import teamImage from "../assets/images-unoptimized/visita-estudiantes-bachillerato.jpg";
+import PageHeader from "../components/ui/PageHeader.astro";
 import Layout from "../layouts/Layout.astro";
 
 const title = "Quiénes Somos | Distribuidor HORECA Tenerife y Supermercado El Hierro";
@@ -9,17 +10,12 @@ const description = "Descubre la evolución de Terencio: desde nuestros orígene
 ---
 
 <Layout title={title} description={description} image={aboutImage.src}>
-  <!-- Hero Section con Branding Histórico -->
-  <div class="relative bg-green-900 text-white py-24 overflow-hidden">
-    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]"></div>
-    <div class="container mx-auto px-4 text-center relative z-10">
-      <span class="inline-block bg-green-700 text-xs font-bold px-3 py-1 rounded-full mb-4 tracking-widest uppercase">Nuestra Trayectoria</span>
-      <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">De Terencio Supermercados a <br class="hidden md:block" /> <span class="text-green-400">Terencio Cash Market</span></h1>
-      <p class="text-xl max-w-3xl mx-auto text-green-100 font-light leading-relaxed">
-        Evolucionamos para liderar el ahorro en Tenerife Norte, manteniendo intactos los valores de cercanía y calidad que nos vieron nacer.
-      </p>
-    </div>
-  </div>
+  <PageHeader 
+    title="Sobre Nosotros" 
+    subtitle="Desde 1999 ofreciendo calidad, frescura y el mejor servicio a los canarios."
+    badge="Nuestra Historia"
+    backgroundImage={aboutImage.src}
+  />
 
   <!-- Sección: Orígenes y El Hierro -->
   <section class="py-20 bg-white">

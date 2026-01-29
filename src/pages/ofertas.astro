@@ -6,35 +6,63 @@ const description = "Descubre las mejores ofertas de la semana en alimentación,
 ---
 
 <Layout title={title} description={description}>
-  <div class="container mx-auto px-4 py-16 text-center">
-    <span class="material-icons-outlined text-6xl text-red-500 mb-6">local_offer</span>
-    <h1 class="text-4xl font-bold text-gray-900 mb-6">Ofertas de la Semana</h1>
-    <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
-      Estamos actualizando nuestro folleto digital. Visítanos en tienda para descubrir más de 100 productos con precios rebajados esta semana.
+  
+  <!-- Coming Soon Overlay -->
+  <div class="fixed inset-0 z-40 bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center p-4 text-center">
+    <div class="bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 max-w-lg w-full transform scale-100 hover:scale-105 transition-transform duration-500">
+        <span class="material-icons-outlined text-gray-300 text-8xl mb-4 block mx-auto">lock_clock</span>
+        <h1 class="text-4xl font-black text-gray-900 mb-2 uppercase tracking-tighter">Próximamente</h1>
+        <p class="text-xl text-gray-500 mb-8 font-light">Estamos preparando las mejores ofertas para ti.</p>
+        
+        <div class="inline-flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full text-gray-600 font-medium text-sm">
+           <span class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></span>
+           En construcción
+        </div>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 py-16 text-center opacity-10 pointer-events-none filter blur-sm select-none" aria-hidden="true">
+    <!-- Header -->
+    <span class="material-icons-outlined text-6xl text-green-600 mb-6">whatsapp</span>
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Únete al Club VIP de WhatsApp</h1>
+    <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+      <span class="font-bold text-red-600">¡No te pierdas nada!</span> Las Ofertas Flash diarias se envían exclusivamente por WhatsApp. Únete ahora y sé el primero en enterarte de nuestros precios de coste.
     </p>
 
-    <!-- Placeholder for visual flyer -->
-    <!-- Visual Flyer / Offers Section -->
-    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
-       <div class="bg-red-600 p-4 text-white font-bold text-center">
-          FOLLETO VIGENTE
-       </div>
-       <div class="p-8 md:p-12 flex flex-col items-center justify-center min-h-[300px] bg-gray-50">
-          <span class="material-icons-outlined text-6xl text-gray-300 mb-4">picture_as_pdf</span>
-          <h3 class="text-2xl font-bold text-gray-800 mb-2">Nuevo Folleto en camino</h3>
-          <p class="text-gray-500 mb-8 max-w-md">Estamos preparando las mejores ofertas para esta quincena. Suscríbete para recibirlas antes que nadie.</p>
+    <!-- Main Card -->
+    <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col md:flex-row">
+       
+       <!-- Left Side: Mobile/Action -->
+       <div class="md:w-1/2 p-10 flex flex-col justify-center items-center bg-gradient-to-br from-green-50 to-white">
+          <div class="bg-green-100 p-4 rounded-full mb-6">
+            <span class="material-icons-outlined text-5xl text-green-600">notifications_active</span>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Recibe el folleto en tu móvil</h3>
+          <p class="text-gray-500 mb-8 text-center">Haz clic abajo para abrir el chat y envía "HOLA" para suscribirte.</p>
           
-          <div class="flex flex-col sm:flex-row gap-4 w-full max-w-md justify-center">
-             <a href="https://wa.me/34922550067?text=Hola,%20quiero%20recibir%20las%20ofertas" target="_blank" class="flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition shadow-md w-full">
-                <span class="material-icons-outlined">chat</span>
-                Recibir en WhatsApp
-             </a>
-             <button disabled class="flex items-center justify-center gap-2 bg-gray-200 text-gray-400 px-6 py-3 rounded-lg font-bold cursor-not-allowed w-full">
-                <span class="material-icons-outlined">file_download</span>
-                Descargar PDF
-             </button>
+          <a href="https://wa.me/34922550067?text=Hola,%20quiero%20unirme%20al%20Club%20VIP%20de%20Ofertas" target="_blank" class="flex items-center justify-center gap-3 bg-green-600 text-white px-8 py-4 rounded-full font-bold hover:bg-green-700 transition shadow-lg hover:shadow-xl w-full sm:w-auto transform hover:-translate-y-1">
+             <span class="material-icons-outlined text-2xl">chat</span>
+             Unirme al Club WhatsApp
+          </a>
+          <p class="text-xs text-gray-400 mt-4">Sin spam. Solo las mejores ofertas.</p>
+       </div>
+
+       <!-- Right Side: Desktop QR (Hidden on Mobile) -->
+       <div class="hidden md:flex md:w-1/2 bg-gray-900 text-white p-10 flex-col justify-center items-center relative overflow-hidden">
+          <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+          
+          <div class="relative z-10 text-center">
+            <p class="text-green-300 font-bold tracking-widest uppercase text-sm mb-6">Escanear para unirse</p>
+            <div class="bg-white p-4 rounded-xl shadow-lg inline-block mb-6">
+               <!-- QR Code Image Generator URL for the WhatsApp Link -->
+               <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/34922550067?text=Hola,%20quiero%20unirme%20al%20Club%20VIP%20de%20Ofertas" alt="Código QR WhatsApp Terencio" width="200" height="200" class="rounded-lg" />
+            </div>
+            <p class="text-gray-300 text-sm max-w-xs mx-auto">
+              Abre la cámara de tu móvil y escanea el código para abrir el chat directamente.
+            </p>
           </div>
        </div>
+
     </div>
   </div>
 </Layout>

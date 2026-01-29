@@ -96,8 +96,8 @@ const seoAddress = `${siteData.address.streetAddress}, ${siteData.address.addres
 
     <div class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       <!-- Card 1: Carnicería -->
-      <a href="/terencio-cash-market#contacto" class="block cursor-pointer group">
-        <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border-b-4 border-red-500">
+      <a href="/carniceria-tenerife" class="block cursor-pointer group">
+        <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border-b-4 border-red-500 h-full">
           <div class="text-5xl mb-6 group-hover:scale-110 transition duration-300">🥩</div>
           <h3 class="text-xl font-bold mb-3 text-gray-900">Carnicería Selecta</h3>
           <p class="text-gray-600 text-sm leading-relaxed">
@@ -107,8 +107,8 @@ const seoAddress = `${siteData.address.streetAddress}, ${siteData.address.addres
       </a>
 
       <!-- Card 2: Frescos -->
-      <a href="/terencio-cash-market#contacto" class="block cursor-pointer group" id="fruteria">
-        <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border-b-4 border-green-500">
+      <a href="/ofertas" class="block cursor-pointer group" id="fruteria">
+        <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border-b-4 border-green-500 h-full">
           <div class="text-5xl mb-6 group-hover:scale-110 transition duration-300">🥗</div>
           <h3 class="text-xl font-bold mb-3 text-gray-900">Frutería Local</h3>
           <p class="text-gray-600 text-sm leading-relaxed">
@@ -118,8 +118,8 @@ const seoAddress = `${siteData.address.streetAddress}, ${siteData.address.addres
       </a>
 
       <!-- Card 3: Droguería -->
-      <a href="/terencio-cash-market#contacto" class="block cursor-pointer group" id="drogueria">
-        <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border-b-4 border-blue-500">
+      <a href="/profesionales" class="block cursor-pointer group" id="drogueria">
+        <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border-b-4 border-blue-500 h-full">
           <div class="text-5xl mb-6 group-hover:scale-110 transition duration-300">🧼</div>
           <h3 class="text-xl font-bold mb-3 text-gray-900">Limpieza y Hogar</h3>
           <p class="text-gray-600 text-sm leading-relaxed">
@@ -129,8 +129,8 @@ const seoAddress = `${siteData.address.streetAddress}, ${siteData.address.addres
       </a>
 
       <!-- Card 4: Especial El Hierro -->
-      <a href="/terencio-cash-market#contacto" class="block cursor-pointer group">
-        <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border-b-4 border-yellow-500">
+      <a href="/productos-el-hierro-tenerife" class="block cursor-pointer group">
+        <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition border-b-4 border-yellow-500 h-full">
           <div class="text-5xl mb-6 group-hover:scale-110 transition duration-300">🧀</div>
           <h3 class="text-xl font-bold mb-3 text-gray-900">Especial El Hierro</h3>
           <p class="text-gray-600 text-sm leading-relaxed">
@@ -138,6 +138,34 @@ const seoAddress = `${siteData.address.streetAddress}, ${siteData.address.addres
           </p>
         </div>
       </a>
+    </div>
+
+    <!-- Plan Your Visit Flow -->
+    <div class="mt-16 container mx-auto px-4">
+       <div class="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+          <h3 class="text-2xl font-bold text-center mb-8 text-gray-800">Planifica tu visita</h3>
+          <div class="flex flex-col md:flex-row justify-between items-center gap-4 relative">
+             <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-100 -z-0"></div>
+             
+             <div class="flex flex-col items-center relative z-10 bg-white p-4">
+                <div class="w-12 h-12 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold mb-2 text-xl">1</div>
+                <span class="font-bold text-gray-700 mb-2">Consulta el Horario</span>
+                <span class="text-sm text-gray-500">De 08:00 a 21:00</span>
+             </div>
+
+             <div class="flex flex-col items-center relative z-10 bg-white p-4">
+                <div class="w-12 h-12 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold mb-2 text-xl">2</div>
+                <span class="font-bold text-gray-700 mb-2">Mira nuestras Ofertas</span>
+                <a href="/ofertas" class="text-sm text-green-700 font-bold hover:underline">Ver folleto actual</a>
+             </div>
+
+             <div class="flex flex-col items-center relative z-10 bg-white p-4">
+                <div class="w-12 h-12 rounded-full bg-green-100 text-green-700 flex items-center justify-center font-bold mb-2 text-xl">3</div>
+                <span class="font-bold text-gray-700 mb-2">Ven a vernos</span>
+                <a href="#contacto" class="text-sm text-green-700 font-bold hover:underline">Obtener indicaciones</a>
+             </div>
+          </div>
+       </div>
     </div>
   </section>
 

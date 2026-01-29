@@ -7,7 +7,7 @@ import { Image } from "astro:assets";
 import logo from "../assets/images/logo.webp";
 ---
 
-<header class="w-full bg-white shadow-lg fixed top-0 z-50 md:h-[110px] h-[80px] transition-all duration-300 flex flex-col" id="main-header">
+<header class="fixed top-0 w-full z-50 bg-white shadow-lg transition-all duration-300 flex flex-col" id="main-header">
   <div class="h-[80px] container mx-auto px-4 lg:px-6 flex items-center justify-between flex-shrink-0">
     
     <!-- Mobile Left: Phone Icon (Visible only on mobile) -->
@@ -38,12 +38,14 @@ import logo from "../assets/images/logo.webp";
           
           {/* Dropdown Menu */}
           {link.children && (
-            <div class="absolute top-full left-0 bg-white shadow-xl rounded-xl border border-gray-100 py-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
-              {link.children.map(child => (
-                <a href={child.href} class="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-700 text-sm">
-                  {child.label}
-                </a>
-              ))}
+            <div class="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+               <div class="bg-white shadow-xl rounded-xl border-t-4 border-green-600 border-x border-b border-gray-100 py-3 w-60 overflow-hidden">
+                  {link.children.map(child => (
+                    <a href={child.href} class="block px-6 py-2.5 text-gray-700 hover:bg-green-50 hover:text-green-800 text-[15px] font-medium transition-colors">
+                      {child.label}
+                    </a>
+                  ))}
+               </div>
             </div>
           )}
         </div>
@@ -53,7 +55,7 @@ import logo from "../assets/images/logo.webp";
         target="_blank"
         class="hidden lg:flex bg-white border border-green-700 text-green-700 px-4 py-2 rounded-lg font-bold hover:bg-green-50 transition-colors shadow-sm ml-4 items-center gap-2"
       >
-        <span>📍</span> Cómo llegar
+        <span class="material-icons-outlined">navigation</span> Cómo llegar
       </a>
       <a 
         href={navigation.cta.href} 
@@ -76,20 +78,35 @@ import logo from "../assets/images/logo.webp";
   <!-- Mobile Menu Dropdown -->
   <div id="mobile-menu" class="fixed top-[80px] left-0 w-full h-[calc(100dvh-80px)] bg-white z-[70] transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto pb-24">
     <div class="flex flex-col p-6 gap-6">
-      {navigation.main.map(link => (
-        <div>
-          <a 
-            href={link.href} 
-            class:list={[
-              "text-xl mobile-link pb-2 block",
-              link.color === 'red' ? "font-bold text-red-600" : "font-semibold text-gray-800"
-            ]}
-          >
-            {link.label}
-          </a>
-          {/* Mobile Submenu */}
+      {navigation.main.map((link, index) => (
+        <div class="group">
+          <div class="flex items-center justify-between">
+            <a 
+              href={link.href} 
+              class:list={[
+                "text-xl mobile-link pb-2 block flex-grow",
+                link.color === 'red' ? "font-bold text-red-600" : "font-semibold text-gray-800"
+              ]}
+            >
+              {link.label}
+            </a>
+            {link.children && (
+              <button 
+                class="p-2 text-gray-500 hover:bg-gray-100 rounded-full transition-colors focus:outline-none submenu-toggle"
+                aria-label={`Toggle submenu for ${link.label}`}
+                data-index={index}
+              >
+                <span class="material-icons-outlined transition-transform duration-300">expand_more</span>
+              </button>
+            )}
+          </div>
+          
+          {/* Mobile Submenu (Accordion) */}
           {link.children && (
-            <div class="pl-4 border-l-2 border-gray-100 mt-2 flex flex-col gap-3">
+            <div 
+              id={`submenu-${index}`}
+              class="hidden pl-4 border-l-2 border-gray-100 mt-2 flex flex-col gap-3 transition-all duration-300"
+            >
               {link.children.map(child => (
                  <a href={child.href} class="text-base text-gray-600 mobile-link block py-1">
                    {child.label}
@@ -112,7 +129,7 @@ import logo from "../assets/images/logo.webp";
       </a>
       
       <a href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" class="text-xl font-bold text-green-700 border-2 border-green-700 px-4 py-3 rounded-lg text-center mt-2 mobile-link flex items-center justify-center gap-2">
-        <span>📍</span> Cómo llegar
+        <span class="material-icons-outlined">navigation</span> Cómo llegar
       </a>
       
       <div class="mt-8 text-center text-gray-500 text-sm">
@@ -158,6 +175,27 @@ import logo from "../assets/images/logo.webp";
           mobileMenu.classList.add('translate-x-full');
           menuIcon.textContent = 'menu';
           document.body.style.overflow = '';
+        });
+      });
+
+      // Accordion Logic
+      document.querySelectorAll('.submenu-toggle').forEach(button => {
+        button.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const index = button.getAttribute('data-index');
+          const submenu = document.getElementById(`submenu-${index}`);
+          const arrow = button.querySelector('span');
+
+          if (submenu) {
+             const isHidden = submenu.classList.contains('hidden');
+             if (isHidden) {
+               submenu.classList.remove('hidden');
+               arrow.style.transform = 'rotate(180deg)';
+             } else {
+               submenu.classList.add('hidden');
+               arrow.style.transform = 'rotate(0deg)';
+             }
+          }
         });
       });
     }

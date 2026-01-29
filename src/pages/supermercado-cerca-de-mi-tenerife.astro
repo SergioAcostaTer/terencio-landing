@@ -1,9 +1,11 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Section from "../components/ui/Section.astro";
+import interiorImage from "../assets/images/supermercado-interior.webp";
 import LocationMap from "../components/LocationMap.astro";
 import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
 import Button from "../components/ui/Button.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
+import Section from "../components/ui/Section.astro";
+import Layout from "../layouts/Layout.astro";
 
 const title = "Supermercado Cerca de Mí en Tenerife | Terencio Cash Market";
 const description = "¿Buscas un supermercado cerca de ti en Tenerife Norte? Terencio Cash Market en La Esperanza está a pocos minutos de La Laguna. Parking gratis y precios bajos.";
@@ -12,28 +14,18 @@ const description = "¿Buscas un supermercado cerca de ti en Tenerife Norte? Ter
 <LocalBusinessSchema />
 <Layout title={title} description={description}>
   <!-- Hero enfocado en cercanía -->
-  <section class="relative bg-green-900 text-white py-24 overflow-hidden">
-    <div class="absolute inset-0 bg-black/40 z-0"></div> <!-- Overlay -->
-    <div class="absolute inset-0 bg-[url('/assets/images/supermercado-interior.webp')] bg-cover bg-center opacity-30 z-0"></div>
-    
-    <div class="container mx-auto px-4 text-center relative z-10">
-      <span class="bg-yellow-500 text-yellow-900 px-3 py-1 rounded-full font-bold text-sm uppercase tracking-wider mb-6 inline-block">
-        ¡Estamos muy cerca!
-      </span>
-      <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-        Tu Supermercado <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500">Cerca de Ti</span>
-      </h1>
-      <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 font-light">
-        A solo <strong>10 minutos de La Laguna</strong>. El supermercado donde ahorran los que saben comprar.
-      </p>
-      
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" variant="primary" class="text-lg px-8 py-4 shadow-xl hover:scale-105 transition-transform bg-yellow-500 text-green-900 border-none hover:bg-yellow-400">
-          📍 Ir Ahora (Google Maps)
-        </Button>
-      </div>
-    </div>
-  </section>
+  <!-- Hero enfocado en cercanía -->
+  <PageHeader 
+    title='Tu Supermercado <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500">Cerca de Ti</span>'
+    subtitle="A solo <strong>10 minutos de La Laguna</strong>. El supermercado donde ahorran los que saben comprar."
+    badge="¡Estamos muy cerca!"
+    badgeClass="bg-yellow-500 text-yellow-900 border-none shadow-md"
+    backgroundImage={interiorImage.src}
+  >
+      <Button href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" variant="primary" class="text-lg px-8 py-4 shadow-xl hover:scale-105 transition-transform bg-yellow-500 text-green-900 border-none hover:bg-yellow-400 font-extrabold">
+        📍 Ir Ahora (Google Maps)
+      </Button>
+  </PageHeader>
 
   <!-- Distancias -->
   <Section class="bg-gray-50">

@@ -2,6 +2,7 @@
 import ProfessionalForm from "../components/forms/ProfessionalForm";
 import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
 import Button from "../components/ui/Button.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import Section from "../components/ui/Section.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -12,15 +13,14 @@ const description = "Suministros de hostelería para restaurantes y guachinches.
 <LocalBusinessSchema type="WholesaleStore" image="/assets/images/restaurante-bg.webp" />
 <Layout title={title} description={description} image="/assets/images/restaurante-bg.webp">
   
-  <header class="bg-orange-50 py-16">
-    <div class="container mx-auto px-4 text-center">
-        <span class="text-orange-600 font-bold uppercase tracking-widest text-sm">HORECA Tenerife</span>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-6">Tu Socio en la Cocina</h1>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Abastecemos a los mejores guachinches y restaurantes del norte con productos frescos y formatos rentables.
-        </p>
-    </div>
-  </header>
+  <PageHeader 
+    title="Tu Socio en la Cocina" 
+    subtitle="Abastecemos a los mejores guachinches y restaurantes del norte con productos frescos y formatos rentables."
+    badge="HORECA Tenerife"
+    bgClass="bg-orange-900"
+    gradientClass="bg-gradient-to-b from-orange-900/90 via-orange-900/80 to-orange-900/90"
+    badgeClass="bg-orange-800 text-orange-100 border-orange-400"
+  />
 
   <Section class="bg-white">
     <div class="grid md:grid-cols-2 gap-12 items-center">

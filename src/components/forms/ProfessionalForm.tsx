@@ -45,8 +45,8 @@ export default function ProfessionalForm() {
       const result = await response.json();
 
       if (result.success) {
-        setSubmitStatus('success');
-        reset();
+        // Redirect to Thank You Page
+        window.location.href = '/gracias';
       } else {
         setSubmitStatus('error');
       }
@@ -58,7 +58,7 @@ export default function ProfessionalForm() {
   };
 
   return (
-    <div className="bg-gray-50 rounded-3xl p-8 md:p-12 shadow-inner border border-gray-200">
+    <div className="bg-gray-50 rounded-3xl p-4 md:p-12 shadow-inner border border-gray-200">
         <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Solicitar Tarifas Mayoristas</h2>
             <p className="text-gray-600">Rellena este formulario y nuestro equipo comercial te enviará el catálogo con precios especiales.</p>

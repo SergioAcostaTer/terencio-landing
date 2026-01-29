@@ -2,6 +2,7 @@
 import ProfessionalForm from "../components/forms/ProfessionalForm";
 import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
 import Button from "../components/ui/Button.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import Section from "../components/ui/Section.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -12,15 +13,14 @@ const description = "Suministros integrales para hoteles y apartamentos turísti
 <LocalBusinessSchema type="WholesaleStore" />
 <Layout title={title} description={description}>
   
-  <header class="bg-blue-50 py-16">
-    <div class="container mx-auto px-4 text-center">
-        <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Sector Hotelero & Vacacional</span>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-6">Excelencia para tus Huéspedes</h1>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Soluciones integrales para Hoteles, Casas Rurales y Viviendas Vacacionales en Tenerife Norte y El Hierro.
-        </p>
-    </div>
-  </header>
+  <PageHeader 
+    title="Excelencia para tus Huéspedes" 
+    subtitle="Soluciones integrales para Hoteles, Casas Rurales y Viviendas Vacacionales en Tenerife Norte y El Hierro."
+    badge="Sector Hotelero"
+    bgClass="bg-blue-900"
+    gradientClass="bg-gradient-to-b from-blue-900/90 via-blue-900/80 to-blue-900/90"
+    badgeClass="bg-blue-800 text-blue-100 border-blue-400"
+  />
 
   <Section class="bg-white">
     <div class="grid md:grid-cols-3 gap-8 text-center">

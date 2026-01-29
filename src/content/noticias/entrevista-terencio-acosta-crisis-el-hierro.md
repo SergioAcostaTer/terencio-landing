@@ -31,7 +31,7 @@ Hace dos años, la empresa dio un paso importante abriendo un establecimiento en
 
 ## El mito del transporte subvencionado
 
-Uno de los temas más sensibles es el coste de la cesta de la compra, la segunda más cara de Canarias después de La Gomera. Acosta aclara: "Se subvenciona los productos frescos y perecederos más lo que se produce en Canarias. Lo demás, no".
+Uno de los temas más sensibles es el [coste de la cesta de la compra](/terencio-cash-market "Ahorra en Terencio Cash Market"), la segunda más cara de Canarias después de La Gomera. Acosta aclara: "Se subvenciona los productos frescos y perecederos más lo que se produce en Canarias. Lo demás, no".
 
 Las ayudas al transporte son limitadas: "El año pasado nos dieron doce mil euros. Pagamos más de esa cantidad al mes. La idea de la gente es que nosotros tenemos el 100% y aun así tenemos la segunda cesta de la compra más cara. Paulino Rivero dijo en su día que habría transporte cero pero no es eso lo que ha pasado".
 

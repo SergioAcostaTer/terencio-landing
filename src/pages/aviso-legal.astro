@@ -1,4 +1,5 @@
 ---
+import PageHeader from "../components/ui/PageHeader.astro";
 import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
@@ -7,9 +8,9 @@ const description = "Información legal y condiciones de uso del sitio web de Te
 ---
 
 <Layout title={title} description={description} canonical={`${siteData.url}/aviso-legal`}>
+  <PageHeader title="Aviso Legal" badge="Legal" />
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4 max-w-4xl prose prose-green prose-lg">
-      <h1 class="text-3xl font-bold text-gray-900 mb-8">Aviso Legal</h1>
 
       <h3>1. Datos Identificativos</h3>
       <p>

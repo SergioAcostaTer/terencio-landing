@@ -26,7 +26,7 @@ El Hierro, la isla más occidental del archipiélago canario, ofrece paisajes ú
 - **Duración de la Visita:** Mínimo 2 días, ideal 5 días
 - **Zona Horaria:** UTC +1
 
-**Consejo Goloso:** No puedes irte de El Hierro sin probar su dulce más emblemático: la quesadilla. Si ya has vuelto a Tenerife, puedes comprar [quesadillas herreñas en nuestra tienda](/supermercado-la-esperanza).
+**Consejo Goloso:** No puedes irte de El Hierro sin probar su dulce más emblemático: la quesadilla. Si ya has vuelto a Tenerife, puedes comprar [quesadillas herreñas en nuestra tienda](/productos-el-hierro-tenerife).
 
 El Hierro se abastece en gran medida de energías renovables y es un ejemplo de sostenibilidad y tecnología, conocida como la primera 'smart island' del mundo. Su Reserva Marina del Mar de las Calmas es uno de los mejores sitios para bucear en Europa.
 

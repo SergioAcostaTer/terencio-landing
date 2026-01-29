@@ -1,4 +1,5 @@
 ---
+import PageHeader from "../components/ui/PageHeader.astro";
 import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
@@ -7,9 +8,9 @@ const description = "Política de privacidad y protección de datos de Terencio 
 ---
 
 <Layout title={title} description={description} canonical={`${siteData.url}/politica-privacidad`}>
+  <PageHeader title="Política de Privacidad" badge="Legal" />
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4 max-w-4xl prose prose-green prose-lg">
-      <h1 class="text-3xl font-bold text-gray-900 mb-8">Política de Privacidad</h1>
 
       <p>
         En <strong>{siteData.legalName}</strong> (en adelante, {siteData.name}), nos tomamos muy en serio la privacidad de sus datos. La presente Política de Privacidad describe cómo recopilamos, utilizamos y protegemos su información personal.
