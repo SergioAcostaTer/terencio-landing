@@ -15,8 +15,9 @@ import siteData from "../data/siteData.json";
 interface Props {
   title: string;
   description?: string;
-  image?: string; // For backwards compatibility, will be used as ogImage if ogImage not provided
+  image?: string; // For backwards compatibility
   ogImage?: string; // Specific OG image for social sharing
+  preloadImage?: string; // NEW: Critical for LCP Score
   canonical?: string;
   type?: "website" | "article";
   publishDate?: string;
@@ -27,8 +28,9 @@ interface Props {
 const { 
   title, 
   description = siteData.shortDescription, 
-  image, // Keep for backwards compatibility
-  ogImage, // New dedicated OG image prop
+  image, 
+  ogImage, 
+  preloadImage,
   canonical = Astro.url.href,
   type = "website",
   publishDate,
@@ -37,7 +39,7 @@ const {
 } = Astro.props;
 
 // Use ogImage if provided, fallback to image, then default
-const socialImage = ogImage || image || "/og-image.jpg";
+// const socialImage = ogImage || image || "/og-image.jpg";
 
 // Breadcrumbs Schema
 const breadcrumbsSchema = {
@@ -65,8 +67,8 @@ const breadcrumbsSchema = {
 <html lang="es" class="scroll-smooth overflow-x-hidden">
   <head>
     <SEO 
-      title={title}
-      description={description}
+      title={title} 
+      description={description} 
       ogImage={ogImage}
       canonical={canonical}
       type={type}
@@ -75,15 +77,29 @@ const breadcrumbsSchema = {
       noindex={noindex}
     />
 
+    <!-- CRITICAL LCP OPTIMIZATION: Preload Hero Image if provided -->
+    {preloadImage && (
+      <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
+    )}
+
     <!-- LocalBusiness Schema (JSON-LD) -->
     <LocalBusinessSchema />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbsSchema)} />
 
-    <!-- Google Fonts Removed (Using self-hosted @fontsource/outfit) -->
-
     <!-- Resource Hints for Performance -->
-    <link rel="dns-prefetch" href="https://maps.google.com" />
-    <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- OPTIMIZED FONT LOADING: Non-blocking Material Icons -->
+    <link 
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" 
+      rel="stylesheet" 
+      media="print" 
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    </noscript>
 
     <ViewTransitions />
   </head>

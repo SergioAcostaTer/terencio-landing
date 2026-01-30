@@ -72,7 +72,6 @@ import logo from "../assets/images/logo.webp";
   </div>
 
   <!-- Subheader Status Bar -->
-  <!-- Subheader Status Bar -->
   <StoreStatus />
 
   <!-- Mobile Menu Dropdown -->
@@ -92,7 +91,7 @@ import logo from "../assets/images/logo.webp";
             </a>
             {link.children && (
               <button 
-                class="p-2 text-gray-500 hover:bg-gray-100 rounded-full transition-colors focus:outline-none submenu-toggle"
+                class="p-2 text-gray-500 hover:bg-gray-100 rounded-full transition-colors focus:outline-none submenu-toggle" 
                 aria-label={`Toggle submenu for ${link.label}`}
                 data-index={index}
               >
@@ -108,9 +107,9 @@ import logo from "../assets/images/logo.webp";
               class="hidden pl-4 border-l-2 border-gray-100 mt-2 flex flex-col gap-3 transition-all duration-300"
             >
               {link.children.map(child => (
-                 <a href={child.href} class="text-base text-gray-600 mobile-link block py-1">
-                   {child.label}
-                 </a>
+                  <a href={child.href} class="text-base text-gray-600 mobile-link block py-1">
+                    {child.label}
+                  </a>
               ))}
             </div>
           )}
@@ -133,15 +132,12 @@ import logo from "../assets/images/logo.webp";
       </a>
       
       <div class="mt-8 text-center text-gray-500 text-sm">
-         <p class="mb-2">Llámanos</p>
-         <a href={`tel:${siteData.contact.phone.replace(/\s/g, "")}`} class="text-2xl font-bold text-green-700">{siteData.contact.phone}</a>
+          <p class="mb-2">Llámanos</p>
+          <a href={`tel:${siteData.contact.phone.replace(/\s/g, "")}`} class="text-2xl font-bold text-green-700">{siteData.contact.phone}</a>
       </div>
     </div>
   </div>
 </header>
-
-<!-- Material Icons Link (Ensure this is in Layout head usually, but adding link here just in case if not global) -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
 <script>
   document.addEventListener('astro:page-load', () => {
@@ -150,8 +146,7 @@ import logo from "../assets/images/logo.webp";
     const menuIcon = document.getElementById('menu-icon');
 
     if (menuToggle && mobileMenu && menuIcon) {
-      // Remove any existing listeners to avoid duplication if header persists
-      // (Though usually header is replaced, this is safer)
+      // Remove any existing listeners to avoid duplication
       const toggleMenu = () => {
         const isClosed = mobileMenu.classList.contains('translate-x-full');
         
@@ -190,10 +185,10 @@ import logo from "../assets/images/logo.webp";
              const isHidden = submenu.classList.contains('hidden');
              if (isHidden) {
                submenu.classList.remove('hidden');
-               arrow.style.transform = 'rotate(180deg)';
+               if(arrow) arrow.style.transform = 'rotate(180deg)';
              } else {
                submenu.classList.add('hidden');
-               arrow.style.transform = 'rotate(0deg)';
+               if(arrow) arrow.style.transform = 'rotate(0deg)';
              }
           }
         });
