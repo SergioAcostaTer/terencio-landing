@@ -5,6 +5,7 @@ import ProfessionalForm from "../components/forms/ProfessionalForm";
 import Button from "../components/ui/Button.astro";
 import PageHeader from "../components/ui/PageHeader.astro";
 import ContentWidget from "../components/widgets/ContentWidget.astro";
+import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
 // SEO Optimizado
@@ -14,30 +15,23 @@ const description = "Terencio: Tu proveedor de hostelería en Tenerife. Alimenta
 const wholesaleSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "WholesaleStore",
-  "name": "Supermercados Terencio",
-  "image": "https://terencio.es" + proImage.src,
-  "telephone": "+34922123456", // Reemplazar con real si existe
+  "name": siteData.name,
+  "image": siteData.url + proImage.src,
+  "telephone": siteData.contact.phoneInternational,
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Ctra. General del Norte, 23",
-    "addressLocality": "La Esperanza",
-    "postalCode": "38290",
-    "addressRegion": "Santa Cruz de Tenerife",
-    "addressCountry": "ES"
+    "streetAddress": siteData.address.streetAddress,
+    "addressLocality": siteData.address.addressLocality,
+    "postalCode": siteData.address.postalCode,
+    "addressRegion": siteData.address.addressRegion,
+    "addressCountry": siteData.address.addressCountry
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 28.4556, // Aproximado
-    "longitude": -16.3688 // Aproximado
+    "latitude": siteData.geo.latitude,
+    "longitude": siteData.geo.longitude
   },
-  "areaServed": [
-    "Santa Cruz de Tenerife",
-    "San Cristóbal de La Laguna",
-    "Puerto de la Cruz",
-    "Sur de Tenerife",
-    "Norte de Tenerife"
-  ],
-  "priceRange": "$$"
+  "areaServed": siteData.services.delivery.zones
 });
 ---
 
@@ -188,7 +182,7 @@ const wholesaleSchema = JSON.stringify({
         <div class="text-center mt-12 bg-[#185d26] rounded-2xl p-8 text-white max-w-4xl mx-auto shadow-xl">
             <h3 class="text-2xl font-bold mb-4">¿No encuentras lo que buscas?</h3>
             <p class="mb-6 opacity-90">Trabajamos con cientos de referencias bajo pedido. Si existe, te lo conseguimos.</p>
-            <Button href="tel:922000000" variant="secondary" class="bg-white text-[#185d26] hover:bg-gray-100 border-none">Llamar a Pedidos</Button>
+            <Button href={`tel:${siteData.contact.phoneRaw}`} variant="secondary" class="bg-white text-[#185d26] hover:bg-gray-100 border-none">Llamar a Pedidos</Button>
         </div>
     </div>
   </section>

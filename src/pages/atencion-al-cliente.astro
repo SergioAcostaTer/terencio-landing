@@ -1,10 +1,11 @@
 ---
 import FAQ from "../components/FAQ.astro";
 import PageHeader from "../components/ui/PageHeader.astro";
+import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
 const title = "Atención al Cliente y FAQ | Terencio Cash Market La Esperanza";
-const description = "Ayuda y soporte de Terencio Cash Market. Consulta horarios, apertura en domingos, servicios para profesionales y ubicación de nuestro supermercado en Tenerife.";
+const description = "Ayuda y soporte de Terencio Cash Market. Consulta horarios, apertura en domingos, servicios para profesionales y ubicación de nuestro supermercado en Tenerife";
 ---
 
 <Layout title={title} description={description}>
@@ -30,7 +31,7 @@ const description = "Ayuda y soporte de Terencio Cash Market. Consulta horarios,
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Card Teléfono -->
-          <a href="tel:922550067" class="block cursor-pointer group">
+          <a href={`tel:${siteData.contact.phoneRaw}`} class="block cursor-pointer group">
             <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all">
               <div class="w-16 h-16 bg-green-100 text-green-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -40,13 +41,13 @@ const description = "Ayuda y soporte de Terencio Cash Market. Consulta horarios,
               <h3 class="text-xl font-bold text-gray-900 mb-2">Teléfono Tienda</h3>
               <p class="text-gray-500 text-sm mb-6">Para consultas rápidas sobre stock o pedidos.</p>
               <span class="text-green-700 font-extrabold text-xl group-hover:text-green-800 transition">
-                922 55 00 67
+                {siteData.contact.phone}
               </span>
             </div>
           </a>
 
           <!-- Card Email -->
-          <a href="mailto:info@kitcash.es" class="block cursor-pointer group">
+          <a href={`mailto:${siteData.contact.email}`} class="block cursor-pointer group">
             <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl transition-all">
               <div class="w-16 h-16 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -71,7 +72,7 @@ const description = "Ayuda y soporte de Terencio Cash Market. Consulta horarios,
                 </svg>
               </div>
               <h3 class="text-xl font-bold text-gray-900 mb-2">Oficina Principal</h3>
-              <p class="text-gray-500 text-sm mb-6">Carr. La Esperanza, 22, La Laguna.</p>
+              <p class="text-gray-500 text-sm mb-6">{siteData.address.streetAddress}, {siteData.address.locality}.</p>
               <span class="text-red-700 font-bold group-hover:underline">
                 Ver en Mapa
               </span>

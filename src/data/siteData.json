@@ -2,6 +2,8 @@
   "name": "Terencio Cash Market",
   "legalName": "Kit Cash Sl.",
   "cif": "B76594126",
+  "tagline": "Tu Cash Market en Tenerife",
+  "slogan": "Precios de mayorista, abierto a todos",
   "legal": {
     "constitutionDate": "6-2-2013",
     "lastChangeDate": "3-8-2025",
@@ -12,15 +14,33 @@
     "sector": "Comercio",
     "form": "Sociedad limitada"
   },
-  "shortDescription": "Supermercado y Cash & Carry en La Esperanza, Tenerife. Venta a profesionales y particulares.",
-  "description": "Terencio Cash Market es tu supermercado de confianza y Cash & Carry en Tenerife. Ofrecemos una amplia selección de productos frescos, alimentación y bebidas para hostelería y particulares. Calidad y servicio en La Esperanza, La Laguna.",
+  "seo": {
+    "shortDescription": "Supermercado y Cash & Carry en La Esperanza, Tenerife. Venta a profesionales y particulares.",
+    "description": "Terencio Cash Market es tu supermercado de confianza y Cash & Carry en Tenerife. Ofrecemos una amplia selección de productos frescos, alimentación y bebidas para hostelería y particulares. Calidad y servicio en La Esperanza, La Laguna.",
+    "keywords": [
+      "supermercado tenerife",
+      "cash and carry",
+      "mayorista alimentación",
+      "carnicería tenerife",
+      "la esperanza",
+      "productos el hierro"
+    ]
+  },
   "url": "https://terencio.es",
+  "logo": "/logo.png",
+  "images": {
+    "storeFront": "/store-front.jpg",
+    "storeInterior": "/assets/images/supermercado-interior.jpg",
+    "logo": "/assets/images/logo.webp"
+  },
   "address": {
     "streetAddress": "Carr. de la Esperanza, 22",
     "addressLocality": "San Cristóbal de La Laguna",
+    "locality": "La Esperanza",
     "addressRegion": "Santa Cruz de Tenerife",
     "postalCode": "38206",
-    "addressCountry": "ES"
+    "addressCountry": "ES",
+    "formatted": "Carr. de la Esperanza, 22, 38206 La Esperanza, La Laguna, Tenerife"
   },
   "geo": {
     "latitude": 28.47311884198956,
@@ -28,35 +48,188 @@
   },
   "contact": {
     "phone": "922 55 00 67",
-    "email": "info@kitcash.es"
+    "phoneRaw": "922550067",
+    "phoneInternational": "+34 922 55 00 67",
+    "email": "info@kitcash.es",
+    "whatsapp": "922550067",
+    "whatsappUrl": "https://wa.me/34922550067"
   },
   "social": {
     "facebook": "https://www.facebook.com/TerencioCashMarket",
-    "instagram": "https://www.instagram.com/TerencioCashMarket"
+    "instagram": "https://www.instagram.com/TerencioCashMarket",
+    "googleMaps": "https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market",
+    "googleMapsEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.1234!2d-16.33764619325292!3d28.47311884198956"
   },
+  "ratings": {
+    "google": {
+      "rating": 4.0,
+      "reviewCount": 463,
+      "maxRating": 5,
+      "minRating": 1
+    }
+  },
+  "hours": {
+    "text": "Lunes a Sábado: 08:00–21:00. Domingo: 08:30–20:30 (Festivos igual que domingos. Solo cerramos Navidad, Reyes y Fin de Año)",
+    "special": "Festivos: igual que domingos. Solo cerramos Navidad, Reyes y Fin de Año",
+    "schedule": [
+      {
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "dayOfWeekES": [
+          "Lunes",
+          "Martes",
+          "Miércoles",
+          "Jueves",
+          "Viernes",
+          "Sábado"
+        ],
+        "opens": "08:00",
+        "closes": "21:00"
+      },
+      {
+        "dayOfWeek": [
+          "Sunday"
+        ],
+        "dayOfWeekES": [
+          "Domingo"
+        ],
+        "opens": "08:30",
+        "closes": "20:30"
+      }
+    ]
+  },
+  "services": {
+    "retail": {
+      "name": "Venta al Público",
+      "description": "Supermercado tradicional para particulares",
+      "icon": "shopping-cart"
+    },
+    "wholesale": {
+      "name": "Cash & Carry",
+      "description": "Venta mayorista sin necesidad de carnet",
+      "icon": "warehouse"
+    },
+    "horeca": {
+      "name": "HORECA",
+      "description": "Servicio especializado para hostelería, restaurantes y catering",
+      "icon": "chef-hat"
+    },
+    "delivery": {
+      "name": "Reparto Profesional",
+      "description": "Servicio de reparto para clientes Business",
+      "zones": [
+        "Santa Cruz de Tenerife",
+        "San Cristóbal de La Laguna",
+        "Tegueste",
+        "El Rosario",
+        "Tacoronte",
+        "El Sauzal",
+        "Candelaria",
+        "Güímar"
+      ]
+    }
+  },
+  "departments": {
+    "butcher": {
+      "name": "Carnicería al Corte",
+      "description": "Carnicería tradicional con cortes al momento",
+      "icon": "beef"
+    },
+    "deli": {
+      "name": "Charcutería",
+      "description": "Jamones, quesos y embutidos de calidad",
+      "icon": "cheese"
+    },
+    "produce": {
+      "name": "Frutas y Verduras",
+      "description": "Frescos diarios de la mejor calidad",
+      "icon": "apple"
+    },
+    "wine": {
+      "name": "Bodega",
+      "description": "Vinos canarios, nacionales e importados",
+      "icon": "wine"
+    },
+    "elHierro": {
+      "name": "Productos de El Hierro",
+      "description": "Quesadillas, quesos, piña tropical y más",
+      "icon": "star"
+    }
+  },
+  "areas": {
+    "primary": [
+      "La Esperanza",
+      "San Cristóbal de La Laguna",
+      "El Rosario"
+    ],
+    "secondary": [
+      "Santa Cruz de Tenerife",
+      "Tegueste",
+      "Tacoronte"
+    ],
+    "delivery": [
+      "Santa Cruz",
+      "La Laguna",
+      "Tegueste",
+      "El Rosario",
+      "Tacoronte",
+      "El Sauzal",
+      "Candelaria",
+      "Güímar"
+    ]
+  },
+  "specialties": [
+    {
+      "name": "Productos de El Hierro",
+      "description": "Importador oficial de productos herreños en Tenerife",
+      "featured": true
+    },
+    {
+      "name": "Carnicería Tradicional",
+      "description": "Cortes al momento con maestros carniceros",
+      "featured": true
+    },
+    {
+      "name": "Sin Cuota de Socio",
+      "description": "Cash & Carry abierto a particulares sin necesidad de tarjeta",
+      "featured": true
+    }
+  ],
+  "features": [
+    "Aparcamiento gratuito",
+    "Abierto domingos y festivos",
+    "Pago con tarjeta",
+    "Servicio urgente 365 días",
+    "Carnicería propia",
+    "Productos locales",
+    "Formato mayorista",
+    "Sin cuota de socio"
+  ],
   "analytics": {
     "gaMeasurementId": "G-HVCHD7R86X"
   },
-  "hoursText": "Lunes a Sábado: 08:00–21:00. Domingo: 08:30–20:30 (Festivos igual que domingos. Solo cerramos Navidad, Reyes y Fin de Año)",
-  "hours": [
-    {
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ],
-      "opens": "08:00",
-      "closes": "21:00"
+  "brand": {
+    "colors": {
+      "primary": "#185d26",
+      "primaryLight": "#22c55e",
+      "secondary": "#dc2626",
+      "accent": "#f59e0b"
     },
-    {
-      "dayOfWeek": [
-        "Sunday"
-      ],
-      "opens": "08:30",
-      "closes": "20:30"
+    "fonts": {
+      "heading": "Inter",
+      "body": "Inter"
     }
-  ]
+  },
+  "meta": {
+    "themeColor": "#185d26",
+    "locale": "es_ES",
+    "language": "es",
+    "region": "IC"
+  }
 }

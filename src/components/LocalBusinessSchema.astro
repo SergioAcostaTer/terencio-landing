@@ -3,11 +3,10 @@ import siteData from "../data/siteData.json";
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness", // Using LocalBusiness as base, more specific types below
+  "@type": "LocalBusiness",
   "name": siteData.name,
   "legalName": siteData.legalName,
   "image": [
-    // Ensure these are absolute URLs in siteData or handle here
     `${siteData.url}/logo.png`,
     `${siteData.url}/store-front.jpg`
   ],
@@ -46,20 +45,20 @@ const schema = {
        "name": "Tenerife"
     }
   ],
-  "openingHoursSpecification": siteData.hours.map(h => ({
+  "openingHoursSpecification": siteData.hours.schedule.map(h => ({
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": h.dayOfWeek,
     "opens": h.opens,
     "closes": h.closes
   })),
-  "priceRange": "€",
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market",
   "department": [
     {
       "@type": "ButcherShop",
       "name": "Carnicería Terencio",
-      "image": `${siteData.url}/assets/images/supermercado-interior.jpg`, // Check if this path is correct or needs adjustment
+      "image": `${siteData.url}/assets/images/supermercado-interior.jpg`,
       "telephone": siteData.contact.phone,
-      "openingHoursSpecification": siteData.hours.map(h => ({
+      "openingHoursSpecification": siteData.hours.schedule.map(h => ({
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": h.dayOfWeek,
         "opens": h.opens,
@@ -71,7 +70,7 @@ const schema = {
        "name": "Terencio Cash & Carry",
        "image": `${siteData.url}/store-local.jpg`,
        "telephone": siteData.contact.phone,
-       "openingHoursSpecification": siteData.hours.map(h => ({
+       "openingHoursSpecification": siteData.hours.schedule.map(h => ({
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": h.dayOfWeek,
         "opens": h.opens,
@@ -82,3 +81,4 @@ const schema = {
 };
 ---
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+

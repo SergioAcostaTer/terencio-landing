@@ -5,6 +5,7 @@ import Button from "../components/ui/Button.astro";
 import Icon from "../components/ui/Icon";
 import PageHeader from "../components/ui/PageHeader.astro";
 import ContentWidget from "../components/widgets/ContentWidget.astro";
+import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
 const title = "Carnicería en Tenerife | Carne al por mayor y corte propio";
@@ -116,7 +117,7 @@ const canonical = "https://terencio.es/carniceria-tenerife";
         <p class="text-gray-300 mb-8 max-w-2xl mx-auto">Preparamos encargos para fiestas, barbacoas y eventos. Llámanos y tenlo listo para recoger.</p>
         <div class="flex flex-wrap justify-center gap-4">
              <Button href="/contacto" variant="primary">Ver Horarios y Ubicación</Button>
-             <Button href="tel:922550067" variant="ghost" class="bg-white/10 text-white hover:bg-white/20">Llamar a Carnicería</Button>
+             <Button href={`tel:${siteData.contact.phoneRaw}`} variant="ghost" class="bg-white/10 text-white hover:bg-white/20">Llamar a Carnicería</Button>
         </div>
     </div>
   </section>

@@ -4,22 +4,22 @@
     "links": [
       {
         "label": "Carnicería al Corte",
-        "href": "/terencio-cash-market#carniceria",
+        "href": "/carniceria-tenerife",
         "icon": "knife"
       },
       {
         "label": "Charcutería",
-        "href": "/terencio-cash-market#charcuteria",
+        "href": "/cash-and-carry-tenerife#charcuteria",
         "icon": "shopping-bag"
       },
       {
         "label": "Frutería y Frescos",
-        "href": "/terencio-cash-market#fruteria",
+        "href": "/cash-and-carry-tenerife#frescos",
         "icon": "apple"
       },
       {
         "label": "Bodega y Vinos",
-        "href": "/terencio-cash-market#bodega",
+        "href": "/cash-and-carry-tenerife#bodega",
         "icon": "wine"
       }
     ]
@@ -29,17 +29,17 @@
     "links": [
       {
         "label": "Servicio HORECA",
-        "href": "/profesionales-restaurantes",
+        "href": "/profesionales#horeca",
         "icon": "chef"
       },
       {
         "label": "Abastecimiento Hoteles",
-        "href": "/profesionales-hoteles",
+        "href": "/profesionales#hoteles",
         "icon": "hotel"
       },
       {
         "label": "Catering y Eventos",
-        "href": "/profesionales-eventos",
+        "href": "/profesionales#catering",
         "icon": "coffee"
       },
       {
@@ -64,7 +64,7 @@
       },
       {
         "label": "Vinos Canarios",
-        "href": "/terencio-cash-market#bodega",
+        "href": "/cash-and-carry-tenerife#bodega",
         "icon": "wine"
       },
       {
@@ -79,12 +79,12 @@
     "links": [
       {
         "label": "Horarios de Apertura",
-        "href": "/horario-terencio-cash-market",
+        "href": "/horario",
         "icon": "clock"
       },
       {
         "label": "Dónde Estamos",
-        "href": "/#donde-estamos",
+        "href": "/#ubicacion",
         "icon": "map-pin"
       },
       {

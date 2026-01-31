@@ -27,7 +27,7 @@ interface Props {
 
 const { 
   title, 
-  description = siteData.shortDescription, 
+  description = siteData.seo.description,
   image, 
   ogImage, 
   preloadImage,
@@ -114,12 +114,12 @@ const breadcrumbsSchema = {
     
     <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-[60] flex justify-between px-3 py-3 gap-3 pb-[calc(12px+env(safe-area-inset-bottom))]">
   
-      <a href="tel:922550067" class="flex-1 flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-lg p-1 text-gray-800 active:bg-gray-200 transition">
+      <a href={`tel:${siteData.contact.phoneRaw}`} class="flex-1 flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-lg p-1 text-gray-800 active:bg-gray-200 transition">
         <span class="material-icons-outlined text-green-700 text-2xl">call</span>
         <span class="text-[10px] font-bold uppercase mt-1">Llamar</span>
       </a>
     
-      <a href="mailto:info@kitcash.es" class="flex-1 flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-lg p-1 text-gray-800 active:bg-gray-200 transition">
+      <a href={`mailto:${siteData.contact.email}`} class="flex-1 flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-lg p-1 text-gray-800 active:bg-gray-200 transition">
         <span class="material-icons-outlined text-green-600 text-2xl">mail</span>
         <span class="text-[10px] font-bold uppercase mt-1">Email</span>
       </a>
