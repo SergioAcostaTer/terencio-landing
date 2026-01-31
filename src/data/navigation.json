@@ -46,6 +46,10 @@
     {
       "label": "Noticias",
       "href": "/noticias"
+    },
+    {
+      "label": "Empleo",
+      "href": "/trabaja-con-nosotros"
     }
   ],
   "cta": {

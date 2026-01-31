@@ -1,14 +1,15 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { AlertCircle, CheckCircle, Loader2, Send } from 'lucide-react';
+import { AlertCircle, CheckCircle, Loader2, Mail, MessageSquare, Phone, Send, User } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
 const contactSchema = z.object({
-  name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
-  email: z.string().email("Introduce un email válido"),
-  phone: z.string().min(9, "Introduce un teléfono válido"),
-  message: z.string().min(10, "El mensaje debe tener al menos 10 caracteres"),
+  name: z.string().min(2, "El nombre es muy corto"),
+  email: z.string().email("Email inválido"),
+  phone: z.string().min(9, "Teléfono inválido"),
+  topic: z.string().min(1, "Selecciona un motivo"),
+  message: z.string().min(10, "Cuéntanos un poco más (mín. 10 caracteres)"),
   honeypot: z.string().optional(),
 });
 
@@ -23,22 +24,19 @@ export default function ContactForm() {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    if (data.honeypot) return; // Silent spam rejection
+    if (data.honeypot) return;
 
     setIsSubmitting(true);
     
     try {
-      // Simulate API call or replace with actual Web3Forms fetch
+      // Replace with your Web3Forms Access Key or API endpoint
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-            access_key: "82d5137b-b53c-414f-9671-eadf139e9505", // Public key from source code
-            subject: "Nuevo mensaje de contacto - Web Terencio",
-            from_name: "Web Terencio Contacto",
+            access_key: "YOUR_ACCESS_KEY_HERE", // IMPORTANT: Add your key here
+            subject: `Nuevo mensaje Web: ${data.topic}`,
+            from_name: "Terencio Web Contact",
             ...data
         })
       });
@@ -46,8 +44,10 @@ export default function ContactForm() {
       const result = await response.json();
 
       if (result.success) {
-        // Redirect to Thank You Page
-        window.location.href = '/gracias';
+        setSubmitStatus('success');
+        reset();
+        // Optional: Redirect to thank you page
+        // window.location.href = '/gracias';
       } else {
         setSubmitStatus('error');
       }
@@ -59,82 +59,143 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 bg-white p-4 md:p-8 rounded-2xl shadow-lg border border-gray-100">
+    <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden relative">
+      {/* Decorative top bar */}
+      <div className="h-2 w-full bg-gradient-to-r from-green-600 to-green-400"></div>
       
-      {/* Honeypot */}
-      <input type="text" className="hidden" {...register("honeypot")} />
+      <div className="p-6 md:p-8 space-y-5">
+        <input type="text" className="hidden" {...register("honeypot")} />
 
-      <div className="space-y-2">
-        <label htmlFor="name" className="text-sm font-bold text-gray-700">Nombre Completo</label>
-        <input
-          {...register("name")}
-          id="name"
-          className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:outline-none transition ${errors.name ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-green-200'}`}
-          placeholder="Tu nombre y apellidos"
-        />
-        {errors.name && <p className="text-red-500 text-xs flex items-center gap-1"><AlertCircle size={12} /> {errors.name.message}</p>}
+        {/* Name Field */}
+        <div className="space-y-1">
+            <label htmlFor="name" className="text-xs font-bold text-gray-500 uppercase tracking-wider ml-1">Nombre Completo</label>
+            <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <User size={18} />
+                </div>
+                <input
+                    {...register("name")}
+                    id="name"
+                    className={`w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl border focus:bg-white focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all outline-none ${errors.name ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                    placeholder="Tu nombre"
+                />
+            </div>
+            {errors.name && <p className="text-red-500 text-xs ml-1 flex items-center gap-1"><AlertCircle size={10} /> {errors.name.message}</p>}
+        </div>
+
+        {/* Grid for Email & Phone */}
+        <div className="grid md:grid-cols-2 gap-5">
+            <div className="space-y-1">
+                <label htmlFor="email" className="text-xs font-bold text-gray-500 uppercase tracking-wider ml-1">Email</label>
+                <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <Mail size={18} />
+                    </div>
+                    <input
+                        {...register("email")}
+                        id="email"
+                        type="email"
+                        className={`w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl border focus:bg-white focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all outline-none ${errors.email ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                        placeholder="nombre@email.com"
+                    />
+                </div>
+                {errors.email && <p className="text-red-500 text-xs ml-1">{errors.email.message}</p>}
+            </div>
+
+            <div className="space-y-1">
+                <label htmlFor="phone" className="text-xs font-bold text-gray-500 uppercase tracking-wider ml-1">Teléfono</label>
+                <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                        <Phone size={18} />
+                    </div>
+                    <input
+                        {...register("phone")}
+                        id="phone"
+                        type="tel"
+                        className={`w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl border focus:bg-white focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all outline-none ${errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                        placeholder="600 000 000"
+                    />
+                </div>
+                {errors.phone && <p className="text-red-500 text-xs ml-1">{errors.phone.message}</p>}
+            </div>
+        </div>
+
+        {/* Topic Selector */}
+        <div className="space-y-1">
+            <label htmlFor="topic" className="text-xs font-bold text-gray-500 uppercase tracking-wider ml-1">Motivo de consulta</label>
+            <div className="relative">
+                <select
+                    {...register("topic")}
+                    id="topic"
+                    className={`w-full px-4 py-3 bg-gray-50 rounded-xl border appearance-none focus:bg-white focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all outline-none text-gray-700 ${errors.topic ? 'border-red-300' : 'border-gray-200'}`}
+                >
+                    <option value="">Selecciona una opción...</option>
+                    <option value="Información General">Información General</option>
+                    <option value="Disponibilidad Producto">Consultar Stock / Producto</option>
+                    <option value="Sugerencia">Sugerencia o Felicitación</option>
+                    <option value="Incidencia">Incidencia</option>
+                    <option value="Empleo">Recursos Humanos</option>
+                </select>
+                <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+            </div>
+            {errors.topic && <p className="text-red-500 text-xs ml-1">{errors.topic.message}</p>}
+        </div>
+
+        {/* Message */}
+        <div className="space-y-1">
+            <label htmlFor="message" className="text-xs font-bold text-gray-500 uppercase tracking-wider ml-1">Mensaje</label>
+            <div className="relative">
+                <div className="absolute top-3 left-3 pointer-events-none text-gray-400">
+                    <MessageSquare size={18} />
+                </div>
+                <textarea
+                    {...register("message")}
+                    id="message"
+                    rows={4}
+                    className={`w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl border focus:bg-white focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all outline-none resize-none ${errors.message ? 'border-red-300 bg-red-50' : 'border-gray-200'}`}
+                    placeholder="¿En qué podemos ayudarte?"
+                ></textarea>
+            </div>
+            {errors.message && <p className="text-red-500 text-xs ml-1">{errors.message.message}</p>}
+        </div>
+
+        {/* Submit Button */}
+        <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full bg-brand-primary text-white font-bold text-lg py-4 rounded-xl hover:bg-green-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+        >
+            {isSubmitting ? <Loader2 className="animate-spin" /> : <Send size={20} />}
+            {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+        </button>
+
+        {/* Status Messages */}
+        {submitStatus === 'success' && (
+            <div className="p-4 bg-green-50 text-green-800 rounded-xl flex items-start gap-3 border border-green-200 animate-fade-in-up">
+                <CheckCircle className="shrink-0 text-green-600" size={20} />
+                <div>
+                    <p className="font-bold">¡Mensaje enviado con éxito!</p>
+                    <p className="text-sm">Gracias por contactar. Te responderemos en breve.</p>
+                </div>
+            </div>
+        )}
+        
+        {submitStatus === 'error' && (
+            <div className="p-4 bg-red-50 text-red-800 rounded-xl flex items-start gap-3 border border-red-200 animate-pulse">
+                <AlertCircle className="shrink-0 text-red-600" size={20} />
+                <div>
+                    <p className="font-bold">Hubo un error al enviar</p>
+                    <p className="text-sm">Por favor, revisa tu conexión o llámanos directamente.</p>
+                </div>
+            </div>
+        )}
+
+        <p className="text-[10px] text-center text-gray-400 mt-4">
+            Sus datos están protegidos. Al enviar acepta nuestra <a href="/legal/politica-privacidad" className="underline hover:text-green-700">política de privacidad</a>.
+        </p>
       </div>
-
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-bold text-gray-700">Email</label>
-            <input
-            {...register("email")}
-            id="email"
-            type="email"
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:outline-none transition ${errors.email ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-green-200'}`}
-            placeholder="tu@email.com"
-            />
-            {errors.email && <p className="text-red-500 text-xs flex items-center gap-1"><AlertCircle size={12} /> {errors.email.message}</p>}
-        </div>
-
-        <div className="space-y-2">
-            <label htmlFor="phone" className="text-sm font-bold text-gray-700">Teléfono</label>
-            <input
-            {...register("phone")}
-            id="phone"
-            type="tel"
-            className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:outline-none transition ${errors.phone ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-green-200'}`}
-            placeholder="600 000 000"
-            />
-            {errors.phone && <p className="text-red-500 text-xs flex items-center gap-1"><AlertCircle size={12} /> {errors.phone.message}</p>}
-        </div>
-      </div>
-
-      <div className="space-y-2">
-        <label htmlFor="message" className="text-sm font-bold text-gray-700">Mensaje</label>
-        <textarea
-          {...register("message")}
-          id="message"
-          rows={4}
-          className={`w-full px-4 py-3 rounded-lg border focus:ring-2 focus:outline-none transition resize-none ${errors.message ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-green-200'}`}
-          placeholder="¿En qué podemos ayudarte?"
-        ></textarea>
-        {errors.message && <p className="text-red-500 text-xs flex items-center gap-1"><AlertCircle size={12} /> {errors.message.message}</p>}
-      </div>
-
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full bg-brand-primary text-white font-bold py-4 rounded-xl hover:bg-green-800 transition shadow-lg flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
-      >
-        {isSubmitting ? <Loader2 className="animate-spin" /> : <Send size={20} />}
-        {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
-      </button>
-
-      {submitStatus === 'success' && (
-        <div className="p-4 bg-green-50 text-green-700 rounded-lg flex items-center gap-2">
-            <CheckCircle size={20} />
-            <p>¡Mensaje enviado correctamente! Te contactaremos pronto.</p>
-        </div>
-      )}
-      
-      {submitStatus === 'error' && (
-        <div className="p-4 bg-red-50 text-red-700 rounded-lg flex items-center gap-2">
-            <AlertCircle size={20} />
-            <p>Hubo un error al enviar. Por favor, inténtalo de nuevo o llámanos.</p>
-        </div>
-      )}
     </form>
   );
 }

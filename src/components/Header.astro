@@ -35,11 +35,13 @@ import logo from "../assets/images/logo.webp";
     </button>
 
     <!-- Brand / Logo -->
-    <a href="/" class="flex items-center gap-2 h-12 md:h-16 relative group" aria-label="Terencio Cash Market Inicio">
-      <Image class="h-full w-auto object-contain transition-transform group-hover:scale-105" src={logo} alt="Logotipo Terencio Supermercado" width={64} height={64} loading="eager" />
-      <div class="hidden sm:flex flex-col leading-none justify-center">
-        <span class="text-xl lg:text-2xl font-bold text-brand-dark tracking-tight">Terencio</span>
-        <span class="text-xs text-brand-primary font-bold uppercase tracking-widest">Cash Market</span>
+    <a href="/" class="flex items-center gap-3 relative group" aria-label="Terencio Cash Market Inicio">
+      <div class="h-8 md:h-12 flex items-center">
+        <Image class="h-full w-auto object-contain transition-transform group-hover:scale-105" src={logo} alt="Logotipo Terencio Supermercado" width={48} height={48} loading="eager" />
+      </div>
+      <div class="hidden sm:flex flex-col leading-tight justify-center gap-0.5">
+        <span class="text-lg lg:text-xl font-bold text-brand-dark tracking-tight leading-none">Terencio</span>
+        <span class="text-[10px] lg:text-xs text-brand-primary font-bold uppercase tracking-widest leading-none">Cash Market</span>
       </div>
     </a>
 
