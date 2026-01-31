@@ -1,72 +1,51 @@
 {
   "main": [
     {
-      "label": "Profesionales",
-      "href": "/profesionales",
-      "children": [
-        {
-          "label": "Restaurantes",
-          "href": "/profesionales-restaurantes"
-        },
-        {
-          "label": "Hoteles",
-          "href": "/profesionales-hoteles"
-        },
-        {
-          "label": "Catering y Eventos",
-          "href": "/profesionales-eventos"
-        }
-      ]
+      "label": "Inicio",
+      "href": "/"
     },
     {
-      "label": "Supermercado",
-      "href": "/terencio-cash-market",
+      "label": "Ofertas",
+      "href": "/ofertas",
+      "color": "red"
+    },
+    {
+      "label": "Nuestros Productos",
+      "href": "/cash-and-carry-tenerife",
       "children": [
+        {
+          "label": "Cash & Carry",
+          "href": "/cash-and-carry-tenerife"
+        },
         {
           "label": "Carnicería",
           "href": "/carniceria-tenerife"
-        },
-        {
-          "label": "Charcutería",
-          "href": "/terencio-cash-market#charcuteria"
-        },
-        {
-          "label": "Frutería",
-          "href": "/terencio-cash-market#fruteria"
-        },
-        {
-          "label": "Bodega",
-          "href": "/terencio-cash-market#bodega"
         },
         {
           "label": "Productos El Hierro",
           "href": "/productos-el-hierro-tenerife"
         },
         {
-          "label": "Cash & Carry",
-          "href": "/cash-and-carry-tenerife"
+          "label": "Quesos Herreños",
+          "href": "/quesos-el-hierro-tenerife"
         }
       ]
     },
     {
-      "label": "Noticias",
-      "href": "/noticias"
+      "label": "Profesionales",
+      "href": "/profesionales"
+    },
+    {
+      "label": "Horario",
+      "href": "/horario"
     },
     {
       "label": "Blog",
       "href": "/blog"
     },
     {
-      "label": "Ayuda",
-      "href": "/atencion-al-cliente"
-    },
-    {
-      "label": "Nosotros",
-      "href": "/sobre-nosotros"
-    },
-    {
-      "label": "Trabaja con Nosotros",
-      "href": "/trabaja-con-nosotros"
+      "label": "Noticias",
+      "href": "/noticias"
     }
   ],
   "cta": {
@@ -77,16 +56,20 @@
     {
       "label": "Atención al Cliente",
       "href": "/atencion-al-cliente"
+    },
+    {
+      "label": "Trabaja con Nosotros",
+      "href": "/trabaja-con-nosotros"
     }
   ],
   "footer": {
     "quickLinks": [
       {
-        "label": "Supermercado",
-        "href": "/terencio-cash-market"
+        "label": "Horario y Ubicación",
+        "href": "/horario"
       },
       {
-        "label": "Profesionales y HORECA",
+        "label": "Zona Profesionales",
         "href": "/profesionales"
       },
       {
@@ -98,56 +81,44 @@
         "href": "/sobre-nosotros"
       },
       {
-        "label": "Preguntas Frecuentes",
-        "href": "/faq"
+        "label": "Atención al Cliente",
+        "href": "/atencion-al-cliente"
       },
       {
-        "label": "Horarios",
-        "href": "/horario-terencio-cash-market"
-      },
-      {
-        "label": "Cash & Carry Tenerife",
-        "href": "/cash-and-carry-tenerife"
+        "label": "Trabaja con Nosotros",
+        "href": "/trabaja-con-nosotros"
       }
     ],
     "featured": [
       {
         "label": "Carnicería Tenerife",
-        "href": "/terencio-cash-market#carniceria"
+        "href": "/carniceria-tenerife"
       },
       {
-        "label": "Compra Mayorista",
-        "href": "/profesionales"
-      },
-      {
-        "label": "Vinos Canarios",
-        "href": "/terencio-cash-market#bodega"
-      },
-      {
-        "label": "Blog de Ahorro",
-        "href": "/blog"
-      },
-      {
-        "label": "Quesos El Hierro",
+        "label": "Quesos de El Hierro",
         "href": "/quesos-el-hierro-tenerife"
       },
       {
-        "label": "Carnicería La Laguna",
-        "href": "/carniceria-cerca-de-mi-la-laguna"
+        "label": "Productos El Hierro",
+        "href": "/productos-el-hierro-tenerife"
+      },
+      {
+        "label": "Cash & Carry",
+        "href": "/cash-and-carry-tenerife"
       }
     ],
     "legal": [
       {
         "label": "Aviso Legal",
-        "href": "/aviso-legal"
+        "href": "/legal/aviso-legal"
       },
       {
         "label": "Política de Privacidad",
-        "href": "/politica-privacidad"
+        "href": "/legal/politica-privacidad"
       },
       {
         "label": "Cookies",
-        "href": "/cookies"
+        "href": "/legal/cookies"
       },
       {
         "label": "Mapa del sitio",

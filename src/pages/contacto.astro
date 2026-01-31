@@ -1,6 +1,6 @@
 ---
 import ContactForm from "../components/forms/ContactForm";
-import LocationMap from "../components/LocationMap.astro";
+import LocationSection from "../components/LocationSection.astro";
 import PageHeader from "../components/ui/PageHeader.astro";
 import Section from "../components/ui/Section.astro";
 import siteData from "../data/siteData.json";
@@ -75,13 +75,7 @@ const description = "Contacta con Terencio Cash Market. Teléfono, email, ubicac
                </div>
             </div>
             
-            {/* Embedded LocationMap if moved here, or just keep it on the side */}
-            <div class="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                <h2 class="text-2xl font-bold text-gray-900 mb-6">Ubicación</h2>
-                <div class="rounded-lg overflow-hidden shadow-sm mb-6">
-                  <LocationMap />
-                </div>
-            </div>
+            {/* LocationSection will be added at bottom */}
          </div>
 
          <!-- Contact Form -->
@@ -92,4 +86,6 @@ const description = "Contacta con Terencio Cash Market. Teléfono, email, ubicac
 
        </div>
   </Section>
+
+  <LocationSection />
 </Layout>

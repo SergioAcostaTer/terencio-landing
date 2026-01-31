@@ -3,6 +3,7 @@ import heroBg from "../assets/images/hero-bg.webp";
 import supermercadoInterior from "../assets/images/supermercado-interior.webp";
 
 import Hero from "../components/Hero.astro";
+import LocationSection from "../components/LocationSection.astro";
 import Reviews from "../components/Reviews.astro";
 import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
 import Icon from "../components/ui/Icon";
@@ -74,6 +75,18 @@ const description = "Terencio Cash Market: Supermercado cerca de mi en La Espera
         maxItems={3} 
         bgClass="bg-gray-50 border-t border-gray-100"
     />
+
+    <!-- Blog Widget (Ahorro y Consejos) -->
+    <ContentWidget 
+        title="Consejos de Ahorro y Recetas" 
+        subtitle="Blog"
+        collection="blog" 
+        maxItems={3} 
+        bgClass="bg-white"
+    />
+
+    <!-- Location Section -->
+    <LocationSection />
 
     <Reviews />
   </main>

@@ -89,31 +89,13 @@ const year = new Date().getFullYear();
       <p>&copy; {year} {siteData.legalName} Todos los derechos reservados.</p>
       <div class="flex flex-col md:flex-row gap-4 mt-4 md:mt-0 items-center">
          <!-- Payment / Trust Icons -->
-         <div class="flex items-center gap-3 bg-white/10 p-2 rounded-lg backdrop-blur-sm">
-            <!-- Visa -->
-            <svg class="h-6 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <path d="M18.534 0.999985H24.379L20.73 23.361H14.885L18.534 0.999985Z" fill="#fff"/>
-               <path d="M12.28 0.999985C10.669 0.999985 10.395 0.999985 8.79001 0.999985C8.42801 0.999985 7.66901 0.999985 7.64301 1.09698L2.61001 22.864C2.56901 23.076 2.76801 23.361 3.01001 23.361H8.05801C8.61801 23.361 9.10201 22.992 9.22701 22.45L9.61301 20.373L12.564 20.373C12.923 20.373 13.251 20.655 13.315 21.011L13.725 23.361H18.895L15.908 6.01499C15.428 3.10999 14.545 0.999985 12.28 0.999985ZM12.721 16.485H10.339L11.535 9.77098C11.535 9.77098 11.961 16.485 12.721 16.485Z" fill="#fff"/>
-               <path d="M29.13 23.361H34.469C34.469 23.361 35.342 16.425 35.483 15.602C35.295 15.688 34.819 15.795 34.204 15.795C32.149 15.795 30.736 14.654 30.736 12.392V12.355C30.736 10.224 32.559 7.84499 35.597 7.84499C36.636 7.84499 37.387 8.05399 37.79 8.23299L38.461 4.39899C37.893 4.13399 36.638 3.86899 35.155 3.86899C30.957 3.86899 26.68 6.07998 26.68 11.597V11.637C26.68 12.067 26.708 13.719 28.324 16.59L27.152 23.361H29.13ZM44.757 23.361L48 6.55699C47.386 6.30799 45.918 6.03698 44.09 6.03698C40.672 6.03698 39.855 8.65399 39.73 9.47199L35.267 23.361H40.595L40.941 21.365C40.941 21.365 42.493 21.2 43.141 20.317C43.832 19.387 44.17 18.067 44.17 18.067L44.757 23.361Z" fill="#fff"/>
-               <path d="M7.749 0.999985H0.106003L0 1.25298C5.004 2.45098 8.019 6.94498 9.389 9.87298L7.749 0.999985Z" fill="#fff"/>
-            </svg>
-            <!-- Mastercard -->
-            <svg class="h-6 w-auto" viewBox="0 0 50 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <rect width="50" height="32" rx="2" fill="#222"/>
-               <circle cx="17" cy="16" r="10" fill="#EB001B"/>
-               <circle cx="33" cy="16" r="10" fill="#F79E1B"/>
-               <path d="M25 21C27.7614 21 30 18.7614 30 16C30 13.2386 27.7614 11 25 11C22.2386 11 20 13.2386 20 16C20 18.7614 22.2386 21 25 21Z" fill="#FF5F00"/>
-            </svg>
-            <!-- Bizum text fallback/simple badge -->
-            <div class="h-6 px-1 bg-blue-100 flex items-center rounded">
-               <span class="text-blue-600 font-bold text-xs tracking-tighter">bizum</span>
-            </div>
+         <div class="flex items-center gap-3 bg-white/10 p-2 rounded-lg backdrop-blur-sm opacity-0">
          </div>
          
          <div class="flex gap-4">
-             <a href="/aviso-legal" class="hover:text-white transition-colors">Aviso Legal</a>
-             <a href="/politica-privacidad" class="hover:text-white transition-colors">Política de Privacidad</a>
-             <a href="/cookies" class="hover:text-white transition-colors">Cookies</a>
+             <a href="/legal/aviso-legal" class="hover:text-white transition-colors">Aviso Legal</a>
+             <a href="/legal/politica-privacidad" class="hover:text-white transition-colors">Política de Privacidad</a>
+             <a href="/legal/cookies" class="hover:text-white transition-colors">Cookies</a>
          </div>
       </div>
     </div>

@@ -1,68 +1,71 @@
 ---
+import PageHeader from "../components/ui/PageHeader.astro";
+import offers from "../data/offers.json";
 import Layout from "../layouts/Layout.astro";
 
-const title = "Ofertas Semanales - Terencio Cash Market Tenerife";
-const description = "Descubre las mejores ofertas de la semana en alimentación, frescos y bebidas. Precios especiales para profesionales y particulares en La Esperanza.";
+const title = "Ofertas Semanales | Terencio Cash Market";
+const description = "Descubre las mejores ofertas de la semana en Terencio. Precios de mayorista en carnicería, frescos, bodega y limpieza.";
 ---
 
 <Layout title={title} description={description}>
   
-  <!-- Coming Soon Overlay -->
-  <div class="fixed inset-0 z-40 bg-white/90 backdrop-blur-sm flex flex-col items-center justify-center p-4 text-center">
-    <div class="bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 max-w-lg w-full transform scale-100 hover:scale-105 transition-transform duration-500">
-        <span class="material-icons-outlined text-gray-300 text-8xl mb-4 block mx-auto">lock_clock</span>
-        <h1 class="text-4xl font-black text-gray-900 mb-2 uppercase tracking-tighter">Próximamente</h1>
-        <p class="text-xl text-gray-500 mb-8 font-light">Estamos preparando las mejores ofertas para ti.</p>
+  <PageHeader 
+    title='Ofertas <span class="text-yellow-400">Destacadas</span>'
+    subtitle="Precios válidos hasta fin de existencias. Aprovecha nuestras bajadas de precio semanales."
+    badge="Ofertas Semana"
+  />
+
+  <!-- Offers Grid -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
         
-        <div class="inline-flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full text-gray-600 font-medium text-sm">
-           <span class="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></span>
-           En construcción
+        <!-- Filter/Category Tabs (Visual only for now) -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <button class="px-6 py-2 bg-green-700 text-white rounded-full font-bold shadow-md ring-2 ring-green-700 ring-offset-2">Todo</button>
+            <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-bold shadow-sm hover:bg-green-50 transition">Frescos</button>
+            <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-bold shadow-sm hover:bg-green-50 transition">Bodega</button>
+            <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-bold shadow-sm hover:bg-green-50 transition">Limpieza</button>
         </div>
-    </div>
-  </div>
 
-  <div class="container mx-auto px-4 py-16 text-center opacity-10 pointer-events-none filter blur-sm select-none" aria-hidden="true">
-    <!-- Header -->
-    <span class="material-icons-outlined text-6xl text-green-600 mb-6">whatsapp</span>
-    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Únete al Club VIP de WhatsApp</h1>
-    <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-      <span class="font-bold text-red-600">¡No te pierdas nada!</span> Las Ofertas Flash diarias se envían exclusivamente por WhatsApp. Únete ahora y sé el primero en enterarte de nuestros precios de coste.
-    </p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {offers.map(offer => (
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all group flex flex-col h-full relative">
+                    {/* Badge */}
+                    {offer.highlight && (
+                        <div class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-sm animate-pulse">
+                            {offer.highlight}
+                        </div>
+                    )}
+                    
+                    {/* Image Area - Placeholder if no image */}
+                    <div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center">
+                        <span class="text-6xl group-hover:scale-110 transition duration-500">
+                           {offer.category === 'Frescos' ? '🥬' : 
+                            offer.category === 'Carnicería' ? '🥩' :
+                            offer.category === 'Bodega' ? '🍷' : '🧼'}
+                        </span>
+                        {/* <img src={offer.image} alt={offer.name} class="w-full h-full object-cover" /> */}
+                    </div>
 
-    <!-- Main Card -->
-    <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col md:flex-row">
-       
-       <!-- Left Side: Mobile/Action -->
-       <div class="md:w-1/2 p-10 flex flex-col justify-center items-center bg-gradient-to-br from-green-50 to-white">
-          <div class="bg-green-100 p-4 rounded-full mb-6">
-            <span class="material-icons-outlined text-5xl text-green-600">notifications_active</span>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-2">Recibe el folleto en tu móvil</h3>
-          <p class="text-gray-500 mb-8 text-center">Haz clic abajo para abrir el chat y envía "HOLA" para suscribirte.</p>
-          
-          <a href="https://wa.me/34922550067?text=Hola,%20quiero%20unirme%20al%20Club%20VIP%20de%20Ofertas" target="_blank" class="flex items-center justify-center gap-3 bg-green-600 text-white px-8 py-4 rounded-full font-bold hover:bg-green-700 transition shadow-lg hover:shadow-xl w-full sm:w-auto transform hover:-translate-y-1">
-             <span class="material-icons-outlined text-2xl">chat</span>
-             Unirme al Club WhatsApp
-          </a>
-          <p class="text-xs text-gray-400 mt-4">Sin spam. Solo las mejores ofertas.</p>
-       </div>
-
-       <!-- Right Side: Desktop QR (Hidden on Mobile) -->
-       <div class="hidden md:flex md:w-1/2 bg-gray-900 text-white p-10 flex-col justify-center items-center relative overflow-hidden">
-          <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-          
-          <div class="relative z-10 text-center">
-            <p class="text-green-300 font-bold tracking-widest uppercase text-sm mb-6">Escanear para unirse</p>
-            <div class="bg-white p-4 rounded-xl shadow-lg inline-block mb-6">
-               <!-- QR Code Image Generator URL for the WhatsApp Link -->
-               <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/34922550067?text=Hola,%20quiero%20unirme%20al%20Club%20VIP%20de%20Ofertas" alt="Código QR WhatsApp Terencio" width="200" height="200" class="rounded-lg" />
-            </div>
-            <p class="text-gray-300 text-sm max-w-xs mx-auto">
-              Abre la cámara de tu móvil y escanea el código para abrir el chat directamente.
-            </p>
-          </div>
-       </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <div class="text-xs font-bold text-green-700 uppercase tracking-wider mb-1">{offer.category}</div>
+                        <h3 class="font-bold text-gray-900 text-lg leading-tight mb-2 line-clamp-2">{offer.name}</h3>
+                        <p class="text-sm text-gray-500 mb-4 line-clamp-2">{offer.description}</p>
+                        
+                        <div class="mt-auto flex items-end justify-between border-t border-gray-100 pt-4">
+                            <div>
+                                <span class="text-gray-400 line-through text-sm font-medium">{offer.oldPrice}€</span>
+                                <div class="text-2xl font-black text-red-600 leading-none">
+                                    {offer.price}€
+                                </div>
+                                {offer.unit && <span class="text-xs text-gray-500">/{offer.unit}</span>}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
 
     </div>
-  </div>
+  </section>
 </Layout>
