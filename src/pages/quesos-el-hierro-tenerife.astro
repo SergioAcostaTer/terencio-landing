@@ -70,37 +70,7 @@ const description = "El auténtico Queso Herreño en Tenerife. Queso ahumado de 
     </div>
   </Section>
 
-  <!-- Lista de Precios -->
-  <Section class="bg-gray-50 border-y border-gray-200">
-      <div class="max-w-2xl mx-auto">
-          <h2 class="text-2xl font-bold text-center mb-6">Precios Aproximados</h2>
-          <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
-              <table class="w-full text-left">
-                  <thead class="bg-gray-50 border-b border-gray-200">
-                      <tr>
-                          <th class="px-6 py-3 text-xs font-bold text-gray-500 uppercase">Producto</th>
-                          <th class="px-6 py-3 text-xs font-bold text-gray-500 uppercase text-right">Precio / Kg</th>
-                      </tr>
-                  </thead>
-                  <tbody class="divide-y divide-gray-100">
-                      <tr>
-                          <td class="px-6 py-4 font-medium text-gray-900">Queso Tierno Ahumado</td>
-                          <td class="px-6 py-4 text-right text-gray-600">~ 14,50 €</td>
-                      </tr>
-                      <tr>
-                          <td class="px-6 py-4 font-medium text-gray-900">Queso Semicurado Ahumado</td>
-                          <td class="px-6 py-4 text-right text-gray-600">~ 16,90 €</td>
-                      </tr>
-                      <tr>
-                          <td class="px-6 py-4 font-medium text-gray-900">Queso Curado (Reserva)</td>
-                          <td class="px-6 py-4 text-right text-gray-600">~ 21,00 €</td>
-                      </tr>
-                  </tbody>
-              </table>
-          </div>
-          <p class="text-center text-xs text-gray-500 mt-4">* Precios sujetos a peso de la pieza y mercado.</p>
-      </div>
-  </Section>
+
 
   <Section class="bg-white text-center">
     <h2 class="text-3xl font-bold mb-8">Maridaje Perfecto</h2>
@@ -124,3 +94,31 @@ const description = "El auténtico Queso Herreño en Tenerife. Queso ahumado de 
   </Section>
 
 </Layout>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/", 
+    "@type": "Product", 
+    "name": "Queso Herreño Ahumado Tierno",
+    "image": "https://terencio.es/assets/images/queso_mojo.webp",
+    "description": "Queso tierno ahumado con leña de higuera. Elaborado por la Cooperativa de Ganaderos de El Hierro. Venta directa en Tenerife.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Ganaderos de El Hierro"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://terencio.es/quesos-el-hierro-tenerife",
+      "priceCurrency": "EUR",
+      "price": "14.50",
+      "priceValidUntil": "2025-12-31",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "120"
+    }
+  }
+</script>

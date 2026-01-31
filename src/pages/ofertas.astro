@@ -50,17 +50,36 @@ const description = "Descubre las mejores ofertas de la semana en Terencio Cash 
     <div class="container mx-auto px-4">
         
         <!-- Filter/Category Tabs -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12 sticky top-24 z-30 py-2 bg-gray-50/95 backdrop-blur-sm transition-all">
-            <button class="px-6 py-2 bg-green-700 text-white rounded-full font-bold shadow-lg ring-2 ring-green-700 ring-offset-2 hover:scale-105 transition">Todo</button>
-            <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-bold shadow-md hover:bg-green-50 hover:text-green-700 border border-gray-200 transition">🥬 Frescos</button>
-            <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-bold shadow-md hover:bg-green-50 hover:text-green-700 border border-gray-200 transition">🥩 Carnicería</button>
-            <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-bold shadow-md hover:bg-green-50 hover:text-green-700 border border-gray-200 transition">🍷 Bodega</button>
-            <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-bold shadow-md hover:bg-green-50 hover:text-green-700 border border-gray-200 transition">🧼 Limpieza</button>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-12 sticky top-24 z-30 py-4 bg-gray-50/95 backdrop-blur-sm transition-all" id="filter-container">
+            <!-- Categories -->
+            <div class="flex flex-wrap justify-center gap-2">
+                <button class="filter-btn active px-5 py-2 bg-green-700 text-white rounded-full font-bold shadow-md hover:shadow-lg hover:scale-105 transition text-sm" data-category="all">Todo</button>
+                <button class="filter-btn px-5 py-2 bg-white text-gray-700 rounded-full font-bold shadow-sm hover:bg-green-50 hover:text-green-700 border border-gray-200 transition text-sm" data-category="Frescos">🥬 Frescos</button>
+                <button class="filter-btn px-5 py-2 bg-white text-gray-700 rounded-full font-bold shadow-sm hover:bg-green-50 hover:text-green-700 border border-gray-200 transition text-sm" data-category="Carnicería">🥩 Carnicería</button>
+                <button class="filter-btn px-5 py-2 bg-white text-gray-700 rounded-full font-bold shadow-sm hover:bg-green-50 hover:text-green-700 border border-gray-200 transition text-sm" data-category="Bodega">🍷 Bodega</button>
+                <button class="filter-btn px-5 py-2 bg-white text-gray-700 rounded-full font-bold shadow-sm hover:bg-green-50 hover:text-green-700 border border-gray-200 transition text-sm" data-category="Limpieza">🧼 Limpieza</button>
+            </div>
+            
+            <div class="hidden md:block w-px h-8 bg-gray-300 mx-2"></div>
+
+            <!-- Moments -->
+            <div class="flex flex-wrap justify-center gap-2">
+                <button class="filter-btn px-5 py-2 bg-orange-100 text-orange-800 rounded-full font-bold shadow-sm hover:bg-orange-200 border border-orange-200 transition text-sm flex items-center gap-1" data-moment="asadero">🔥 Para Asadero</button>
+                <button class="filter-btn px-5 py-2 bg-blue-100 text-blue-800 rounded-full font-bold shadow-sm hover:bg-blue-200 border border-blue-200 transition text-sm flex items-center gap-1" data-moment="despensa">🛒 Llenar Despensa</button>
+                 <button class="filter-btn px-5 py-2 bg-slate-800 text-white rounded-full font-bold shadow-sm hover:bg-slate-700 border border-slate-700 transition text-sm flex items-center gap-1" data-moment="restauracion">👨‍🍳 Restauración</button>
+            </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="offers-grid">
             {offers.map(offer => (
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 group flex flex-col h-full relative transform hover:-translate-y-1">
+                <div class="offer-card bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 group flex flex-col h-full relative transform hover:-translate-y-1" 
+                     data-category={offer.category}
+                     data-moments={
+                        ['Carnicería', 'Bodega', 'Frescos'].includes(offer.category) ? 'asadero ' : '' + 
+                        ['Limpieza', 'Gran Formato', 'Bodega'].includes(offer.category) ? 'despensa ' : '' +
+                        ['Gran Formato', 'Limpieza', 'Carnicería'].includes(offer.category) ? 'restauracion ' : ''
+                     }
+                >
                     {/* Highlight Badge */}
                     {offer.highlight && (
                         <div class="absolute top-0 left-0 bg-red-600 text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-br-xl z-20 shadow-md">
@@ -85,18 +104,23 @@ const description = "Descubre las mejores ofertas de la semana en Terencio Cash 
                     </div>
 
                     <div class="p-5 flex flex-col flex-grow relative">
-                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">{offer.category}</div>
+                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1 flex justify-between">
+                            <span>{offer.category}</span>
+                            {offer.category === 'Gran Formato' && <span class="text-blue-600">Pro</span>}
+                        </div>
                         <h3 class="font-bold text-gray-900 text-lg leading-snug mb-2 line-clamp-2 group-hover:text-green-700 transition-colors">{offer.name}</h3>
                         <p class="text-sm text-gray-500 mb-4 line-clamp-2 leading-relaxed">{offer.description}</p>
                         
                         <div class="mt-auto pt-4 border-t border-dashed border-gray-200">
+                             <!-- Dual Price Display -->
                             <div class="flex items-end justify-between">
                                 <div class="flex flex-col">
-                                    <span class="text-gray-400 line-through text-xs font-medium mb-0.5">Antes: {offer.oldPrice}€</span>
+                                    <span class="text-gray-400 line-through text-xs font-medium mb-0.5">PVP: {offer.oldPrice}€</span>
                                     <div class="flex items-baseline gap-1">
                                         <span class="text-3xl font-black text-red-600 leading-none tracking-tight">{offer.price}</span>
                                         <span class="text-xl font-bold text-red-600">€</span>
                                     </div>
+                                    <span class="text-[10px] uppercase font-bold text-green-700 bg-green-50 px-1 rounded w-fit mt-1">Precio Cash</span>
                                 </div>
                                 {offer.unit && <span class="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-1 rounded">/{offer.unit}</span>}
                             </div>
@@ -105,6 +129,50 @@ const description = "Descubre las mejores ofertas de la semana en Terencio Cash 
                 </div>
             ))}
         </div>
+
+<script>
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.offer-card');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+             // Reset UI
+            buttons.forEach(b => {
+                b.classList.remove('ring-2', 'ring-offset-1', 'ring-green-600');
+                if(b.classList.contains('bg-green-700')) {
+                    b.classList.remove('bg-green-700', 'text-white');
+                    b.classList.add('bg-white', 'text-gray-700');
+                }
+            });
+
+            // Activate current
+            const category = btn.getAttribute('data-category');
+            const moment = btn.getAttribute('data-moment');
+            
+            btn.classList.add('ring-2', 'ring-offset-1', 'ring-green-600');
+
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const cardMoments = card.getAttribute('data-moments');
+                
+                let shouldShow = false;
+
+                if (category) {
+                    if (category === 'all') shouldShow = true;
+                    else shouldShow = cardCategory === category;
+                } else if (moment) {
+                    shouldShow = cardMoments && cardMoments.includes(moment);
+                }
+
+                if (shouldShow) {
+                    (card as HTMLElement).style.display = 'flex';
+                } else {
+                    (card as HTMLElement).style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
 
         <!-- CTA Newsletter / WhatsApp -->
         <div class="mt-20 bg-slate-900 rounded-3xl p-8 md:p-12 text-white text-center relative overflow-hidden shadow-2xl">

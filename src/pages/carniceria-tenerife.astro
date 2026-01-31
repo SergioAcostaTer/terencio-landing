@@ -77,7 +77,46 @@ const canonical = "https://terencio.es/carniceria-tenerife";
         </div>
       </div>
     </div>
+      </div>
+    </div>
   </Section>
+
+  <!-- Origen Local Section -->
+  <section class="py-16 bg-white border-t border-gray-100">
+      <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+              <span class="text-red-700 font-bold uppercase tracking-widest text-sm bg-red-50 px-3 py-1 rounded-full">Transparencia Total</span>
+              <h2 class="text-3xl font-bold text-gray-900 mt-4">Conocemos a nuestros ganaderos por su nombre</h2>
+              <p class="text-gray-500 max-w-2xl mx-auto mt-4">No somos una multinacional anónima. Compramos ganado local para apoyar al sector primario de Tenerife y garantizarte la máxima frescura.</p>
+          </div>
+          
+          <div class="flex flex-wrap justify-center gap-8">
+              <div class="flex items-center gap-4 bg-gray-50 px-6 py-4 rounded-full border border-gray-200 hover:border-red-200 transition">
+                  <span class="w-10 h-10 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-bold">JD</span>
+                  <div>
+                      <p class="font-bold text-gray-900 leading-none">José D.</p>
+                      <p class="text-xs text-gray-500">Ganadero - La Esperanza</p>
+                  </div>
+              </div>
+              <div class="flex items-center gap-4 bg-gray-50 px-6 py-4 rounded-full border border-gray-200 hover:border-red-200 transition">
+                  <span class="w-10 h-10 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-bold">MG</span>
+                  <div>
+                      <p class="font-bold text-gray-900 leading-none">Manuel G.</p>
+                      <p class="text-xs text-gray-500">Granja Porcina - Fasnia</p>
+                  </div>
+              </div>
+              <div class="flex items-center gap-4 bg-gray-50 px-6 py-4 rounded-full border border-gray-200 hover:border-red-200 transition">
+                  <span class="w-10 h-10 bg-red-100 text-red-600 rounded-full flex items-center justify-center font-bold">AG</span>
+                  <div>
+                      <p class="font-bold text-gray-900 leading-none">Antonio G.</p>
+                      <p class="text-xs text-gray-500">Cooperativa - El Hierro</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+
 
   <!-- Product Highlight List -->
   <section id="productos" class="py-20 bg-gray-50 border-t border-gray-200">
@@ -181,7 +220,62 @@ const canonical = "https://terencio.es/carniceria-tenerife";
                   <p class="text-gray-600 mt-4 leading-relaxed">Normalmente tenemos stock diario, pero para cantidades grandes (más de 5kg) recomendamos llamar con antelación para tenerla lista y que no tengas que esperar.</p>
               </details>
           </div>
+          
+           <!-- Geographic Keywords Injection -->
+          <div class="mt-12 text-center text-sm text-gray-500 bg-gray-50 p-6 rounded-xl border border-gray-100">
+            <p>
+              Estamos estratégicamente ubicados en La Esperanza, a <strong>5 minutos de la Vía de Ronda</strong> y en plena carretera general subiendo hacia el Teide.
+              La mejor opción si vienes de La Laguna, Santa Cruz o vas de camino a Las Raíces.
+            </p>
+          </div>
       </div>
   </section>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ButcherShop",
+      "name": "Carnicería Terencio",
+      "image": "https://terencio.es/assets/images/supermercado-interior.webp",
+      "description": "Carnicería tradicional con despiece propio diario en La Esperanza, Tenerife. Especialistas en carne de fiesta y cortes a medida.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ctra. La Esperanza 22",
+        "addressLocality": "San Cristóbal de La Laguna",
+        "postalCode": "38291",
+        "addressRegion": "Santa Cruz de Tenerife",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.468,
+        "longitude": -16.365
+      },
+      "url": "https://terencio.es/carniceria-tenerife",
+      "telephone": "+34922550067",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "08:30",
+          "closes": "20:30"
+        }
+      ]
+    }
+  </script>
 
 </Layout>

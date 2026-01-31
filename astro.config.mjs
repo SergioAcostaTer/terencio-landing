@@ -10,7 +10,33 @@ export default defineConfig({
     tailwind(), 
     sitemap({
       changefreq: 'weekly',
-      priority: 0.7
+      priority: 0.7,
+      lastmod: new Date(),
+      serialize(item) {
+        if (item.url === 'https://terencio.es/') {
+          item.changefreq = 'daily';
+          item.priority = 1.0;
+        } else if (
+          item.url.includes('/profesionales') || 
+          item.url.includes('/ofertas') ||
+          item.url.includes('/carniceria-tenerife')
+        ) {
+          item.changefreq = 'daily';
+          item.priority = 0.9;
+        } else if (
+          item.url.includes('/asaderos-tenerife') || 
+          item.url.includes('/comparativa-precios') ||
+          item.url.includes('/quesos-el-hierro') ||
+          item.url.includes('/productos-el-hierro') ||
+          item.url.includes('/cash-and-carry')
+        ) {
+          item.changefreq = 'weekly';
+          item.priority = 0.8;
+        } else {
+             item.priority = 0.5;
+        }
+        return item;
+      }
     }), 
     react(),
     icon()

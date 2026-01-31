@@ -65,9 +65,17 @@ import logo from "../assets/images/logo.webp";
             <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
                <div class="bg-white shadow-xl rounded-xl border border-gray-100 p-2 w-64 overflow-hidden ring-1 ring-black ring-opacity-5">
                   {link.children.map(child => (
-                    <a href={child.href} class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-800 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
-                      <span class="w-1.5 h-1.5 rounded-full bg-green-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                      {child.label}
+                    <a href={child.href} class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-800 rounded-lg text-sm font-medium transition-colors group/item">
+                      <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 group-hover/item:bg-green-200 group-hover/item:text-green-700 transition">
+                         {child.label.includes('Carnicería') ? <span class="text-base">🥩</span> :
+                          child.label.includes('Quesos') ? <span class="text-base">🧀</span> :
+                          child.label.includes('Hierro') ? <span class="text-base">🍍</span> :
+                          child.label.includes('Cash') ? <span class="text-base">🛒</span> :
+                          <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>}
+                      </div>
+                      <div class="flex flex-col">
+                          <span class="leading-none">{child.label}</span>
+                      </div>
                     </a>
                   ))}
                </div>
