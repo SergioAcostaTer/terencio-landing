@@ -5,7 +5,7 @@
       "href": "/"
     },
     {
-      "label": "Ofertas",
+      "label": "Ofertas Semanales",
       "href": "/ofertas",
       "color": "red"
     },
@@ -14,15 +14,15 @@
       "href": "/cash-and-carry-tenerife",
       "children": [
         {
-          "label": "Cash & Carry",
+          "label": "Cash & Carry Tenerife",
           "href": "/cash-and-carry-tenerife"
         },
         {
-          "label": "Carnicería",
+          "label": "Carnicería al Corte",
           "href": "/carniceria-tenerife"
         },
         {
-          "label": "Productos El Hierro",
+          "label": "Productos de El Hierro",
           "href": "/productos-el-hierro-tenerife"
         },
         {
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "label": "Profesionales",
+      "label": "Mayorista HORECA",
       "href": "/profesionales"
     },
     {
@@ -77,7 +77,7 @@
         "href": "/profesionales"
       },
       {
-        "label": "Ofertas Semanales",
+        "label": "Folleto de Ofertas",
         "href": "/ofertas"
       },
       {
@@ -89,7 +89,7 @@
         "href": "/atencion-al-cliente"
       },
       {
-        "label": "Trabaja con Nosotros",
+        "label": "Bolsa de Empleo",
         "href": "/trabaja-con-nosotros"
       }
     ],
@@ -103,11 +103,11 @@
         "href": "/quesos-el-hierro-tenerife"
       },
       {
-        "label": "Productos El Hierro",
+        "label": "Productos Herreños",
         "href": "/productos-el-hierro-tenerife"
       },
       {
-        "label": "Cash & Carry",
+        "label": "Supermercado Mayorista",
         "href": "/cash-and-carry-tenerife"
       }
     ],
@@ -121,7 +121,7 @@
         "href": "/legal/politica-privacidad"
       },
       {
-        "label": "Cookies",
+        "label": "Política de Cookies",
         "href": "/legal/cookies"
       },
       {

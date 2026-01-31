@@ -3,7 +3,7 @@ title: "Cómo Ahorrar en la Compra Mensual | Terencio La Esperanza"
 description: "Consejos prácticos para optimizar tu presupuesto familiar. Descubre cómo las familias canarias están ahorrando hasta un 30% en Terencio Cash Market Tenerife."
 pubDate: 2024-11-08
 author: "Equipo Terencio"
-image: "../../assets/images/supermercado-interior.webp"
+image: "../../assets/images/sostenibilidad-2.webp"
 imageAlt: "Familia haciendo la compra en Terencio Cash Market"
 tags: ["Ahorro", "Consejos", "Familia", "Presupuesto"]
 category: "Ahorro y Consejos"

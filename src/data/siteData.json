@@ -15,14 +15,15 @@
     "form": "Sociedad limitada"
   },
   "seo": {
-    "shortDescription": "Supermercado y Cash & Carry en La Esperanza, Tenerife. Venta a profesionales y particulares.",
-    "description": "Terencio Cash Market es tu supermercado de confianza y Cash & Carry en Tenerife. Ofrecemos una amplia selección de productos frescos, alimentación y bebidas para hostelería y particulares. Calidad y servicio en La Esperanza, La Laguna.",
+    "shortDescription": "Supermercado y Cash & Carry en La Laguna, Tenerife. Venta a profesionales y particulares.",
+    "description": "Terencio Cash Market es tu supermercado de confianza y Cash & Carry en Tenerife. Ofrecemos una amplia selección de productos frescos, alimentación y bebidas para hostelería y particulares. Calidad y servicio en La Laguna (La Esperanza).",
     "keywords": [
       "supermercado tenerife",
       "cash and carry",
       "mayorista alimentación",
       "carnicería tenerife",
       "la esperanza",
+      "la laguna",
       "productos el hierro"
     ]
   },
@@ -36,11 +37,11 @@
   "address": {
     "streetAddress": "Carr. de la Esperanza, 22",
     "addressLocality": "San Cristóbal de La Laguna",
-    "locality": "La Esperanza",
+    "locality": "La Laguna",
     "addressRegion": "Santa Cruz de Tenerife",
     "postalCode": "38206",
     "addressCountry": "ES",
-    "formatted": "Carr. de la Esperanza, 22, 38206 La Esperanza, La Laguna, Tenerife"
+    "formatted": "Carr. de la Esperanza, 22, 38206 La Laguna, Tenerife"
   },
   "geo": {
     "latitude": 28.47311884198956,
@@ -119,20 +120,6 @@
       "name": "HORECA",
       "description": "Servicio especializado para hostelería, restaurantes y catering",
       "icon": "chef-hat"
-    },
-    "delivery": {
-      "name": "Reparto Profesional",
-      "description": "Servicio de reparto para clientes Business",
-      "zones": [
-        "Santa Cruz de Tenerife",
-        "San Cristóbal de La Laguna",
-        "Tegueste",
-        "El Rosario",
-        "Tacoronte",
-        "El Sauzal",
-        "Candelaria",
-        "Güímar"
-      ]
     }
   },
   "departments": {
@@ -172,16 +159,6 @@
       "Santa Cruz de Tenerife",
       "Tegueste",
       "Tacoronte"
-    ],
-    "delivery": [
-      "Santa Cruz",
-      "La Laguna",
-      "Tegueste",
-      "El Rosario",
-      "Tacoronte",
-      "El Sauzal",
-      "Candelaria",
-      "Güímar"
     ]
   },
   "specialties": [

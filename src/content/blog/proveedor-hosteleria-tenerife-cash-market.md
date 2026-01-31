@@ -3,7 +3,7 @@ title: "Proveedor Hostelería Tenerife | Terencio Cash Market HORECA"
 description: "Para hosteleros de Tenerife: descubre por qué Terencio Cash Market es la alternativa inteligente. Abierto L-S (08:00-21:00) y D (08:30-20:30), precios mayoristas y productos locales."
 pubDate: 2025-01-15
 author: "Equipo Terencio"
-image: "../../assets/images/supermercado-interior.webp"
+image: "../../assets/images/visita-estudiantes-bachillerato.webp"
 imageAlt: "Hostelero cargando productos en Terencio Cash Market"
 tags: ["Hostelería", "HORECA", "Bares", "Restaurantes", "Mayorista"]
 category: "Profesionales HORECA"

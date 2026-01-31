@@ -3,7 +3,7 @@ title: "Guía de Productos Canarios para Turistas en Tenerife | Terencio"
 description: "¿De vacaciones en Tenerife? Descubre Terencio Cash Market: el secreto de los locales para comprar productos canarios auténticos al mejor precio."
 pubDate: 2025-01-18
 author: "Equipo Terencio"
-image: "../../assets/images/paisaje.webp"
+image: "../../assets/images/queso_mojo.webp"
 imageAlt: "Turistas comprando productos canarios auténticos"
 tags: ["Turismo", "Productos Canarios", "Souvenirs", "Tenerife", "El Hierro"]
 category: "Turismo y Experiencias"

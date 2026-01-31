@@ -3,7 +3,7 @@ title: "Supermercado vs Cash Market: ¿Dónde ahorrar en Tenerife?"
 description: "Análisis real: ¿Conviene más un supermercado tradicional o un Cash Market? Descubre cómo ahorrar en tu compra mensual en Tenerife con Terencio."
 pubDate: 2024-11-15
 author: "Equipo Terencio"
-image: "../../assets/images/supermercado-interior.webp"
+image: "../../assets/images/hero-bg.webp"
 imageAlt: "Comparación entre diferentes modelos de compra"
 tags: ["Comparativa", "Ahorro", "Consejos", "Cash Market"]
 category: "Ahorro y Consejos"

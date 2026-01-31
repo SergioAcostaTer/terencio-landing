@@ -1,69 +1,130 @@
 ---
+import Button from "../components/ui/Button.astro";
+import Icon from "../components/ui/Icon";
 import PageHeader from "../components/ui/PageHeader.astro";
 import offers from "../data/offers.json";
 import Layout from "../layouts/Layout.astro";
 
-const title = "Ofertas Semanales | Terencio Cash Market";
-const description = "Descubre las mejores ofertas de la semana en Terencio. Precios de mayorista en carnicería, frescos, bodega y limpieza.";
+const title = "Ofertas Semanales Terencio | Supermercado Barato Tenerife";
+const description = "Descubre las mejores ofertas de la semana en Terencio Cash Market. Precios de mayorista en carnicería, frescos, bodega y limpieza en La Laguna.";
 ---
 
 <Layout title={title} description={description}>
   
   <PageHeader 
     title='Ofertas <span class="text-yellow-400">Destacadas</span>'
-    subtitle="Precios válidos hasta fin de existencias. Aprovecha nuestras bajadas de precio semanales."
-    badge="Ofertas Semana"
-  />
+    subtitle="Bajamos los precios cada semana para que tu cesta de la compra rinda más. Calidad mayorista al alcance de todos."
+    badge="Ahorro Real"
+    bgClass="bg-red-700"
+    gradientClass="bg-gradient-to-b from-red-900/90 via-red-800/60 to-red-900/90"
+  >
+    <div class="mt-4 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 inline-block">
+        <p class="text-white font-bold flex items-center gap-2 justify-center">
+            <Icon name="Clock" size={20} /> Ofertas válidas hasta fin de existencias
+        </p>
+    </div>
+  </PageHeader>
+
+  <section class="py-12 bg-white border-b border-gray-200">
+      <div class="container mx-auto px-4 text-center max-w-3xl">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">¿Cómo funcionan nuestras ofertas?</h2>
+          <p class="text-gray-600 leading-relaxed mb-6">
+              En Terencio no inflamos precios para luego bajarlos. Nuestras ofertas son reales y directas, fruto de la negociación semanal con nuestros proveedores locales y nacionales. Aprovecha para comprar <strong>carne fresca, frutas de temporada y básicos de despensa</strong> al mejor precio de Tenerife.
+          </p>
+          <div class="flex justify-center gap-4">
+              <span class="inline-flex items-center gap-1 text-sm font-bold text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+                  <Icon name="Check" size={14} /> Stock Diario
+              </span>
+              <span class="inline-flex items-center gap-1 text-sm font-bold text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+                  <Icon name="Check" size={14} /> Sin Límite
+              </span>
+              <span class="inline-flex items-center gap-1 text-sm font-bold text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">
+                  <Icon name="Check" size={14} /> Para Todos
+              </span>
+          </div>
+      </div>
+  </section>
 
   <!-- Offers Grid -->
-  <section class="py-16 bg-gray-50">
+  <section class="py-16 bg-gray-50 min-h-screen">
     <div class="container mx-auto px-4">
         
-        <!-- Filter/Category Tabs (Visual only for now) -->
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-            <button class="px-6 py-2 bg-green-700 text-white rounded-full font-bold shadow-md ring-2 ring-green-700 ring-offset-2">Todo</button>
-            <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-bold shadow-sm hover:bg-green-50 transition">Frescos</button>
-            <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-bold shadow-sm hover:bg-green-50 transition">Bodega</button>
-            <button class="px-6 py-2 bg-white text-gray-600 rounded-full font-bold shadow-sm hover:bg-green-50 transition">Limpieza</button>
+        <!-- Filter/Category Tabs -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12 sticky top-24 z-30 py-2 bg-gray-50/95 backdrop-blur-sm transition-all">
+            <button class="px-6 py-2 bg-green-700 text-white rounded-full font-bold shadow-lg ring-2 ring-green-700 ring-offset-2 hover:scale-105 transition">Todo</button>
+            <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-bold shadow-md hover:bg-green-50 hover:text-green-700 border border-gray-200 transition">🥬 Frescos</button>
+            <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-bold shadow-md hover:bg-green-50 hover:text-green-700 border border-gray-200 transition">🥩 Carnicería</button>
+            <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-bold shadow-md hover:bg-green-50 hover:text-green-700 border border-gray-200 transition">🍷 Bodega</button>
+            <button class="px-6 py-2 bg-white text-gray-700 rounded-full font-bold shadow-md hover:bg-green-50 hover:text-green-700 border border-gray-200 transition">🧼 Limpieza</button>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {offers.map(offer => (
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all group flex flex-col h-full relative">
-                    {/* Badge */}
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 group flex flex-col h-full relative transform hover:-translate-y-1">
+                    {/* Highlight Badge */}
                     {offer.highlight && (
-                        <div class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full z-10 shadow-sm animate-pulse">
+                        <div class="absolute top-0 left-0 bg-red-600 text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-br-xl z-20 shadow-md">
                             {offer.highlight}
                         </div>
                     )}
                     
-                    {/* Image Area - Placeholder if no image */}
-                    <div class="h-48 bg-gray-100 relative overflow-hidden flex items-center justify-center">
-                        <span class="text-6xl group-hover:scale-110 transition duration-500">
+                    {/* Image Area - Placeholder with Icon */}
+                    <div class="h-48 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden flex items-center justify-center border-b border-gray-50">
+                        <div class="absolute inset-0 bg-white/30 z-10"></div>
+                        <span class="text-7xl group-hover:scale-125 transition duration-500 drop-shadow-sm filter grayscale-[0.2] group-hover:grayscale-0 relative z-0">
                            {offer.category === 'Frescos' ? '🥬' : 
                             offer.category === 'Carnicería' ? '🥩' :
-                            offer.category === 'Bodega' ? '🍷' : '🧼'}
+                            offer.category === 'Bodega' ? '🍷' :
+                            offer.category === 'Limpieza' ? '🧼' : '📦'}
                         </span>
-                        {/* <img src={offer.image} alt={offer.name} class="w-full h-full object-cover" /> */}
+                        
+                        {/* Discount Tag */}
+                        <div class="absolute bottom-3 right-3 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded shadow-sm z-20">
+                            Oferta
+                        </div>
                     </div>
 
-                    <div class="p-5 flex flex-col flex-grow">
-                        <div class="text-xs font-bold text-green-700 uppercase tracking-wider mb-1">{offer.category}</div>
-                        <h3 class="font-bold text-gray-900 text-lg leading-tight mb-2 line-clamp-2">{offer.name}</h3>
-                        <p class="text-sm text-gray-500 mb-4 line-clamp-2">{offer.description}</p>
+                    <div class="p-5 flex flex-col flex-grow relative">
+                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">{offer.category}</div>
+                        <h3 class="font-bold text-gray-900 text-lg leading-snug mb-2 line-clamp-2 group-hover:text-green-700 transition-colors">{offer.name}</h3>
+                        <p class="text-sm text-gray-500 mb-4 line-clamp-2 leading-relaxed">{offer.description}</p>
                         
-                        <div class="mt-auto flex items-end justify-between border-t border-gray-100 pt-4">
-                            <div>
-                                <span class="text-gray-400 line-through text-sm font-medium">{offer.oldPrice}€</span>
-                                <div class="text-2xl font-black text-red-600 leading-none">
-                                    {offer.price}€
+                        <div class="mt-auto pt-4 border-t border-dashed border-gray-200">
+                            <div class="flex items-end justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-gray-400 line-through text-xs font-medium mb-0.5">Antes: {offer.oldPrice}€</span>
+                                    <div class="flex items-baseline gap-1">
+                                        <span class="text-3xl font-black text-red-600 leading-none tracking-tight">{offer.price}</span>
+                                        <span class="text-xl font-bold text-red-600">€</span>
+                                    </div>
                                 </div>
-                                {offer.unit && <span class="text-xs text-gray-500">/{offer.unit}</span>}
+                                {offer.unit && <span class="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-1 rounded">/{offer.unit}</span>}
                             </div>
                         </div>
                     </div>
                 </div>
             ))}
+        </div>
+
+        <!-- CTA Newsletter / WhatsApp -->
+        <div class="mt-20 bg-slate-900 rounded-3xl p-8 md:p-12 text-white text-center relative overflow-hidden shadow-2xl">
+            <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')]"></div>
+            <div class="relative z-10 max-w-2xl mx-auto">
+                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
+                    <Icon name="MessageCircle" size={32} />
+                </div>
+                <h2 class="text-3xl font-bold mb-4">¿Quieres recibir las ofertas en tu móvil?</h2>
+                <p class="text-slate-300 mb-8 text-lg">No te pierdas ninguna bajada de precio. Únete a nuestro canal de difusión o consúltanos directamente por WhatsApp.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button href="https://wa.me/34922550067" target="_blank" class="bg-green-500 hover:bg-green-600 text-white border-none shadow-lg shadow-green-500/20 gap-2">
+                        <Icon name="MessageCircle" /> Consultar por WhatsApp
+                    </Button>
+                    <Button href="/contacto" variant="outline" class="border-white text-white hover:bg-white hover:text-slate-900">
+                        Ver más formas de contacto
+                    </Button>
+                </div>
+            </div>
         </div>
 
     </div>

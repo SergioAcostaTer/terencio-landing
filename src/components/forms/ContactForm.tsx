@@ -59,12 +59,8 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden relative">
-      {/* Decorative top bar */}
-      <div className="h-2 w-full bg-gradient-to-r from-green-600 to-green-400"></div>
-      
-      <div className="p-6 md:p-8 space-y-5">
-        <input type="text" className="hidden" {...register("honeypot")} />
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <input type="text" className="hidden" {...register("honeypot")} />
 
         {/* Name Field */}
         <div className="space-y-1">
@@ -195,7 +191,6 @@ export default function ContactForm() {
         <p className="text-[10px] text-center text-gray-400 mt-4">
             Sus datos están protegidos. Al enviar acepta nuestra <a href="/legal/politica-privacidad" className="underline hover:text-green-700">política de privacidad</a>.
         </p>
-      </div>
     </form>
   );
 }

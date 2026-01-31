@@ -3,7 +3,7 @@ title: "Cosas para Hacer en El Hierro: Descubre la Isla del Meridiano"
 description: "Actividades y lugares imprescindibles para visitar en El Hierro."
 pubDate: 2024-07-30
 author: "Equipo Terencio"
-image: "../../assets/images/el-hierro-charco.webp"
+image: "../../assets/images/mirador_las_playas.webp"
 tags: ["El Hierro", "Turismo", "Canarias", "Gastronomía"]
 ---
 

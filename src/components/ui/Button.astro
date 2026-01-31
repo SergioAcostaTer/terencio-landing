@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: "primary" | "secondary" | "outline" | "ghost";
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "white";
   href?: string;
   size?: "sm" | "md" | "lg";
   class?: string;
@@ -22,6 +22,7 @@ const variants = {
   secondary: "bg-brand-secondary text-white hover:bg-red-800 shadow-lg hover:shadow-xl focus:ring-brand-secondary",
   outline: "border-2 border-brand-primary text-brand-primary hover:bg-brand-light focus:ring-brand-primary",
   ghost: "text-brand-primary hover:bg-brand-light focus:ring-brand-primary",
+  white: "bg-white text-brand-dark hover:bg-gray-50 shadow-lg hover:shadow-xl focus:ring-white",
 };
 
 const sizes = {
