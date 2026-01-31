@@ -1,7 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import meatImage from "../assets/images-unoptimized/supermercado-interior.jpg"; // Using interior as fallback/context
+import Button from "../components/ui/Button.astro";
+import Icon from "../components/ui/Icon";
 import PageHeader from "../components/ui/PageHeader.astro";
+import ContentWidget from "../components/widgets/ContentWidget.astro";
 import Layout from "../layouts/Layout.astro";
 
 const title = "Carnicería en Tenerife | Carne al por mayor y corte propio";
@@ -12,8 +15,8 @@ const canonical = "https://terencio.es/carniceria-tenerife";
 <Layout title={title} description={description} canonical={canonical} image={meatImage.src}>
   <!-- Hero Carnicería -->
   <PageHeader 
-    title="La Carnicería de Terencio"
-    subtitle="Maestros carniceros con despiece propio. Calidad profesional al alcance de tu hogar y tu negocio."
+    title="Carnicería en Tenerife: Carne Fresca, Despiece Propio y Carne de Fiesta"
+    subtitle="Tu carnicería tradicional en La Esperanza. Carne cortada a cuchillo y precios de almacén directos a ti."
     badge="Maestros Carniceros"
     badgeClass="bg-red-800/80 border border-red-400 text-red-100"
     backgroundImage={meatImage.src}
@@ -21,36 +24,38 @@ const canonical = "https://terencio.es/carniceria-tenerife";
     gradientClass="bg-gradient-to-b from-red-900/90 via-red-900/60 to-red-900/90"
   />
 
-  <!-- Características Principales -->
+  <!-- Características Principales y Explicación -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="relative">
-             <div class="absolute -top-4 -left-4 w-24 h-24 bg-red-100 rounded-full z-0"></div>
-             <Image src={meatImage} alt="Mostrador de Carnicería Terencio" class="relative z-10 rounded-xl shadow-2xl w-full h-auto object-cover border-b-8 border-red-700" width={600} height={400} />
-             <div class="absolute bottom-4 right-4 bg-white p-4 rounded-lg shadow-lg z-20 max-w-xs border border-gray-100">
-               <p class="text-red-700 font-bold text-lg">Frescura Diaria</p>
-               <p class="text-xs text-gray-500">Recibimos género cada mañana.</p>
+             <Image src={meatImage} alt="Carne fresca al corte en Tenerife" class="relative z-10 rounded-xl shadow-2xl w-full h-auto object-cover border-b-8 border-red-700" width={600} height={400} />
+             <div class="absolute -bottom-6 -right-6 bg-yellow-100 p-6 rounded-xl shadow-lg z-20 max-w-xs border border-yellow-200">
+               <p class="text-red-900 font-bold text-xl mb-1">Precios de Almacén</p>
+               <p class="text-sm text-gray-700">Sin intermediarios. Del matadero a Terencio.</p>
              </div>
         </div>
         
         <div class="prose prose-lg text-gray-600">
-          <h2 class="text-3xl font-bold text-gray-900 mb-6">¿Por qué comprar carne en Terencio?</h2>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Corte a Cuchillo y Carne de Fiesta</h2>
           <p>
-            Nos diferenciamos de las grandes superficies por nuestro trato y oficio. No solo vendemos bandejas; somos carniceros. Realizamos el <strong>despiece propio</strong> en nuestras instalaciones, lo que nos permite ofrecerte el corte exacto que necesitas.
+            En Terencio recuperamos el oficio tradicional. Nuestro equipo de carniceros realiza el <strong>despiece propio</strong> cada mañana, garantizando una frescura que ya no se encuentra en las grandes superficies.
+          </p>
+          <p>
+            No vendemos bandejas industriales. Cuando nos pides <strong>Carne de Fiesta</strong>, la troceamos a cuchillo en el momento, consiguiendo ese corte limpio que mantiene todos los jugos al cocinarla.
           </p>
           <ul class="space-y-4 mt-6 not-prose">
             <li class="flex items-start gap-3">
-              <span class="bg-red-100 text-red-700 p-1 rounded-full"><span class="material-icons-outlined text-sm">check</span></span>
-              <span><strong>Carne fresca diaria:</strong> Nada de congelados industriales. Selección de las mejores granjas.</span>
+              <Icon name="Check" className="text-red-600 mt-1" />
+              <span><strong>Despiece diario:</strong> Género fresco cada día.</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="bg-red-100 text-red-700 p-1 rounded-full"><span class="material-icons-outlined text-sm">check</span></span>
-              <span><strong>Corte a cuchillo:</strong> Pídelo como te gusta. Fino para empanar, grueso para parrilla, troceado para estofado.</span>
+              <Icon name="Check" className="text-red-600 mt-1" />
+              <span><strong>A tu gusto:</strong> Te preparamos el grosor y el corte exacto que necesitas.</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="bg-red-100 text-red-700 p-1 rounded-full"><span class="material-icons-outlined text-sm">check</span></span>
-              <span><strong>Elaborados propios:</strong> Hamburguesas, salchichas y preparados cárnicos hechos en casa.</span>
+               <Icon name="Check" className="text-red-600 mt-1" />
+               <span><strong>Precios de Almacén:</strong> Al ser mayoristas, compras con tarifas muy ajustadas.</span>
             </li>
           </ul>
         </div>
@@ -58,81 +63,61 @@ const canonical = "https://terencio.es/carniceria-tenerife";
     </div>
   </section>
 
-  <!-- Maestro Carnicero Profile -->
-  <section class="py-12 bg-red-50 border-y border-red-100">
-    <div class="container mx-auto px-4 max-w-4xl">
-      <div class="flex flex-col md:flex-row items-center gap-8">
-         <div class="w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
-             <!-- Placeholder for Head Butcher - Replace with actual photo -->
-             <div class="w-full h-full rounded-full bg-red-200 border-4 border-white shadow-lg overflow-hidden flex items-center justify-center">
-                <span class="material-icons-outlined text-6xl text-red-400">person</span>
-             </div>
-         </div>
-         <div class="text-center md:text-left">
-             <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
-                <span class="text-yellow-500 material-icons-outlined">star</span>
-                <span class="text-xs font-bold text-red-600 uppercase tracking-wider">Maestro Carnicero</span>
-             </div>
-             <h3 class="text-2xl font-bold text-gray-900 mb-4">"El corte marca la diferencia"</h3>
-             <p class="text-gray-600 italic mb-4 text-lg">
-               "Para un buen estofado, no hay nada como la aguja de ternera cortada a cuchillo en trozos regulares. Ven y pregúntame, estaré encantado de preparártelo al momento."
-             </p>
-             <p class="font-bold text-gray-900">— Antonio, Jefe de Carnicería</p>
-         </div>
+  <!-- Lista de Precios Gancho -->
+  <section class="py-16 bg-red-50">
+      <div class="container mx-auto px-4 max-w-4xl">
+          <div class="text-center mb-10">
+              <h2 class="text-3xl font-bold text-gray-900 mb-2">Precios Imbatibles</h2>
+              <p class="text-gray-600">Referencia de precios diarios (pueden variar según mercado)</p>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-sm border border-red-100 overflow-hidden">
+              <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                  <div class="p-6 text-center group hover:bg-red-50 transition">
+                      <div class="text-4xl mb-3">🍗</div>
+                      <h3 class="font-bold text-gray-900 mb-1">Pollo Entero</h3>
+                      <p class="text-sm text-gray-500 mb-3">Fresco, gran tamaño</p>
+                      <div class="text-2xl font-bold text-red-700">2,95 €/kg</div>
+                  </div>
+                  <div class="p-6 text-center group hover:bg-red-50 transition">
+                      <div class="text-4xl mb-3">🥩</div>
+                      <h3 class="font-bold text-gray-900 mb-1">Carne de Fiesta</h3>
+                      <p class="text-sm text-gray-500 mb-3">Troceada a mano</p>
+                      <div class="text-2xl font-bold text-red-700">5,90 €/kg</div>
+                  </div>
+                  <div class="p-6 text-center group hover:bg-red-50 transition">
+                      <div class="text-4xl mb-3">🐷</div>
+                      <h3 class="font-bold text-gray-900 mb-1">Chuleta Cerdo</h3>
+                      <p class="text-sm text-gray-500 mb-3">Aguja o Lomo</p>
+                      <div class="text-2xl font-bold text-red-700">4,50 €/kg</div>
+                  </div>
+              </div>
+              <div class="bg-gray-50 p-4 text-center text-xs text-gray-500 border-t border-gray-100">
+                  * Precios orientativos sujetos a variaciones de mercado. Visítanos para ver ofertas del día.
+              </div>
+          </div>
       </div>
-    </div>
   </section>
 
-  <!-- Sección Profesionales / Guachinches -->
-  <section class="py-20 bg-gray-50 border-t border-gray-200">
+  <!-- Blog Grid Widget -->
+  <ContentWidget 
+    title="Recetas y Consejos de Carnicería" 
+    subtitle="Aprende con nosotros"
+    collection="blog" 
+    tags={["Recetas", "Consejos"]}
+    maxItems={3} 
+    bgClass="bg-white"
+  />
+
+  <!-- CTA Simple Final -->
+  <section class="py-12 bg-gray-900 text-white text-center">
     <div class="container mx-auto px-4">
-      <div class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
-        <div class="p-10 md:w-2/3">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">Especialistas en Hostelería y Guachinches</h2>
-          <p class="text-gray-600 mb-6 text-lg">
-             ¿Tienes un restaurante, asador o guachinche? Sabemos que la carne es el alma de tu negocio. En Terencio Cash Market ofrecemos condiciones especiales para <strong>carne al por mayor</strong>.
-          </p>
-          <div class="grid sm:grid-cols-2 gap-6 mb-8">
-            <div class="bg-red-50 p-4 rounded-lg">
-              <h4 class="font-bold text-red-800 mb-1">Chuletones y Parrilla</h4>
-              <p class="text-sm text-gray-600">Cortes madurados y piezas enteras para brasas.</p>
-            </div>
-            <div class="bg-red-50 p-4 rounded-lg">
-              <h4 class="font-bold text-red-800 mb-1">Carne de Fiesta</h4>
-              <p class="text-sm text-gray-600">Tacos limpios y preparados para grandes volúmenes.</p>
-            </div>
-          </div>
-          <div class="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-             <a href="/productos-el-hierro-tenerife#vinos" class="flex items-center gap-3 text-yellow-800 hover:text-yellow-900 transition">
-                <span class="material-icons-outlined text-2xl">wine_bar</span>
-                <div>
-                   <p class="font-bold">Marida tu carne con un Vino Tinto local</p>
-                   <p class="text-xs">Descubre nuestra selección de vinos de El Hierro</p>
-                </div>
-             </a>
-          </div>
-          <a href="/profesionales" class="inline-block bg-red-700 text-white px-8 py-3 rounded-lg font-bold hover:bg-red-800 transition mt-6">
-            Solicitar Tarifas Profesionales
-          </a>
+        <h2 class="text-2xl font-bold mb-4">¿Quieres hacer un pedido grande?</h2>
+        <p class="text-gray-300 mb-8 max-w-2xl mx-auto">Preparamos encargos para fiestas, barbacoas y eventos. Llámanos y tenlo listo para recoger.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+             <Button href="/contacto" variant="primary">Ver Horarios y Ubicación</Button>
+             <Button href="tel:922550067" variant="ghost" class="bg-white/10 text-white hover:bg-white/20">Llamar a Carnicería</Button>
         </div>
-        <div class="bg-gray-900 md:w-1/3 p-10 flex flex-col justify-center items-center text-center text-white">
-          <span class="material-icons-outlined text-6xl mb-4 text-red-500">local_shipping</span>
-          <h3 class="text-2xl font-bold mb-2">Reparto Propio</h3>
-          <p class="text-gray-400">Servicio logístico para profesionales en Tenerife Norte y Metropolitana.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- CTA Final -->
-  <section class="py-16 text-center">
-    <div class="container mx-auto px-4">
-       <h2 class="text-2xl font-bold mb-6">Visita nuestro mostrador en La Esperanza</h2>
-       <p class="text-gray-600 mb-8">Abierto todos los días, domingos incluidos.</p>
-       <a href="/contacto" class="text-red-700 font-bold hover:underline text-lg flex items-center justify-center gap-2">
-         Ver ubicación y horarios
-         <span class="material-icons-outlined">arrow_forward</span>
-       </a>
     </div>
   </section>
 </Layout>

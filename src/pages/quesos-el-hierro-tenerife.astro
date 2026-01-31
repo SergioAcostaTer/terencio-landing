@@ -1,8 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import queso from "../assets/images/queso_mojo.webp";
+import SuggestedPost from "../components/blog/SuggestedPost.astro";
 import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
-import Button from "../components/ui/Button.astro";
+import Icon from "../components/ui/Icon";
+import PageHeader from "../components/ui/PageHeader.astro";
 import Section from "../components/ui/Section.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -13,63 +15,111 @@ const description = "El auténtico Queso Herreño en Tenerife. Queso ahumado de 
 <LocalBusinessSchema image={queso.src} description={description} />
 <Layout title={title} description={description} image={queso.src}>
   
-  <header class="bg-yellow-50 py-16">
-    <div class="container mx-auto px-4 text-center">
-        <span class="text-yellow-700 font-bold uppercase tracking-widest text-sm">Sabor Herreño</span>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-6">Queso de El Hierro en Tenerife</h1>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Distribuidores oficiales de la Cooperativa de Ganaderos de El Hierro. El sabor ahumado único, directo a tu mesa.
-        </p>
-    </div>
-  </header>
+  <PageHeader 
+    title="Comprar Queso de El Hierro en Tenerife: Ahumado y Tierno"
+    subtitle="Distribuidores oficiales de la Cooperativa de Ganaderos de El Hierro. El sabor ahumado único, directo a tu mesa."
+    badge="Delicatesen Canaria"
+    badgeClass="bg-yellow-100 border border-yellow-300 text-yellow-800"
+    backgroundImage={queso.src}
+    bgClass="bg-yellow-900"
+    gradientClass="bg-gradient-to-b from-yellow-900/90 via-yellow-900/60 to-yellow-900/90"
+  />
 
   <Section class="bg-white">
     <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
              <Image src={queso} alt="Queso Ahumado El Hierro con Mojo" class="rounded-2xl shadow-xl w-full h-auto" width={600} height={400} />
+             <div class="mt-6">
+                <SuggestedPost 
+                    title="La historia del Queso Herreño: Del ahumadero a tu mesa"
+                    subtitle="Blog"
+                    slug="historia-queso-herreno" 
+                    image={queso.src}
+                    compact={true}
+                />
+             </div>
         </div>
         <div>
-            <h2 class="text-3xl font-bold mb-6">¿Por qué es único este queso?</h2>
+            <h2 class="text-3xl font-bold mb-6">Variedades y Diferencias</h2>
             <p class="text-gray-600 mb-6 leading-relaxed">
                 El queso herreño se elabora principalmente con leche de cabra y oveja, y su carácter distintivo proviene del <strong>ahumado natural</strong> con leña de higuera y pencas de tunera.
             </p>
-            <h3 class="font-bold text-xl mb-3">Variedades Disponibles en Tienda:</h3>
-            <ul class="space-y-3 mb-8">
-                <li class="flex items-center gap-2">
-                    <span class="text-yellow-600">🧀</span> <strong>Tierno Ahumado:</strong> Suave, cremoso y con el toque justo de humo.
-                </li>
-                <li class="flex items-center gap-2">
-                    <span class="text-yellow-600">🧀</span> <strong>Semicurado Mezcla:</strong> Equilibrio perfecto para tablas de queso.
-                </li>
-                <li class="flex items-center gap-2">
-                    <span class="text-yellow-600">🧀</span> <strong>Curado:</strong> Sabor intenso, premiado internacionalmente.
-                </li>
-            </ul>
-            <Button href="/terencio-cash-market" variant="primary">
-                Ver Disponibilidad en Tienda
-            </Button>
+            
+            <div class="space-y-6">
+                <div class="bg-yellow-50 p-4 rounded-xl border border-yellow-100">
+                    <h3 class="font-bold text-yellow-900 flex items-center gap-2">
+                        <span class="text-xl">🧀</span> Tierno Ahumado
+                    </h3>
+                    <p class="text-sm text-gray-700 mt-1">Suave, blanco y cremoso. Ahumado ligero. Ideal para desayunos o sándwiches.</p>
+                </div>
+                <div class="bg-orange-50 p-4 rounded-xl border border-orange-100">
+                    <h3 class="font-bold text-orange-900 flex items-center gap-2">
+                        <span class="text-xl">🧀</span> Semicurado Mezcla
+                    </h3>
+                    <p class="text-sm text-gray-700 mt-1">El equilibrio perfecto. Corteza ahumada natural y pasta firme. El favorito para tapas.</p>
+                </div>
+                <div class="bg-amber-50 p-4 rounded-xl border border-amber-100">
+                    <h3 class="font-bold text-amber-900 flex items-center gap-2">
+                        <span class="text-xl">🧀</span> Curado Viejo
+                    </h3>
+                    <p class="text-sm text-gray-700 mt-1">Sabor intenso, picante y textura quebradiza. Ganador de premios World Cheese Awards.</p>
+                </div>
+            </div>
+
         </div>
     </div>
   </Section>
 
-  <Section class="bg-gray-50 text-center">
+  <!-- Lista de Precios -->
+  <Section class="bg-gray-50 border-y border-gray-200">
+      <div class="max-w-2xl mx-auto">
+          <h2 class="text-2xl font-bold text-center mb-6">Precios Aproximados</h2>
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
+              <table class="w-full text-left">
+                  <thead class="bg-gray-50 border-b border-gray-200">
+                      <tr>
+                          <th class="px-6 py-3 text-xs font-bold text-gray-500 uppercase">Producto</th>
+                          <th class="px-6 py-3 text-xs font-bold text-gray-500 uppercase text-right">Precio / Kg</th>
+                      </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100">
+                      <tr>
+                          <td class="px-6 py-4 font-medium text-gray-900">Queso Tierno Ahumado</td>
+                          <td class="px-6 py-4 text-right text-gray-600">~ 14,50 €</td>
+                      </tr>
+                      <tr>
+                          <td class="px-6 py-4 font-medium text-gray-900">Queso Semicurado Ahumado</td>
+                          <td class="px-6 py-4 text-right text-gray-600">~ 16,90 €</td>
+                      </tr>
+                      <tr>
+                          <td class="px-6 py-4 font-medium text-gray-900">Queso Curado (Reserva)</td>
+                          <td class="px-6 py-4 text-right text-gray-600">~ 21,00 €</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+          <p class="text-center text-xs text-gray-500 mt-4">* Precios sujetos a peso de la pieza y mercado.</p>
+      </div>
+  </Section>
+
+  <Section class="bg-white text-center">
     <h2 class="text-3xl font-bold mb-8">Maridaje Perfecto</h2>
     <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-        <div class="bg-white p-6 rounded-xl shadow-sm">
-            <span class="text-4xl block mb-2">🍯</span>
-            <h3 class="font-bold">Miel de Palma</h3>
-            <p class="text-sm text-gray-500">El contraste dulce realza el ahumado.</p>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+             <span class="text-4xl block mb-2">🍯</span>
+             <h3 class="font-bold mb-2">Miel de Palma</h3>
+             <p class="text-sm text-gray-500">Un contraste dulce que realza el ahumado.</p>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm">
-            <span class="text-4xl block mb-2">🌶️</span>
-            <h3 class="font-bold">Mojo Rojo Artesano</h3>
-            <p class="text-sm text-gray-500">El clásico asado con mojo.</p>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+             <span class="text-4xl block mb-2">🌶️</span>
+             <h3 class="font-bold mb-2">Mojo Rojo</h3>
+             <p class="text-sm text-gray-500">Hazlo a la plancha con mojo por encima. ¡Delicioso!</p>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm">
-            <span class="text-4xl block mb-2">🍷</span>
-            <h3 class="font-bold">Vino Viña Frontera</h3>
-            <p class="text-sm text-gray-500">Blanco seco afrutado de El Hierro.</p>
-        </div>
+        <a href="/productos-el-hierro-tenerife" class="block bg-yellow-50 p-6 rounded-xl border border-yellow-200 hover:shadow-md transition group">
+             <span class="text-4xl block mb-2 group-hover:scale-110 transition">🍷</span>
+             <h3 class="font-bold text-yellow-900 mb-2">Vinos de Frontera</h3>
+             <p class="text-sm text-yellow-800">Ver Vinos Recomendados <Icon name="ArrowRight" size={12} className="inline"/></p>
+        </a>
     </div>
   </Section>
 

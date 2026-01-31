@@ -1,0 +1,49 @@
+{
+  "redirects": [
+    {
+      "source": "/horario-terencio-cash-market",
+      "destination": "/horario",
+      "permanent": true
+    },
+    {
+      "source": "/aviso-legal",
+      "destination": "/legal/aviso-legal",
+      "permanent": true
+    },
+    {
+      "source": "/cookies",
+      "destination": "/legal/cookies",
+      "permanent": true
+    },
+    {
+      "source": "/politica-privacidad",
+      "destination": "/legal/politica-privacidad",
+      "permanent": true
+    },
+    {
+      "source": "/alternativa-a-hiperdino-la-laguna",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/carniceria-cerca-de-mi-la-laguna",
+      "destination": "/carniceria-tenerife",
+      "permanent": true
+    },
+    {
+      "source": "/mayorista-hosteleria-la-laguna",
+      "destination": "/profesionales",
+      "permanent": true
+    },
+    {
+      "source": "/supermercado-abierto-domingo-tenerife",
+      "destination": "/horario",
+      "permanent": true
+    },
+    {
+      "source": "/supermercado-cerca-de-mi-la-laguna",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}

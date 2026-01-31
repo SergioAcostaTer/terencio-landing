@@ -1,47 +1,76 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
+import Icon from '../ui/Icon';
 
 interface Props {
-  currentSlug: string;
+  currentSlug?: string;
   tags?: string[];
+  // Manual override props
+  post?: any;
+  title?: string;
+  subtitle?: string;
+  image?: string;
+  url?: string;
+  compact?: boolean;
 }
 
-const { currentSlug, tags } = Astro.props;
+const { currentSlug, tags, post: manualPost, title, subtitle, image, url, compact } = Astro.props;
 
 // Fetch all posts
 const allPosts = await getCollection('blog');
 
-// Find related posts
-let relatedPost = null;
+// Determine post to show
+let relatedPost = manualPost;
 
-if (tags && tags.length > 0) {
-    // Try to find a post with at least one matching tag, excluding current
-    relatedPost = allPosts.find(post => 
-        post.slug !== currentSlug && 
-        post.data.tags?.some(tag => tags.includes(tag))
-    );
+if (!relatedPost && !title) {
+    if (tags && tags.length > 0) {
+        // Try to find a post with at least one matching tag, excluding current
+        relatedPost = allPosts.find(post => 
+             (!currentSlug || post.slug !== currentSlug) && 
+            post.data.tags?.some(tag => tags.includes(tag))
+        );
+    }
+
+    // Fallback: Just get the most recent post that isn't the current one
+    if (!relatedPost) {
+        relatedPost = allPosts
+            .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+            .find(post => !currentSlug || post.slug !== currentSlug);
+    }
 }
 
-// Fallback: Just get the most recent post that isn't the current one
-if (!relatedPost) {
-    relatedPost = allPosts
-        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-        .find(post => post.slug !== currentSlug);
-}
+// Construct display data
+const displayData = title ? {
+    title: title,
+    description: "Artículo destacado", // Default or accept prop
+    image: image,
+    slug: url || '#', // Handle URL
+    subtitle: subtitle || 'Relacionado'
+} : relatedPost ? {
+    title: relatedPost.data.title,
+    description: relatedPost.data.description,
+    image: relatedPost.data.image,
+    slug: relatedPost.slug,
+    subtitle: 'Sigue leyendo'
+} : null;
 
-if (!relatedPost) return null;
+if (!displayData) return null;
+
+// Adjust URL construction
+const postUrl = title ? (url || '#') : `/blog/${displayData.slug}`;
+
 ---
 
-{relatedPost && (
-  <aside class="my-12 not-prose">
-    <a href={`/blog/${relatedPost.slug}`} class="block group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
+{displayData && (
+  <aside class={`my-12 not-prose ${compact ? 'max-w-sm mx-auto md:max-w-none' : ''}`}>
+    <a href={postUrl} class="block group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300">
       
       <div class="absolute inset-0 bg-gray-900">
-         {relatedPost.data.image && (
+         {displayData.image && (
             <Image 
-                src={relatedPost.data.image} 
-                alt={relatedPost.data.title}
+                src={displayData.image as any} 
+                alt={displayData.title}
                 class="w-full h-full object-cover opacity-40 group-hover:opacity-30 transition duration-500 scale-100 group-hover:scale-105"
                 width={800}
                 height={300}
@@ -52,21 +81,21 @@ if (!relatedPost) return null;
       <div class="relative z-10 p-8 md:p-10 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
          <div class="flex-1">
             <span class="inline-block bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">
-                Sigue leyendo
+                {displayData.subtitle}
             </span>
-            <h3 class="text-xl md:text-2xl font-bold text-white mb-2 leading-tight group-hover:underline decoration-2 underline-offset-4">
-                {relatedPost.data.title}
+            <h3 class={`font-bold text-white mb-2 leading-tight group-hover:underline decoration-2 underline-offset-4 ${compact ? 'text-lg' : 'text-xl md:text-2xl'}`}>
+                {displayData.title}
             </h3>
-            <p class="text-gray-200 text-sm line-clamp-2 hidden md:block">
-                {relatedPost.data.description}
-            </p>
+            {!compact && (
+                <p class="text-gray-200 text-sm line-clamp-2 hidden md:block">
+                    {displayData.description}
+                </p>
+            )}
          </div>
          
          <div class="bg-white text-green-900 font-bold py-3 px-6 rounded-full flex items-center gap-2 group-hover:bg-green-50 transition shrink-0">
             Leer artículo
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            <Icon name="ArrowRight" size={20} />
          </div>
       </div>
     </a>

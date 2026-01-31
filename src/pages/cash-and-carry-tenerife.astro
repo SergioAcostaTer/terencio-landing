@@ -5,11 +5,12 @@ import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
 import Button from "../components/ui/Button.astro";
 import PageHeader from "../components/ui/PageHeader.astro";
 import Section from "../components/ui/Section.astro";
+import ContentWidget from "../components/widgets/ContentWidget.astro";
 import Layout from "../layouts/Layout.astro";
 
 // SEO Title & Description
-const title = "Cash & Carry Tenerife | Terencio Cash Market (Mayorista y Particulares)";
-const description = "Terencio es el Cash & Carry de referencia en Tenerife Norte. Venta mayorista para hostelería y abierto al público sin carnet. Ahorra en tu cesta de la compra.";
+const title = "Cash and Carry en Tenerife: Compra sin Carnet | Terencio";
+const description = "El único Cash & Carry en Tenerife abierto al público general. Sin carnet, sin cuotas. Precios de mayorista para familias y empresas en La Esperanza.";
 ---
 
 <LocalBusinessSchema type="WholesaleStore" />
@@ -17,17 +18,19 @@ const description = "Terencio es el Cash & Carry de referencia en Tenerife Norte
   
   <!-- Hero Section -->
   <PageHeader 
-    title='Cash & Carry <span class="text-green-300">Tenerife</span>'
+    title='Cash and Carry en Tenerife: <span class="text-green-300">Compra sin Carnet</span>'
     subtitle="El único centro mayorista donde <strong>particulares y profesionales</strong> compran al mismo precio. Sin cuotas, sin tarjetas, solo ahorro."
-    badge="Ahorro"
+    badge="Ahorro Inteligente"
     backgroundImage={interiorImage.src}
   >
-      <Button href="#como-funciona" variant="primary" class="text-lg px-8 py-4 shadow-xl hover:-translate-y-1 transition-all">
-        ¿Cómo funciona?
-      </Button>
-      <Button href="/profesionales" variant="outline" class="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-green-900 shadow-xl hover:-translate-y-1 transition-all">
-        Soy Profesional HORECA
-      </Button>
+      <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+        <Button href="#como-funciona" variant="primary" class="text-lg px-8 py-4 shadow-xl hover:-translate-y-1 transition-all">
+            ¿Cómo funciona?
+        </Button>
+        <Button href="/profesionales" variant="outline" class="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-green-900 shadow-xl hover:-translate-y-1 transition-all">
+            Soy Profesional HORECA
+        </Button>
+      </div>
   </PageHeader>
 
   <!-- Value Proposition Grid -->
@@ -76,7 +79,7 @@ const description = "Terencio es el Cash & Carry de referencia en Tenerife Norte
   <!-- VS Competitors Table -->
   <Section class="bg-gray-900 text-white">
     <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold mb-8 text-center">Cash & Carry vs. Supermercado Normal</h2>
+        <h2 class="text-3xl font-bold mb-8 text-center text-white">Cash & Carry vs. Supermercado Normal</h2>
         
         <div class="overflow-hidden rounded-xl border border-gray-700">
             <table class="w-full text-left bg-gray-800">
@@ -114,11 +117,25 @@ const description = "Terencio es el Cash & Carry de referencia en Tenerife Norte
     </div>
   </Section>
 
+  <!-- Blog Grid Widget -->
+  <ContentWidget 
+    title="Consejos para Ahorrar" 
+    subtitle="Blog de Ahorro"
+    collection="blog" 
+    tags={['Ahorro', 'Consejos']}
+    maxItems={3} 
+    bgClass="bg-white border-t border-gray-100"
+  />
+
   <!-- CTA Final -->
   <Section class="bg-white text-center">
     <h2 class="text-3xl font-bold mb-6">Haz la compra inteligente</h2>
     <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Únete a miles de familias y negocios de Tenerife que ya ahorran cada mes en Terencio.</p>
     
+    <div class="max-w-4xl mx-auto h-[300px] rounded-2xl overflow-hidden shadow-lg border border-gray-200 mb-8">
+        <LocationMap title="Cómo llegar al Cash & Carry" />
+    </div>
+
     <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
         <Button href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" variant="primary" class="gap-2">
             📍 Ver Ubicación en Maps
@@ -126,10 +143,6 @@ const description = "Terencio es el Cash & Carry de referencia en Tenerife Norte
         <Button href="/terencio-cash-market" variant="ghost">
             Ver Productos
         </Button>
-    </div>
-    
-    <div class="max-w-4xl mx-auto h-[300px] rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-        <LocationMap title="Cómo llegar al Cash & Carry" />
     </div>
   </Section>
 

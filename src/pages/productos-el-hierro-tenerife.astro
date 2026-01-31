@@ -1,56 +1,49 @@
 ---
 import { Image } from "astro:assets";
 import quesadillas from "../assets/images/quesadillas.webp";
-import queso from "../assets/images/queso_mojo.webp";
 import vinos from "../assets/images/vinos_el_hierro.webp";
 import LocationMap from "../components/LocationMap.astro";
+import Button from "../components/ui/Button.astro";
+import Icon from "../components/ui/Icon";
+import PageHeader from "../components/ui/PageHeader.astro";
 import ContentWidget from "../components/widgets/ContentWidget.astro";
 import Layout from "../layouts/Layout.astro";
 
 import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
 
-const title = "Productos de El Hierro en Tenerife | Supermercado Herreño";
+const title = "Productos de El Hierro en Tenerife: Quesadillas, Vinos y Piña";
 const description = "Compra productos de El Hierro en Tenerife: Quesadillas, Queso ahumado, Vinos y Piña tropical. Terencio Cash Market es tu conexión directa con la isla del Meridiano.";
 const canonical = "https://terencio.es/productos-el-hierro-tenerife";
 ---
 
 <LocalBusinessSchema description={description} image={quesadillas.src} />
 <Layout title={title} description={description} canonical={canonical} image={quesadillas.src}>
-  <!-- Hero Section -->
-  <section class="relative bg-green-900 text-white py-20 overflow-hidden">
-    <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')]"></div>
-    <div class="container mx-auto px-4 text-center relative z-10">
-      <span class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 border border-yellow-500 text-yellow-300 text-xs font-bold uppercase tracking-wider mb-6">
-        Sabor Auténtico
-      </span>
-      <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-        Productos de <span class="text-yellow-400">El Hierro</span> en Tenerife
-      </h1>
-      <p class="text-xl text-green-100 max-w-3xl mx-auto mb-8 font-light leading-relaxed">
-        No hace falta coger un barco para disfrutar del sabor del Meridiano. Traemos semanalmente lo mejor de nuestra tierra a La Esperanza.
-      </p>
-      <a href="#productos" class="bg-white text-green-900 px-8 py-3 rounded-full font-bold hover:bg-yellow-400 transition shadow-lg inline-flex items-center gap-2">
-        Ver Productos Disponibles
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
-      </a>
-    </div>
-  </section>
+  
+  <PageHeader 
+    title="Productos de El Hierro en Tenerife: Quesadillas, Vinos y Piña"
+    subtitle="Traemos el sabor de El Hierro cada semana en barco. Tu conexión directa con la isla del Meridiano."
+    badge="Sabor Herreño"
+    badgeClass="bg-yellow-500/20 border border-yellow-500 text-yellow-200"
+    backgroundImage={quesadillas.src}
+    bgClass="bg-green-900"
+    gradientClass="bg-gradient-to-b from-green-900/90 via-green-900/60 to-green-900/90"
+  />
 
-  <!-- La Conexión Terencio -->
+  <!-- Storytelling -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="prose prose-lg text-gray-600">
-          <h2 class="text-3xl font-bold text-gray-900 mb-6">Terencio: El Puente entre Islas</h2>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Del hierro a La Esperanza</h2>
           <p>
-            Nuestra historia comenzó en <strong>El Hierro</strong>. Durante décadas, Supermercados Terencio ha sido un referente en la isla, y aunque ahora operamos nuestro gran centro en Tenerife, nunca hemos olvidado nuestras raíces.
+            No hace falta coger un barco para disfrutar del sabor del Meridiano. En Terencio Cash Market traemos semanalmente lo mejor de nuestra tierra.
           </p>
           <p>
             Gracias a nuestra logística propia y acuerdos con pequeños productores locales, actuamos como un <strong>supermercado herreño en Tenerife</strong>. Eliminamos intermediarios para que puedas comprar quesadillas frescas, piña tropical y queso ahumado al mejor precio, sin esperar envíos.
           </p>
           <div class="mt-6 p-4 bg-green-50 border-l-4 border-green-600 rounded-r-lg">
             <p class="text-green-800 font-medium italic m-0">
-              "Traemos la mercancía directamente desde Valverde y Frontera. Frescura garantizada."
+              "Si echas de menos la isla, compra aquí. Frescura garantizada."
             </p>
           </div>
         </div>
@@ -62,76 +55,77 @@ const canonical = "https://terencio.es/productos-el-hierro-tenerife";
     </div>
   </section>
 
-  <!-- Grid de Productos -->
+  <!-- Grid de Productos (Catálogo Visual) -->
   <section id="productos" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Lo más buscado de El Hierro</h2>
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Catálogo de El Hierro</h2>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Producto 1 -->
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group">
-          <div class="h-48 overflow-hidden bg-gray-200">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Producto 1: Quesadillas -->
+        <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group border border-gray-100">
+          <div class="h-64 overflow-hidden bg-gray-200 relative">
              <Image src={quesadillas} alt="Quesadillas Herreñas" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" width={400} />
+             <div class="absolute top-4 right-4 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">Dulce Típico</div>
           </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Quesadillas Herreñas</h3>
-            <p class="text-gray-600 text-sm mb-4">El dulce por excelencia. Elaboradas con queso fresco de la isla, limón y canela. Disponemos de las mejores marcas artesanales.</p>
-            <span class="text-green-700 font-bold text-sm bg-green-100 px-2 py-1 rounded">Stock Permanente</span>
-          </div>
-        </div>
-
-        <!-- Producto 2 -->
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group">
-          <div class="h-48 overflow-hidden bg-gray-200">
-             <Image src={queso} alt="Queso Ahumado de El Hierro" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" width={400} />
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Queso Ahumado</h3>
-            <p class="text-gray-600 text-sm mb-4">Queso de mezcla con ese sabor ahumado característico de las queserías de la isla. Perfecto para asar con mojo.</p>
-            <span class="text-green-700 font-bold text-sm bg-green-100 px-2 py-1 rounded">Varios tamaños</span>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Quesadillas Herreñas</h3>
+            <p class="text-gray-600 mb-6">El sabor inconfundible. Elaboradas con queso fresco, limón y canela. Disponemos de Adrián y otras marcas artesanas.</p>
+            <Button href="#contacto" variant="ghost" class="w-full justify-center">Consultar Disponibilidad</Button>
           </div>
         </div>
 
-        <!-- Producto 3 -->
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group">
-          <div class="h-48 overflow-hidden bg-gray-200">
+        <!-- Producto 2: Vinos -->
+        <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group border border-gray-100">
+          <div class="h-64 overflow-hidden bg-gray-200 relative">
              <Image src={vinos} alt="Vinos Denominación de Origen El Hierro" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" width={400} />
+             <div class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">D.O. El Hierro</div>
           </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Vinos D.O. El Hierro</h3>
-            <p class="text-gray-600 text-sm mb-4">Blancos secos y tintos con carácter volcánico. Trabajamos con la Cooperativa del Campo de Frontera y bodegas locales.</p>
-            <span class="text-green-700 font-bold text-sm bg-green-100 px-2 py-1 rounded">Bodega Selecta</span>
-            <div class="mt-4 pt-4 border-t border-gray-100">
-               <a href="/quesos-el-hierro-tenerife" class="text-sm text-green-700 font-bold hover:underline flex items-center gap-1">
-                 <span class="material-icons-outlined text-sm">restaurant_menu</span>
-                 Ideal con nuestros Quesos de El Hierro
-               </a>
-            </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Vinos de Frontera</h3>
+            <p class="text-gray-600 mb-6">Blancos secos y tintos volcánicos. Viña Frontera y bodegas locales seleccionadas.</p>
+            <Button href="#contacto" variant="ghost" class="w-full justify-center">Ver Bodega</Button>
           </div>
         </div>
 
-        <!-- Producto 4 -->
-        <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group">
-          <div class="h-48 overflow-hidden bg-gray-200 relative">
-             <!-- Placeholder for Piña if image missing -->
-             <div class="absolute inset-0 bg-yellow-100 flex items-center justify-center text-4xl">🍍</div>
+        <!-- Producto 3: Piña Tropical -->
+        <div class="bg-white rounded-xl shadow-sm hover:shadow-xl transition duration-300 overflow-hidden group border border-gray-100">
+          <div class="h-64 overflow-hidden bg-gray-200 relative flex items-center justify-center bg-yellow-50">
+             <span class="text-8xl">🍍</span>
+             <div class="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Kilómetro 0</div>
           </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Piña Tropical y Plátano</h3>
-            <p class="text-gray-600 text-sm mb-4">Fruta cultivada en el Valle del Golfo. Piña tropical roja española, dulce y jugosa, directa del agricultor.</p>
-            <span class="text-green-700 font-bold text-sm bg-green-100 px-2 py-1 rounded">Según Temporada</span>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">Piña Tropical</h3>
+            <p class="text-gray-600 mb-6">Piña Roja Española cultivada en el Valle del Golfo. Dulce, jugosa y traída directa del agricultor.</p>
+            <Button href="#contacto" variant="ghost" class="w-full justify-center">Ver Frutería</Button>
           </div>
         </div>
       </div>
+
+      <!-- Enlace Fuerte a Quesos -->
+      <div class="mt-16 max-w-4xl mx-auto bg-yellow-50 rounded-2xl p-8 border border-yellow-100 flex flex-col md:flex-row items-center cursor-pointer hover:shadow-md transition group text-center md:text-left gap-8">
+          <div class="flex-shrink-0">
+              <div class="w-24 h-24 bg-yellow-200 rounded-full flex items-center justify-center text-4xl shadow-inner">🧀</div>
+          </div>
+          <div class="flex-grow">
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">¿Buscas Queso de El Hierro?</h3>
+              <p class="text-gray-700">Tenemos una sección entera dedicada al queso herreño: Ahumado, Tierno y Curado.</p>
+          </div>
+          <div class="flex-shrink-0">
+              <Button href="/quesos-el-hierro-tenerife" variant="primary" class="gap-2 bg-yellow-600 hover:bg-yellow-700 border-yellow-600">
+                 Ver Quesos <Icon name="ArrowRight" />
+              </Button>
+          </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Guías y Recetas de El Hierro -->
+  <!-- Blog Grid Widget -->
   <ContentWidget 
-    title="Descubre El Hierro" 
-    subtitle="Guías de viaje y Gastronomía"
+    title="Turismo y Sabores de El Hierro" 
+    subtitle="El Hierro en Tenerife"
     collection="blog" 
-    tags={['El Hierro', 'Recetas']}
+    tags={['El Hierro', 'Turismo']}
     maxItems={3} 
     bgClass="bg-white border-t border-gray-100"
   />
@@ -149,15 +143,12 @@ const canonical = "https://terencio.es/productos-el-hierro-tenerife";
       </div>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://maps.google.com/?q=Terencio+Cash+Market" target="_blank" class="bg-green-700 text-white px-8 py-3 rounded-full font-bold hover:bg-green-800 transition shadow-lg flex items-center justify-center gap-2">
-          <span class="material-icons-outlined">place</span>
-          Cómo llegar a la tienda
-        </a>
-        <a href="/contacto" class="bg-white border-2 border-green-700 text-green-700 px-8 py-3 rounded-full font-bold hover:bg-green-50 transition flex items-center justify-center gap-2">
-          <span class="material-icons-outlined">call</span>
-          Consultar stock
-        </a>
+        <Button href="https://maps.google.com/?q=Terencio+Cash+Market" target="_blank" variant="primary" class="gap-2">
+          <Icon name="MapPin" /> Cómo llegar a la tienda
+        </Button>
+        <Button href="/contacto" variant="secondary" class="gap-2">
+          <Icon name="Phone" /> Consultar stock
+        </Button>
       </div>
     </div>
   </section>
-</Layout>

@@ -3,196 +3,90 @@ import proImage from "../assets/supermercados-terencio.jpg";
 import FAQ from "../components/FAQ.astro";
 import ProfessionalForm from "../components/forms/ProfessionalForm";
 import Button from "../components/ui/Button.astro";
-import Icon from "../components/ui/Icon";
 import PageHeader from "../components/ui/PageHeader.astro";
-import Section from "../components/ui/Section.astro";
 import ContentWidget from "../components/widgets/ContentWidget.astro";
 import Layout from "../layouts/Layout.astro";
 
-// SEO Optimizado para captar búsquedas de sector HORECA y Mayoristas
-const title = "Zona Profesionales | Cash & Carry Tenerife y Suministros HORECA - Terencio";
-const description = "Soluciones para profesionales de hostelería y alimentación en Tenerife. Precios de mayorista, formatos industriales y logística especializada para Tenerife y El Hierro.";
-
-// Keywords objetivo: Mayorista Tenerife, Suministros hostelería, Cash and Carry Tenerife, Distribución El Hierro
+// SEO Optimizado
+const title = "Proveedor de Hostelería en Tenerife | Mayorista Alimentación y Bebidas";
+const description = "Terencio: Tu proveedor de hostelería en Tenerife. Alimentación, Bebidas, Limpieza y Menaje. Servicio de reparto y Cash & Carry en La Esperanza.";
 ---
 
 <Layout title={title} description={description} image={proImage.src}>
   <PageHeader 
-    title="Tu Socio Estratégico en Cash & Carry" 
-    subtitle="Optimizamos los costes de tu negocio con formatos industriales, precios de mayorista directos y una logística imbatible entre Tenerife y El Hierro."
-    badge="Sector HORECA & Alimentación"
+    title="Proveedor de Hostelería en Tenerife | Mayorista Alimentación y Bebidas" 
+    subtitle="Servicio integral para HORECA. Suministro de alimentación, bebidas y limpieza con reparto propio y Cash & Carry."
+    badge="Zona Profesionales"
     backgroundImage={proImage.src}
+  >
+    <div class="mt-8 bg-white p-6 rounded-xl shadow-xl max-w-lg mx-auto md:mx-0 border-t-4 border-green-600">
+        <h3 class="font-bold text-gray-900 mb-2">🎁 Alta de Nuevo Cliente</h3>
+        <p class="text-sm text-gray-600 mb-4">Date de alta hoy y accede a nuestras tarifas exclusivas para profesionales.</p>
+        <ProfessionalForm client:visible />
+    </div>
+  </PageHeader>
+
+  <!-- Ventajas B2B -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="p-6 bg-green-50 rounded-2xl border border-green-100">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">⏱️</div>
+            <h3 class="font-bold text-xl mb-2">Servicio de Urgencia</h3>
+            <p class="text-gray-600">¿Te has quedado sin stock un domingo? Abrimos todos los días.</p>
+        </div>
+        <div class="p-6 bg-blue-50 rounded-2xl border border-blue-100">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🧾</div>
+            <h3 class="font-bold text-xl mb-2">Factura al Momento</h3>
+            <p class="text-gray-600">Gestión administrativa ágil. Tus facturas disponibles al instante.</p>
+        </div>
+        <div class="p-6 bg-yellow-50 rounded-2xl border border-yellow-100">
+            <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🚚</div>
+            <h3 class="font-bold text-xl mb-2">Reparto Propio</h3>
+            <p class="text-gray-600">Logística dedicada para profesionales en el área metropolitana.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categorías Visuales -->
+  <section class="py-16 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-10">Nuestro Catálogo</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition text-center group cursor-pointer border border-gray-100">
+                <span class="text-5xl mb-4 block group-hover:scale-110 transition">🍷</span>
+                <h3 class="font-bold text-xl text-gray-900">Bodega y Licores</h3>
+                <p class="text-sm text-gray-500 mt-2">Vinos locales, destilados y refrescos.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition text-center group cursor-pointer border border-gray-100">
+                <span class="text-5xl mb-4 block group-hover:scale-110 transition">🧹</span>
+                <h3 class="font-bold text-xl text-gray-900">Limpieza Profesional</h3>
+                <p class="text-sm text-gray-500 mt-2">Formatos industriales y químicos.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition text-center group cursor-pointer border border-gray-100">
+                <span class="text-5xl mb-4 block group-hover:scale-110 transition">🥫</span>
+                <h3 class="font-bold text-xl text-gray-900">Gran Formato</h3>
+                <p class="text-sm text-gray-500 mt-2">Aceites, conservas y secos.</p>
+            </div>
+        </div>
+        <div class="text-center mt-10">
+            <Button href="#solicitar-tarifas" variant="primary">Solicitar Catálogo Completo</Button>
+        </div>
+    </div>
+  </section>
+
+  <!-- NewsGrid B2B -->
+  <ContentWidget 
+    title="Noticias para Empresas" 
+    subtitle="Actualidad HORECA"
+    collection="noticias" 
+    category="Empresarial"
+    maxItems={3} 
+    bgClass="bg-white border-t border-gray-100"
   />
 
-  <!-- Sección: Ventajas para el Negocio -->
-  <section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
-        <div class="order-2 md:order-1">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Por qué elegir Terencio para tu empresa</h2>
-          <p class="text-gray-600 mb-6 text-lg">
-            En el sector de la hostelería, la rentabilidad depende de la calidad del suministro y la estabilidad de los precios. En <strong>Terencio Cash Market</strong>, hemos diseñado un servicio específico para el <strong>profesional de Tenerife</strong>.
-          </p>
-          
-          <div class="space-y-6">
-            <div class="flex gap-4">
-              <div class="bg-green-100 text-brand-primary p-3 rounded-full h-fit">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-900 text-xl">Precios de Mayorista Reales</h3>
-                <p class="text-gray-600">Accede a tarifas competitivas desde la primera unidad en formatos industriales (grandes envases de aceite, conservas, detergentes, etc.).</p>
-              </div>
-            </div>
-
-            <div class="flex gap-4">
-              <div class="bg-green-100 text-brand-primary p-3 rounded-full h-fit">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-900 text-xl">Logística Especializada <a href="/productos-el-hierro-tenerife" class="text-green-700 hover:underline">El Hierro</a></h3>
-                <p class="text-gray-600">Somos expertos en el suministro de mercancías para negocios en <strong>Valverde, Frontera y El Pinar</strong>. Consolidamos tu carga con máxima eficiencia.</p>
-              </div>
-            </div>
-
-            <div class="flex gap-4">
-              <div class="bg-green-100 text-brand-primary p-3 rounded-full h-fit">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-900 text-xl">Facturación Simplificada</h3>
-                <p class="text-gray-600">Gestión de facturas para autónomos y PYMES al instante. Controla tus gastos de suministros de forma profesional.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-10 p-8 bg-slate-50 rounded-2xl border border-slate-200">
-            <h4 class="font-bold text-slate-900 mb-2 italic">¿Eres autónomo o tienes un negocio en La Esperanza o El Hierro?</h4>
-            <p class="text-slate-600 mb-6">Ven a visitarnos con tu modelo 036 o CIF y daremos de alta tu ficha profesional en minutos.</p>
-            <Button href="tel:922550067" variant="primary">
-              Consultar requisitos
-            </Button>
-          </div>
-        </div>
-
-        <div class="order-1 md:order-2">
-          <div class="relative">
-            <div class="absolute -top-6 -right-6 w-64 h-64 bg-green-100 rounded-full blur-3xl opacity-50"></div>
-            <img 
-              src={proImage.src} 
-              alt="Almacén Cash and Carry Terencio en Tenerife" 
-              class="relative z-10 rounded-3xl shadow-2xl border-8 border-white"
-            />
-            <div class="absolute -bottom-10 -left-10 bg-white p-6 rounded-2xl shadow-xl z-20 hidden lg:block border border-gray-100">
-              <p class="text-4xl font-bold text-green-700">+4000</p>
-              <p class="text-sm font-medium text-gray-500 uppercase tracking-widest">Referencias en stock</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- Categorías por Sector -->
-  <section class="py-20 bg-slate-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Soluciones por Sector</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Cada negocio es un mundo. Hemos adaptado nuestro catálogo para cubrir tus necesidades específicas.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        
-        <!-- Restaurantes -->
-        <a href="/profesionales-restaurantes" class="group block">
-          <div class="bg-white p-8 rounded-2xl shadow-sm border border-orange-100 hover:shadow-xl hover:border-orange-300 transition duration-300 relative overflow-hidden">
-             <div class="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">HORECA</div>
-             <span class="text-5xl block mb-6 group-hover:scale-110 transition">🧑‍🍳</span>
-             <h3 class="font-bold text-2xl text-gray-900 mb-3 group-hover:text-orange-600 transition">Restaurantes</h3>
-             <p class="text-gray-600 mb-6 font-light">
-                Escandallos rentables, carnes frescas al corte y básicos de cocina.
-             </p>
-             <span class="text-orange-600 font-bold flex items-center gap-2 text-sm">Ver Soluciones <Icon name="ArrowRight" size={16} /></span>
-          </div>
-        </a>
-
-        <!-- Hoteles -->
-        <a href="/profesionales-hoteles" class="group block">
-          <div class="bg-white p-8 rounded-2xl shadow-sm border border-blue-100 hover:shadow-xl hover:border-blue-300 transition duration-300 relative overflow-hidden">
-             <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">TURISMO</div>
-             <span class="text-5xl block mb-6 group-hover:scale-110 transition">🏨</span>
-             <h3 class="font-bold text-2xl text-gray-900 mb-3 group-hover:text-blue-600 transition">Hoteles y Rural</h3>
-             <p class="text-gray-600 mb-6 font-light">
-                Desde el desayuno buffet hasta los productos de limpieza y amenities.
-             </p>
-             <span class="text-blue-600 font-bold flex items-center gap-2 text-sm">Ver Soluciones <Icon name="ArrowRight" size={16} /></span>
-          </div>
-        </a>
-
-        <!-- Eventos -->
-        <a href="/profesionales-eventos" class="group block">
-          <div class="bg-white p-8 rounded-2xl shadow-sm border border-purple-100 hover:shadow-xl hover:border-purple-300 transition duration-300 relative overflow-hidden">
-             <div class="absolute top-0 right-0 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">CATERING</div>
-             <span class="text-5xl block mb-6 group-hover:scale-110 transition">🥂</span>
-             <h3 class="font-bold text-2xl text-gray-900 mb-3 group-hover:text-purple-600 transition">Catering y Eventos</h3>
-             <p class="text-gray-600 mb-6 font-light">
-                Grandes volúmenes en bebidas, menaje desechable y aperitivos.
-             </p>
-             <span class="text-purple-600 font-bold flex items-center gap-2 text-sm">Ver Soluciones <Icon name="ArrowRight" size={16} /></span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Section para Profesionales -->
-  <div class="py-12">
+  <div class="py-12 bg-gray-50">
     <FAQ />
   </div>
-
-  <!-- Sección Formulario Lead -->
-  <Section id="solicitar-tarifas" class="bg-white border-t border-gray-100">
-    <div class="container mx-auto px-4 max-w-4xl">
-        <ProfessionalForm client:load />
-    </div>
-  </Section>
-
-  <!-- Actualidad para Profesionales -->
-  <ContentWidget 
-    title="Actualidad del Sector" 
-    subtitle="Noticias para tu Negocio"
-    collection="noticias" 
-    tags={['B2B', 'Profesionales', 'HORECA']}
-    maxItems={3} 
-    bgClass="bg-gray-50 border-t border-gray-100"
-  />
-
-  <!-- CTA Final -->
-  <section class="py-20 bg-green-900 text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]"></div>
-    <div class="container mx-auto px-4 text-center relative z-10">
-      <h2 class="text-3xl md:text-5xl font-bold mb-6">¿Hablamos de tu próximo pedido?</h2>
-      <p class="text-xl text-green-100 mb-10 max-w-3xl mx-auto">
-        Si eres un mayorista en busca de distribución hacia El Hierro o un restaurador en Tenerife Norte, contacta con nuestro equipo comercial.
-      </p>
-      <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
-        <a href="tel:922550067" class="bg-white text-green-900 px-10 py-4 rounded-xl font-extrabold text-lg hover:bg-green-50 transition shadow-2xl">
-          Llamar al 922 55 00 67
-        </a>
-        <a href="mailto:info@kitcash.es" class="bg-green-700 border border-green-500 px-10 py-4 rounded-xl font-bold text-lg hover:bg-green-600 transition">
-          Escríbenos por Email
-        </a>
-      </div>
-      <p class="mt-8 text-green-300 text-sm">Horario de oficina: Lunes a Viernes de 08:00 a 16:00</p>
-    </div>
-  </section>
 </Layout>
