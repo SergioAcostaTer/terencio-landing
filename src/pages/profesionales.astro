@@ -6,6 +6,7 @@ import Button from "../components/ui/Button.astro";
 import Icon from "../components/ui/Icon";
 import PageHeader from "../components/ui/PageHeader.astro";
 import Section from "../components/ui/Section.astro";
+import ContentWidget from "../components/widgets/ContentWidget.astro";
 import Layout from "../layouts/Layout.astro";
 
 // SEO Optimizado para captar búsquedas de sector HORECA y Mayoristas
@@ -98,43 +99,7 @@ const description = "Soluciones para profesionales de hostelería y alimentació
     </div>
   </section>
 
-  <!-- Commercial Manager Profile -->
-  <section class="py-12 bg-blue-50 border-y border-blue-100 overflow-hidden relative">
-      <div class="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
-        <span class="material-icons-outlined text-9xl text-blue-900">support_agent</span>
-      </div>
-      <div class="container mx-auto px-4 max-w-5xl relative z-10 flex flex-col md:flex-row items-center gap-8">
-          <div class="w-32 h-32 md:w-40 md:h-40 flex-shrink-0 relative">
-              <div class="absolute inset-0 bg-blue-200 rounded-full animate-pulse"></div>
-              <div class="w-full h-full rounded-full bg-gray-200 border-4 border-white shadow-lg overflow-hidden relative z-10 flex items-center justify-center">
-                 <!-- Placeholder: Replace with Henry Acosta or Manager Photo -->
-                 <div class="w-full h-full bg-gray-300 flex items-center justify-center">
-                    <span class="material-icons-outlined text-6xl text-gray-500">face</span>
-                 </div>
-              </div>
-              <div class="absolute bottom-0 right-0 bg-green-500 w-8 h-8 rounded-full border-4 border-white z-20" title="Disponible ahora"></div>
-          </div>
-          <div class="text-center md:text-left">
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">¿Necesitas una tarifa personalizada?</h3>
-              <p class="text-gray-600 mb-6 max-w-xl">
-                "Mi trabajo es asegurar que tu negocio tenga el mejor margen. Llámame directamente y estudiaremos tus volúmenes de compra para ofrecerte el mejor precio final."
-              </p>
-              <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                 <div class="flex items-center gap-3 bg-white px-4 py-2 rounded-lg shadow-sm">
-                    <span class="material-icons-outlined text-blue-600">badge</span>
-                    <div>
-                       <p class="text-xs text-gray-500">Gestor Comercial</p>
-                       <p class="font-bold text-gray-900">Henry Acosta</p>
-                    </div>
-                 </div>
-                 <a href="tel:922550067" class="flex items-center gap-2 text-blue-700 font-bold hover:bg-blue-100 px-4 py-2 rounded-lg transition">
-                    <span class="material-icons-outlined">call</span>
-                    Hablar con Henry
-                 </a>
-              </div>
-          </div>
-      </div>
-  </section>
+
 
   <!-- Categorías por Sector -->
   <section class="py-20 bg-slate-50">
@@ -200,6 +165,16 @@ const description = "Soluciones para profesionales de hostelería y alimentació
         <ProfessionalForm client:load />
     </div>
   </Section>
+
+  <!-- Actualidad para Profesionales -->
+  <ContentWidget 
+    title="Actualidad del Sector" 
+    subtitle="Noticias para tu Negocio"
+    collection="noticias" 
+    tags={['B2B', 'Profesionales', 'HORECA']}
+    maxItems={3} 
+    bgClass="bg-gray-50 border-t border-gray-100"
+  />
 
   <!-- CTA Final -->
   <section class="py-20 bg-green-900 text-white relative overflow-hidden">

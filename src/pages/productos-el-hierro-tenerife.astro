@@ -4,6 +4,7 @@ import quesadillas from "../assets/images/quesadillas.webp";
 import queso from "../assets/images/queso_mojo.webp";
 import vinos from "../assets/images/vinos_el_hierro.webp";
 import LocationMap from "../components/LocationMap.astro";
+import ContentWidget from "../components/widgets/ContentWidget.astro";
 import Layout from "../layouts/Layout.astro";
 
 import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
@@ -124,6 +125,16 @@ const canonical = "https://terencio.es/productos-el-hierro-tenerife";
       </div>
     </div>
   </section>
+
+  <!-- Guías y Recetas de El Hierro -->
+  <ContentWidget 
+    title="Descubre El Hierro" 
+    subtitle="Guías de viaje y Gastronomía"
+    collection="blog" 
+    tags={['El Hierro', 'Recetas']}
+    maxItems={3} 
+    bgClass="bg-white border-t border-gray-100"
+  />
 
   <!-- CTA Visita -->
   <section class="py-16 bg-white border-t border-gray-100">

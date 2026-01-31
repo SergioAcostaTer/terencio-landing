@@ -4,11 +4,17 @@ import { getCollection } from 'astro:content';
 
 interface Props {
   maxItems?: number;
+  posts?: any[]; // Allow passing posts directly
 }
 
-const { maxItems } = Astro.props;
+const { maxItems, posts: providedPosts } = Astro.props;
 
-const newsData = await getCollection('noticias');
+let newsData = providedPosts;
+
+if (!newsData) {
+  newsData = await getCollection('noticias');
+}
+
 // Sort by date mostly, but prioritize breaking news if needed
 const sortedNews = newsData.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const breakingNews = sortedNews.find(n => n.data.isBreaking);

@@ -22,14 +22,14 @@ import logo from "../assets/images/logo.webp";
     </a>
 
     <!-- Desktop Menu -->
-    <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+    <nav class="hidden md:flex items-center gap-2 lg:gap-1">
       {navigation.main.map(link => (
         <div class="relative group">
           <a 
             href={link.href} 
             class:list={[
-              "text-sm lg:text-base font-semibold transition-colors flex items-center gap-1",
-              link.color === 'red' ? "text-red-600 hover:text-red-700 font-bold" : "text-gray-700 hover:text-green-700"
+              "text-sm lg:text-base font-semibold transition-all flex items-center gap-1 px-3 py-2 rounded-lg",
+              (link as any).color === 'red' ? "text-red-600 hover:bg-red-50 hover:text-red-700 font-bold" : "text-gray-700 hover:bg-green-50 hover:text-green-700"
             ]}
           >
             {link.label}
@@ -84,7 +84,7 @@ import logo from "../assets/images/logo.webp";
               href={link.href} 
               class:list={[
                 "text-xl mobile-link pb-2 block flex-grow",
-                link.color === 'red' ? "font-bold text-red-600" : "font-semibold text-gray-800"
+                (link as any).color === 'red' ? "font-bold text-red-600" : "font-semibold text-gray-800"
               ]}
             >
               {link.label}

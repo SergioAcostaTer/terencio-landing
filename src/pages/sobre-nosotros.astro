@@ -3,6 +3,7 @@ import historyImage from "../assets/images-unoptimized/henry-acosta-terencio-lag
 import aboutImage from "../assets/images-unoptimized/supermercado-interior.jpg";
 import teamImage from "../assets/images-unoptimized/visita-estudiantes-bachillerato.jpg";
 import PageHeader from "../components/ui/PageHeader.astro";
+import ContentWidget from "../components/widgets/ContentWidget.astro";
 import Layout from "../layouts/Layout.astro";
 
 const title = "Quiénes Somos | Distribuidor HORECA Tenerife y Supermercado El Hierro";
@@ -78,7 +79,19 @@ const description = "Descubre la evolución de Terencio: desde nuestros orígene
         </div>
       </div>
     </div>
+      </div>
+    </div>
   </section>
+
+  <!-- Sección: Evolución (Noticias Corporativas) -->
+  <ContentWidget 
+    title="La Evolución de Terencio" 
+    subtitle="Nuestra Historia Reciente"
+    collection="noticias" 
+    category="Corporativo"
+    maxItems={3} 
+    bgClass="bg-gray-50 border-t border-gray-100"
+  />
 
   <!-- Sección de Cierre y Equipo -->
   <section class="py-20 bg-white border-t border-gray-100">

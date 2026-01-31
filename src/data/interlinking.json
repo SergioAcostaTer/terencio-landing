@@ -1,0 +1,102 @@
+[
+  {
+    "category": "Supermercado",
+    "links": [
+      {
+        "label": "Carnicería al Corte",
+        "href": "/terencio-cash-market#carniceria",
+        "icon": "knife"
+      },
+      {
+        "label": "Charcutería",
+        "href": "/terencio-cash-market#charcuteria",
+        "icon": "shopping-bag"
+      },
+      {
+        "label": "Frutería y Frescos",
+        "href": "/terencio-cash-market#fruteria",
+        "icon": "apple"
+      },
+      {
+        "label": "Bodega y Vinos",
+        "href": "/terencio-cash-market#bodega",
+        "icon": "wine"
+      }
+    ]
+  },
+  {
+    "category": "Profesionales",
+    "links": [
+      {
+        "label": "Servicio HORECA",
+        "href": "/profesionales-restaurantes",
+        "icon": "chef"
+      },
+      {
+        "label": "Abastecimiento Hoteles",
+        "href": "/profesionales-hoteles",
+        "icon": "hotel"
+      },
+      {
+        "label": "Catering y Eventos",
+        "href": "/profesionales-eventos",
+        "icon": "coffee"
+      },
+      {
+        "label": "Alta de Cliente",
+        "href": "/profesionales#solicitar-tarifas",
+        "icon": "user-plus"
+      }
+    ]
+  },
+  {
+    "category": "Productos Destacados",
+    "links": [
+      {
+        "label": "Productos de El Hierro",
+        "href": "/productos-el-hierro-tenerife",
+        "icon": "star"
+      },
+      {
+        "label": "Quesadillas Herreñas",
+        "href": "/productos-el-hierro-tenerife#quesadillas",
+        "icon": "cookie"
+      },
+      {
+        "label": "Vinos Canarios",
+        "href": "/terencio-cash-market#bodega",
+        "icon": "wine"
+      },
+      {
+        "label": "Ofertas Semanales",
+        "href": "/ofertas",
+        "icon": "tag"
+      }
+    ]
+  },
+  {
+    "category": "Información",
+    "links": [
+      {
+        "label": "Horarios de Apertura",
+        "href": "/horario-terencio-cash-market",
+        "icon": "clock"
+      },
+      {
+        "label": "Dónde Estamos",
+        "href": "/#donde-estamos",
+        "icon": "map-pin"
+      },
+      {
+        "label": "Atención al Cliente",
+        "href": "/atencion-al-cliente",
+        "icon": "phone"
+      },
+      {
+        "label": "Trabaja con Nosotros",
+        "href": "/trabaja-con-nosotros",
+        "icon": "briefcase"
+      }
+    ]
+  }
+]

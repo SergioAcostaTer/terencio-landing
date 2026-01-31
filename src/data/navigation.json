@@ -1,12 +1,6 @@
 {
   "main": [
     {
-      "label": "Ofertas",
-      "href": "/ofertas",
-      "highlight": true,
-      "color": "red"
-    },
-    {
       "label": "Profesionales",
       "href": "/profesionales",
       "children": [
