@@ -4,11 +4,11 @@ import supermercadoInterior from "../assets/images/supermercado-interior.webp";
 
 import Hero from "../components/Hero.astro";
 import LocationSection from "../components/LocationSection.astro";
-import Reviews from "../components/Reviews.astro";
 import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
 import Icon from "../components/ui/Icon";
 import Section from "../components/ui/Section.astro";
 import ContentWidget from "../components/widgets/ContentWidget.astro";
+import GoogleReviews from "../components/widgets/GoogleReviews.astro";
 import Layout from "../layouts/Layout.astro";
 
 const title = "Terencio Cash Market | Supermercado en Tenerife (La Esperanza)";
@@ -88,6 +88,7 @@ const description = "Terencio Cash Market: Supermercado cerca de mi en La Espera
     <!-- Location Section -->
     <LocationSection />
 
-    <Reviews />
+    <!-- Google Reviews (New) -->
+    <GoogleReviews />
   </main>
 </Layout>
