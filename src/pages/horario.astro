@@ -6,85 +6,82 @@ import Section from "../components/ui/Section.astro";
 import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
-const title = "Horario Terencio Cash Market: La Esperanza | Abierto Domingos";
-const description = "Consulta el horario de Terencio Cash Market en La Esperanza (Tenerife). Abierto de Lunes a Domingo y Festivos. Tu supermercado siempre disponible.";
+// Keywords: horario terencio, supermercado abierto domingo tenerife, hiperdino abierto hoy (somos la alternativa)
+const title = "Horario Terencio Cash Market: La Esperanza | Abierto Domingos y Festivos";
+const description = "Consulta el horario de Terencio Cash Market en La Esperanza (Tenerife). Abierto de Lunes a Domingo y Festivos. Tu supermercado siempre disponible cuando otros cierran.";
 ---
 
 <LocalBusinessSchema />
 <Layout title={title} description={description}>
   <PageHeader 
-    title="Horario Terencio Cash Market: La Esperanza" 
-    subtitle="Tu supermercado de confianza con horario ampliado. Abrimos todos los días para tu comodidad."
-    badge="Abierto 365 días"
+    title="Horario de Apertura" 
+    subtitle="Tu supermercado de confianza con horario ampliado. Abrimos todos los días del año para tu comodidad."
+    badge="Abierto 362 Días (excepto Navidad, Año Nuevo y Reyes)"
   />
 
   <Section class="bg-white">
     <div class="grid md:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
       
-      <!-- Tabla de Horarios -->
-      <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100">
-        <div class="flex items-center gap-3 mb-6">
-            <span class="text-4xl">⏰</span>
-            <h2 class="text-2xl font-bold text-gray-900">Horario de Apertura</h2>
+      <!-- Card Horario Principal -->
+      <div class="bg-green-50 p-8 md:p-10 rounded-3xl shadow-sm border border-green-100 relative overflow-hidden">
+        <!-- Decoración -->
+        <div class="absolute top-0 right-0 w-32 h-32 bg-green-100 rounded-full -mr-16 -mt-16 opacity-50"></div>
+        
+        <div class="flex items-center gap-4 mb-8 relative z-10">
+            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-2xl shadow-sm">⏰</div>
+            <h2 class="text-2xl font-bold text-gray-900">Horario Habitual</h2>
         </div>
         
-        <div class="space-y-4 text-lg">
-            <div class="flex justify-between items-center py-3 border-b border-gray-200">
-                <span class="font-medium text-gray-700">Lunes a Sábado</span>
-                <span class="font-bold text-green-700">08:00 - 21:00</span>
+        <div class="space-y-6 text-lg relative z-10">
+            <div class="flex justify-between items-center py-4 border-b border-green-200">
+                <span class="font-medium text-gray-700 flex items-center gap-2"><span class="material-icons-outlined text-green-700">calendar_today</span> Lunes a Sábado</span>
+                <span class="font-black text-brand-primary text-xl">08:00 - 21:00</span>
             </div>
-            <div class="flex justify-between items-center py-3 border-b border-gray-200">
-                <span class="font-medium text-gray-700">Domingos</span>
-                <span class="font-bold text-green-700">08:30 - 20:30</span>
+            <div class="flex justify-between items-center py-4 border-b border-green-200">
+                <span class="font-medium text-gray-700 flex items-center gap-2"><span class="material-icons-outlined text-green-700">wb_sunny</span> Domingos</span>
+                <span class="font-black text-brand-primary text-xl">08:30 - 20:30</span>
             </div>
-            <div class="flex justify-between items-center py-3">
-                <span class="font-medium text-gray-700">Festivos</span>
-                <span class="font-bold text-green-700">08:30 - 20:30*</span>
+            <div class="flex justify-between items-center py-4">
+                <span class="font-medium text-gray-700 flex items-center gap-2"><span class="material-icons-outlined text-green-700">celebration</span> Festivos</span>
+                <span class="font-black text-brand-primary text-xl">08:30 - 20:30*</span>
             </div>
         </div>
         
-        <p class="mt-6 text-sm text-gray-500 italic">
-            *Festivos abiertos en horario de domingo (08:30 - 20:30). Solo cerramos los días de Navidad (25 Dic), Año Nuevo (1 Ene) y Reyes (6 Ene).
-        </p>
-
-        <div class="mt-8">
-             <div class="bg-green-100 text-green-800 px-4 py-3 rounded-lg flex items-center gap-2">
-                <span class="relative flex h-3 w-3">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                </span>
-                <span class="font-bold">¡Estamos abiertos hoy!</span>
-             </div>
+        <div class="mt-8 bg-white p-5 rounded-2xl text-sm text-gray-600 border border-green-100 flex gap-3 items-start shadow-sm">
+            <span class="material-icons-outlined text-yellow-500 mt-0.5">info</span>
+            <p><strong>*Excepciones:</strong> Solo cerramos los días de Navidad (25 Dic), Año Nuevo (1 Ene) y Reyes (6 Ene). El resto de festivos abrimos en horario de domingo.</p>
         </div>
       </div>
 
-      <!-- Preguntas Frecuentes / Info Adicional -->
+      <!-- FAQ y Contacto -->
       <div class="space-y-8">
         <div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Preguntas Frecuentes sobre el Horario</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Preguntas Frecuentes</h2>
+            
             <div class="space-y-4">
-                <details class="group bg-white border border-gray-200 rounded-lg p-4 cursor-pointer" open>
-                    <summary class="font-bold text-gray-900 flex justify-between items-center">
-                        ¿Abre Terencio los domingos?
-                        <span class="text-green-700 group-open:rotate-180 transition">▼</span>
-                    </summary>
-                    <p class="mt-2 text-gray-600">Sí, abrimos todos los domingos del año en horario ininterrumpido, de 08:30 a 20:30 horas.</p>
-                </details>
-                <details class="group bg-white border border-gray-200 rounded-lg p-4 cursor-pointer">
-                    <summary class="font-bold text-gray-900 flex justify-between items-center">
-                        ¿Cuál es el horario de la Carnicería?
-                        <span class="text-green-700 group-open:rotate-180 transition">▼</span>
-                    </summary>
-                    <p class="mt-2 text-gray-600">El mostrador de carnicería tiene el mismo horario que el supermercado. Siempre encontrarás a nuestros carniceros disponibles para cortes al momento.</p>
-                </details>
+                <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm hover:border-green-300 transition">
+                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2 text-gray-900">
+                        <span class="text-green-600 material-icons-outlined">help_outline</span> 
+                        ¿Abren los domingos?
+                    </h3>
+                    <p class="text-gray-600">Sí, somos uno de los pocos supermercados en Tenerife norte con horario completo de domingo (hasta las 20:30 de la tarde).</p>
+                </div>
+
+                <div class="border border-gray-200 rounded-2xl p-5 bg-white shadow-sm hover:border-green-300 transition">
+                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2 text-gray-900">
+                        <span class="text-green-600 material-icons-outlined">restaurant</span> 
+                        ¿La carnicería cierra antes?
+                    </h3>
+                    <p class="text-gray-600">No, nuestros mostradores de carnicería y charcutería mantienen el mismo horario que la tienda para que siempre tengas producto fresco.</p>
+                </div>
             </div>
         </div>
 
-        <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
-            <h3 class="font-bold text-blue-900 mb-2">Atención Telefónica</h3>
-            <p class="text-blue-800 mb-4">Si tienes dudas sobre un día festivo específico, llámanos.</p>
-            <a href={`tel:${siteData.contact.phoneRaw}`} class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-700 transition inline-block">
-                Llamar ahora
+        <div class="bg-slate-900 text-white p-8 rounded-3xl shadow-xl text-center">
+            <h3 class="font-bold text-xl mb-2">¿Dudas sobre un festivo?</h3>
+            <p class="text-slate-300 mb-6">Llámanos y te confirmamos al momento si estamos abiertos.</p>
+            <a href={`tel:${siteData.contact.phoneRaw}`} class="inline-flex items-center gap-2 bg-white text-slate-900 px-8 py-3 rounded-xl font-bold hover:bg-green-400 transition-colors shadow-lg transform hover:-translate-y-1">
+                <span class="material-icons-outlined">call</span> Llamar Ahora
             </a>
         </div>
       </div>

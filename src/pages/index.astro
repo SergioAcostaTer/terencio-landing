@@ -1,6 +1,7 @@
 ---
+import elHierroImg from "../assets/images/buceo-el-hierro-experiencia.webp";
 import heroBg from "../assets/images/hero-bg.webp";
-import supermercadoInterior from "../assets/images/supermercado-interior.webp";
+import carniceriaImg from "../assets/images/supermercado-interior.webp";
 
 import Hero from "../components/Hero.astro";
 import LocationSection from "../components/LocationSection.astro";
@@ -11,84 +12,145 @@ import ContentWidget from "../components/widgets/ContentWidget.astro";
 import GoogleReviews from "../components/widgets/GoogleReviews.astro";
 import Layout from "../layouts/Layout.astro";
 
-const title = "Terencio Cash Market | Supermercado en Tenerife (La Esperanza)";
-const description = "Terencio Cash Market: Supermercado cerca de mi en La Esperanza y Mayorista líder en Tenerife. Venta a particulares y profesionales. Carne fresca, productos del El Hierro.";
+// Keywords SEO integradas en título y descripción
+const title = "Terencio Cash Market | Supermercado en La Esperanza y Mayorista Tenerife";
+const description = "Tu supermercado en La Esperanza abierto los domingos. Cash & Carry sin carnet para particulares y mayorista para HORECA. Carne fresca, Carne de Fiesta y productos de El Hierro.";
 ---
 
 <LocalBusinessSchema />
-<Layout title={title} description={description} image={supermercadoInterior.src} preloadImage={heroBg.src}>
+<Layout title={title} description={description} image={carniceriaImg.src} preloadImage={heroBg.src}>
   <main>
     <Hero 
-      title="Terencio Cash Market: Supermercado en <span class='text-green-400'>La Esperanza</span> y Mayorista en <span class='text-yellow-400'>Tenerife</span>"
-      subtitle="Compra diaria para particulares y venta mayorista para hostelería. Carnicería propia, productos frescos y precios de almacén."
-      badge="📍 Abierto TODOS los días"
+      title="Tu Supermercado en <span class='text-green-400'>La Esperanza</span> y Mayorista para <span class='text-yellow-400'>Tenerife</span>"
+      subtitle="El único Cash & Carry donde familias y profesionales compran al mejor precio. Carnicería propia, quesadillas de El Hierro y abierto los domingos."
+      badge="📍 Ctra. La Esperanza, 22"
       primaryCta={{ text: "Ver Ofertas", href: "/ofertas" }}
       secondaryCta={{ text: "Zona Profesionales", href: "/profesionales" }}
       backgroundImage={heroBg}
     />
 
-    <!-- Bloque de Iconos -->
-    <div class="bg-green-800 text-white py-6 shadow-sm relative z-20">
+    <!-- Quick Info Banner (Sticky visual) -->
+    <div class="bg-brand-primary text-white py-4 md:py-6 shadow-lg relative z-20 -mt-2">
       <div class="container mx-auto px-4">
-        <div class="flex flex-wrap justify-center items-center gap-6 md:gap-16 text-sm md:text-lg font-bold uppercase tracking-wider text-center">
-          <span class="flex items-center gap-3">
-             <span class="text-2xl">📅</span> Abierto Domingos
+        <div class="flex flex-wrap justify-center md:justify-around gap-y-3 gap-x-6 text-xs md:text-base font-bold uppercase tracking-wider text-center">
+          <span class="flex items-center gap-2">
+             <span class="material-icons-outlined text-yellow-400">calendar_today</span> Abierto Domingos
           </span>
-          <span class="flex items-center gap-3">
-             <span class="text-2xl">🅿️</span> Parking Gratis
+          <span class="hidden md:inline text-green-400">|</span>
+          <span class="flex items-center gap-2">
+             <span class="material-icons-outlined text-yellow-400">local_parking</span> Parking Gratis
           </span>
-          <span class="flex items-center gap-3">
-             <span class="text-2xl">🆔</span> Sin Carnet
+          <span class="hidden md:inline text-green-400">|</span>
+          <span class="flex items-center gap-2">
+             <span class="material-icons-outlined text-yellow-400">badge</span> Sin Carnet de Socio
           </span>
         </div>
       </div>
     </div>
 
-    <!-- Cards Section -->
-    <Section class="bg-white">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <a href="/carniceria-tenerife" class="block cursor-pointer group">
-            <div class="flex flex-col items-center text-center p-8 bg-red-50 rounded-3xl border border-red-100 hover:shadow-xl transition h-full">
-              <div class="text-6xl mb-6 group-hover:scale-110 transition">🥩</div>
-              <h3 class="text-3xl font-bold mb-3 text-gray-900">Carnicería</h3>
-              <p class="text-gray-600 mb-6 font-medium">Carne fresca, despiece propio y corte a cuchillo.</p>
-              <span class="text-red-700 font-bold mt-auto flex items-center gap-2">Ver Carnicería <Icon name="ArrowRight" size={20}/></span>
-            </div>
+    <!-- Main Categories Grid (Full Clickable Cards) -->
+    <Section class="bg-gray-50">
+       <div class="text-center mb-12">
+          <span class="text-green-700 font-bold uppercase tracking-widest text-sm">Nuestros Departamentos</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">¿Qué necesitas hoy?</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-lg">Calidad, frescura y precios de almacén para todos los públicos.</p>
+       </div>
+
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-2">
+          
+          <!-- Card Carnicería -->
+          <a href="/carniceria-tenerife" class="group relative overflow-hidden rounded-3xl h-80 md:h-96 shadow-md hover:shadow-2xl transition-all duration-500 block">
+             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+             <img src={carniceriaImg.src} alt="Carnicería Terencio Tenerife - Carne de Fiesta" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition duration-700" loading="lazy"/>
+             <div class="absolute bottom-0 left-0 p-6 z-20 text-white w-full">
+                <span class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded mb-2 inline-block">Corte a Cuchillo</span>
+                <h3 class="text-2xl md:text-3xl font-bold mb-2 flex items-center gap-2">Carnicería <Icon name="ArrowRight" size={24} className="opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 duration-300"/></h3>
+                <p class="text-gray-200 text-sm md:text-base opacity-90 leading-relaxed">
+                  Despiece propio diario. Especialistas en <strong>Carne de Fiesta</strong>, chuletas y preparados cárnicos para guachinches y familias.
+                </p>
+             </div>
           </a>
 
-          <a href="/productos-el-hierro-tenerife" class="block cursor-pointer group">
-            <div class="flex flex-col items-center text-center p-8 bg-green-50 rounded-3xl border border-green-100 hover:shadow-xl transition h-full">
-              <div class="text-6xl mb-6 group-hover:scale-110 transition">🍍</div>
-              <h3 class="text-3xl font-bold mb-3 text-gray-900">Productos El Hierro</h3>
-              <p class="text-gray-600 mb-6 font-medium">Quesadillas, piña, quesos y los sabores de la isla.</p>
-              <span class="text-green-700 font-bold mt-auto flex items-center gap-2">Ver Productos <Icon name="ArrowRight" size={20}/></span>
-            </div>
+          <!-- Card El Hierro -->
+          <a href="/productos-el-hierro-tenerife" class="group relative overflow-hidden rounded-3xl h-80 md:h-96 shadow-md hover:shadow-2xl transition-all duration-500 block">
+             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+             <img src={elHierroImg.src} alt="Productos de El Hierro en Tenerife" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition duration-700" loading="lazy"/>
+             <div class="absolute bottom-0 left-0 p-6 z-20 text-white w-full">
+                <div class="bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded inline-block mb-2">Exclusivo</div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-2 flex items-center gap-2">Sabor Herreño <Icon name="ArrowRight" size={24} className="opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 duration-300"/></h3>
+                <p class="text-gray-200 text-sm md:text-base opacity-90 leading-relaxed">
+                  Traemos la isla a Tenerife: <strong>Quesadillas</strong>, Piña Tropical de Frontera y Queso ahumado. Stock semanal.
+                </p>
+             </div>
           </a>
-        </div>
+
+          <!-- Card Profesionales (Cash & Carry) -->
+          <a href="/profesionales" class="group relative overflow-hidden rounded-3xl h-80 md:h-96 shadow-md hover:shadow-2xl transition-all duration-500 block md:col-span-2 lg:col-span-1 border-2 border-transparent hover:border-green-500">
+             <div class="absolute inset-0 bg-slate-900 z-10"></div>
+             <!-- Decorative pattern -->
+             <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] z-10"></div>
+             
+             <div class="absolute inset-0 z-20 flex flex-col justify-center items-center text-center p-8 text-white h-full">
+                <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                   <Icon name="Store" size={32} className="text-white"/>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-3">Zona Profesionales</h3>
+                <p class="text-slate-300 text-sm md:text-base mb-6 max-w-xs mx-auto">
+                  Soluciones integrales para Hostelería, Restauración y Grandes Consumidores. Reparto propio.
+                </p>
+                <span class="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-xl font-bold text-sm group-hover:bg-green-400 group-hover:text-green-900 transition-colors shadow-lg">
+                  Solicitar Tarifas HORECA <Icon name="ArrowRight" size={16}/>
+                </span>
+             </div>
+          </a>
+       </div>
     </Section>
 
-    <!-- NewsGrid Widget -->
-    <ContentWidget 
-        title="Actualidad Terencio" 
-        subtitle="Corporativo"
-        collection="noticias" 
-        maxItems={3} 
-        bgClass="bg-gray-50 border-t border-gray-100"
-    />
+    <!-- Why Choose Us Grid -->
+    <Section class="bg-white">
+       <div class="container mx-auto px-4">
+         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
+            <div class="text-center group">
+               <div class="w-20 h-20 bg-green-50 text-green-700 rounded-3xl flex items-center justify-center mx-auto mb-4 text-4xl shadow-sm group-hover:bg-green-600 group-hover:text-white transition-all duration-300">🥩</div>
+               <h3 class="font-bold text-gray-900 text-lg">Corte a Cuchillo</h3>
+               <p class="text-sm text-gray-500 mt-2">Carniceros expertos, no bandejas industriales.</p>
+            </div>
+            <div class="text-center group">
+               <div class="w-20 h-20 bg-yellow-50 text-yellow-700 rounded-3xl flex items-center justify-center mx-auto mb-4 text-4xl shadow-sm group-hover:bg-yellow-500 group-hover:text-white transition-all duration-300">🏷️</div>
+               <h3 class="font-bold text-gray-900 text-lg">Precios Mayoristas</h3>
+               <p class="text-sm text-gray-500 mt-2">Ahorra comprando formatos grandes sin carnet.</p>
+            </div>
+            <div class="text-center group">
+               <div class="w-20 h-20 bg-blue-50 text-blue-700 rounded-3xl flex items-center justify-center mx-auto mb-4 text-4xl shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">🚚</div>
+               <h3 class="font-bold text-gray-900 text-lg">Reparto Propio</h3>
+               <p class="text-sm text-gray-500 mt-2">Servicio a domicilio rápido para empresas.</p>
+            </div>
+            <div class="text-center group">
+               <div class="w-20 h-20 bg-red-50 text-red-700 rounded-3xl flex items-center justify-center mx-auto mb-4 text-4xl shadow-sm group-hover:bg-red-600 group-hover:text-white transition-all duration-300">❤️</div>
+               <h3 class="font-bold text-gray-900 text-lg">100% Canario</h3>
+               <p class="text-sm text-gray-500 mt-2">Empresa familiar de aquí, cerca de ti.</p>
+            </div>
+         </div>
+       </div>
+    </Section>
 
-    <!-- Blog Widget (Ahorro y Consejos) -->
-    <ContentWidget 
-        title="Consejos de Ahorro y Recetas" 
-        subtitle="Blog"
-        collection="blog" 
-        maxItems={3} 
-        bgClass="bg-white"
-    />
+    <!-- Blog & News Widgets -->
+    <div class="bg-gray-50 border-t border-gray-200">
+      <ContentWidget 
+          title="Consejos, Recetas y Actualidad" 
+          subtitle="Blog Terencio"
+          collection="blog" 
+          maxItems={3} 
+          bgClass="bg-transparent"
+          viewAllLink="/blog"
+          viewAllText="Ver todo el Blog"
+      />
+    </div>
 
-    <!-- Location Section -->
-    <LocationSection />
-
-    <!-- Google Reviews (New) -->
+    <!-- Google Reviews -->
     <GoogleReviews />
+    
+    <!-- Location -->
+    <LocationSection className="bg-white pt-0 pb-16" />
   </main>
 </Layout>

@@ -1,124 +1,153 @@
 ---
 import { Image } from "astro:assets";
-import meatImage from "../assets/images-unoptimized/supermercado-interior.jpg"; // Using interior as fallback/context
+import { default as carniceriaInterior, default as meatImage } from "../assets/images/supermercado-interior.webp"; // Imagen de fondo/hero
 import Button from "../components/ui/Button.astro";
 import Icon from "../components/ui/Icon";
 import PageHeader from "../components/ui/PageHeader.astro";
-import ContentWidget from "../components/widgets/ContentWidget.astro";
-import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
-const title = "Carnicería en Tenerife | Carne al por mayor y corte propio";
-const description = "Tu carnicería de confianza en Tenerife. Despiece propio, carne fresca diaria y cortes especiales para Guachinches y Restaurantes. Venta a particulares y mayorista.";
+// SEO Optimizado para keywords "carne de fiesta", "carniceria tenerife", "proveedor de carne"
+const title = "Carnicería en Tenerife: Carne de Fiesta y Despiece Propio | Terencio";
+const description = "La mejor carnicería de La Esperanza. Despiece propio diario, carne fresca, carne de fiesta preparada al momento y cortes a gusto del cliente. Venta a particulares y restaurantes.";
 const canonical = "https://terencio.es/carniceria-tenerife";
 ---
 
 <Layout title={title} description={description} canonical={canonical} image={meatImage.src}>
-  <!-- Hero Carnicería -->
+  
   <PageHeader 
-    title="Carnicería en Tenerife: Carne Fresca, Despiece Propio y Carne de Fiesta"
-    subtitle="Tu carnicería tradicional en La Esperanza. Carne cortada a cuchillo y precios de almacén directos a ti."
-    badge="Maestros Carniceros"
+    title="Carnicería Tradicional: <span class='text-red-300'>Corte a Cuchillo</span>"
+    subtitle="Recuperamos el sabor de siempre. Realizamos despiece propio cada mañana para garantizar la máxima frescura y preparamos tu carne de fiesta al momento."
+    badge="Especialistas en Carnes"
     badgeClass="bg-red-800/80 border border-red-400 text-red-100"
     backgroundImage={meatImage.src}
     bgClass="bg-red-900"
     gradientClass="bg-gradient-to-b from-red-900/90 via-red-900/60 to-red-900/90"
-  />
+  >
+    <div class="flex flex-wrap gap-4 justify-center">
+      <Button href="#productos" variant="primary" class="bg-white text-red-800 hover:bg-red-50 shadow-xl border-none">
+          Ver Cortes Destacados
+      </Button>
+      <Button href="/profesionales" variant="outline" class="border-white text-white hover:bg-white hover:text-red-900">
+          Soy Restaurante
+      </Button>
+    </div>
+  </PageHeader>
 
-  <!-- Características Principales y Explicación -->
-  <section class="py-16 bg-white">
+  <section class="py-16 md:py-24 bg-white">
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div class="relative">
-             <Image src={meatImage} alt="Carne fresca al corte en Tenerife" class="relative z-10 rounded-xl shadow-2xl w-full h-auto object-cover border-b-8 border-red-700" width={600} height={400} />
-             <div class="absolute -bottom-6 -right-6 bg-yellow-100 p-6 rounded-xl shadow-lg z-20 max-w-xs border border-yellow-200">
-               <p class="text-red-900 font-bold text-xl mb-1">Precios de Almacén</p>
-               <p class="text-sm text-gray-700">Sin intermediarios. Del matadero a Terencio.</p>
+        <div class="relative order-2 md:order-1">
+             <div class="absolute -inset-4 bg-red-100 rounded-3xl rotate-[-2deg]"></div>
+             <Image src={carniceriaInterior} alt="Carnicero cortando carne fresca en Terencio La Esperanza" class="relative z-10 rounded-2xl shadow-2xl w-full h-auto object-cover border-4 border-white" width={600} height={400} />
+             
+             <!-- Floating Badge -->
+             <div class="absolute -bottom-6 -right-6 bg-yellow-50 p-4 rounded-xl shadow-lg z-20 border border-yellow-200 text-center animate-bounce-slow">
+               <p class="text-red-900 font-black text-3xl leading-none">100%</p>
+               <p class="text-xs font-bold text-gray-700 uppercase tracking-wider">Fresco Diario</p>
              </div>
         </div>
         
-        <div class="prose prose-lg text-gray-600">
-          <h2 class="text-3xl font-bold text-gray-900 mb-6">Corte a Cuchillo y Carne de Fiesta</h2>
+        <div class="prose prose-lg text-gray-600 order-1 md:order-2">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">El secreto está en el origen y el corte</h2>
           <p>
-            En Terencio recuperamos el oficio tradicional. Nuestro equipo de carniceros realiza el <strong>despiece propio</strong> cada mañana, garantizando una frescura que ya no se encuentra en las grandes superficies.
+            En Terencio Cash Market no trabajamos con carne envasada industrialmente llena de gases conservantes. Nuestro equipo de maestros carniceros realiza el <strong>despiece propio</strong> en nuestras instalaciones de La Esperanza. Esto nos permite ofrecerte cortes que ya no se encuentran en los grandes supermercados.
           </p>
           <p>
-            No vendemos bandejas industriales. Cuando nos pides <strong>Carne de Fiesta</strong>, la troceamos a cuchillo en el momento, consiguiendo ese corte limpio que mantiene todos los jugos al cocinarla.
+            ¿Buscas la auténtica <strong>Carne de Fiesta</strong> para tu guachinche, ventorrillo o evento familiar? La preparamos al momento, con dados limpios y jugosos, con el adobo tradicional canario o al natural para que tú le des tu toque secreto.
           </p>
-          <ul class="space-y-4 mt-6 not-prose">
-            <li class="flex items-start gap-3">
-              <Icon name="Check" className="text-red-600 mt-1" />
-              <span><strong>Despiece diario:</strong> Género fresco cada día.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <Icon name="Check" className="text-red-600 mt-1" />
-              <span><strong>A tu gusto:</strong> Te preparamos el grosor y el corte exacto que necesitas.</span>
-            </li>
-            <li class="flex items-start gap-3">
-               <Icon name="Check" className="text-red-600 mt-1" />
-               <span><strong>Precios de Almacén:</strong> Al ser mayoristas, compras con tarifas muy ajustadas.</span>
-            </li>
-          </ul>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose mt-8">
+             <div class="flex items-center gap-3 bg-red-50 p-4 rounded-xl border border-red-100 hover:shadow-md transition">
+                <div class="bg-white p-2 rounded-full text-red-600 shadow-sm"><Icon name="Check" size={18} /></div>
+                <span class="font-bold text-sm text-gray-800">Corte a gusto</span>
+             </div>
+             <div class="flex items-center gap-3 bg-red-50 p-4 rounded-xl border border-red-100 hover:shadow-md transition">
+                <div class="bg-white p-2 rounded-full text-red-600 shadow-sm"><Icon name="Check" size={18} /></div>
+                <span class="font-bold text-sm text-gray-800">Precios Mayorista</span>
+             </div>
+             <div class="flex items-center gap-3 bg-red-50 p-4 rounded-xl border border-red-100 hover:shadow-md transition">
+                <div class="bg-white p-2 rounded-full text-red-600 shadow-sm"><Icon name="Check" size={18} /></div>
+                <span class="font-bold text-sm text-gray-800">Cerdo y Res del País</span>
+             </div>
+             <div class="flex items-center gap-3 bg-red-50 p-4 rounded-xl border border-red-100 hover:shadow-md transition">
+                <div class="bg-white p-2 rounded-full text-red-600 shadow-sm"><Icon name="Check" size={18} /></div>
+                <span class="font-bold text-sm text-gray-800">Encargos para Fiestas</span>
+             </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Lista de Precios Gancho -->
-  <section class="py-16 bg-red-50">
-      <div class="container mx-auto px-4 max-w-4xl">
-          <div class="text-center mb-10">
-              <h2 class="text-3xl font-bold text-gray-900 mb-2">Precios Imbatibles</h2>
-              <p class="text-gray-600">Referencia de precios diarios (pueden variar según mercado)</p>
+  <!-- Product Highlight List -->
+  <section id="productos" class="py-16 md:py-20 bg-gray-50 border-t border-gray-200">
+      <div class="container mx-auto px-4 max-w-6xl">
+          <div class="text-center mb-12">
+             <span class="text-red-600 font-bold uppercase tracking-widest text-sm">Calidad Superior</span>
+             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Nuestros Cortes Estrella</h2>
           </div>
-
-          <div class="bg-white rounded-2xl shadow-sm border border-red-100 overflow-hidden">
-              <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
-                  <div class="p-6 text-center group hover:bg-red-50 transition">
-                      <div class="text-4xl mb-3">🍗</div>
-                      <h3 class="font-bold text-gray-900 mb-1">Pollo Entero</h3>
-                      <p class="text-sm text-gray-500 mb-3">Fresco, gran tamaño</p>
-                      <div class="text-2xl font-bold text-red-700">2,95 €/kg</div>
+          
+          <div class="grid md:grid-cols-3 gap-8">
+              <!-- Card 1 -->
+              <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100">
+                  <div class="h-56 bg-red-100 flex items-center justify-center text-8xl group-hover:scale-110 transition duration-500 relative">
+                    🥩
+                    <div class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Top Ventas</div>
                   </div>
-                  <div class="p-6 text-center group hover:bg-red-50 transition">
-                      <div class="text-4xl mb-3">🥩</div>
-                      <h3 class="font-bold text-gray-900 mb-1">Carne de Fiesta</h3>
-                      <p class="text-sm text-gray-500 mb-3">Troceada a mano</p>
-                      <div class="text-2xl font-bold text-red-700">5,90 €/kg</div>
-                  </div>
-                  <div class="p-6 text-center group hover:bg-red-50 transition">
-                      <div class="text-4xl mb-3">🐷</div>
-                      <h3 class="font-bold text-gray-900 mb-1">Chuleta Cerdo</h3>
-                      <p class="text-sm text-gray-500 mb-3">Aguja o Lomo</p>
-                      <div class="text-2xl font-bold text-red-700">4,50 €/kg</div>
+                  <div class="p-8">
+                      <h3 class="font-bold text-2xl mb-2 text-gray-900 group-hover:text-red-700 transition-colors">Carne de Fiesta</h3>
+                      <p class="text-gray-600 text-sm mb-6 leading-relaxed">Dados de cerdo limpios y jugosos. Perfectos para freír con ajos y pimentón. Disponibles adobados o al natural.</p>
+                      <a href="/contacto" class="inline-flex items-center text-red-700 font-bold hover:gap-2 transition-all">Consultar precio <Icon name="ArrowRight" size={16} className="ml-1"/></a>
                   </div>
               </div>
-              <div class="bg-gray-50 p-4 text-center text-xs text-gray-500 border-t border-gray-100">
-                  * Precios orientativos sujetos a variaciones de mercado. Visítanos para ver ofertas del día.
+              
+              <!-- Card 2 -->
+              <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100">
+                  <div class="h-56 bg-yellow-100 flex items-center justify-center text-8xl group-hover:scale-110 transition duration-500 relative">
+                    🍗
+                    <div class="absolute top-4 right-4 bg-yellow-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Económico</div>
+                  </div>
+                  <div class="p-8">
+                      <h3 class="font-bold text-2xl mb-2 text-gray-900 group-hover:text-yellow-700 transition-colors">Pollo Fresco</h3>
+                      <p class="text-gray-600 text-sm mb-6 leading-relaxed">Enteros, pechugas fileteadas al momento, muslos o alas. Nada de congelado, todo frescura diaria.</p>
+                      <a href="/contacto" class="inline-flex items-center text-yellow-700 font-bold hover:gap-2 transition-all">Consultar precio <Icon name="ArrowRight" size={16} className="ml-1"/></a>
+                  </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group border border-gray-100">
+                  <div class="h-56 bg-orange-100 flex items-center justify-center text-8xl group-hover:scale-110 transition duration-500 relative">
+                    🥓
+                    <div class="absolute top-4 right-4 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Tradición</div>
+                  </div>
+                  <div class="p-8">
+                      <h3 class="font-bold text-2xl mb-2 text-gray-900 group-hover:text-orange-700 transition-colors">Chuletas y Costillas</h3>
+                      <p class="text-gray-600 text-sm mb-6 leading-relaxed">Chuletas de aguja, lomo veteado o costillar salado ideal para el potaje de berros. Corte a tu grosor.</p>
+                      <a href="/contacto" class="inline-flex items-center text-orange-700 font-bold hover:gap-2 transition-all">Consultar precio <Icon name="ArrowRight" size={16} className="ml-1"/></a>
+                  </div>
               </div>
           </div>
       </div>
   </section>
 
-  <!-- Blog Grid Widget -->
-  <ContentWidget 
-    title="Recetas y Consejos de Carnicería" 
-    subtitle="Aprende con nosotros"
-    collection="blog" 
-    tags={["Recetas", "Consejos"]}
-    maxItems={3} 
-    bgClass="bg-white"
-  />
-
-  <!-- CTA Simple Final -->
-  <section class="py-12 bg-gray-900 text-white text-center">
-    <div class="container mx-auto px-4">
-        <h2 class="text-2xl font-bold mb-4">¿Quieres hacer un pedido grande?</h2>
-        <p class="text-gray-300 mb-8 max-w-2xl mx-auto">Preparamos encargos para fiestas, barbacoas y eventos. Llámanos y tenlo listo para recoger.</p>
-        <div class="flex flex-wrap justify-center gap-4">
-             <Button href="/contacto" variant="primary">Ver Horarios y Ubicación</Button>
-             <Button href={`tel:${siteData.contact.phoneRaw}`} variant="ghost" class="bg-white/10 text-white hover:bg-white/20">Llamar a Carnicería</Button>
-        </div>
-    </div>
+  <!-- CTA para Profesionales -->
+  <section class="bg-gradient-to-r from-red-900 to-red-800 text-white py-16 text-center relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/food.png')]"></div>
+      <div class="container mx-auto px-4 relative z-10">
+          <span class="inline-block border border-red-400 bg-red-800/50 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">Servicio HORECA</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Tienes un restaurante o guachinche?</h2>
+          <p class="mb-10 text-red-100 max-w-2xl mx-auto text-lg">
+            Olvídate de limpiar carne. Preparamos pedidos grandes de carne cortada y envasada al vacío según tus necesidades. Ahorra tiempo y mermas.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button href="/profesionales" variant="primary" class="bg-white text-red-900 hover:bg-gray-100 border-none shadow-lg">
+                Consultar Tarifas HORECA
+            </Button>
+            <Button href="tel:922550067" variant="outline" class="border-white text-white hover:bg-white hover:text-red-900">
+                <Icon name="Phone" className="mr-2"/> Llamar a Carnicería
+            </Button>
+          </div>
+      </div>
   </section>
+
 </Layout>

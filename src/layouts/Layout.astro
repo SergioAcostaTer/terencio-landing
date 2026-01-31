@@ -1,5 +1,6 @@
 ---
-import "@fontsource/outfit"; // Defaults to weight 400
+import "@fontsource/outfit"; 
+import "@fontsource/outfit/500.css";
 import "@fontsource/outfit/600.css";
 import "@fontsource/outfit/700.css";
 import Analytics from "@vercel/analytics/astro";
@@ -15,9 +16,9 @@ import siteData from "../data/siteData.json";
 interface Props {
   title: string;
   description?: string;
-  image?: string; // For backwards compatibility
-  ogImage?: string; // Specific OG image for social sharing
-  preloadImage?: string; // NEW: Critical for LCP Score
+  image?: string; 
+  ogImage?: string; 
+  preloadImage?: string; 
   canonical?: string;
   type?: "website" | "article";
   publishDate?: string;
@@ -38,10 +39,7 @@ const {
   noindex = false
 } = Astro.props;
 
-// Use ogImage if provided, fallback to image, then default
-// const socialImage = ogImage || image || "/og-image.jpg";
-
-// Breadcrumbs Schema
+// Breadcrumbs Schema para Google
 const breadcrumbsSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -49,7 +47,7 @@ const breadcrumbsSchema = {
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Inicio",
+      "name": "Supermercado Terencio",
       "item": siteData.url
     },
     {
@@ -60,7 +58,6 @@ const breadcrumbsSchema = {
     }
   ]
 };
-
 ---
 
 <!doctype html>
@@ -69,7 +66,7 @@ const breadcrumbsSchema = {
     <SEO 
       title={title} 
       description={description} 
-      ogImage={ogImage}
+      ogImage={ogImage || image}
       canonical={canonical}
       type={type}
       publishDate={publishDate}
@@ -77,26 +74,18 @@ const breadcrumbsSchema = {
       noindex={noindex}
     />
 
-    <!-- CRITICAL LCP OPTIMIZATION: Preload Hero Image if provided -->
+    <!-- Optimización LCP: Precarga de imagen Hero -->
     {preloadImage && (
       <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
     )}
 
-    <!-- LocalBusiness Schema (JSON-LD) -->
     <LocalBusinessSchema />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbsSchema)} />
 
-    <!-- Resource Hints for Performance -->
+    <!-- Carga de Fuentes Optimizada -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- OPTIMIZED FONT LOADING: Non-blocking Material Icons -->
-    <link 
-      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" 
-      rel="stylesheet" 
-      media="print" 
-      onload="this.media='all'"
-    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     </noscript>
@@ -106,29 +95,41 @@ const breadcrumbsSchema = {
   <body class="min-h-screen flex flex-col font-sans text-gray-800 bg-gray-50 overflow-x-hidden">
     <SpeedInsights />
     <Analytics />
+    
     <Header />
-    <main class="flex-grow pt-[120px]">
+    
+    <!-- Ajuste de padding para evitar solapamiento con el header fijo -->
+    <main class="flex-grow pt-[110px] md:pt-[130px]">
       <slot />
     </main>
+    
     <Footer />
     
-    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-[60] flex justify-between px-3 py-3 gap-3 pb-[calc(12px+env(safe-area-inset-bottom))]">
-  
-      <a href={`tel:${siteData.contact.phoneRaw}`} class="flex-1 flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-lg p-1 text-gray-800 active:bg-gray-200 transition">
+    <!-- Barra de Navegación Inferior Fija (Solo Móvil) - Alta conversión -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-[0_-4px_10px_rgba(0,0,0,0.1)] z-[60] flex justify-between px-2 py-2 pb-[calc(8px+env(safe-area-inset-bottom))] gap-1">
+      
+      <a href={`tel:${siteData.contact.phoneRaw}`} class="flex-1 flex flex-col items-center justify-center p-2 rounded-lg text-gray-600 hover:bg-green-50 active:bg-green-100 transition tap-highlight-transparent">
         <span class="material-icons-outlined text-green-700 text-2xl">call</span>
-        <span class="text-[10px] font-bold uppercase mt-1">Llamar</span>
+        <span class="text-[10px] font-bold mt-1">Llamar</span>
       </a>
-    
-      <a href={`mailto:${siteData.contact.email}`} class="flex-1 flex flex-col items-center justify-center bg-gray-50 border border-gray-200 rounded-lg p-1 text-gray-800 active:bg-gray-200 transition">
-        <span class="material-icons-outlined text-green-600 text-2xl">mail</span>
-        <span class="text-[10px] font-bold uppercase mt-1">Email</span>
+      
+      <a href="/horario" class="flex-1 flex flex-col items-center justify-center p-2 rounded-lg text-gray-600 hover:bg-green-50 active:bg-green-100 transition tap-highlight-transparent">
+        <span class="material-icons-outlined text-green-700 text-2xl">schedule</span>
+        <span class="text-[10px] font-bold mt-1">Horario</span>
       </a>
-    
-      <a href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" class="flex-[1.5] flex items-center justify-center gap-2 bg-green-700 text-white rounded-lg p-2 shadow-md active:bg-green-800 transition">
-        <span class="material-icons-outlined">near_me</span>
-        <span class="text-xs font-bold uppercase">Ir Ahora</span>
+
+      <!-- Botón central destacado -->
+      <a href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" class="flex-[1.4] flex flex-col items-center justify-center bg-brand-primary text-white rounded-xl shadow-lg active:bg-green-800 transition transform active:scale-95 p-1 mx-1 tap-highlight-transparent">
+        <span class="material-icons-outlined text-xl mb-0.5">near_me</span>
+        <span class="text-[11px] font-bold uppercase leading-none">Ir Ahora</span>
       </a>
-    
+      
+      <a href="/ofertas" class="flex-1 flex flex-col items-center justify-center p-2 rounded-lg text-gray-600 hover:bg-red-50 active:bg-red-100 transition tap-highlight-transparent relative group">
+        <span class="absolute top-1 right-2 w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
+        <span class="material-icons-outlined text-red-600 text-2xl group-hover:scale-110 transition-transform">local_offer</span>
+        <span class="text-[10px] font-bold mt-1 text-red-700">Ofertas</span>
+      </a>
+
     </div>
     
     <CookieBanner />
@@ -136,21 +137,24 @@ const breadcrumbsSchema = {
 </html>
 
 <style is:global>
-  /* Base styles */
   :root {
-    --color-primary: 22, 101, 52; /* green-800 */
-    --color-accent: 220, 38, 38; /* red-600 */
+    --color-primary: 21, 128, 61; /* Green 700 */
+    --color-secondary: 185, 28, 28; /* Red 700 */
   }
-  
   html {
     font-family: 'Outfit', sans-serif;
-    font-display: swap;
+    -webkit-tap-highlight-color: transparent;
   }
-  
+  /* Padding extra en móvil para que el contenido no quede oculto por la barra fija */
   body { 
-    padding-bottom: calc(85px + env(safe-area-inset-bottom)); 
+    padding-bottom: calc(75px + env(safe-area-inset-bottom)); 
   }
   @media (min-width: 768px) {
     body { padding-bottom: 0; }
+  }
+  
+  /* Utilidad para quitar el highlight azul en móvil al tocar */
+  .tap-highlight-transparent {
+    -webkit-tap-highlight-color: transparent;
   }
 </style>

@@ -7,41 +7,64 @@ import { Image } from "astro:assets";
 import logo from "../assets/images/logo.webp";
 ---
 
-<header class="fixed top-0 w-full z-50 bg-white shadow-lg transition-all duration-300 flex flex-col" id="main-header">
-  <div class="h-[80px] container mx-auto px-4 lg:px-6 flex items-center justify-between flex-shrink-0">
-    
-    <!-- Mobile Left: Phone Icon (Visible only on mobile) -->
-    <a href={`tel:${siteData.contact.phone.replace(/\s/g, "")}`} class="md:hidden flex items-center justify-center w-10 h-10 text-green-700 hover:bg-green-50 rounded-full transition" aria-label="Llamar">
-      <span class="material-icons-outlined text-2xl">phone</span>
-    </a>
+<header class="fixed top-0 w-full z-50 bg-white shadow-md transition-all duration-300 flex flex-col font-sans" id="main-header">
+  
+  <!-- Barra Superior (Desktop) - Información crítica -->
+  <div class="hidden md:flex bg-brand-primary text-white text-xs py-2 justify-between px-6 lg:px-8 border-b border-green-800">
+    <div class="flex gap-6">
+       <a href="https://g.page/r/CWkyvLywov7bEBM/review" target="_blank" class="flex items-center gap-1 font-medium hover:text-yellow-200 transition">
+          <Icon name="MapPin" size={14}/> Ctra. La Esperanza 22, Tenerife
+       </a>
+       <span class="flex items-center gap-1 font-bold text-yellow-300 animate-pulse">
+          <Icon name="Calendar" size={14}/> ¡ABIERTO DOMINGOS!
+       </span>
+    </div>
+    <div class="flex gap-6">
+       <a href="/profesionales" class="hover:text-yellow-200 transition font-medium">Zona Profesionales HORECA</a>
+       <a href={`tel:${siteData.contact.phoneRaw}`} class="flex items-center gap-1 font-bold hover:text-yellow-200 transition">
+          <Icon name="Phone" size={14}/> {siteData.contact.phone}
+       </a>
+    </div>
+  </div>
 
-    <!-- Brand / Logo (Centered on mobile, Left on desktop) -->
-    <a href="/" class="flex items-center gap-2 h-14 md:h-12 absolute left-1/2 transform -translate-x-1/2 md:static md:transform-none md:mr-auto" aria-label="Ir a inicio">
-      <Image class="h-full w-auto object-contain" src={logo} alt="Logotipo Terencio" width={56} height={56} loading="eager" />
-      <span class="sr-only">Terencio Cash Market</span>
+  <div class="h-[70px] md:h-[80px] container mx-auto px-4 lg:px-6 flex items-center justify-between flex-shrink-0 bg-white relative z-50">
+    
+    <!-- Mobile Left: Hamburger -->
+    <button id="menu-toggle" class="md:hidden flex items-center justify-center w-12 h-12 rounded-xl text-gray-800 focus:outline-none hover:bg-gray-100 transition" aria-label="Menú Principal">
+      <span class="material-icons-outlined text-3xl" id="menu-icon">menu</span>
+    </button>
+
+    <!-- Brand / Logo -->
+    <a href="/" class="flex items-center gap-2 h-12 md:h-16 relative group" aria-label="Terencio Cash Market Inicio">
+      <Image class="h-full w-auto object-contain transition-transform group-hover:scale-105" src={logo} alt="Logotipo Terencio Supermercado" width={64} height={64} loading="eager" />
+      <div class="hidden sm:flex flex-col leading-none justify-center">
+        <span class="text-xl lg:text-2xl font-bold text-brand-dark tracking-tight">Terencio</span>
+        <span class="text-xs text-brand-primary font-bold uppercase tracking-widest">Cash Market</span>
+      </div>
     </a>
 
     <!-- Desktop Menu -->
-    <nav class="hidden md:flex items-center gap-2 lg:gap-1">
+    <nav class="hidden md:flex items-center gap-1 lg:gap-2">
       {navigation.main.map(link => (
         <div class="relative group">
           <a 
             href={link.href} 
             class:list={[
-              "text-sm lg:text-base font-semibold transition-all flex items-center gap-1 px-3 py-2 rounded-lg",
-              (link as any).color === 'red' ? "text-red-600 hover:bg-red-50 hover:text-red-700 font-bold" : "text-gray-700 hover:bg-green-50 hover:text-green-700"
+              "text-sm lg:text-[15px] font-bold transition-all flex items-center gap-1 px-3 py-2 rounded-lg",
+              (link as any).color === 'red' ? "text-red-600 bg-red-50 hover:bg-red-100" : "text-gray-700 hover:text-brand-primary hover:bg-gray-50"
             ]}
           >
             {link.label}
-            {link.children && <Icon name="ChevronDown" size={16} className="mt-0.5 group-hover:rotate-180 transition-transform" />}
+            {link.children && <Icon name="ChevronDown" size={14} className="mt-0.5 group-hover:rotate-180 transition-transform text-gray-400" />}
           </a>
           
           {/* Dropdown Menu */}
           {link.children && (
-            <div class="absolute top-full left-0 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
-               <div class="bg-white shadow-xl rounded-xl border-t-4 border-green-600 border-x border-b border-gray-100 py-3 w-60 overflow-hidden">
+            <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+               <div class="bg-white shadow-xl rounded-xl border border-gray-100 p-2 w-64 overflow-hidden ring-1 ring-black ring-opacity-5">
                   {link.children.map(child => (
-                    <a href={child.href} class="block px-6 py-2.5 text-gray-700 hover:bg-green-50 hover:text-green-800 text-[15px] font-medium transition-colors">
+                    <a href={child.href} class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-800 rounded-lg text-sm font-medium transition-colors flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-green-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                       {child.label}
                     </a>
                   ))}
@@ -50,90 +73,90 @@ import logo from "../assets/images/logo.webp";
           )}
         </div>
       ))}
-      <a 
-        href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market"
-        target="_blank"
-        class="hidden lg:flex bg-white border border-green-700 text-green-700 px-4 py-2 rounded-lg font-bold hover:bg-green-50 transition-colors shadow-sm ml-4 items-center gap-2"
-      >
-        <span class="material-icons-outlined">navigation</span> Cómo llegar
-      </a>
+      
       <a 
         href={navigation.cta.href} 
-        class="bg-green-700 text-white px-5 py-2 rounded-lg font-bold hover:bg-green-800 transition-colors shadow-md hover:shadow-lg text-sm lg:text-base ml-2"
+        class="ml-4 bg-brand-primary text-white px-6 py-2.5 rounded-xl font-bold hover:bg-green-800 transition-all shadow-md hover:shadow-lg text-sm flex items-center gap-2 transform hover:-translate-y-0.5"
       >
         {navigation.cta.label}
+        <Icon name="ArrowRight" size={16} />
       </a>
     </nav>
 
-    <!-- Mobile Right: Hamburger Button -->
-    <button id="menu-toggle" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 text-gray-800 focus:outline-none" aria-label="Menú">
-      <span class="material-icons-outlined text-3xl" id="menu-icon">menu</span>
-    </button>
+    <!-- Mobile Right: Ofertas Icon -->
+    <a href="/ofertas" class="md:hidden flex items-center justify-center w-12 h-12 text-red-600 bg-red-50 rounded-xl active:scale-95 transition" aria-label="Ver Ofertas">
+      <span class="material-icons-outlined text-2xl animate-pulse">local_offer</span>
+    </a>
   </div>
 
-  <!-- Subheader Status Bar -->
   <StoreStatus />
 
-  <!-- Mobile Menu Dropdown -->
-  <div id="mobile-menu" class="fixed top-[80px] left-0 w-full h-[calc(100dvh-80px)] bg-white z-[70] transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto pb-24">
-    <div class="flex flex-col p-6 gap-6">
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed top-[105px] left-0 w-full h-[calc(100dvh-105px)] bg-white z-[70] transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto pb-32 shadow-inner">
+    <div class="flex flex-col p-6 gap-2">
       {navigation.main.map((link, index) => (
-        <div class="group">
+        <div class="border-b border-gray-50 last:border-0 pb-2">
           <div class="flex items-center justify-between">
             <a 
               href={link.href} 
               class:list={[
-                "text-xl mobile-link pb-2 block flex-grow",
-                (link as any).color === 'red' ? "font-bold text-red-600" : "font-semibold text-gray-800"
+                "text-lg font-bold py-3 block flex-grow mobile-link",
+                (link as any).color === 'red' ? "text-red-600" : "text-gray-800"
               ]}
             >
               {link.label}
             </a>
             {link.children && (
               <button 
-                class="p-2 text-gray-500 hover:bg-gray-100 rounded-full transition-colors focus:outline-none submenu-toggle" 
-                aria-label={`Toggle submenu for ${link.label}`}
+                class="p-4 text-gray-400 hover:bg-gray-100 rounded-full submenu-toggle focus:outline-none" 
                 data-index={index}
+                aria-label={`Abrir submenú de ${link.label}`}
               >
-                <span class="material-icons-outlined transition-transform duration-300">expand_more</span>
+                <span class="material-icons-outlined text-xl transition-transform">expand_more</span>
               </button>
             )}
           </div>
           
-          {/* Mobile Submenu (Accordion) */}
           {link.children && (
-            <div 
-              id={`submenu-${index}`}
-              class="hidden pl-4 border-l-2 border-gray-100 mt-2 flex flex-col gap-3 transition-all duration-300"
-            >
+            <div id={`submenu-${index}`} class="hidden pl-4 bg-gray-50 rounded-xl mt-1 mb-2 border border-gray-100">
               {link.children.map(child => (
-                  <a href={child.href} class="text-base text-gray-600 mobile-link block py-1">
+                  <a href={child.href} class="text-base text-gray-600 mobile-link block py-3 px-2 font-medium border-b border-gray-200 last:border-0 hover:text-green-700 flex items-center gap-2">
+                    <span class="material-icons-outlined text-sm text-green-600">chevron_right</span>
                     {child.label}
                   </a>
               ))}
             </div>
           )}
-          <div class="border-b border-gray-100 mt-2"></div>
         </div>
       ))}
       
-      {navigation.mobileExtra.map(link => (
-        <a href={link.href} class="text-xl font-semibold text-gray-800 mobile-link border-b border-gray-100 pb-2">
-          {link.label}
+      <div class="mt-6 space-y-4">
+        <a href="/profesionales" class="flex items-center justify-between w-full p-4 bg-slate-900 text-white rounded-xl font-bold mobile-link shadow-lg">
+           <div class="flex items-center gap-3">
+              <span class="material-icons-outlined">storefront</span>
+              <span>Zona Profesionales</span>
+           </div>
+           <span class="material-icons-outlined">arrow_forward</span>
         </a>
-      ))}
+        <a href="/carniceria-tenerife" class="flex items-center justify-between w-full p-4 bg-red-600 text-white rounded-xl font-bold mobile-link shadow-lg">
+           <div class="flex items-center gap-3">
+              <span class="material-icons-outlined">restaurant_menu</span>
+              <span>Nuestra Carnicería</span>
+           </div>
+           <span class="material-icons-outlined">arrow_forward</span>
+        </a>
+      </div>
 
-      <a href={navigation.cta.href} class="text-xl font-bold text-white bg-green-700 px-4 py-3 rounded-lg text-center mt-4 mobile-link">
-        {navigation.cta.label}
-      </a>
-      
-      <a href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" class="text-xl font-bold text-green-700 border-2 border-green-700 px-4 py-3 rounded-lg text-center mt-2 mobile-link flex items-center justify-center gap-2">
-        <span class="material-icons-outlined">navigation</span> Cómo llegar
-      </a>
-      
-      <div class="mt-8 text-center text-gray-500 text-sm">
-          <p class="mb-2">Llámanos</p>
-          <a href={`tel:${siteData.contact.phone.replace(/\s/g, "")}`} class="text-2xl font-bold text-green-700">{siteData.contact.phone}</a>
+      <div class="mt-8 pt-6 border-t border-gray-100 text-center text-sm text-gray-500">
+          <p class="font-medium mb-2">Síguenos en redes</p>
+          <div class="flex justify-center gap-6">
+             <a href={siteData.social.facebook} target="_blank" class="text-blue-600 bg-blue-50 p-3 rounded-full hover:bg-blue-100 transition" aria-label="Facebook"><i class="fab fa-facebook text-xl"></i></a>
+             <a href={siteData.social.instagram} target="_blank" class="text-pink-600 bg-pink-50 p-3 rounded-full hover:bg-pink-100 transition" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+          </div>
+          <div class="mt-6 text-xs text-gray-400">
+            <p>Terencio Cash Market</p>
+            <p>La Esperanza, Tenerife</p>
+          </div>
       </div>
     </div>
   </div>
@@ -146,17 +169,13 @@ import logo from "../assets/images/logo.webp";
     const menuIcon = document.getElementById('menu-icon');
 
     if (menuToggle && mobileMenu && menuIcon) {
-      // Remove any existing listeners to avoid duplication
       const toggleMenu = () => {
         const isClosed = mobileMenu.classList.contains('translate-x-full');
-        
         if (isClosed) {
-          // Open
           mobileMenu.classList.remove('translate-x-full');
           menuIcon.textContent = 'close';
           document.body.style.overflow = 'hidden'; 
         } else {
-          // Close
           mobileMenu.classList.add('translate-x-full');
           menuIcon.textContent = 'menu';
           document.body.style.overflow = '';

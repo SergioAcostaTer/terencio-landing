@@ -1,203 +1,157 @@
 ---
-import proImage from "../assets/supermercados-terencio.jpg";
-import FAQ from "../components/FAQ.astro";
+import proImage from "../assets/images/supermercado-interior.webp"; // Idealmente una foto de reparto o almacén
 import ProfessionalForm from "../components/forms/ProfessionalForm";
-import Button from "../components/ui/Button.astro";
 import PageHeader from "../components/ui/PageHeader.astro";
-import ContentWidget from "../components/widgets/ContentWidget.astro";
 import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
-// SEO Optimizado
-const title = "Proveedor de Hostelería en Tenerife | Mayorista Alimentación y Bebidas";
-const description = "Terencio: Tu proveedor de hostelería en Tenerife. Alimentación, Bebidas, Limpieza y Menaje. Servicio de reparto y Cash & Carry en La Esperanza.";
-
-const wholesaleSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "WholesaleStore",
-  "name": siteData.name,
-  "image": siteData.url + proImage.src,
-  "telephone": siteData.contact.phoneInternational,
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": siteData.address.streetAddress,
-    "addressLocality": siteData.address.addressLocality,
-    "postalCode": siteData.address.postalCode,
-    "addressRegion": siteData.address.addressRegion,
-    "addressCountry": siteData.address.addressCountry
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": siteData.geo.latitude,
-    "longitude": siteData.geo.longitude
-  },
-  "areaServed": siteData.services.delivery.zones
-});
+const title = "Proveedor HORECA Tenerife | Mayorista Alimentación y Bebidas";
+const description = "Terencio Profesionales: Tu proveedor integral para hostelería en Tenerife. Alimentación, bebidas, limpieza y menaje. Reparto propio y precios netos competitivos.";
 ---
 
 <Layout title={title} description={description} image={proImage.src}>
-  <!-- Schema -->
-  <script type="application/ld+json" set:html={wholesaleSchema} />
-
+  
   <PageHeader 
-    title="Proveedor Integral para Hostelería en Tenerife" 
-    subtitle="Olvídate de tratar con 10 proveedores. En Terencio tienes alimentación, bebidas, limpieza y menaje en un solo pedido, con precios directos de mayorista."
-    badge="Zona Profesionales"
+    title="Proveedor Integral para <span class='text-green-300'>Hostelería</span>" 
+    subtitle="Olvídate de tratar con 10 proveedores diferentes. Centraliza Alimentación, Bebidas, Limpieza y Menaje en un solo pedido, una sola factura y un solo reparto."
+    badge="Zona B2B"
     backgroundImage={proImage.src}
+    bgClass="bg-slate-900"
   >
-    <!-- Formulario en Hero Mejorado para Móvil -->
-    <div class="mt-8 bg-white p-5 md:p-8 rounded-2xl shadow-2xl max-w-lg mx-auto md:mx-0 border-t-8 border-[#185d26] relative z-10">
-        <div class="mb-6">
+    <div class="mt-8 bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-lg mx-auto md:mx-0 border-t-8 border-brand-primary relative z-10 text-left">
+        <div class="mb-6 border-b border-gray-100 pb-4">
             <h3 class="font-bold text-2xl text-gray-900 leading-tight">Solicita Tarifas Profesionales</h3>
-            <p class="text-sm text-gray-600 mt-2">Rellena tus datos y nuestro comercial de zona te contactará en menos de 24h.</p>
+            <p class="text-sm text-gray-500 mt-2">Rellena tus datos y nuestro gestor comercial te contactará en menos de 24h con precios personalizados.</p>
         </div>
         <ProfessionalForm client:visible />
     </div>
   </PageHeader>
 
-  <!-- Ventajas B2B Expandido -->
-  <section class="py-16 bg-white">
+  <!-- Pain Points / Solutions -->
+  <section class="py-20 bg-white">
     <div class="container mx-auto px-4">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">¿Por qué elegirnos como tu proveedor?</h2>
-        <p class="text-lg text-gray-600">Entendemos los problemas de la hostelería: prisas, roturas de stock y márgenes ajustados.</p>
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-primary font-bold uppercase tracking-widest text-sm">Ventajas Competitivas</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">¿Por qué cambiar a Terencio?</h2>
+        <p class="text-lg text-gray-600">Sabemos que el margen es la clave. Eliminamos costes innecesarios para ofrecerte precios netos reales desde la primera caja.</p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
-            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-2xl mb-4 text-green-700">⏱️</div>
-            <h3 class="font-bold text-lg mb-2">Servicio Urgente 365</h3>
-            <p class="text-sm text-gray-600">¿Te quedaste sin hielo o pan un domingo? Abrimos todos los días del año para salvarte el servicio.</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Benefit 1 -->
+        <div class="p-8 bg-gray-50 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+            <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition text-brand-primary">⏱️</div>
+            <h3 class="font-bold text-xl mb-3 text-gray-900">Servicio Urgente 365</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Abrimos todos los días, incluidos domingos y festivos. Si te quedas sin hielo, pan o carne en pleno servicio, somos tu almacén de emergencia.</p>
         </div>
-        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
-            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl mb-4 text-blue-700">🧾</div>
-            <h3 class="font-bold text-lg mb-2">Factura Única</h3>
-            <p class="text-sm text-gray-600">Simplifica tu gestión. Una sola factura para alimentación, bebidas y limpieza. Tu gestoría te lo agradecerá.</p>
+        <!-- Benefit 2 -->
+        <div class="p-8 bg-gray-50 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+            <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition text-brand-primary">🧾</div>
+            <h3 class="font-bold text-xl mb-3 text-gray-900">Factura Única</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Simplifica tu contabilidad. Olvida tener 50 facturas pequeñas. Agrupamos tus compras para que tu gestión sea rápida y clara.</p>
         </div>
-        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
-            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-2xl mb-4 text-yellow-700">🚚</div>
-            <h3 class="font-bold text-lg mb-2">Reparto Propio</h3>
-            <p class="text-sm text-gray-600">Llegamos a tu local con nuestra propia flota. Reparto diario en Zona Metropolitana, Norte y Sur.</p>
+        <!-- Benefit 3 -->
+        <div class="p-8 bg-gray-50 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+            <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition text-brand-primary">🚚</div>
+            <h3 class="font-bold text-xl mb-3 text-gray-900">Reparto Propio</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Flota propia con rutas diarias en La Laguna, Santa Cruz, Tegueste, El Rosario y zona norte. Llegamos a tu puerta.</p>
         </div>
-        <div class="p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
-            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-2xl mb-4 text-purple-700">💰</div>
-            <h3 class="font-bold text-lg mb-2">Márgenes Reales</h3>
-            <p class="text-sm text-gray-600">Sin intermediarios innecesarios. Precios netos competitivos desde la primera unidad.</p>
+        <!-- Benefit 4 -->
+        <div class="p-8 bg-gray-50 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+            <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-sm group-hover:scale-110 transition text-brand-primary">💰</div>
+            <h3 class="font-bold text-xl mb-3 text-gray-900">Precios Netos</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">Tarifas especiales por volumen sin rapels complejos ni costes ocultos. Precio final competitivo desde el principio.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Quiénes son nuestros clientes -->
-  <section class="py-16 bg-gray-50 border-t border-gray-200">
-    <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-3xl font-bold text-gray-900 mb-6">Soluciones para cada tipo de negocio</h2>
-                <div class="space-y-6">
-                    <div class="flex gap-4">
-                        <span class="text-3xl">🍽️</span>
-                        <div>
-                            <h3 class="font-bold text-lg">Restaurantes y Cafeterías</h3>
-                            <p class="text-gray-600 text-sm">Desde el café de la mañana hasta la cena. Tenemos todo lo necesario para tu menú diario.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <span class="text-3xl">🍗</span>
-                        <div>
-                            <h3 class="font-bold text-lg">Guachinches y Asadores</h3>
-                            <p class="text-gray-600 text-sm">Especialistas en carnes, vinos locales (D.O. Tacoronte, Valle) y productos de la tierra en grandes formatos.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <span class="text-3xl">🏨</span>
-                        <div>
-                            <h3 class="font-bold text-lg">Pequeños Hoteles y Apartamentos</h3>
-                            <p class="text-gray-600 text-sm">Amenities, limpieza industrial y desayunos buffet. Packs de bienvenida para huéspedes.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Areas de Reparto SEO Box -->
-            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                <h3 class="font-bold text-xl mb-4">📍 Zonas de Reparto Frecuente</h3>
-                <p class="text-gray-600 mb-4 text-sm">Nuestro equipo logístico cubre las principales rutas comerciales de la isla:</p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-full border border-green-100">Santa Cruz</span>
-                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-full border border-green-100">La Laguna</span>
-                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-full border border-green-100">Tegueste</span>
-                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-full border border-green-100">El Rosario</span>
-                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-full border border-green-100">Tacoronte</span>
-                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-full border border-green-100">Sauzal</span>
-                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-full border border-green-100">Candelaria</span>
-                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-full border border-green-100">Güímar</span>
-                </div>
-                <div class="mt-6 pt-6 border-t border-gray-100">
-                    <p class="text-xs text-gray-500 font-medium">¿Tu negocio está en otra zona? <a href="#contacto" class="underline text-green-700">Consúltanos rutas especiales</a>.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+  <!-- Segmentos -->
+  <section class="py-20 bg-gray-900 text-white relative overflow-hidden">
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+      
+      <div class="container mx-auto px-4 relative z-10">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                  <h2 class="text-3xl md:text-4xl font-bold mb-6">Soluciones a medida para tu negocio</h2>
+                  <p class="text-gray-400 text-lg mb-8">No es lo mismo un restaurante de carta que una cafetería de paso. Adaptamos nuestro surtido a ti.</p>
+                  
+                  <div class="space-y-6">
+                      <div class="flex gap-4 p-4 rounded-xl hover:bg-white/5 transition border border-transparent hover:border-white/10">
+                          <span class="text-4xl">🍽️</span>
+                          <div>
+                              <h3 class="font-bold text-xl text-white">Restaurantes y Guachinches</h3>
+                              <p class="text-gray-400 text-sm mt-1">Carne de fiesta, vinos locales (D.O. Tacoronte, Valle), aceites de 25L y productos frescos diarios.</p>
+                          </div>
+                      </div>
+                      <div class="flex gap-4 p-4 rounded-xl hover:bg-white/5 transition border border-transparent hover:border-white/10">
+                          <span class="text-4xl">☕</span>
+                          <div>
+                              <h3 class="font-bold text-xl text-white">Cafeterías y Bares</h3>
+                              <p class="text-gray-400 text-sm mt-1">Leche, café, azucarillos, bollería, servilletas y todo para el desayuno y la merienda.</p>
+                          </div>
+                      </div>
+                      <div class="flex gap-4 p-4 rounded-xl hover:bg-white/5 transition border border-transparent hover:border-white/10">
+                          <span class="text-4xl">🏨</span>
+                          <div>
+                              <h3 class="font-bold text-xl text-white">Hoteles Rurales y Apts.</h3>
+                              <p class="text-gray-400 text-sm mt-1">Amenities, limpieza industrial (garrafas 5L), papel higiénico y packs de bienvenida.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="bg-white text-gray-900 p-8 rounded-3xl shadow-2xl">
+                  <h3 class="font-bold text-2xl mb-6">Catálogo Profesional</h3>
+                  <div class="grid grid-cols-2 gap-4">
+                      <div class="bg-gray-50 p-4 rounded-xl text-center border border-gray-100 hover:border-green-300 transition">
+                          <div class="text-3xl mb-2">🍷</div>
+                          <div class="font-bold text-sm">Bodega</div>
+                      </div>
+                      <div class="bg-gray-50 p-4 rounded-xl text-center border border-gray-100 hover:border-green-300 transition">
+                          <div class="text-3xl mb-2">🧹</div>
+                          <div class="font-bold text-sm">Limpieza</div>
+                      </div>
+                      <div class="bg-gray-50 p-4 rounded-xl text-center border border-gray-100 hover:border-green-300 transition">
+                          <div class="text-3xl mb-2">🥩</div>
+                          <div class="font-bold text-sm">Carnicería</div>
+                      </div>
+                      <div class="bg-gray-50 p-4 rounded-xl text-center border border-gray-100 hover:border-green-300 transition">
+                          <div class="text-3xl mb-2">❄️</div>
+                          <div class="font-bold text-sm">Congelados</div>
+                      </div>
+                      <div class="bg-gray-50 p-4 rounded-xl text-center border border-gray-100 hover:border-green-300 transition">
+                          <div class="text-3xl mb-2">🥫</div>
+                          <div class="font-bold text-sm">Secos</div>
+                      </div>
+                      <div class="bg-gray-50 p-4 rounded-xl text-center border border-gray-100 hover:border-green-300 transition">
+                          <div class="text-3xl mb-2">🥤</div>
+                          <div class="font-bold text-sm">Bebidas</div>
+                      </div>
+                  </div>
+                  <div class="mt-8 text-center">
+                      <p class="text-sm text-gray-500 mb-4">Más de 5.000 referencias en stock</p>
+                      <a href="#contacto" class="block w-full bg-brand-primary text-white py-3 rounded-xl font-bold hover:bg-green-800 transition">Solicitar Catálogo PDF</a>
+                  </div>
+              </div>
+          </div>
+      </div>
   </section>
 
-  <!-- Categorías Visuales -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-4">Catálogo Profesional</h2>
-        <p class="text-center text-gray-500 mb-10 max-w-2xl mx-auto">Más de 5.000 referencias seleccionadas para el profesional de la hostelería.</p>
-        
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition text-center group cursor-pointer border border-gray-100">
-                <span class="text-5xl mb-4 block group-hover:scale-110 transition duration-300">🍷</span>
-                <h3 class="font-bold text-xl text-gray-900">Bodega y Licores</h3>
-                <p class="text-sm text-gray-500 mt-2">Vinos canarios y nacionales, destilados premium y refrescos.</p>
-            </div>
-            <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition text-center group cursor-pointer border border-gray-100">
-                <span class="text-5xl mb-4 block group-hover:scale-110 transition duration-300">🧹</span>
-                <h3 class="font-bold text-xl text-gray-900">Limpieza e Higiene</h3>
-                <p class="text-sm text-gray-500 mt-2">Químicos industriales, celulosa, servilletas y mantelería.</p>
-            </div>
-            <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition text-center group cursor-pointer border border-gray-100">
-                <span class="text-5xl mb-4 block group-hover:scale-110 transition duration-300">🥩</span>
-                <h3 class="font-bold text-xl text-gray-900">Frescos y Carnicería</h3>
-                <p class="text-sm text-gray-500 mt-2">Cortes especiales para restauración, quesos y charcutería al corte.</p>
-            </div>
-             <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition text-center group cursor-pointer border border-gray-100">
-                <span class="text-5xl mb-4 block group-hover:scale-110 transition duration-300">🥫</span>
-                <h3 class="font-bold text-xl text-gray-900">Alimentación Seca</h3>
-                <p class="text-sm text-gray-500 mt-2">Aceites, conservas, especias y básicos de cocina en formato HORECA.</p>
-            </div>
-             <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition text-center group cursor-pointer border border-gray-100">
-                <span class="text-5xl mb-4 block group-hover:scale-110 transition duration-300">❄️</span>
-                <h3 class="font-bold text-xl text-gray-900">Congelados</h3>
-                <p class="text-sm text-gray-500 mt-2">Verduras, mariscos, precocinados y panadería congelada.</p>
-            </div>
-             <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition text-center group cursor-pointer border border-gray-100">
-                <span class="text-5xl mb-4 block group-hover:scale-110 transition duration-300">🍽️</span>
-                <h3 class="font-bold text-xl text-gray-900">Menaje y Desechables</h3>
-                <p class="text-sm text-gray-500 mt-2">Envases take-away, vaillas, cristalería y utensilios.</p>
-            </div>
-        </div>
-        <div class="text-center mt-12 bg-[#185d26] rounded-2xl p-8 text-white max-w-4xl mx-auto shadow-xl">
-            <h3 class="text-2xl font-bold mb-4">¿No encuentras lo que buscas?</h3>
-            <p class="mb-6 opacity-90">Trabajamos con cientos de referencias bajo pedido. Si existe, te lo conseguimos.</p>
-            <Button href={`tel:${siteData.contact.phoneRaw}`} variant="secondary" class="bg-white text-[#185d26] hover:bg-gray-100 border-none">Llamar a Pedidos</Button>
-        </div>
-    </div>
+  <section class="py-16 bg-white border-t border-gray-200">
+      <div class="container mx-auto px-4 text-center">
+          <h2 class="text-3xl font-bold mb-8 text-gray-900">Zonas de Reparto Frecuente</h2>
+          <div class="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto mb-8">
+              {siteData.areas.delivery.map(area => (
+                  <span class="px-5 py-2 bg-green-50 text-green-800 rounded-full text-sm font-bold border border-green-100 hover:bg-green-100 transition cursor-default">
+                      {area}
+                  </span>
+              ))}
+          </div>
+          <p class="text-gray-500 text-sm max-w-lg mx-auto">
+            ¿Tu local está fuera de ruta? No te preocupes. Consúltanos, llegamos a casi toda la isla bajo pedido especial.
+          </p>
+      </div>
   </section>
 
-  <!-- NewsGrid B2B (Mantenido pero con estilo ajustado) -->
-  <ContentWidget 
-    title="Consejos para Hostelería" 
-    subtitle="Noticias y Novedades del Sector"
-    collection="noticias" 
-    category="Empresarial"
-    maxItems={3} 
-    bgClass="bg-gray-50 border-t border-gray-200"
-  />
-
-  <div class="py-12 bg-white">
-    <FAQ />
-  </div>
 </Layout>
