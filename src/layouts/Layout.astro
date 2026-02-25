@@ -106,31 +106,41 @@ const breadcrumbsSchema = {
     <Footer />
     
     <!-- Barra de Navegación Inferior Fija (Solo Móvil) - Alta conversión -->
-    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-[0_-4px_10px_rgba(0,0,0,0.1)] z-[60] flex justify-between px-2 py-2 pb-[calc(8px+env(safe-area-inset-bottom))] gap-1">
+    <nav aria-label="Navegación Móvil Rápida" class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-[0_-4px_10px_rgba(0,0,0,0.1)] z-[60]">
+      <ul class="flex justify-between px-2 py-2 pb-[calc(8px+env(safe-area-inset-bottom))] gap-1 m-0 list-none w-full">
+        
+        <li class="flex-1 flex">
+          <a href={`tel:${siteData.contact.phoneRaw}`} class="w-full flex flex-col items-center justify-center p-2 rounded-lg text-gray-600 hover:bg-green-50 active:bg-green-100 transition tap-highlight-transparent">
+            <span class="material-icons-outlined text-green-700 text-2xl">call</span>
+            <span class="text-[10px] font-bold mt-1">Llamar</span>
+          </a>
+        </li>
       
-      <a href={`tel:${siteData.contact.phoneRaw}`} class="flex-1 flex flex-col items-center justify-center p-2 rounded-lg text-gray-600 hover:bg-green-50 active:bg-green-100 transition tap-highlight-transparent">
-        <span class="material-icons-outlined text-green-700 text-2xl">call</span>
-        <span class="text-[10px] font-bold mt-1">Llamar</span>
-      </a>
-      
-      <a href="/horario" class="flex-1 flex flex-col items-center justify-center p-2 rounded-lg text-gray-600 hover:bg-green-50 active:bg-green-100 transition tap-highlight-transparent">
-        <span class="material-icons-outlined text-green-700 text-2xl">schedule</span>
-        <span class="text-[10px] font-bold mt-1">Horario</span>
-      </a>
+        <li class="flex-1 flex">
+          <a href="/horario" class="w-full flex flex-col items-center justify-center p-2 rounded-lg text-gray-600 hover:bg-green-50 active:bg-green-100 transition tap-highlight-transparent">
+            <span class="material-icons-outlined text-green-700 text-2xl">schedule</span>
+            <span class="text-[10px] font-bold mt-1">Horario</span>
+          </a>
+        </li>
 
-      <!-- Botón central destacado -->
-      <a href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" class="flex-[1.4] flex flex-col items-center justify-center bg-brand-primary text-white rounded-xl shadow-lg active:bg-green-800 transition transform active:scale-95 p-1 mx-1 tap-highlight-transparent">
-        <span class="material-icons-outlined text-xl mb-0.5">near_me</span>
-        <span class="text-[11px] font-bold uppercase leading-none">Ir Ahora</span>
-      </a>
+        <!-- Botón central destacado -->
+        <li class="flex-[1.4] flex">
+          <a href="https://www.google.com/maps/search/?api=1&query=Terencio+Cash+Market" target="_blank" class="w-full flex flex-col items-center justify-center bg-brand-primary text-white rounded-xl shadow-lg active:bg-green-800 transition transform active:scale-95 p-1 mx-1 tap-highlight-transparent">
+            <span class="material-icons-outlined text-xl mb-0.5">near_me</span>
+            <span class="text-[11px] font-bold uppercase leading-none">Ir Ahora</span>
+          </a>
+        </li>
       
-      <a href="/ofertas" class="flex-1 flex flex-col items-center justify-center p-2 rounded-lg text-gray-600 hover:bg-red-50 active:bg-red-100 transition tap-highlight-transparent relative group">
-        <span class="absolute top-1 right-2 w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
-        <span class="material-icons-outlined text-red-600 text-2xl group-hover:scale-110 transition-transform">local_offer</span>
-        <span class="text-[10px] font-bold mt-1 text-red-700">Ofertas</span>
-      </a>
-
-    </div>
+        <li class="flex-1 flex">
+          <a href="/ofertas" class="w-full flex flex-col items-center justify-center p-2 rounded-lg text-gray-600 hover:bg-red-50 active:bg-red-100 transition tap-highlight-transparent relative group">
+            <span class="absolute top-1 right-2 w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
+            <span class="material-icons-outlined text-red-600 text-2xl group-hover:scale-110 transition-transform">local_offer</span>
+            <span class="text-[10px] font-bold mt-1 text-red-700">Ofertas</span>
+          </a>
+        </li>
+      
+      </ul>
+    </nav>
     
     <CookieBanner />
   </body>

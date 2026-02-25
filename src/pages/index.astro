@@ -4,6 +4,7 @@ import heroBg from "../assets/images/hero-bg.webp";
 import carniceriaImg from "../assets/images/supermercado-interior.webp";
 import frescoImg from "../assets/images/visita-estudiantes-bachillerato.webp";
 
+import NewsletterForm from "../components/forms/NewsletterForm";
 import Hero from "../components/Hero.astro";
 import LocationSection from "../components/LocationSection.astro";
 import LocalBusinessSchema from "../components/SEO/LocalBusinessSchema.astro";
@@ -14,15 +15,15 @@ import GoogleReviews from "../components/widgets/GoogleReviews.astro";
 import Layout from "../layouts/Layout.astro";
 
 
-const title = "Terencio Cash Market | Supermercado en La Laguna y Mayorista Tenerife";
-const description = "Tu supermercado en La Laguna abierto los domingos. Cash & Carry sin carnet para particulares y mayorista para HORECA. Carne fresca, Carne de Fiesta y productos de El Hierro.";
+const title = "Terencio Cash Market | Supermercado en La Esperanza, San Cristóbal de La Laguna y Mayorista Tenerife";
+const description = "Tu supermercado en La Esperanza y San Cristóbal de La Laguna abierto los domingos. Cash & Carry sin carnet para particulares y proveedor alimentos al por mayor para HORECA (restaurantes y bares).";
 ---
 
 <LocalBusinessSchema />
 <Layout title={title} description={description} image={carniceriaImg.src} preloadImage={heroBg.src}>
   <main>
     <Hero 
-      title="Tu Supermercado en <span class='text-green-400'>La Laguna</span> y Mayorista para <span class='text-yellow-400'>Tenerife</span>"
+      title="Supermercado en <span class='text-green-400'>La Esperanza (San Cristóbal de La Laguna)</span> y Mayorista HORECA en <span class='text-yellow-400'>Tenerife</span>"
       subtitle="El único Cash & Carry donde familias y profesionales compran al mejor precio. Carnicería propia, quesadillas de El Hierro y abierto los domingos."
       badge="📍 Ctra. La Esperanza, 22 (La Laguna)"
       primaryCta={{ text: "Ver Ofertas", href: "/ofertas" }}
@@ -58,8 +59,8 @@ const description = "Tu supermercado en La Laguna abierto los domingos. Cash & C
     <Section class="bg-gray-50">
        <div class="text-center mb-12">
          <span class="text-green-700 font-bold uppercase tracking-widest text-sm">Nuestros Departamentos</span>
-         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">¿Qué necesitas hoy?</h2>
-         <p class="text-gray-600 max-w-3xl mx-auto text-base md:text-lg leading-relaxed mb-4">
+         <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-2 mb-4">¿Qué necesitas hoy?</h2>
+         <p class="text-gray-600 max-w-3xl mx-auto text-base leading-relaxed mb-4">
            Calidad, frescura y precios de almacén para todos los públicos. En Terencio encontrarás una amplia variedad de productos: <strong>frescos, congelados, bebidas, limpieza y menaje</strong>. Mantenemos <strong>stock permanente</strong> de marcas líderes y apostamos firmemente por el <strong>producto canario</strong>.
          </p>
        </div>
@@ -67,46 +68,46 @@ const description = "Tu supermercado en La Laguna abierto los domingos. Cash & C
        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-2">
          
          <!-- Card Carnicería -->
-          <a href="/carniceria-tenerife" class="group relative overflow-hidden rounded-[2rem] h-96 shadow-lg hover:shadow-2xl transition-all duration-500 block transform hover:-translate-y-2">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 rounded-[2rem]"></div>
-              <img src={carniceriaImg.src} alt="Carnicería Terencio Tenerife - Carne de Fiesta" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition duration-700 rounded-[2rem]" loading="lazy"/>
-             <div class="absolute bottom-0 left-0 p-8 z-20 text-white w-full">
+          <a href="/carniceria-tenerife" class="group relative overflow-hidden rounded-2xl h-72 lg:h-80 shadow-lg hover:shadow-2xl transition-all duration-500 block transform hover:-translate-y-2">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 rounded-2xl"></div>
+              <img src={carniceriaImg.src} alt="Carnicería Terencio Tenerife - Carne de Fiesta" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition duration-700 rounded-2xl" loading="lazy"/>
+             <div class="absolute bottom-0 left-0 p-6 z-20 text-white w-full">
                <span class="bg-red-600/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block shadow-sm border border-white/20">Corte a Cuchillo</span>
-               <h3 class="text-3xl font-bold mb-2 flex items-center gap-2">Carnicería <Icon name="ArrowRight" size={24} className="opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 duration-300 text-red-400"/></h3>
-               <p class="text-gray-200 text-sm md:text-base opacity-90 leading-relaxed font-medium">
+               <h3 class="text-2xl font-bold mb-2 flex items-center gap-2">Carnicería <Icon name="ArrowRight" size={24} className="opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 duration-300 text-red-400"/></h3>
+               <p class="text-gray-200 text-sm opacity-90 leading-relaxed font-medium">
                  Despiece propio diario. Especialistas en <strong>Carne de Fiesta</strong>, chuletones y preparados para asaderos.
                </p>
              </div>
          </a>
 
          <!-- Card El Hierro -->
-          <a href="/productos-el-hierro-tenerife" class="group relative overflow-hidden rounded-[2rem] h-96 shadow-lg hover:shadow-2xl transition-all duration-500 block transform hover:-translate-y-2">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 rounded-[2rem]"></div>
-              <img src={elHierroImg.src} alt="Productos de El Hierro en Tenerife" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition duration-700 rounded-[2rem]" loading="lazy"/>
-             <div class="absolute bottom-0 left-0 p-8 z-20 text-white w-full">
+          <a href="/productos-el-hierro-tenerife" class="group relative overflow-hidden rounded-2xl h-72 lg:h-80 shadow-lg hover:shadow-2xl transition-all duration-500 block transform hover:-translate-y-2">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 rounded-2xl"></div>
+              <img src={elHierroImg.src} alt="Productos de El Hierro en Tenerife" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition duration-700 rounded-2xl" loading="lazy"/>
+             <div class="absolute bottom-0 left-0 p-6 z-20 text-white w-full">
                <div class="bg-yellow-500/90 backdrop-blur-sm text-black text-xs font-bold px-3 py-1 rounded-full inline-block mb-3 shadow-sm border border-white/20">Exclusivo</div>
-               <h3 class="text-3xl font-bold mb-2 flex items-center gap-2">Sabor Herreño <Icon name="ArrowRight" size={24} className="opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 duration-300 text-yellow-400"/></h3>
-               <p class="text-gray-200 text-sm md:text-base opacity-90 leading-relaxed font-medium">
+               <h3 class="text-2xl font-bold mb-2 flex items-center gap-2">Sabor Herreño <Icon name="ArrowRight" size={24} className="opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 duration-300 text-yellow-400"/></h3>
+               <p class="text-gray-200 text-sm opacity-90 leading-relaxed font-medium">
                  Traemos la isla a Tenerife: <strong>Quesadillas</strong>, Piña Tropical de Frontera y Queso ahumado. Stock semanal.
                </p>
              </div>
          </a>
 
          <!-- Card Profesionales (Cash & Carry) -->
-          <a href="/profesionales" class="group relative overflow-hidden rounded-[2rem] h-96 shadow-lg hover:shadow-2xl transition-all duration-500 block md:col-span-2 lg:col-span-1">
-              <div class="absolute inset-0 bg-slate-900 z-10 rounded-[2rem]"></div>
-              <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] z-10 rounded-[2rem]"></div>
-              <div class="absolute inset-0 border-4 border-transparent group-hover:border-green-500 rounded-[2rem] z-30 pointer-events-none transition-colors duration-300"></div>
+          <a href="/profesionales" class="group relative overflow-hidden rounded-2xl h-72 lg:h-80 shadow-lg hover:shadow-2xl transition-all duration-500 block md:col-span-2 lg:col-span-1">
+              <div class="absolute inset-0 bg-slate-900 z-10 rounded-2xl"></div>
+              <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] z-10 rounded-2xl"></div>
+              <div class="absolute inset-0 border-4 border-transparent group-hover:border-green-500 rounded-2xl z-30 pointer-events-none transition-colors duration-300"></div>
               
-              <div class="absolute inset-0 z-20 flex flex-col justify-center items-center text-center p-8 text-white h-full">
-               <div class="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(22,163,74,0.5)] group-hover:scale-110 transition-transform duration-300 border-4 border-green-700">
-                  <Icon name="Store" size={40} className="text-white"/>
+              <div class="absolute inset-0 z-20 flex flex-col justify-center items-center text-center p-6 text-white h-full">
+               <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-4 shadow-[0_0_20px_rgba(22,163,74,0.5)] group-hover:scale-110 transition-transform duration-300 border-4 border-green-700">
+                  <Icon name="Store" size={32} className="text-white"/>
                </div>
-               <h3 class="text-3xl font-bold mb-3">Zona Profesionales</h3>
-               <p class="text-slate-300 text-sm md:text-base mb-8 max-w-xs mx-auto font-medium">
+               <h3 class="text-2xl font-bold mb-3">Zona Profesionales</h3>
+               <p class="text-slate-300 text-sm mb-6 max-w-xs mx-auto font-medium">
                  Soluciones integrales para Hostelería y Restauración. Pedidos personalizados y tarifas netas competitivas.
                </p>
-               <span class="inline-flex items-center gap-2 bg-white text-slate-900 px-8 py-3 rounded-xl font-bold text-sm group-hover:bg-green-400 group-hover:text-green-900 transition-colors shadow-lg">
+               <span class="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-2 rounded-xl font-bold text-sm group-hover:bg-green-400 group-hover:text-green-900 transition-colors shadow-lg">
                  Solicitar Tarifas HORECA <Icon name="ArrowRight" size={16}/>
                </span>
              </div>
@@ -121,7 +122,7 @@ const description = "Tu supermercado en La Laguna abierto los domingos. Cash & C
 
       <div class="max-w-4xl mx-auto text-center mb-12 relative z-10">
         <span class="text-green-700 font-bold uppercase tracking-widest text-sm bg-green-100 px-4 py-1 rounded-full">Tu Supermercado Diferente</span>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6 tracking-tight">Por Qué Somos Tu Mejor Opción en Tenerife</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-6 tracking-tight">Por Qué Somos Tu Mejor Opción en Tenerife</h2>
         <div class="w-24 h-1 bg-green-600 mx-auto rounded-full"></div>
       </div>
       
@@ -131,18 +132,18 @@ const description = "Tu supermercado en La Laguna abierto los domingos. Cash & C
             <strong>Terencio Cash Market</strong> ha revolucionado la forma de hacer la compra en el norte de Tenerife. Somos el único <strong>Cash & Carry sin carnet de socio</strong> donde particulares y profesionales conviven para beneficiarse de precios de almacén. Ubicados estratégicamente en la subida a <strong>La Esperanza (La Laguna)</strong>, a pocos minutos del centro y Santa Cruz, ofrecemos una experiencia de compra cómoda, rápida y económica.
           </p>
           
-          <div class="grid md:grid-cols-2 gap-8 my-12 text-left">
-             <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-lg transition">
-                <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <div class="grid md:grid-cols-2 gap-8 my-8 text-left">
+             <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition">
+                <h3 class="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
                    <Icon name="Beef" className="text-red-600" /> Carnicería Tradicional
                 </h3>
-                <p>Nuestra <strong>carnicería propia</strong> cuenta con maestros carniceros que realizan <strong>despiece diario y corte a cuchillo</strong>. Olvídate de las bandejas industriales; aquí eliges el grosor de tu chuleta y te preparamos la <strong>Carne de Fiesta</strong> al momento con nuestro adobo casero.</p>
+                <p class="text-base">Nuestra <strong>carnicería propia</strong> cuenta con maestros carniceros que realizan <strong>despiece diario y corte a cuchillo</strong>. Olvídate de las bandejas industriales; aquí eliges el grosor de tu chuleta y te preparamos la <strong>Carne de Fiesta</strong> al momento con nuestro adobo casero.</p>
              </div>
-             <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:shadow-lg transition">
-                <h3 class="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+             <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-lg transition">
+                <h3 class="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
                    <Icon name="Wheat" className="text-yellow-600" /> Sabor Herreño
                 </h3>
-                <p>Somos el puente directo con la Isla del Meridiano. Traemos semanalmente <strong>quesadillas de El Hierro</strong> artesanas, <strong>queso ahumado de la cooperativa</strong> y la famosa piña tropical de Frontera. Productos exclusivos que difícilmente encontrarás en otros supermercados.</p>
+                <p class="text-base">Somos el puente directo con la Isla del Meridiano. Traemos semanalmente <strong>quesadillas de El Hierro</strong> artesanas, <strong>queso ahumado de la cooperativa</strong> y la famosa piña tropical de Frontera. Productos exclusivos que difícilmente encontrarás en otros supermercados.</p>
              </div>
           </div>
           
@@ -168,11 +169,11 @@ const description = "Tu supermercado en La Laguna abierto los domingos. Cash & C
       <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
         <div>
           <span class="text-green-400 font-bold uppercase tracking-widest text-sm bg-green-900/50 px-3 py-1 rounded-full border border-green-700">Sector HORECA</span>
-          <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-6 leading-tight">Servicio Integral para Profesionales</h2>
+          <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-5 leading-tight">Servicio Integral para Profesionales</h2>
           
           <div class="prose prose-lg prose-invert max-w-none">
             <p class="text-slate-200 text-lg leading-relaxed mb-6">
-              Si tienes un <strong>restaurante, bar, cafetería o guachinche</strong> en Tenerife, Terencio es tu aliado estratégico. Ofrecemos <strong>soluciones globales</strong> que incluyen alimentación seca, bodega, productos de limpieza industrial y menaje.
+              Si tienes un <strong>restaurante, bar, cafetería o guachinche</strong> en Tenerife, Terencio es tu aliado estratégico. Como proveedores HORECA y de venta al por mayor, ofrecemos <strong>soluciones globales</strong> que incluyen embutidos, carne, alimentación seca, bodega, productos de limpieza industrial y menaje.
             </p>
             <ul class="space-y-4 mb-8">
                 <li class="flex items-start gap-3">
@@ -243,6 +244,27 @@ const description = "Tu supermercado en La Laguna abierto los domingos. Cash & C
        </div>
     </Section>
 
+    <!-- Newsletter CTA -->
+    <Section class="bg-gradient-to-br from-green-50 to-emerald-100 relative overflow-hidden">
+      <!-- Decorative Elements -->
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-white opacity-40 rounded-full mix-blend-overlay filter blur-3xl transform translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-green-200 opacity-50 rounded-full mix-blend-multiply filter blur-3xl transform -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-white rounded-full shadow-lg mb-6 text-green-600">
+                <Icon name="Mail" size={32} />
+            </div>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Únete a nuestra Comunidad</h2>
+            <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Recibe semanalmente nuestras mejores ofertas en frescos, recetas exclusivas y novedades directamente en tu email. <strong>¡Solo contenido de valor y cero spam!</strong>
+            </p>
+            
+            <NewsletterForm client:visible />
+        </div>
+      </div>
+    </Section>
+
     <!-- Google Reviews -->
     <GoogleReviews />
     
@@ -264,8 +286,8 @@ const description = "Tu supermercado en La Laguna abierto los domingos. Cash & C
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-12">
           <span class="text-green-700 font-bold uppercase tracking-widest text-sm">Preguntas Frecuentes</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">Todo lo que necesitas saber</h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">Resolvemos las dudas más comunes sobre nuestro supermercado Cash & Carry en La Laguna</p>
+          <h2 class="text-3xl font-bold text-gray-900 mt-2 mb-4">Todo lo que necesitas saber</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-base">Resolvemos las dudas más comunes sobre nuestro supermercado Cash & Carry en La Laguna</p>
         </div>
 
         <div class="space-y-4">

@@ -46,9 +46,10 @@ import logo from "../assets/images/logo.webp";
     </a>
 
     <!-- Desktop Menu -->
-    <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+    <nav aria-label="Navegación Desktop Principal" class="hidden md:block">
+      <ul class="flex items-center gap-1 lg:gap-2 m-0 p-0 list-none">
       {navigation.main.map(link => (
-        <div class="relative group">
+        <li class="relative group">
           <a 
             href={link.href} 
             class:list={[
@@ -63,9 +64,10 @@ import logo from "../assets/images/logo.webp";
           {/* Dropdown Menu */}
           {link.children && (
             <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
-               <div class="bg-white shadow-xl rounded-xl border border-gray-100 p-2 w-64 overflow-hidden ring-1 ring-black ring-opacity-5">
+               <ul class="bg-white shadow-xl rounded-xl border border-gray-100 p-2 w-64 overflow-hidden ring-1 ring-black ring-opacity-5 m-0 list-none">
                   {link.children.map(child => (
-                    <a href={child.href} class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-800 rounded-lg text-sm font-medium transition-colors group/item">
+                    <li>
+                      <a href={child.href} class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-800 rounded-lg text-sm font-medium transition-colors group/item">
                       <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 group-hover/item:bg-green-200 group-hover/item:text-green-700 transition">
                          {child.label.includes('Carnicería') ? <span class="text-base">🥩</span> :
                           child.label.includes('Quesos') ? <span class="text-base">🧀</span> :
@@ -76,21 +78,25 @@ import logo from "../assets/images/logo.webp";
                       <div class="flex flex-col">
                           <span class="leading-none">{child.label}</span>
                       </div>
-                    </a>
+                      </a>
+                    </li>
                   ))}
-               </div>
+               </ul>
             </div>
           )}
-        </div>
+        </li>
       ))}
       
-      <a 
-        href={navigation.cta.href} 
-        class="ml-4 bg-brand-primary text-white px-6 py-2.5 rounded-xl font-bold hover:bg-green-800 transition-all shadow-md hover:shadow-lg text-sm flex items-center gap-2 transform hover:-translate-y-0.5"
-      >
-        {navigation.cta.label}
-        <Icon name="ArrowRight" size={16} />
-      </a>
+      <li class="list-none md:ml-2">
+        <a 
+          href={navigation.cta.href} 
+          class="ml-4 bg-brand-primary text-white px-6 py-2.5 rounded-xl font-bold hover:bg-green-800 transition-all shadow-md hover:shadow-lg text-sm flex items-center gap-2 transform hover:-translate-y-0.5"
+        >
+          {navigation.cta.label}
+          <Icon name="ArrowRight" size={16} />
+        </a>
+      </li>
+      </ul>
     </nav>
 
     <!-- Mobile Right: Ofertas Icon -->
@@ -102,10 +108,10 @@ import logo from "../assets/images/logo.webp";
   <StoreStatus />
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu" class="fixed top-[105px] left-0 w-full h-[calc(100dvh-105px)] bg-white z-[70] transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto pb-32 shadow-inner">
-    <div class="flex flex-col p-6 gap-2">
+  <nav aria-label="Navegación Móvil Principal" id="mobile-menu" class="fixed top-[105px] left-0 w-full h-[calc(100dvh-105px)] bg-white z-[70] transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto pb-32 shadow-inner">
+    <ul class="flex flex-col p-6 gap-2 m-0 list-none">
       {navigation.main.map((link, index) => (
-        <div class="border-b border-gray-50 last:border-0 pb-2">
+        <li class="border-b border-gray-50 last:border-0 pb-2">
           <div class="flex items-center justify-between">
             <a 
               href={link.href} 
@@ -128,19 +134,21 @@ import logo from "../assets/images/logo.webp";
           </div>
           
           {link.children && (
-            <div id={`submenu-${index}`} class="hidden pl-4 bg-gray-50 rounded-xl mt-1 mb-2 border border-gray-100">
+            <ul id={`submenu-${index}`} class="hidden pl-4 bg-gray-50 rounded-xl mt-1 mb-2 border border-gray-100 list-none m-0">
               {link.children.map(child => (
-                  <a href={child.href} class="text-base text-gray-600 mobile-link block py-3 px-2 font-medium border-b border-gray-200 last:border-0 hover:text-green-700 flex items-center gap-2">
-                    <span class="material-icons-outlined text-sm text-green-600">chevron_right</span>
-                    {child.label}
-                  </a>
+                  <li class="border-b border-gray-200 last:border-0">
+                    <a href={child.href} class="text-base text-gray-600 mobile-link block py-3 px-2 font-medium hover:text-green-700 flex items-center gap-2">
+                      <span class="material-icons-outlined text-sm text-green-600">chevron_right</span>
+                      {child.label}
+                    </a>
+                  </li>
               ))}
-            </div>
+            </ul>
           )}
-        </div>
+        </li>
       ))}
       
-      <div class="mt-6 space-y-4">
+      <li class="mt-4">
         <a href="/profesionales" class="flex items-center justify-between w-full p-4 bg-slate-900 text-white rounded-xl font-bold mobile-link shadow-lg">
            <div class="flex items-center gap-3">
               <span class="material-icons-outlined">storefront</span>
@@ -148,6 +156,8 @@ import logo from "../assets/images/logo.webp";
            </div>
            <span class="material-icons-outlined">arrow_forward</span>
         </a>
+      </li>
+      <li class="mb-4">
         <a href="/carniceria-tenerife" class="flex items-center justify-between w-full p-4 bg-red-600 text-white rounded-xl font-bold mobile-link shadow-lg">
            <div class="flex items-center gap-3">
               <span class="material-icons-outlined">restaurant_menu</span>
@@ -155,9 +165,8 @@ import logo from "../assets/images/logo.webp";
            </div>
            <span class="material-icons-outlined">arrow_forward</span>
         </a>
-      </div>
-
-      <div class="mt-8 pt-6 border-t border-gray-100 text-center text-sm text-gray-500">
+      </li>
+      <li class="mt-8 pt-6 border-t border-gray-100 text-center text-sm text-gray-500">
           <p class="font-medium mb-2">Síguenos en redes</p>
           <div class="flex justify-center gap-6">
              <a href={siteData.social.facebook} target="_blank" class="text-blue-600 bg-blue-50 p-3 rounded-full hover:bg-blue-100 transition" aria-label="Facebook"><i class="fab fa-facebook text-xl"></i></a>
@@ -167,9 +176,9 @@ import logo from "../assets/images/logo.webp";
             <p>Terencio Cash Market</p>
             <p>La Laguna, Tenerife</p>
           </div>
-      </div>
-    </div>
-  </div>
+      </li>
+    </ul>
+  </nav>
 </header>
 
 <script>
