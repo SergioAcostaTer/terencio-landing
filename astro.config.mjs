@@ -4,7 +4,6 @@ import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
 export default defineConfig({
   integrations: [
     tailwind(), 
@@ -12,28 +11,24 @@ export default defineConfig({
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
+      filter: (page) => 
+        !page.includes('/legal/') && 
+        !page.includes('/gracias') && 
+        !page.includes('/atencion-al-cliente'),
       serialize(item) {
         if (item.url === 'https://terencio.es/') {
           item.changefreq = 'daily';
           item.priority = 1.0;
         } else if (
-          item.url.includes('/profesionales') || 
+          item.url.includes('/blog/') || 
+          item.url.includes('/noticias/') ||
           item.url.includes('/ofertas') ||
-          item.url.includes('/carniceria-tenerife')
-        ) {
-          item.changefreq = 'daily';
-          item.priority = 0.9;
-        } else if (
-          item.url.includes('/asaderos-tenerife') || 
-          item.url.includes('/comparativa-precios') ||
-          item.url.includes('/quesos-el-hierro') ||
-          item.url.includes('/productos-el-hierro') ||
-          item.url.includes('/cash-and-carry')
+          item.url.includes('/carniceria')
         ) {
           item.changefreq = 'weekly';
-          item.priority = 0.8;
+          item.priority = 0.9;
         } else {
-             item.priority = 0.5;
+          item.priority = 0.5;
         }
         return item;
       }
@@ -45,10 +40,5 @@ export default defineConfig({
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto',
-  },
-  image: {
-    service: {
-      entrypoint: 'astro/assets/services/sharp'
-    }
   }
 });
