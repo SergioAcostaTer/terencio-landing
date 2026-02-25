@@ -3,6 +3,7 @@ import { AlertCircle, CheckCircle, FileText, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
+import siteData from '../../data/siteData.json';
 
 const professionalSchema = z.object({
   businessName: z.string().min(2, "El nombre del negocio es obligatorio"),
@@ -135,8 +136,9 @@ export default function ProfessionalForm() {
             <div className="flex-grow border-t border-gray-200"></div>
         </div>
 
+        { (siteData.contact.whatsapp || siteData.contact.whatsappUrl) ? (
         <a 
-            href="https://wa.me/34922636026?text=Hola,%20soy%20un%20negocio%20y%20me%20gustar%C3%ADa%20solicitar%20tarifas%20de%20mayorista." 
+            href={siteData.contact.whatsappUrl ? `${siteData.contact.whatsappUrl}?text=Hola,%20soy%20un%20negocio%20y%20me%20gustar%C3%ADa%20solicitar%20tarifas%20de%20mayorista.` : `https://wa.me/34${siteData.contact.phoneRaw}?text=Hola,%20soy%20un%20negocio%20y%20me%20gustar%C3%ADa%20solicitar%20tarifas%20de%20mayorista.`} 
             target="_blank"
             rel="noopener noreferrer"
             className="w-full bg-[#25D366] text-white font-bold text-lg py-3 rounded-xl hover:bg-[#128C7E] transition shadow-md flex items-center justify-center gap-2"
@@ -146,6 +148,17 @@ export default function ProfessionalForm() {
             </svg>
             Hablar por WhatsApp
         </a>
+        ) : (
+        <a 
+            href={`tel:${siteData.contact.phoneRaw}`}
+            className="w-full bg-blue-600 text-white font-bold text-lg py-3 rounded-xl hover:bg-blue-700 transition shadow-md flex items-center justify-center gap-2"
+        >
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Llámanos ahora
+        </a>
+        )}
 
         <p className="text-[10px] text-center text-gray-500 mt-2">
             Acepto la <a href="/politica-privacidad" className="underline hover:text-green-700">política de privacidad</a>.

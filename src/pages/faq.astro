@@ -3,6 +3,7 @@ import PageHeader from "../components/ui/PageHeader.astro";
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/ui/Icon";
 import faqs from "../data/faqs.json";
+import siteData from "../data/siteData.json";
 
 const title = "Centro de Ayuda y Preguntas Frecuentes | Terencio";
 const description = "Resuelve tus dudas sobre Terencio Cash Market. Horarios de domingo, acceso sin carnet, productos de El Hierro y condiciones para mayoristas.";
@@ -125,9 +126,15 @@ const categories = {
                 <a href="/contacto" class="bg-green-700 text-white px-8 py-3 rounded-xl font-bold hover:bg-green-800 transition shadow-lg hover:shadow-xl">
                     Contactar Ahora
                 </a>
-                <a href={`https://wa.me/34922550067`} target="_blank" class="bg-white text-green-700 border border-green-200 px-8 py-3 rounded-xl font-bold hover:bg-green-50 transition">
+                { (siteData.contact.whatsapp || siteData.contact.whatsappUrl) ? (
+                <a href={siteData.contact.whatsappUrl || `https://wa.me/34${siteData.contact.phoneRaw}`} target="_blank" class="bg-white text-green-700 border border-green-200 px-8 py-3 rounded-xl font-bold hover:bg-green-50 transition">
                     WhatsApp Web
                 </a>
+                ) : (
+                <a href={`tel:${siteData.contact.phoneRaw}`} class="bg-white text-blue-700 border border-blue-200 px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition flex items-center justify-center gap-2">
+                    <Icon name="Phone" size={20} /> Llamar a Tienda
+                </a>
+                )}
             </div>
         </div>
 

@@ -3,6 +3,7 @@ import Button from "../components/ui/Button.astro";
 import Icon from "../components/ui/Icon";
 import PageHeader from "../components/ui/PageHeader.astro";
 import offers from "../data/offers.json";
+import siteData from "../data/siteData.json";
 import Layout from "../layouts/Layout.astro";
 
 const title = "Ofertas Semanales Terencio | Supermercado Barato Tenerife";
@@ -174,24 +175,45 @@ const description = "Descubre las mejores ofertas de la semana en Terencio Cash 
     });
 </script>
 
-        <!-- CTA Newsletter / WhatsApp -->
+        <!-- CTA Newsletter / WhatsApp / Call -->
         <div class="mt-20 bg-slate-900 rounded-3xl p-8 md:p-12 text-white text-center relative overflow-hidden shadow-2xl">
             <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')]"></div>
             <div class="relative z-10 max-w-2xl mx-auto">
-                <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
-                    <Icon name="MessageCircle" size={32} />
-                </div>
-                <h2 class="text-3xl font-bold mb-4">¿Quieres recibir las ofertas en tu móvil?</h2>
-                <p class="text-slate-300 mb-8 text-lg">No te pierdas ninguna bajada de precio. Únete a nuestro canal de difusión o consúltanos directamente por WhatsApp.</p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button href="https://wa.me/34922550067" target="_blank" class="bg-green-500 hover:bg-green-600 text-white border-none shadow-lg shadow-green-500/20 gap-2">
-                        <Icon name="MessageCircle" /> Consultar por WhatsApp
-                    </Button>
-                    <Button href="/contacto" variant="outline" class="border-white text-white hover:bg-white hover:text-slate-900">
-                        Ver más formas de contacto
-                    </Button>
-                </div>
+                { (siteData.contact.whatsapp || siteData.contact.whatsappUrl) ? (
+                  <>
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
+                        <Icon name="MessageCircle" size={32} />
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4">¿Quieres recibir las ofertas en tu móvil?</h2>
+                    <p class="text-slate-300 mb-8 text-lg">No te pierdas ninguna bajada de precio. Únete a nuestro canal de difusión o consúltanos directamente por WhatsApp.</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Button href={siteData.contact.whatsappUrl || `https://wa.me/34${siteData.contact.phoneRaw}`} target="_blank" class="bg-green-500 hover:bg-green-600 text-white border-none shadow-lg shadow-green-500/20 gap-2">
+                            <Icon name="MessageCircle" /> Consultar por WhatsApp
+                        </Button>
+                        <Button href="/contacto" variant="outline" class="border-white text-white hover:bg-white hover:text-slate-900">
+                            Ver más formas de contacto
+                        </Button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-500/30">
+                        <Icon name="Phone" size={32} />
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4">¿Quieres enterarte de nuestras ofertas?</h2>
+                    <p class="text-slate-300 mb-8 text-lg">No te pierdas ninguna bajada de precio. Llámanos directamente para consultar nuestras promociones.</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Button href={`tel:${siteData.contact.phoneRaw}`} class="bg-blue-500 hover:bg-blue-600 text-white border-none shadow-lg shadow-blue-500/20 gap-2">
+                            <Icon name="Phone" /> Llámanos ahora
+                        </Button>
+                        <Button href="/contacto" variant="outline" class="border-white text-white hover:bg-white hover:text-slate-900">
+                            Ver más formas de contacto
+                        </Button>
+                    </div>
+                  </>
+                )}
             </div>
         </div>
 
