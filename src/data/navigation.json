@@ -33,7 +33,13 @@
     },
     {
       "label": "Mayorista HORECA",
-      "href": "/profesionales"
+      "href": "/profesionales",
+      "color": "slate"
+    },
+    {
+      "label": "Nuestra Carnicería",
+      "href": "/carniceria-tenerife",
+      "color": "red"
     },
     {
       "label": "Horario",
