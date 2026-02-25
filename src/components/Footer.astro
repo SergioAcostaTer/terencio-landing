@@ -23,7 +23,7 @@ const year = new Date().getFullYear();
              <Image src={logo} alt="Terencio Logo Footer" width={40} height={40} class="h-10 w-auto bg-white p-1 rounded" loading="lazy" />
              <span class="text-white text-xl font-bold tracking-tight">Terencio Cash Market</span>
         </div>
-        <address class="not-italic text-sm text-gray-300 space-y-2">
+        <address class="not-italic text-sm text-gray-200 space-y-2">
           <p class="flex items-start gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
             <span>{siteData.address.streetAddress}<br>{siteData.address.postalCode} {siteData.address.addressLocality}, {siteData.address.addressRegion}</span>
@@ -48,7 +48,7 @@ const year = new Date().getFullYear();
         <h3 class="text-white text-lg font-bold border-b border-gray-700 pb-2 w-fit">Enlaces Rápidos</h3>
         <ul class="space-y-2 text-sm">
           {navigation.footer.quickLinks.map(link => (
-            <li><a href={link.href} class="hover:text-green-400 transition-colors text-gray-400 hover:text-green-400">{link.label}</a></li>
+            <li><a href={link.href} class="hover:text-green-400 transition-colors text-gray-300 hover:text-green-300">{link.label}</a></li>
           ))}
         </ul>
       </nav>
@@ -58,7 +58,7 @@ const year = new Date().getFullYear();
         <h3 class="text-white text-lg font-bold border-b border-gray-700 pb-2 w-fit">Horario de Apertura</h3>
         <ul class="space-y-2 text-sm">
           <li class="flex flex-col gap-1">
-            <span class="text-gray-300 font-medium">{siteData.hours.text}</span>
+            <span class="text-gray-200 font-medium">{siteData.hours.text}</span>
           </li>
         </ul>
       </div>
@@ -68,7 +68,7 @@ const year = new Date().getFullYear();
         <h3 class="text-white text-lg font-bold border-b border-gray-700 pb-2 w-fit">Destacados</h3>
         <ul class="space-y-2 text-sm">
           {navigation.footer.featured.map(link => (
-            <li><a href={link.href} class="hover:text-green-400 transition-colors text-gray-400">{link.label}</a></li>
+            <li><a href={link.href} class="hover:text-green-300 transition-colors text-gray-300">{link.label}</a></li>
           ))}
         </ul>
       </nav>
@@ -87,7 +87,7 @@ const year = new Date().getFullYear();
        </div>
     </section>
 
-    <div class="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+    <div class="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
       <p>&copy; {year} {siteData.legalName} Todos los derechos reservados.</p>
       <div class="flex flex-col md:flex-row gap-4 mt-4 md:mt-0 items-center">
          <!-- Payment / Trust Icons -->

@@ -79,7 +79,7 @@ export default function NewsletterForm() {
             <button
                 type="submit"
                 disabled={isSubmitting || submitStatus === 'success'}
-                className="bg-green-600 hover:bg-green-700 text-white font-bold text-base px-8 py-4 rounded-xl transition shadow-lg hover:shadow-xl hover:-translate-y-0.5 whitespace-nowrap flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none min-w-[140px]"
+                className="bg-green-700 hover:bg-green-800 text-white font-bold text-base px-8 py-4 rounded-xl transition shadow-lg hover:shadow-xl hover:-translate-y-0.5 whitespace-nowrap flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none min-w-[140px]"
             >
                 {isSubmitting ? <Loader2 className="animate-spin" size={20} /> : 'Suscribirme'}
             </button>
@@ -107,7 +107,7 @@ export default function NewsletterForm() {
             )}
         </div>
         <p className="text-[11px] text-center text-slate-500 mt-2">
-            Al suscribirte aceptas nuestra <a href="/politica-privacidad" className="underline hover:text-green-700 transition-colors">política de privacidad</a>. Prometemos no enviar spam.
+            Al suscribirte aceptas nuestra <a href="/legal/politica-privacidad" className="underline hover:text-green-700 transition-colors">política de privacidad</a>. Prometemos no enviar spam.
         </p>
     </div>
   );

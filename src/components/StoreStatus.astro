@@ -1,7 +1,7 @@
 ---
 ---
 
-<div id="store-status-wrapper" class="block w-full transition-colors duration-500 bg-green-600 border-b border-gray-200 cursor-pointer hover:bg-green-700">
+<div id="store-status-wrapper" class="block w-full transition-colors duration-500 bg-green-700 border-b border-gray-200 cursor-pointer hover:bg-green-800">
   <div class="container mx-auto px-4 lg:px-6 flex justify-center items-center py-2">
     <div class="flex items-center gap-2 text-sm font-medium text-white group">
       <span id="status-icon" class="material-icons-outlined text-base">check_circle</span>
@@ -132,16 +132,16 @@
      }
 
      if (isOpen) {
-        statusWrapper.classList.remove('bg-red-600', 'bg-gray-100');
-        statusWrapper.classList.add('bg-green-600');
+        statusWrapper.classList.remove('bg-red-700', 'bg-gray-100');
+        statusWrapper.classList.add('bg-green-700');
         statusIcon.textContent = "check_circle";
         if(modalStatusBanner) {
             modalStatusBanner.classList.remove('bg-red-50', 'text-red-800', 'border-red-200');
             modalStatusBanner.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
         }
      } else {
-        statusWrapper.classList.remove('bg-green-600', 'bg-gray-100');
-        statusWrapper.classList.add('bg-red-600');
+        statusWrapper.classList.remove('bg-green-700', 'bg-gray-100');
+        statusWrapper.classList.add('bg-red-700');
         statusIcon.textContent = "schedule";
         if(modalStatusBanner) {
             modalStatusBanner.classList.remove('bg-green-50', 'text-green-800', 'border-green-200');

@@ -161,7 +161,7 @@ export default function ProfessionalForm() {
         )}
 
         <p className="text-[10px] text-center text-gray-500 mt-2">
-            Acepto la <a href="/politica-privacidad" className="underline hover:text-green-700">política de privacidad</a>.
+            Acepto la <a href="/legal/politica-privacidad" className="underline hover:text-green-700">política de privacidad</a>.
         </p>
 
         {submitStatus === 'success' && (
