@@ -110,7 +110,7 @@ import logo from "../assets/images/logo.webp";
   <StoreStatus />
 
   <!-- Mobile Menu Overlay -->
-  <nav aria-label="Navegación Móvil Principal" id="mobile-menu" class="fixed top-[105px] left-0 w-full h-[calc(100dvh-105px)] bg-white z-[70] transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto pb-6 shadow-inner">
+  <nav aria-label="Navegación Móvil Principal" id="mobile-menu" class="fixed top-[105px] left-0 w-full h-[calc(100dvh-105px)] bg-white z-[70] transform translate-x-full transition-transform duration-300 md:hidden overflow-hidden pb-6 shadow-inner">
     <ul class="flex flex-col p-6 gap-2 m-0 list-none">
       {navigation.main.map((link, index) => (
         <li class="mb-2">
@@ -194,10 +194,12 @@ import logo from "../assets/images/logo.webp";
           mobileMenu.classList.remove('translate-x-full');
           menuIcon.textContent = 'close';
           document.body.style.overflow = 'hidden'; 
+          document.documentElement.style.overflow = 'hidden';
         } else {
           mobileMenu.classList.add('translate-x-full');
           menuIcon.textContent = 'menu';
           document.body.style.overflow = '';
+          document.documentElement.style.overflow = '';
         }
       };
 
@@ -208,6 +210,7 @@ import logo from "../assets/images/logo.webp";
           mobileMenu.classList.add('translate-x-full');
           menuIcon.textContent = 'menu';
           document.body.style.overflow = '';
+          document.documentElement.style.overflow = '';
         });
       });
 
