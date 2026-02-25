@@ -354,7 +354,7 @@ Decide cada cuánto vendrás (mensual, quincenal) y márcalo en tu agenda.
 - Lunes a sábado: 8:00 - 21:00h
 - Domingos y Festivos: 08:30 - 20:30h
 
-**Teléfono:** 922 55 00 67  
+**Teléfono:** 922 31 21 22  
 **Email:** info@kitcash.es
 
 **Desde tu negocio en La Laguna:** 8-10 minutos  

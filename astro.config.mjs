@@ -13,8 +13,7 @@ export default defineConfig({
       lastmod: new Date(),
       filter: (page) => 
         !page.includes('/legal/') && 
-        !page.includes('/gracias') && 
-        !page.includes('/atencion-al-cliente'),
+        !page.includes('/gracias'),
       serialize(item) {
         if (item.url === 'https://terencio.es/') {
           item.changefreq = 'daily';
