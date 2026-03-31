@@ -21,7 +21,6 @@ export default defineConfig({
         } else if (
           item.url.includes('/blog/') || 
           item.url.includes('/noticias/') ||
-          item.url.includes('/ofertas') ||
           item.url.includes('/carniceria')
         ) {
           item.changefreq = 'weekly';

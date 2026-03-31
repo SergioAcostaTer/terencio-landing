@@ -131,6 +131,7 @@ const breadcrumbsSchema = {
           </a>
         </li>
       
+        <!-- Ofertas quick action hidden
         <li class="flex-1 flex">
           <a href="/ofertas" class="w-full flex flex-col items-center justify-center p-2 rounded-lg text-gray-600 hover:bg-red-50 active:bg-red-100 transition tap-highlight-transparent relative group">
             <span class="absolute top-1 right-2 w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
@@ -138,11 +139,67 @@ const breadcrumbsSchema = {
             <span class="text-[10px] font-bold mt-1 text-red-700">Ofertas</span>
           </a>
         </li>
+        -->
       
       </ul>
     </nav>
     
     <CookieBanner />
+    <script is:inline>
+      (() => {
+        const currencyPatterns = [
+          /€\s*\d[\d.,]*(?:\s*-\s*\d[\d.,]*)?(?:\/[A-Za-zÀ-ÿ]+)?/g,
+          /\b\d[\d.,]*(?:\s*-\s*\d[\d.,]*)?\s*€(?:\+)?(?:\/[A-Za-zÀ-ÿ]+)?/g,
+        ];
+
+        const scrubPrices = (root = document.body) => {
+          if (!root) return;
+
+          const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+            acceptNode(node) {
+              const parent = node.parentElement;
+              if (!parent) return NodeFilter.FILTER_REJECT;
+
+              const tagName = parent.tagName;
+              if (["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA"].includes(tagName)) {
+                return NodeFilter.FILTER_REJECT;
+              }
+
+              return currencyPatterns.some((pattern) => pattern.test(node.textContent || ""))
+                ? NodeFilter.FILTER_ACCEPT
+                : NodeFilter.FILTER_REJECT;
+            }
+          });
+
+          const textNodes = [];
+          let currentNode = walker.nextNode();
+
+          while (currentNode) {
+            textNodes.push(currentNode);
+            currentNode = walker.nextNode();
+          }
+
+          textNodes.forEach((node) => {
+            let nextText = node.textContent || "";
+
+            currencyPatterns.forEach((pattern) => {
+              nextText = nextText.replace(pattern, "").replace(/\s{2,}/g, " ");
+            });
+
+            node.textContent = nextText.trim() ? nextText : "";
+          });
+        };
+
+        const runScrubber = () => scrubPrices(document.body);
+
+        document.addEventListener("astro:page-load", runScrubber);
+        document.addEventListener("DOMContentLoaded", runScrubber);
+        runScrubber();
+
+        const observer = new MutationObserver(() => runScrubber());
+        observer.observe(document.body, { childList: true, subtree: true });
+      })();
+    </script>
   </body>
 </html>
 

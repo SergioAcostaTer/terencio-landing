@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/ofertas",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/horario-terencio-cash-market",
       "destination": "/horario",
       "permanent": true

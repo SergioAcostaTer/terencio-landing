@@ -66,11 +66,6 @@
         "label": "Vinos Canarios",
         "href": "/cash-and-carry-tenerife#bodega",
         "icon": "wine"
-      },
-      {
-        "label": "Ofertas Semanales",
-        "href": "/ofertas",
-        "icon": "tag"
       }
     ]
   },

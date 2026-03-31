@@ -5,11 +5,6 @@
       "href": "/"
     },
     {
-      "label": "Ofertas Semanales",
-      "href": "/ofertas",
-      "color": "red"
-    },
-    {
       "label": "Nuestros Productos",
       "href": "/cash-and-carry-tenerife",
       "children": [
@@ -81,10 +76,6 @@
       {
         "label": "Zona Profesionales",
         "href": "/profesionales"
-      },
-      {
-        "label": "Folleto de Ofertas",
-        "href": "/ofertas"
       },
       {
         "label": "Quiénes Somos",

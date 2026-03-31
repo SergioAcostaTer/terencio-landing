@@ -96,7 +96,7 @@ export default function NewsletterForm() {
             {submitStatus === 'success' && (
                 <div className="text-green-700 font-bold flex items-center gap-2 text-sm animate-fade-in-up">
                     <CheckCircle size={16} />
-                    ¡Gracias por suscribirte a nuestras ofertas!
+                    Gracias por suscribirte a nuestras novedades.
                 </div>
             )}
             {submitStatus === 'error' && (

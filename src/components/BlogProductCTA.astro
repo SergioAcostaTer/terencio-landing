@@ -36,7 +36,7 @@ const isRecetas = tags.some(t => t.toLowerCase().includes('receta') || t.toLower
         </div>
     )}
 
-    {/* Dynamic CTA 2: Professionals or Offers */}
+    {/* Dynamic CTA 2: Professionals or store */}
     {isHoreca ? (
         <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center flex flex-col items-center border-t-4 border-blue-600">
             <span class="text-4xl mb-4">🏭</span>
@@ -45,12 +45,22 @@ const isRecetas = tags.some(t => t.toLowerCase().includes('receta') || t.toLower
             <a href="/profesionales" class="text-green-700 font-bold text-sm hover:underline mt-auto">Zona Profesional →</a>
         </div>
     ) : (
-        <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center flex flex-col items-center">
-             <span class="text-4xl mb-4">🥗</span>
-            <h4 class="font-bold text-gray-900 mb-2">Frescos y Ofertas</h4>
-            <p class="text-sm text-gray-600 mb-4">Frutas y verduras locales con las mejores ofertas semanales.</p>
-            <a href="/ofertas" class="text-green-700 font-bold text-sm hover:underline mt-auto">Ver Folleto →</a>
-        </div>
+        <>
+            {/* Ofertas CTA hidden
+            <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center flex flex-col items-center">
+                 <span class="text-4xl mb-4">🥗</span>
+                <h4 class="font-bold text-gray-900 mb-2">Frescos y Ofertas</h4>
+                <p class="text-sm text-gray-600 mb-4">Frutas y verduras locales con las mejores ofertas semanales.</p>
+                <a href="/ofertas" class="text-green-700 font-bold text-sm hover:underline mt-auto">Ver Folleto →</a>
+            </div>
+            */}
+            <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center flex flex-col items-center">
+                 <span class="text-4xl mb-4">🛒</span>
+                <h4 class="font-bold text-gray-900 mb-2">Compra Completa</h4>
+                <p class="text-sm text-gray-600 mb-4">Descubre nuestras secciones y productos para tu compra diaria.</p>
+                <a href="/cash-and-carry-tenerife" class="text-green-700 font-bold text-sm hover:underline mt-auto">Ver Productos →</a>
+            </div>
+        </>
     )}
 
     {/* Static CTA: Maps */}
